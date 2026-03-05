@@ -1,0 +1,478 @@
+[
+  {
+    "id": 1,
+    "title": "The Beginning of Wisdom",
+    "subtitle": "Proverbs 1 \u2014 The Fear of the Lord",
+    "description": "Proverbs 1 \u2014 The Fear of the Lord",
+    "file": "audio/ep001.mp3",
+    "duration": "15:16",
+    "durationSecs": 916,
+    "fileSize": 6164636,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "wisdom",
+      "fear-of-god"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "The Minister's Self-Watch",
+    "subtitle": "From Spurgeon's Lectures to My Students",
+    "description": "From Spurgeon's Lectures to My Students",
+    "file": "audio/ep002.mp3",
+    "duration": "15:10",
+    "durationSecs": 910,
+    "fileSize": 6124916,
+    "date": "2026-03-04",
+    "series": "Spurgeon",
+    "tags": [
+      "spurgeon",
+      "ministry",
+      "self-examination"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "The Treasure of Wisdom",
+    "subtitle": "Proverbs 2 \u2014 Seeking Like Silver",
+    "description": "Proverbs 2 \u2014 Seeking Like Silver",
+    "file": "audio/ep003.mp3",
+    "duration": "16:11",
+    "durationSecs": 971,
+    "fileSize": 6581060,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "wisdom",
+      "scripture-study"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "The Soul Winner's Prayer Life",
+    "subtitle": "From Spurgeon's The Soul Winner",
+    "description": "From Spurgeon's The Soul Winner",
+    "file": "audio/ep004.mp3",
+    "duration": "15:36",
+    "durationSecs": 936,
+    "fileSize": 6291500,
+    "date": "2026-03-04",
+    "series": "Spurgeon",
+    "tags": [
+      "spurgeon",
+      "prayer",
+      "evangelism"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Trust in the Lord",
+    "subtitle": "Proverbs 3 \u2014 Lean Not on Your Own Understanding",
+    "description": "Proverbs 3 \u2014 Lean Not on Your Own Understanding",
+    "file": "audio/ep005.mp3",
+    "duration": "16:46",
+    "durationSecs": 1006,
+    "fileSize": 6741524,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "trust",
+      "guidance"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Guard Your Heart",
+    "subtitle": "Proverbs 4 \u2014 Above All Else",
+    "description": "Proverbs 4 \u2014 Above All Else",
+    "file": "audio/ep006.mp3",
+    "duration": "16:31",
+    "durationSecs": 991,
+    "fileSize": 6667244,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "heart",
+      "practical"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "The Puritan Practice of Daily Prayer",
+    "subtitle": "A Devotional on the Discipline of Prayer",
+    "description": "A Devotional on the Discipline of Prayer",
+    "file": "audio/ep007.mp3",
+    "duration": "16:08",
+    "durationSecs": 968,
+    "fileSize": 6547724,
+    "date": "2026-03-04",
+    "series": "Devotional",
+    "tags": [
+      "prayer",
+      "puritans",
+      "devotional"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Flee from Temptation",
+    "subtitle": "Proverbs 5 \u2014 Guarding Against Sin's Lure",
+    "description": "Proverbs 5 \u2014 Guarding Against Sin's Lure",
+    "file": "audio/ep008.mp3",
+    "duration": "15:27",
+    "durationSecs": 927,
+    "fileSize": 6215636,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "temptation",
+      "purity"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "The Sovereignty of God",
+    "subtitle": "From A.W. Pink's The Attributes of God",
+    "description": "From A.W. Pink's The Attributes of God",
+    "file": "audio/ep009.mp3",
+    "duration": "15:38",
+    "durationSecs": 938,
+    "fileSize": 6308876,
+    "date": "2026-03-04",
+    "series": "A.W. Pink",
+    "tags": [
+      "pink",
+      "sovereignty",
+      "doctrine"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Warnings Against Folly",
+    "subtitle": "Proverbs 6 \u2014 The Sluggard and the Ant",
+    "description": "Proverbs 6 \u2014 The Sluggard and the Ant",
+    "file": "audio/ep010.mp3",
+    "duration": "16:27",
+    "durationSecs": 987,
+    "fileSize": 6628244,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "folly",
+      "diligence"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "The Holiness of God",
+    "subtitle": "From A.W. Pink's The Attributes of God",
+    "description": "From A.W. Pink's The Attributes of God",
+    "file": "audio/ep011.mp3",
+    "duration": "15:13",
+    "durationSecs": 913,
+    "fileSize": 6125204,
+    "date": "2026-03-04",
+    "series": "A.W. Pink",
+    "tags": [
+      "pink",
+      "holiness",
+      "doctrine"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "The Danger of Sin's Allure",
+    "subtitle": "Proverbs 7 \u2014 The Seduction of Folly",
+    "description": "Proverbs 7 \u2014 The Seduction of Folly",
+    "file": "audio/ep012.mp3",
+    "duration": "14:52",
+    "durationSecs": 892,
+    "fileSize": 5968604,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "sin",
+      "warning"
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Wisdom's Call",
+    "subtitle": "Proverbs 8 \u2014 Wisdom in Creation",
+    "description": "Proverbs 8 \u2014 Wisdom in Creation",
+    "file": "audio/ep013.mp3",
+    "duration": "15:40",
+    "durationSecs": 940,
+    "fileSize": 6293204,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "wisdom",
+      "creation"
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Scripture Meditation: The Lost Discipline",
+    "subtitle": "A Devotional on Prayerful Reading",
+    "description": "A Devotional on Prayerful Reading",
+    "file": "audio/ep014.mp3",
+    "duration": "12:33",
+    "durationSecs": 753,
+    "fileSize": 5058932,
+    "date": "2026-03-04",
+    "series": "Devotional",
+    "tags": [
+      "meditation",
+      "scripture",
+      "devotional"
+    ]
+  },
+  {
+    "id": 15,
+    "title": "The Fear of the Lord is the Beginning of Wisdom",
+    "subtitle": "Proverbs 9 \u2014 Two Feasts, Two Ways",
+    "description": "Proverbs 9 \u2014 Two Feasts, Two Ways",
+    "file": "audio/ep015.mp3",
+    "duration": "15:32",
+    "durationSecs": 932,
+    "fileSize": 6249836,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "fear-of-god",
+      "wisdom"
+    ]
+  },
+  {
+    "id": 16,
+    "title": "The Mortification of Sin",
+    "subtitle": "From John Owen",
+    "description": "From John Owen",
+    "file": "audio/ep016.mp3",
+    "duration": "16:10",
+    "durationSecs": 970,
+    "fileSize": 6507116,
+    "date": "2026-03-04",
+    "series": "Puritan Doctrine",
+    "tags": [
+      "owen",
+      "sin",
+      "sanctification"
+    ]
+  },
+  {
+    "id": 17,
+    "title": "The Righteous and the Wicked",
+    "subtitle": "Proverbs 10 \u2014 Contrasts in Character",
+    "description": "Proverbs 10 \u2014 Contrasts in Character",
+    "file": "audio/ep017.mp3",
+    "duration": "14:54",
+    "durationSecs": 894,
+    "fileSize": 6023708,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "righteousness",
+      "character"
+    ]
+  },
+  {
+    "id": 18,
+    "title": "The Art of Divine Contentment",
+    "subtitle": "From Thomas Watson",
+    "description": "From Thomas Watson",
+    "file": "audio/ep018.mp3",
+    "duration": "14:49",
+    "durationSecs": 889,
+    "fileSize": 6003020,
+    "date": "2026-03-04",
+    "series": "Puritan Doctrine",
+    "tags": [
+      "watson",
+      "contentment",
+      "grace"
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Integrity and Uprightness",
+    "subtitle": "Proverbs 11 \u2014 The Value of Righteousness",
+    "description": "Proverbs 11 \u2014 The Value of Righteousness",
+    "file": "audio/ep019.mp3",
+    "duration": "14:15",
+    "durationSecs": 855,
+    "fileSize": 5752100,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "integrity",
+      "uprightness"
+    ]
+  },
+  {
+    "id": 20,
+    "title": "The Way of the Righteous",
+    "subtitle": "Proverbs 12 \u2014 Character in Daily Life",
+    "description": "Proverbs 12 \u2014 Character in Daily Life",
+    "file": "audio/ep020.mp3",
+    "duration": "15:09",
+    "durationSecs": 909,
+    "fileSize": 6169604,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "righteousness",
+      "daily-life"
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Walking with God: The Puritan Daily Life",
+    "subtitle": "A Devotional on Structuring Your Day",
+    "description": "A Devotional on Structuring Your Day",
+    "file": "audio/ep021.mp3",
+    "duration": "16:44",
+    "durationSecs": 1004,
+    "fileSize": 6783020,
+    "date": "2026-03-04",
+    "series": "Devotional",
+    "tags": [
+      "puritans",
+      "daily-life",
+      "devotional"
+    ]
+  },
+  {
+    "id": 22,
+    "title": "The Fruit of Righteousness",
+    "subtitle": "Proverbs 13 \u2014 Walking with the Wise",
+    "description": "Proverbs 13 \u2014 Walking with the Wise",
+    "file": "audio/ep022.mp3",
+    "duration": "13:23",
+    "durationSecs": 803,
+    "fileSize": 5413652,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "righteousness",
+      "wisdom"
+    ]
+  },
+  {
+    "id": 23,
+    "title": "Spurgeon on the Sovereignty of Grace",
+    "subtitle": "The Doctrines of Grace in Spurgeon's Preaching",
+    "description": "The Doctrines of Grace in Spurgeon's Preaching",
+    "file": "audio/ep023.mp3",
+    "duration": "14:51",
+    "durationSecs": 891,
+    "fileSize": 6019628,
+    "date": "2026-03-04",
+    "series": "Spurgeon",
+    "tags": [
+      "spurgeon",
+      "grace",
+      "election"
+    ]
+  },
+  {
+    "id": 24,
+    "title": "Wisdom Builds Her House",
+    "subtitle": "Proverbs 14 \u2014 The Way That Seems Right",
+    "description": "Proverbs 14 \u2014 The Way That Seems Right",
+    "file": "audio/ep024.mp3",
+    "duration": "12:57",
+    "durationSecs": 777,
+    "fileSize": 5228036,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "wisdom",
+      "discernment"
+    ]
+  },
+  {
+    "id": 25,
+    "title": "The Doctrine of Election",
+    "subtitle": "From A.W. Pink's Studies in the Scriptures",
+    "description": "From A.W. Pink's Studies in the Scriptures",
+    "file": "audio/ep025.mp3",
+    "duration": "14:06",
+    "durationSecs": 846,
+    "fileSize": 5701532,
+    "date": "2026-03-04",
+    "series": "A.W. Pink",
+    "tags": [
+      "pink",
+      "election",
+      "doctrine"
+    ]
+  },
+  {
+    "id": 26,
+    "title": "A Gentle Answer Turns Away Wrath",
+    "subtitle": "Proverbs 15 \u2014 The Power of the Tongue",
+    "description": "Proverbs 15 \u2014 The Power of the Tongue",
+    "file": "audio/ep026.mp3",
+    "duration": "13:33",
+    "durationSecs": 813,
+    "fileSize": 5488316,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "speech",
+      "relationships"
+    ]
+  },
+  {
+    "id": 27,
+    "title": "The Lord Directs Our Steps",
+    "subtitle": "Proverbs 16 \u2014 Surrendering Our Plans",
+    "description": "Proverbs 16 \u2014 Surrendering Our Plans",
+    "file": "audio/ep027.mp3",
+    "duration": "13:02",
+    "durationSecs": 782,
+    "fileSize": 5244092,
+    "date": "2026-03-04",
+    "series": "Proverbs",
+    "tags": [
+      "proverbs",
+      "sovereignty",
+      "trust"
+    ]
+  },
+  {
+    "id": 28,
+    "title": "Justification by Faith Alone",
+    "subtitle": "The Doctrine That Changes Everything",
+    "description": "The Doctrine That Changes Everything",
+    "file": "audio/ep028.mp3",
+    "duration": "15:54",
+    "durationSecs": 954,
+    "fileSize": 6444236,
+    "date": "2026-03-04",
+    "series": "Devotional",
+    "tags": [
+      "justification",
+      "faith",
+      "doctrine"
+    ]
+  }
+]
