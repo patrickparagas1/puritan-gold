@@ -21,52 +21,110 @@
         </div>
       </div>
       <p class="subtitle">Theology for the Soul</p>
-      <div class="month-pill">MARCH 2026</div>
     </header>
 
-    <nav class="tabs">
-      <button class="tab active" data-view="episodes">Episodes</button>
-      <button class="tab" data-view="calendar">Calendar</button>
-    </nav>
-
-    <div class="filters" id="filters">
-      <button class="pill active" data-filter="all">All</button>
-      <button class="pill" data-filter="unplayed">Unplayed</button>
-      <button class="pill" data-filter="started">Started</button>
-      <button class="pill" data-filter="done">Done</button>
-    </div>
-
     <main class="content">
-      <section class="view episodes-view active" id="episodesView">
-        <div id="episodeList" class="episode-list">
-          <div class="skeleton-list" id="skeletons">
-            <div class="sk-card"><div class="sk sk-num"></div><div class="sk-body"><div class="sk sk-title"></div><div class="sk sk-sub"></div><div class="sk sk-badge"></div></div></div>
-            <div class="sk-card"><div class="sk sk-num"></div><div class="sk-body"><div class="sk sk-title"></div><div class="sk sk-sub"></div><div class="sk sk-badge"></div></div></div>
-            <div class="sk-card"><div class="sk sk-num"></div><div class="sk-body"><div class="sk sk-title"></div><div class="sk sk-sub"></div><div class="sk sk-badge"></div></div></div>
-            <div class="sk-card"><div class="sk sk-num"></div><div class="sk-body"><div class="sk sk-title"></div><div class="sk sk-sub"></div><div class="sk sk-badge"></div></div></div>
+
+      <!-- ========== STUDY SECTION ========== -->
+      <section class="section-view active" id="studyView">
+        <nav class="tabs">
+          <button class="study-tab tab active" data-view="episodes">Episodes</button>
+          <button class="study-tab tab" data-view="calendar">Calendar</button>
+        </nav>
+
+        <div class="filters" id="filters">
+          <button class="pill active" data-filter="all">All</button>
+          <button class="pill" data-filter="unplayed">Unplayed</button>
+          <button class="pill" data-filter="started">Started</button>
+          <button class="pill" data-filter="done">Done</button>
+        </div>
+
+        <div class="view episodes-view active" id="episodesView">
+          <div id="episodeList" class="episode-list">
+            <div class="skeleton-list" id="skeletons">
+              <div class="sk-card"><div class="sk sk-num"></div><div class="sk-body"><div class="sk sk-title"></div><div class="sk sk-sub"></div><div class="sk sk-badge"></div></div></div>
+              <div class="sk-card"><div class="sk sk-num"></div><div class="sk-body"><div class="sk sk-title"></div><div class="sk sk-sub"></div><div class="sk sk-badge"></div></div></div>
+              <div class="sk-card"><div class="sk sk-num"></div><div class="sk-body"><div class="sk sk-title"></div><div class="sk sk-sub"></div><div class="sk sk-badge"></div></div></div>
+              <div class="sk-card"><div class="sk sk-num"></div><div class="sk-body"><div class="sk sk-title"></div><div class="sk sk-sub"></div><div class="sk sk-badge"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="view calendar-view" id="calendarView">
+          <div class="cal-container">
+            <div class="cal-month-nav">
+              <span class="cal-month-label">March 2026</span>
+            </div>
+            <div class="cal-header">
+              <div class="cal-dow">Su</div>
+              <div class="cal-dow">Mo</div>
+              <div class="cal-dow">Tu</div>
+              <div class="cal-dow">We</div>
+              <div class="cal-dow">Th</div>
+              <div class="cal-dow">Fr</div>
+              <div class="cal-dow">Sa</div>
+            </div>
+            <div class="cal-grid" id="calGrid"></div>
+          </div>
+          <div class="cal-detail" id="calDetail">
+            <div class="cal-detail-empty">Tap a day to see the episode</div>
           </div>
         </div>
       </section>
-      <section class="view calendar-view" id="calendarView">
-        <div class="cal-container">
-          <div class="cal-month-nav">
-            <span class="cal-month-label">March 2026</span>
-          </div>
-          <div class="cal-header">
-            <div class="cal-dow">Su</div>
-            <div class="cal-dow">Mo</div>
-            <div class="cal-dow">Tu</div>
-            <div class="cal-dow">We</div>
-            <div class="cal-dow">Th</div>
-            <div class="cal-dow">Fr</div>
-            <div class="cal-dow">Sa</div>
-          </div>
-          <div class="cal-grid" id="calGrid"></div>
+
+      <!-- ========== FAMILY SECTION ========== -->
+      <section class="section-view" id="familyView">
+        <div class="section-header">
+          <h2 class="section-title">Family Devotional</h2>
+          <p class="section-subtitle">Gather around God's Word together</p>
         </div>
-        <div class="cal-detail" id="calDetail">
-          <div class="cal-detail-empty">Tap a day to see the episode</div>
+        <div id="familyList" class="card-list"></div>
+      </section>
+
+      <!-- ========== SCHOOL SECTION ========== -->
+      <section class="section-view" id="schoolView">
+        <div class="section-header">
+          <h2 class="section-title">Puritan Academy</h2>
+          <p class="section-subtitle">Classical education rooted in Scripture</p>
+        </div>
+        <div id="schoolList" class="card-list"></div>
+      </section>
+
+      <!-- ========== TOGETHER SECTION ========== -->
+      <section class="section-view" id="togetherView">
+        <div class="section-header">
+          <h2 class="section-title">Walk Together</h2>
+          <p class="section-subtitle">Strengthen your marriage in Christ</p>
+        </div>
+        <div id="togetherList" class="card-list"></div>
+      </section>
+
+      <!-- ========== ASK SECTION ========== -->
+      <section class="section-view ask-view" id="askView">
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-welcome">
+            <div class="chat-welcome-icon">P</div>
+            <h3>Ask a Puritan</h3>
+            <p>Ask questions about Reformed theology, the Puritans, Scripture, and the Christian life.</p>
+            <div class="chat-suggestions">
+              <button class="chat-suggestion" onclick="App.askSuggestion(this)">What is justification by faith?</button>
+              <button class="chat-suggestion" onclick="App.askSuggestion(this)">How did the Puritans pray?</button>
+              <button class="chat-suggestion" onclick="App.askSuggestion(this)">Explain covenant theology</button>
+              <button class="chat-suggestion" onclick="App.askSuggestion(this)">How to lead family worship?</button>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-bar">
+          <button class="chat-audio-toggle" id="chatAudioToggle" onclick="App.toggleChatAudio()" aria-label="Toggle audio">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
+          <input type="text" id="chatInput" placeholder="Ask a question...">
+          <button class="chat-send-btn" id="chatSendBtn" onclick="App.sendChatFromInput()" aria-label="Send">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </button>
         </div>
       </section>
+
     </main>
 
     <!-- Mini Player -->
@@ -78,6 +136,7 @@
           <div class="mp-sub" id="mpSub">Tap to begin</div>
         </div>
         <div class="mp-ctrls">
+          <button class="mp-btn mp-speed" id="mpSpeedBtn" onclick="App.cycleSpeed()"><span id="mpSpeedLabel">1x</span></button>
           <button class="mp-btn" onclick="App.skipBack()" aria-label="Back 15s">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/><text x="12" y="15.5" font-size="7" text-anchor="middle" font-weight="bold">15</text></svg>
           </button>
@@ -90,6 +149,30 @@
         </div>
       </div>
     </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav" id="bottomNav">
+      <button class="nav-item active" data-section="study">
+        <span class="nav-icon">📖</span>
+        <span class="nav-label">Study</span>
+      </button>
+      <button class="nav-item" data-section="family">
+        <span class="nav-icon">👨‍👩‍👧</span>
+        <span class="nav-label">Family</span>
+      </button>
+      <button class="nav-item" data-section="school">
+        <span class="nav-icon">📚</span>
+        <span class="nav-label">School</span>
+      </button>
+      <button class="nav-item" data-section="together">
+        <span class="nav-icon">💑</span>
+        <span class="nav-label">Together</span>
+      </button>
+      <button class="nav-item" data-section="ask">
+        <span class="nav-icon">🙏</span>
+        <span class="nav-label">Ask</span>
+      </button>
+    </nav>
   </div>
 
   <!-- Now Playing Fullscreen -->

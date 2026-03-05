@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "The Beginning of Wisdom",
-    "subtitle": "Proverbs 1 \u2014 The Fear of the Lord",
+    "subtitle": "Proverbs 1 — The Fear of the Lord",
     "description": "Walk through Proverbs 1 and discover what it truly means to fear the Lord. Explore the Hebrew concept of reverential awe and why Solomon says this is where all knowledge begins.",
     "file": "audio/ep001.mp3",
     "duration": "15:16",
@@ -10,6 +10,7 @@
     "fileSize": 6164636,
     "date": "2026-03-01",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "wisdom",
@@ -27,6 +28,7 @@
     "fileSize": 6124916,
     "date": "2026-03-02",
     "series": "Spurgeon",
+    "section": "study",
     "tags": [
       "spurgeon",
       "ministry",
@@ -36,7 +38,7 @@
   {
     "id": 3,
     "title": "The Treasure of Wisdom",
-    "subtitle": "Proverbs 2 \u2014 Seeking Like Silver",
+    "subtitle": "Proverbs 2 — Seeking Like Silver",
     "description": "Proverbs 2 calls us to seek wisdom like hidden treasure. Discover the Puritan approach to deep Scripture study and why active pursuit of God's Word transforms the soul.",
     "file": "audio/ep003.mp3",
     "duration": "16:11",
@@ -44,6 +46,7 @@
     "fileSize": 6581060,
     "date": "2026-03-03",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "wisdom",
@@ -61,6 +64,7 @@
     "fileSize": 6291500,
     "date": "2026-03-04",
     "series": "Spurgeon",
+    "section": "study",
     "tags": [
       "spurgeon",
       "prayer",
@@ -70,7 +74,7 @@
   {
     "id": 5,
     "title": "Trust in the Lord",
-    "subtitle": "Proverbs 3 \u2014 Lean Not on Your Own Understanding",
+    "subtitle": "Proverbs 3 — Lean Not on Your Own Understanding",
     "description": "A deep study of Proverbs 3, especially the beloved verses 5-8. What does it really mean to trust with all your heart and lean not on your own understanding?",
     "file": "audio/ep005.mp3",
     "duration": "16:46",
@@ -78,6 +82,7 @@
     "fileSize": 6741524,
     "date": "2026-03-05",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "trust",
@@ -87,7 +92,7 @@
   {
     "id": 6,
     "title": "Guard Your Heart",
-    "subtitle": "Proverbs 4 \u2014 Above All Else",
+    "subtitle": "Proverbs 4 — Above All Else",
     "description": "Proverbs 4:20-27 commands us to guard our hearts above all else. Practical wisdom for daily Christian living in a world full of distraction and temptation.",
     "file": "audio/ep006.mp3",
     "duration": "16:31",
@@ -95,6 +100,7 @@
     "fileSize": 6667244,
     "date": "2026-03-06",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "heart",
@@ -112,6 +118,7 @@
     "fileSize": 6547724,
     "date": "2026-03-07",
     "series": "Devotional",
+    "section": "study",
     "tags": [
       "prayer",
       "puritans",
@@ -121,7 +128,7 @@
   {
     "id": 8,
     "title": "Flee from Temptation",
-    "subtitle": "Proverbs 5 \u2014 Guarding Against Sin's Lure",
+    "subtitle": "Proverbs 5 — Guarding Against Sin's Lure",
     "description": "Proverbs 5 warns against the allure of temptation. Broader application for all forms of enticement that pull us from God, with practical strategies for vigilance.",
     "file": "audio/ep008.mp3",
     "duration": "15:27",
@@ -129,6 +136,7 @@
     "fileSize": 6215636,
     "date": "2026-03-08",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "temptation",
@@ -146,6 +154,7 @@
     "fileSize": 6308876,
     "date": "2026-03-09",
     "series": "A.W. Pink",
+    "section": "study",
     "tags": [
       "pink",
       "sovereignty",
@@ -155,7 +164,7 @@
   {
     "id": 10,
     "title": "Warnings Against Folly",
-    "subtitle": "Proverbs 6 \u2014 The Sluggard and the Ant",
+    "subtitle": "Proverbs 6 — The Sluggard and the Ant",
     "description": "Proverbs 6 gives us the sluggard and the ant, the seven things God hates, and warnings against surety. Timeless practical wisdom for everyday diligence.",
     "file": "audio/ep010.mp3",
     "duration": "16:27",
@@ -163,6 +172,7 @@
     "fileSize": 6628244,
     "date": "2026-03-10",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "folly",
@@ -180,6 +190,7 @@
     "fileSize": 6125204,
     "date": "2026-03-11",
     "series": "A.W. Pink",
+    "section": "study",
     "tags": [
       "pink",
       "holiness",
@@ -189,7 +200,7 @@
   {
     "id": 12,
     "title": "The Danger of Sin's Allure",
-    "subtitle": "Proverbs 7 \u2014 The Seduction of Folly",
+    "subtitle": "Proverbs 7 — The Seduction of Folly",
     "description": "The vivid picture of temptation in Proverbs 7. How sin always promises pleasure but delivers death, and why wisdom is our shield against deception.",
     "file": "audio/ep012.mp3",
     "duration": "14:52",
@@ -197,6 +208,7 @@
     "fileSize": 5968604,
     "date": "2026-03-12",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "sin",
@@ -206,7 +218,7 @@
   {
     "id": 13,
     "title": "Wisdom's Call",
-    "subtitle": "Proverbs 8 \u2014 Wisdom in Creation",
+    "subtitle": "Proverbs 8 — Wisdom in Creation",
     "description": "The beautiful personification of Wisdom calling out in Proverbs 8. Wisdom's role in creation and the joy promised to those who find her and walk in her ways.",
     "file": "audio/ep013.mp3",
     "duration": "15:40",
@@ -214,6 +226,7 @@
     "fileSize": 6293204,
     "date": "2026-03-13",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "wisdom",
@@ -231,6 +244,7 @@
     "fileSize": 5058932,
     "date": "2026-03-14",
     "series": "Devotional",
+    "section": "study",
     "tags": [
       "meditation",
       "scripture",
@@ -240,7 +254,7 @@
   {
     "id": 15,
     "title": "The Fear of the Lord is the Beginning of Wisdom",
-    "subtitle": "Proverbs 9 \u2014 Two Feasts, Two Ways",
+    "subtitle": "Proverbs 9 — Two Feasts, Two Ways",
     "description": "Proverbs 9:10 as the cornerstone. The two feasts of wisdom and folly, and what godly fear looks like in the practical rhythms of daily life.",
     "file": "audio/ep015.mp3",
     "duration": "15:32",
@@ -248,6 +262,7 @@
     "fileSize": 6249836,
     "date": "2026-03-15",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "fear-of-god",
@@ -265,6 +280,7 @@
     "fileSize": 6507116,
     "date": "2026-03-16",
     "series": "Puritan Doctrine",
+    "section": "study",
     "tags": [
       "owen",
       "sin",
@@ -274,7 +290,7 @@
   {
     "id": 17,
     "title": "The Righteous and the Wicked",
-    "subtitle": "Proverbs 10 \u2014 Contrasts in Character",
+    "subtitle": "Proverbs 10 — Contrasts in Character",
     "description": "The rich contrasts in Proverbs 10 between the righteous and the wicked. Themes of the tongue, diligence, and integrity examined verse by verse.",
     "file": "audio/ep017.mp3",
     "duration": "14:54",
@@ -282,6 +298,7 @@
     "fileSize": 6023708,
     "date": "2026-03-17",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "righteousness",
@@ -299,6 +316,7 @@
     "fileSize": 6003020,
     "date": "2026-03-18",
     "series": "Puritan Doctrine",
+    "section": "study",
     "tags": [
       "watson",
       "contentment",
@@ -308,7 +326,7 @@
   {
     "id": 19,
     "title": "Integrity and Uprightness",
-    "subtitle": "Proverbs 11 \u2014 The Value of Righteousness",
+    "subtitle": "Proverbs 11 — The Value of Righteousness",
     "description": "Proverbs 11 on the value of integrity, the fruit of righteousness as a tree of life, and the importance of wise counsel in the believer's walk.",
     "file": "audio/ep019.mp3",
     "duration": "14:15",
@@ -316,6 +334,7 @@
     "fileSize": 5752100,
     "date": "2026-03-19",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "integrity",
@@ -325,7 +344,7 @@
   {
     "id": 20,
     "title": "The Way of the Righteous",
-    "subtitle": "Proverbs 12 \u2014 Character in Daily Life",
+    "subtitle": "Proverbs 12 — Character in Daily Life",
     "description": "Proverbs 12 on the character of the righteous: loving correction, speaking truth, working diligently. Practical markers of a life shaped by wisdom.",
     "file": "audio/ep020.mp3",
     "duration": "15:09",
@@ -333,6 +352,7 @@
     "fileSize": 6169604,
     "date": "2026-03-20",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "righteousness",
@@ -350,6 +370,7 @@
     "fileSize": 6783020,
     "date": "2026-03-21",
     "series": "Devotional",
+    "section": "study",
     "tags": [
       "puritans",
       "daily-life",
@@ -359,7 +380,7 @@
   {
     "id": 22,
     "title": "The Fruit of Righteousness",
-    "subtitle": "Proverbs 13 \u2014 Walking with the Wise",
+    "subtitle": "Proverbs 13 — Walking with the Wise",
     "description": "Proverbs 13 on hope deferred, the importance of discipline, and the transforming power of walking with wise companions. Key themes explored with pastoral warmth.",
     "file": "audio/ep022.mp3",
     "duration": "13:23",
@@ -367,6 +388,7 @@
     "fileSize": 5413652,
     "date": "2026-03-22",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "righteousness",
@@ -384,6 +406,7 @@
     "fileSize": 6019628,
     "date": "2026-03-23",
     "series": "Spurgeon",
+    "section": "study",
     "tags": [
       "spurgeon",
       "grace",
@@ -393,7 +416,7 @@
   {
     "id": 24,
     "title": "Wisdom Builds Her House",
-    "subtitle": "Proverbs 14 \u2014 The Way That Seems Right",
+    "subtitle": "Proverbs 14 — The Way That Seems Right",
     "description": "Proverbs 14 on the wise woman who builds her house, the fear of the Lord as a fountain of life, and the sobering warning about the way that seems right.",
     "file": "audio/ep024.mp3",
     "duration": "12:57",
@@ -401,6 +424,7 @@
     "fileSize": 5228036,
     "date": "2026-03-24",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "wisdom",
@@ -418,6 +442,7 @@
     "fileSize": 5701532,
     "date": "2026-03-25",
     "series": "A.W. Pink",
+    "section": "study",
     "tags": [
       "pink",
       "election",
@@ -427,7 +452,7 @@
   {
     "id": 26,
     "title": "A Gentle Answer Turns Away Wrath",
-    "subtitle": "Proverbs 15 \u2014 The Power of the Tongue",
+    "subtitle": "Proverbs 15 — The Power of the Tongue",
     "description": "Proverbs 15 on the power of the tongue, the eyes of the Lord, and why a little with the fear of the Lord is better than great treasure with trouble.",
     "file": "audio/ep026.mp3",
     "duration": "13:33",
@@ -435,6 +460,7 @@
     "fileSize": 5488316,
     "date": "2026-03-26",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "speech",
@@ -444,7 +470,7 @@
   {
     "id": 27,
     "title": "The Lord Directs Our Steps",
-    "subtitle": "Proverbs 16 \u2014 Surrendering Our Plans",
+    "subtitle": "Proverbs 16 — Surrendering Our Plans",
     "description": "Proverbs 16 on God working out everything to its proper end, pride before destruction, and the beauty of surrendering our plans to the Lord who directs our steps.",
     "file": "audio/ep027.mp3",
     "duration": "13:02",
@@ -452,6 +478,7 @@
     "fileSize": 5244092,
     "date": "2026-03-27",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "sovereignty",
@@ -469,6 +496,7 @@
     "fileSize": 6444236,
     "date": "2026-03-28",
     "series": "Devotional",
+    "section": "study",
     "tags": [
       "justification",
       "faith",
@@ -478,7 +506,7 @@
   {
     "id": 29,
     "title": "A Friend Loves at All Times",
-    "subtitle": "Proverbs 17 \u2014 Friendship and Loyalty",
+    "subtitle": "Proverbs 17 — Friendship and Loyalty",
     "description": "Proverbs 17 on true friendship, covering offenses in love, and the healing power of a cheerful heart. With Spurgeon on Christian fellowship.",
     "file": "audio/ep029.mp3",
     "duration": "13:12",
@@ -486,6 +514,7 @@
     "fileSize": 5316596,
     "date": "2026-03-29",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "friendship",
@@ -495,7 +524,7 @@
   {
     "id": 30,
     "title": "The Name of the Lord is a Strong Tower",
-    "subtitle": "Proverbs 18 \u2014 Our Refuge in God",
+    "subtitle": "Proverbs 18 — Our Refuge in God",
     "description": "Proverbs 18:10 on finding security in God alone. The friend who sticks closer than a brother points to Christ. With A.W. Pink on the names of God.",
     "file": "audio/ep030.mp3",
     "duration": "13:57",
@@ -503,6 +532,7 @@
     "fileSize": 5601164,
     "date": "2026-03-30",
     "series": "Proverbs",
+    "section": "study",
     "tags": [
       "proverbs",
       "refuge",
@@ -513,17 +543,361 @@
     "id": 31,
     "title": "The Whole Month in Review",
     "subtitle": "Looking Back on Our Journey Through Proverbs",
-    "description": "A reflective look back over the entire month \u2014 from the fear of the Lord through wisdom, sin, grace, and justification. A benediction to carry forward.",
+    "description": "A reflective look back over the entire month — from the fear of the Lord through wisdom, sin, grace, and justification. A benediction to carry forward.",
     "file": "audio/ep031.mp3",
     "duration": "15:56",
     "durationSecs": 956,
     "fileSize": 6430340,
     "date": "2026-03-31",
     "series": "Devotional",
+    "section": "study",
     "tags": [
       "review",
       "benediction",
       "devotional"
     ]
+  },
+
+  {
+    "id": 101,
+    "title": "Wisdom for Our Family",
+    "subtitle": "Proverbs 1:7 — Family Devotional",
+    "description": "A family devotional exploring what it means to fear the Lord together. Help your children understand that true wisdom starts with knowing and respecting God.",
+    "file": null,
+    "duration": "6:00",
+    "durationSecs": 360,
+    "date": "2026-03-01",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "fear-of-god"
+    ],
+    "memoryVerse": "The fear of the LORD is the beginning of knowledge, but fools despise wisdom and instruction. — Proverbs 1:7",
+    "discussionQuestions": [
+      "What does it mean to 'fear' the Lord? Is it being scared, or something different?",
+      "Why do you think God wants us to respect Him before we can learn anything else?",
+      "How can our family show that we respect and love God this week?"
+    ]
+  },
+  {
+    "id": 102,
+    "title": "Guarding Our Hearts Together",
+    "subtitle": "Proverbs 4:23 — Family Devotional",
+    "description": "A family devotional about guarding what goes into our hearts and minds. What we watch, listen to, and think about shapes who we become.",
+    "file": null,
+    "duration": "5:30",
+    "durationSecs": 330,
+    "date": "2026-03-02",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "heart"
+    ],
+    "memoryVerse": "Above all else, guard your heart, for everything you do flows from it. — Proverbs 4:23",
+    "discussionQuestions": [
+      "What kinds of things go into our hearts through what we watch and listen to?",
+      "How can we guard our hearts as a family?",
+      "What is one thing we can do differently this week to protect what goes into our minds?"
+    ]
+  },
+  {
+    "id": 103,
+    "title": "Seeking Treasure",
+    "subtitle": "Proverbs 2:1-5 — Family Devotional",
+    "description": "A family devotional about seeking God's wisdom like hidden treasure. When we search for God with all our hearts, we find something more valuable than gold or silver.",
+    "file": null,
+    "duration": "6:30",
+    "durationSecs": 390,
+    "date": "2026-03-03",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "wisdom"
+    ],
+    "memoryVerse": "If you look for it as for silver and search for it as for hidden treasure, then you will understand the fear of the LORD. — Proverbs 2:4-5",
+    "discussionQuestions": [
+      "If you were searching for buried treasure, how hard would you look?",
+      "What treasures really matter — things we can buy, or things God gives us?",
+      "How can we 'search' for God's wisdom as a family every day?"
+    ]
+  },
+  {
+    "id": 104,
+    "title": "The Soul Winner's Heart",
+    "subtitle": "Sharing Our Faith as a Family",
+    "description": "A family devotional inspired by Spurgeon's passion for sharing the gospel. Jesus called us to be fishers of men — and that calling starts right at home.",
+    "file": null,
+    "duration": "7:00",
+    "durationSecs": 420,
+    "date": "2026-03-04",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "spurgeon",
+      "evangelism"
+    ],
+    "memoryVerse": "Come, follow me, and I will send you out to fish for people. — Matthew 4:19",
+    "discussionQuestions": [
+      "What does it mean to be a 'fisher of men'?",
+      "Who is someone we know that we can pray for and share God's love with?",
+      "How can our family share our faith together this week?"
+    ]
+  },
+  {
+    "id": 105,
+    "title": "Trust in the Lord",
+    "subtitle": "Proverbs 3:5-6 — Family Devotional",
+    "description": "A family devotional about trusting God with everything — our worries, our plans, and our future. When we lean on God instead of ourselves, He makes our paths straight.",
+    "file": null,
+    "duration": "5:45",
+    "durationSecs": 345,
+    "date": "2026-03-05",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "trust"
+    ],
+    "memoryVerse": "Trust in the LORD with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight. — Proverbs 3:5-6",
+    "discussionQuestions": [
+      "What does it mean to trust God with ALL your heart?",
+      "Is there something our family is worried about that we can give to God?",
+      "How can we trust God together when things are hard or confusing?"
+    ]
+  },
+
+  {
+    "id": 201,
+    "title": "What is the Fear of God?",
+    "subtitle": "Unit 1, Lesson 1 — Introduction to Reverential Awe",
+    "description": "An introduction to the concept of the fear of God as reverential awe — not being afraid of God, but standing in wonder at His greatness, power, and love. Based on Proverbs 1:7.",
+    "file": null,
+    "duration": "25:00",
+    "durationSecs": 1500,
+    "date": "2026-03-01",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "proverbs",
+      "fear-of-god"
+    ],
+    "unit": "Unit 1: The Fear of God",
+    "lessonNumber": 1,
+    "reviewQuestions": [
+      "What does Proverbs 1:7 say is the beginning of knowledge?",
+      "What is the difference between being afraid of God and having reverence for God?",
+      "Name three things about God that fill you with awe.",
+      "Why is the fear of the Lord the starting point for all true learning?"
+    ],
+    "activity": "Draw or paint a picture that shows what it means to respect and stand in awe of God. Think about His creation, His power, or His love."
+  },
+  {
+    "id": 202,
+    "title": "The Puritans and Their Children",
+    "subtitle": "Unit 1, Lesson 2 — Raising Children in Godliness",
+    "description": "How the Puritans raised their children to know and fear God. Family worship, catechism, Scripture memorization, and the daily rhythms of a godly Puritan household.",
+    "file": null,
+    "duration": "28:00",
+    "durationSecs": 1680,
+    "date": "2026-03-02",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "puritans",
+      "family"
+    ],
+    "unit": "Unit 1: The Fear of God",
+    "lessonNumber": 2,
+    "reviewQuestions": [
+      "What was a typical day like for a Puritan family?",
+      "How did Puritan parents teach their children about God?",
+      "What is a catechism and why did Puritans use it?",
+      "What can we learn from the Puritans about family worship?"
+    ],
+    "activity": "Create a family timeline showing important events in your family's faith journey. Include when family members came to faith, memorable prayers answered, and spiritual milestones."
+  },
+  {
+    "id": 203,
+    "title": "Wisdom vs. Foolishness",
+    "subtitle": "Unit 1, Lesson 3 — The Two Paths in Proverbs",
+    "description": "Proverbs presents two paths: wisdom and foolishness. Learn to recognize the contrast between wise and foolish choices, and why the fear of God is what makes the difference.",
+    "file": null,
+    "duration": "22:00",
+    "durationSecs": 1320,
+    "date": "2026-03-03",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "proverbs",
+      "wisdom"
+    ],
+    "unit": "Unit 1: The Fear of God",
+    "lessonNumber": 3,
+    "reviewQuestions": [
+      "What is the difference between a wise person and a foolish person according to Proverbs?",
+      "Give an example of a wise decision and a foolish decision.",
+      "How does fearing God help us choose wisdom over foolishness?",
+      "What does Proverbs say happens to those who choose foolishness?"
+    ],
+    "activity": "Write down three wise decisions you can make this week and three foolish choices to avoid. Share them with your family and hold each other accountable."
+  },
+  {
+    "id": 204,
+    "title": "Spurgeon the Young Preacher",
+    "subtitle": "Unit 1, Lesson 4 — The Story of Spurgeon's Early Life",
+    "description": "The remarkable story of Charles Haddon Spurgeon, who came to faith as a teenager and began preaching at age 16. How the fear of God shaped one of history's greatest preachers.",
+    "file": null,
+    "duration": "26:00",
+    "durationSecs": 1560,
+    "date": "2026-03-04",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "spurgeon",
+      "biography"
+    ],
+    "unit": "Unit 1: The Fear of God",
+    "lessonNumber": 4,
+    "reviewQuestions": [
+      "How old was Spurgeon when he first came to faith in Christ?",
+      "What happened on the snowy day that changed Spurgeon's life?",
+      "How did Spurgeon's early life prepare him for ministry?",
+      "What can we learn from Spurgeon about using our gifts for God even when we are young?"
+    ],
+    "activity": "Write your own testimony — the story of how you came to know God or how God has been working in your life. If you haven't yet trusted Christ, write about what you are learning about Him."
+  },
+  {
+    "id": 205,
+    "title": "The Catechism — Who Made You?",
+    "subtitle": "Unit 1, Lesson 5 — Westminster Shorter Catechism Q1",
+    "description": "An introduction to the Westminster Shorter Catechism, beginning with the most foundational question of all: What is the chief end of man? To glorify God and enjoy Him forever.",
+    "file": null,
+    "duration": "20:00",
+    "durationSecs": 1200,
+    "date": "2026-03-05",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "catechism",
+      "westminster"
+    ],
+    "unit": "Unit 1: The Fear of God",
+    "lessonNumber": 5,
+    "reviewQuestions": [
+      "What is the chief end of man according to the Westminster Shorter Catechism?",
+      "What does it mean to 'glorify God'?",
+      "What does it mean to 'enjoy God forever'?",
+      "How does knowing our purpose help us make wise decisions every day?"
+    ],
+    "activity": "Memorize Westminster Shorter Catechism Question 1 and its answer. Then discuss as a family: What does it look like in everyday life to glorify God and enjoy Him?"
+  },
+
+  {
+    "id": 301,
+    "title": "Beginning in Wisdom Together",
+    "subtitle": "Day 1 — Couples Devotional",
+    "description": "Connected to the Day 1 study on Proverbs 1 and the fear of the Lord. As a couple, explore what it means to build your marriage on the foundation of reverential awe for God.",
+    "file": null,
+    "duration": "6:00",
+    "durationSecs": 360,
+    "date": "2026-03-01",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "fear-of-god"
+    ],
+    "reflectionPrompt": "How can we fear the Lord more as a couple? What would it look like if reverence for God was the foundation of every decision we make together?",
+    "prayerFocus": "Pray for wisdom in your marriage. Ask God to help you both grow in reverence for Him and to make Him the center of your relationship."
+  },
+  {
+    "id": 302,
+    "title": "Watching Over Each Other's Souls",
+    "subtitle": "Day 2 — Couples Devotional",
+    "description": "Connected to the Day 2 study on Spurgeon's self-watch. In marriage, we are called not only to watch our own souls but to lovingly help each other grow in holiness and faithfulness.",
+    "file": null,
+    "duration": "5:30",
+    "durationSecs": 330,
+    "date": "2026-03-02",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "spurgeon",
+      "spiritual-growth"
+    ],
+    "reflectionPrompt": "How can we help each other grow spiritually? Are there areas where we can lovingly encourage one another to draw closer to God?",
+    "prayerFocus": "Pray for each other's spiritual growth. Ask God to give you both tender hearts that are open to correction and eager for holiness."
+  },
+  {
+    "id": 303,
+    "title": "Seeking God's Treasure Together",
+    "subtitle": "Day 3 — Couples Devotional",
+    "description": "Connected to the Day 3 study on Proverbs 2 and seeking wisdom like silver. As a couple, discover the joy of pursuing God's Word and wisdom side by side.",
+    "file": null,
+    "duration": "7:00",
+    "durationSecs": 420,
+    "date": "2026-03-03",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "wisdom"
+    ],
+    "reflectionPrompt": "What does it look like to seek wisdom as a team? How can we prioritize studying God's Word together in the rhythms of our daily life?",
+    "prayerFocus": "Pray for unity in pursuing God. Ask Him to give you both a hunger for His Word and the discipline to seek Him together consistently."
+  },
+  {
+    "id": 304,
+    "title": "Praying for the Lost Together",
+    "subtitle": "Day 4 — Couples Devotional",
+    "description": "Connected to the Day 4 study on Spurgeon and the soul winner's prayer life. As a couple, cultivate a shared heart for the lost and commit to praying together for those who do not yet know Christ.",
+    "file": null,
+    "duration": "6:30",
+    "durationSecs": 390,
+    "date": "2026-03-04",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "spurgeon",
+      "evangelism"
+    ],
+    "reflectionPrompt": "Who can we pray for as a couple? Are there friends, neighbors, or family members who need to hear the gospel?",
+    "prayerFocus": "Pray for unsaved friends and family. Lift up specific names together and ask God to open doors for you to share His love."
+  },
+  {
+    "id": 305,
+    "title": "Trust and Lean Not",
+    "subtitle": "Day 5 — Couples Devotional",
+    "description": "Connected to the Day 5 study on Proverbs 3:5-6. As a couple, surrender your plans, worries, and future to the Lord who promises to make your paths straight when you trust Him fully.",
+    "file": null,
+    "duration": "5:45",
+    "durationSecs": 345,
+    "date": "2026-03-05",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "trust"
+    ],
+    "reflectionPrompt": "Where do we need to trust God more in our marriage? Are there plans or worries we are holding onto instead of surrendering to Him?",
+    "prayerFocus": "Surrender your plans to God together. Pray over any areas of anxiety or uncertainty and commit them to the Lord who directs your steps."
   }
 ]

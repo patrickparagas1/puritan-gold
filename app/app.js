@@ -1,9 +1,14 @@
 const App = {
   // ── State ──
   episodes: [],
+  familyEpisodes: [],
+  schoolEpisodes: [],
+  togetherEpisodes: [],
+  allEpisodes: [],
   audio: new Audio(),
   currentEp: null,
-  view: 'episodes',
+  section: 'study',       // 'study' | 'family' | 'school' | 'together' | 'ask'
+  studyTab: 'episodes',   // sub-tab within study: 'episodes' | 'calendar'
   filter: 'all',
   speeds: [0.75, 1, 1.25, 1.5, 1.75, 2],
   speedIdx: 1,
@@ -11,47 +16,88 @@ const App = {
   sleepTimer: null,
   sleepEnd: null,
   npOpen: false,
+  chatMessages: [],
+  chatAudioEnabled: true,
 
   // ── Initialize ──
   async init() {
     await this.loadEpisodes();
+    this.setupBottomNav();
     this.setupTabs();
     this.setupFilters();
     this.renderEpisodes();
     this.renderCalendar();
+    this.renderFamily();
+    this.renderSchool();
+    this.renderTogether();
     this.setupPlayer();
     this.setupNowPlaying();
     this.setupServiceWorker();
     this.restoreState();
     this.updateStreak();
     this.scrollToNext();
+
+    // Chat input keyboard handler
+    const chatInput = document.getElementById('chatInput');
+    if (chatInput) {
+      chatInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') this.sendChatFromInput();
+      });
+    }
   },
 
   async loadEpisodes() {
     try {
       const res = await fetch('../episodes.json?' + Date.now());
-      this.episodes = await res.json();
+      const allEpisodes = await res.json();
+      // Separate by section
+      this.episodes = allEpisodes.filter(e => e.section === 'study' || !e.section);
+      this.familyEpisodes = allEpisodes.filter(e => e.section === 'family');
+      this.schoolEpisodes = allEpisodes.filter(e => e.section === 'school');
+      this.togetherEpisodes = allEpisodes.filter(e => e.section === 'together');
+      this.allEpisodes = allEpisodes;
     } catch (e) {
       this.episodes = [];
+      this.familyEpisodes = [];
+      this.schoolEpisodes = [];
+      this.togetherEpisodes = [];
+      this.allEpisodes = [];
     }
   },
 
-  // ── Tabs ──
-  setupTabs() {
-    document.querySelectorAll('.tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        this.view = tab.dataset.view;
+  // ── Bottom Navigation ──
+  setupBottomNav() {
+    document.querySelectorAll('.nav-item').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        this.section = btn.dataset.section;
 
-        document.getElementById('episodesView').classList.toggle('active', this.view === 'episodes');
-        document.getElementById('calendarView').classList.toggle('active', this.view === 'calendar');
+        // Toggle section views
+        document.querySelectorAll('.section-view').forEach(v => v.classList.remove('active'));
+        const viewId = this.section + 'View';
+        const view = document.getElementById(viewId);
+        if (view) view.classList.add('active');
+      });
+    });
+  },
+
+  // ── Tabs (Study sub-tabs: Episodes / Calendar) ──
+  setupTabs() {
+    document.querySelectorAll('.study-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.study-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        this.studyTab = tab.dataset.view;
+
+        document.getElementById('episodesView').classList.toggle('active', this.studyTab === 'episodes');
+        document.getElementById('calendarView').classList.toggle('active', this.studyTab === 'calendar');
 
         // Show/hide filters
-        document.getElementById('filters').style.display = this.view === 'episodes' ? '' : 'none';
+        document.getElementById('filters').style.display = this.studyTab === 'episodes' ? '' : 'none';
 
         // Render calendar when switching to it
-        if (this.view === 'calendar') this.renderCalendar();
+        if (this.studyTab === 'calendar') this.renderCalendar();
       });
     });
   },
@@ -140,6 +186,160 @@ const App = {
   toggleSummary(id) {
     const el = document.getElementById('summary-' + id);
     if (el) el.classList.toggle('visible');
+  },
+
+  // ── Render Family ──
+  renderFamily() {
+    const container = document.getElementById('familyList');
+    if (!container) return;
+
+    if (!this.familyEpisodes.length) {
+      container.innerHTML = '<div class="empty-state">Family devotionals coming soon!</div>';
+      return;
+    }
+
+    let html = '';
+    this.familyEpisodes.forEach(ep => {
+      const d = new Date(ep.date + 'T12:00:00');
+      const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const dayName = dayNames[d.getDay()];
+      const hasAudio = ep.file !== null;
+      const listened = this.isListened(ep.id);
+
+      html += `
+        <div class="family-card ${listened ? 'listened' : ''}">
+          <div class="family-date">📅 ${dayName}, March ${d.getDate()} — Day ${ep.id - 100}</div>
+          <div class="family-title">${ep.title}</div>
+          <div class="family-scripture">${ep.subtitle || ''}</div>
+          ${ep.memoryVerse ? `
+            <div class="family-verse">
+              <div class="family-verse-label">🔖 Memory Verse</div>
+              <div class="family-verse-text">"${ep.memoryVerse}"</div>
+            </div>
+          ` : ''}
+          ${ep.discussionQuestions ? `
+            <div class="family-discuss">
+              <div class="family-discuss-label">💬 Discuss Together</div>
+              ${ep.discussionQuestions.map(q => `<div class="family-question">${q}</div>`).join('')}
+            </div>
+          ` : ''}
+          <div class="family-actions">
+            <button class="family-play-btn ${hasAudio ? '' : 'no-audio'}"
+                    onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
+              ${hasAudio ? `▶ Play (${ep.duration})` : '🔜 Audio Coming Soon'}
+            </button>
+          </div>
+        </div>`;
+    });
+
+    container.innerHTML = html;
+  },
+
+  // ── Render School ──
+  renderSchool() {
+    const container = document.getElementById('schoolList');
+    if (!container) return;
+
+    if (!this.schoolEpisodes.length) {
+      container.innerHTML = '<div class="empty-state">Curriculum lessons coming soon!</div>';
+      return;
+    }
+
+    // Group by unit
+    const units = {};
+    this.schoolEpisodes.forEach(ep => {
+      const unit = ep.unit || 'General';
+      if (!units[unit]) units[unit] = [];
+      units[unit].push(ep);
+    });
+
+    let html = '';
+    Object.keys(units).forEach(unitName => {
+      const lessons = units[unitName];
+      const completed = lessons.filter(l => this.isListened(l.id)).length;
+      const total = lessons.length;
+      const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+      html += `
+        <div class="school-unit">
+          <div class="school-unit-header">
+            <div class="school-unit-title">📚 ${unitName}</div>
+            <div class="school-unit-meta">
+              <span>${completed}/${total} lessons done</span>
+              <span>${pct}%</span>
+            </div>
+            <div class="school-progress-bar">
+              <div class="school-progress-fill" style="width:${pct}%"></div>
+            </div>
+          </div>`;
+
+      lessons.forEach(ep => {
+        const done = this.isListened(ep.id);
+        const hasAudio = ep.file !== null;
+        html += `
+          <div class="school-lesson" onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
+            <div class="school-lesson-num ${done ? 'done' : ''}">${done ? '✓' : ep.lessonNumber || '?'}</div>
+            <div class="school-lesson-info">
+              <div class="school-lesson-title">${ep.title}</div>
+              <div class="school-lesson-sub">${ep.subtitle || ep.description || ''}</div>
+            </div>
+            <div class="school-lesson-dur">${hasAudio ? ep.duration : 'Soon'}</div>
+          </div>`;
+      });
+
+      html += '</div>';
+    });
+
+    container.innerHTML = html;
+  },
+
+  // ── Render Together ──
+  renderTogether() {
+    const container = document.getElementById('togetherList');
+    if (!container) return;
+
+    if (!this.togetherEpisodes.length) {
+      container.innerHTML = '<div class="empty-state">Couples devotionals coming soon!</div>';
+      return;
+    }
+
+    let html = '';
+    this.togetherEpisodes.forEach(ep => {
+      const d = new Date(ep.date + 'T12:00:00');
+      const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const dayName = dayNames[d.getDay()];
+      const hasAudio = ep.file !== null;
+      const listened = this.isListened(ep.id);
+
+      // Find the connected study episode
+      const studyEp = this.episodes.find(e => e.date === ep.date);
+      const connectedTitle = studyEp ? studyEp.title : '';
+
+      html += `
+        <div class="together-card ${listened ? 'listened' : ''}">
+          <div class="together-date">💑 ${dayName}, March ${d.getDate()}</div>
+          <div class="together-title">${ep.title}</div>
+          ${connectedTitle ? `<div class="together-connected">Connected to: "${connectedTitle}"</div>` : ''}
+          <div class="together-scripture">📖 ${ep.subtitle || 'Read together'}</div>
+          ${ep.reflectionPrompt ? `
+            <div class="together-reflect">
+              <div class="together-reflect-label">🤔 Reflect Together</div>
+              <div class="together-reflect-text">"${ep.reflectionPrompt}"</div>
+            </div>
+          ` : ''}
+          ${ep.prayerFocus ? `
+            <div class="together-prayer">🙏 ${ep.prayerFocus}</div>
+          ` : ''}
+          <div class="together-actions">
+            <button class="together-play-btn ${hasAudio ? '' : 'no-audio'}"
+                    onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
+              ${hasAudio ? `▶ Listen (${ep.duration})` : '🔜 Audio Coming Soon'}
+            </button>
+          </div>
+        </div>`;
+    });
+
+    container.innerHTML = html;
   },
 
   // ── Render Calendar ──
@@ -303,6 +503,9 @@ const App = {
         this.updateStreak();
         this.renderEpisodes();
         this.renderCalendar();
+        this.renderFamily();
+        this.renderSchool();
+        this.renderTogether();
       }
 
       // Sleep timer: end of episode
@@ -331,8 +534,8 @@ const App = {
 
   // ── Play Episode ──
   playEpisode(id) {
-    const ep = this.episodes.find(e => e.id === id);
-    if (!ep) return;
+    const ep = this.allEpisodes.find(e => e.id === id);
+    if (!ep || !ep.file) return;  // Don't play if no audio file
 
     this.currentEp = ep;
     this.audio.src = '../' + ep.file;
@@ -397,6 +600,8 @@ const App = {
     if (document.getElementById('npSpeed')) {
       document.getElementById('npSpeed').textContent = label;
     }
+    const mpLabel = document.getElementById('mpSpeedLabel');
+    if (mpLabel) mpLabel.textContent = label;
 
     localStorage.setItem('speed', this.speedIdx.toString());
   },
@@ -631,6 +836,91 @@ const App = {
     }, 400);
   },
 
+  // ── Chat ──
+  askSuggestion(btn) {
+    const text = btn.textContent.trim();
+    this.sendChat(text);
+  },
+
+  async sendChat(text) {
+    if (!text.trim()) return;
+
+    // Hide welcome, show messages
+    const welcome = document.querySelector('.chat-welcome');
+    if (welcome) welcome.style.display = 'none';
+
+    // Add user message
+    this.chatMessages.push({ role: 'user', content: text });
+    this.renderChatMessages();
+
+    // Clear input
+    const input = document.getElementById('chatInput');
+    if (input) input.value = '';
+
+    // For now, show a placeholder response (AI integration comes in Phase 3)
+    setTimeout(() => {
+      this.chatMessages.push({
+        role: 'assistant',
+        content: 'Friend, I am being prepared to counsel thee. The AI assistant will be connected soon through Cloudflare Workers. In the meantime, may I encourage thee to explore the daily study, or gather thy family for the family devotional. "The fear of the LORD is the beginning of wisdom." — Proverbs 9:10'
+      });
+      this.renderChatMessages();
+
+      // If audio enabled, speak the response
+      if (this.chatAudioEnabled) {
+        this.speakText(this.chatMessages[this.chatMessages.length - 1].content);
+      }
+    }, 800);
+  },
+
+  sendChatFromInput() {
+    const input = document.getElementById('chatInput');
+    if (input && input.value.trim()) {
+      this.sendChat(input.value);
+    }
+  },
+
+  renderChatMessages() {
+    const container = document.getElementById('chatMessages');
+    if (!container) return;
+
+    let html = '';
+    for (const msg of this.chatMessages) {
+      const cls = msg.role === 'user' ? 'chat-user' : 'chat-assistant';
+      html += `<div class="chat-bubble ${cls}">${this.escapeHtml(msg.content)}</div>`;
+    }
+
+    container.innerHTML = html;
+    container.scrollTop = container.scrollHeight;
+  },
+
+  escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  },
+
+  toggleChatAudio() {
+    this.chatAudioEnabled = !this.chatAudioEnabled;
+    const btn = document.getElementById('chatAudioToggle');
+    if (btn) {
+      btn.classList.toggle('active', this.chatAudioEnabled);
+      btn.textContent = this.chatAudioEnabled ? '🔊' : '🔇';
+    }
+  },
+
+  speakText(text) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 0.9;
+    utterance.pitch = 0.95;
+    // Try to use a male English voice
+    const voices = window.speechSynthesis.getVoices();
+    const maleVoice = voices.find(v => v.name.includes('Daniel') || v.name.includes('Male') || v.name.includes('en-GB'));
+    if (maleVoice) utterance.voice = maleVoice;
+    window.speechSynthesis.speak(utterance);
+  },
+
   // ── Media Session (Lock Screen Controls) ──
   updateMediaSession() {
     if (!('mediaSession' in navigator) || !this.currentEp) return;
@@ -736,6 +1026,8 @@ const App = {
     if (savedSpeed >= 0 && savedSpeed < this.speeds.length) {
       this.speedIdx = savedSpeed;
       document.getElementById('npSpeedTop').textContent = this.speeds[this.speedIdx] + 'x';
+      const mpLabel = document.getElementById('mpSpeedLabel');
+      if (mpLabel) mpLabel.textContent = this.speeds[this.speedIdx] + 'x';
     }
 
     // Restore autoplay
@@ -747,7 +1039,7 @@ const App = {
     // Restore last episode
     const lastId = parseInt(localStorage.getItem('lastEp') || '0');
     if (lastId) {
-      const ep = this.episodes.find(e => e.id === lastId);
+      const ep = this.allEpisodes.find(e => e.id === lastId) || this.episodes.find(e => e.id === lastId);
       if (ep) {
         this.currentEp = ep;
         document.getElementById('miniPlayer').classList.add('visible');

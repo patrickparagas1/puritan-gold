@@ -74,6 +74,7 @@ html, body {
   max-width: 500px;
   margin: 0 auto;
   overflow: hidden;
+  padding-bottom: calc(60px + var(--sab));
 }
 
 /* ══════════ HEADER ══════════ */
@@ -142,7 +143,7 @@ html, body {
 .streak.visible { display: flex; }
 .streak-fire { font-size: 14px; }
 
-/* ══════════ TABS ══════════ */
+/* ══════════ TABS (Study sub-tabs: Episodes/Calendar) ══════════ */
 .tabs {
   display: flex;
   padding: 10px 16px 0;
@@ -236,6 +237,39 @@ html, body {
 
 .view.active {
   display: block;
+}
+
+/* ══════════ SECTION VIEWS (for bottom nav sections) ══════════ */
+.section-view {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  display: none;
+}
+
+.section-view.active {
+  display: block;
+}
+
+/* ══════════ SECTION HEADERS (Family, School, Together) ══════════ */
+.section-header {
+  padding: 20px 20px 12px;
+  text-align: center;
+}
+
+.section-header h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.section-header p {
+  font-size: 13px;
+  color: var(--text2);
+  font-style: italic;
 }
 
 /* ══════════ EPISODE LIST ══════════ */
@@ -470,11 +504,10 @@ html, body {
 /* ══════════ MINI PLAYER ══════════ */
 .mini-player {
   position: fixed;
-  bottom: 0;
+  bottom: calc(60px + var(--sab));
   left: 0;
   right: 0;
   background: var(--player-bg);
-  padding-bottom: var(--sab);
   z-index: 50;
   transform: translateY(100%);
   transition: transform 0.35s var(--spring);
@@ -581,6 +614,16 @@ html, body {
 .mp-play svg {
   width: 22px;
   height: 22px;
+}
+
+/* Speed Button in Mini Player */
+.mp-speed {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--gold-light);
+  min-width: 32px;
+  padding: 4px 6px;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ══════════ NOW PLAYING ══════════ */
@@ -1136,6 +1179,593 @@ html, body {
   height: 18px;
 }
 
+/* ══════════ BOTTOM NAVIGATION BAR ══════════ */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  background: var(--card);
+  border-top: 1px solid var(--blue-pale);
+  padding: 6px 0;
+  padding-bottom: max(6px, var(--sab));
+  z-index: 50;
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 0;
+  border: none;
+  background: none;
+  color: var(--text3);
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-item.active {
+  color: var(--blue);
+}
+
+.nav-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.nav-label {
+  font-size: 10px;
+  letter-spacing: 0.3px;
+}
+
+/* ══════════ FAMILY DEVOTIONAL CARDS ══════════ */
+.family-card {
+  background: var(--card);
+  border-radius: var(--r);
+  padding: 18px;
+  margin: 0 16px 12px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--gold-bright);
+}
+
+.family-date {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.family-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.family-scripture {
+  font-size: 13px;
+  color: var(--blue);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.family-verse {
+  background: var(--bg2);
+  border-radius: var(--r-sm);
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border-left: 3px solid var(--gold);
+}
+
+.family-verse-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.family-verse-text {
+  font-size: 14px;
+  color: var(--text);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.family-discuss {
+  margin-bottom: 14px;
+}
+
+.family-discuss-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.family-question {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+  padding: 6px 0 6px 16px;
+  position: relative;
+}
+
+.family-question::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-weight: bold;
+}
+
+.family-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.family-play-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  background: var(--blue);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.family-play-btn:active { opacity: 0.85; }
+
+.family-play-btn.no-audio {
+  background: var(--blue-pale);
+  color: var(--blue);
+}
+
+/* ══════════ SCHOOL CURRICULUM CARDS ══════════ */
+.school-unit {
+  margin: 0 16px 20px;
+}
+
+.school-unit-header {
+  background: var(--blue-deep);
+  color: white;
+  border-radius: var(--r) var(--r) 0 0;
+  padding: 16px 18px;
+}
+
+.school-unit-title {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.school-unit-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.school-progress-bar {
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.school-progress-fill {
+  height: 100%;
+  background: var(--gold-bright);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+.school-lesson {
+  background: var(--card);
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--blue-pale);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.school-lesson:last-child {
+  border-bottom: none;
+  border-radius: 0 0 var(--r) var(--r);
+}
+
+.school-lesson:active { background: var(--card-hover); }
+
+.school-lesson-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--blue-pale);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.school-lesson-num.done {
+  background: #e8f5e8;
+  color: #2d7a2d;
+}
+
+.school-lesson-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.school-lesson-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.school-lesson-sub {
+  font-size: 12px;
+  color: var(--text2);
+}
+
+.school-lesson-dur {
+  font-size: 12px;
+  color: var(--text3);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* ══════════ TOGETHER / COUPLES CARDS ══════════ */
+.together-card {
+  background: var(--card);
+  border-radius: var(--r);
+  padding: 18px;
+  margin: 0 16px 12px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid #e07a7a;
+}
+
+.together-date {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.together-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.together-connected {
+  font-size: 12px;
+  color: var(--text2);
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.together-scripture {
+  background: var(--bg2);
+  border-radius: var(--r-sm);
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.together-reflect {
+  background: rgba(224,122,122,0.08);
+  border-radius: var(--r-sm);
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.together-reflect-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #c06060;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.together-reflect-text {
+  font-size: 14px;
+  color: var(--text);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.together-prayer {
+  background: var(--bg2);
+  border-radius: var(--r-sm);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: var(--text2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.together-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.together-play-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  background: #e07a7a;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.together-play-btn:active { opacity: 0.85; }
+
+.together-play-btn.no-audio {
+  background: rgba(224,122,122,0.15);
+  color: #c06060;
+}
+
+/* ══════════ ASK / CHAT STYLES ══════════ */
+/* Card list containers for family/school/together */
+.card-list {
+  padding: 8px 0 120px;
+}
+
+.ask-view.section-view {
+  inset: 0 0 76px 0;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ask-view.section-view.active {
+  display: flex;
+}
+
+.chat-messages {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px;
+  padding-bottom: 16px;
+}
+
+.chat-welcome {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+.chat-welcome-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 14px;
+  background: var(--blue-deep);
+  color: var(--gold-bright);
+  border-radius: 18px;
+  font-size: 32px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-welcome h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.chat-welcome p {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.6;
+  max-width: 280px;
+  margin: 0 auto 24px;
+}
+
+.chat-suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-suggestion {
+  padding: 12px 16px;
+  border: 1.5px solid var(--blue-pale);
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+}
+
+.chat-suggestion:active {
+  background: var(--blue-pale);
+}
+
+.chat-bubble {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  word-wrap: break-word;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.chat-user {
+  margin-left: auto;
+  background: var(--blue);
+  color: white;
+  border-bottom-right-radius: 6px;
+}
+
+.chat-assistant {
+  margin-right: auto;
+  background: var(--card);
+  color: var(--text);
+  border-bottom-left-radius: 6px;
+  box-shadow: var(--shadow);
+}
+
+.chat-typing {
+  opacity: 0.5;
+  animation: chatPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes chatPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+.chat-input-bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--bg);
+  border-top: 1px solid var(--blue-pale);
+}
+
+.chat-audio-toggle {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: var(--bg2);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.chat-audio-toggle.active {
+  background: var(--gold-bright);
+}
+
+.chat-audio-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.chat-input-bar input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1.5px solid var(--blue-pale);
+  border-radius: 22px;
+  background: var(--card);
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  min-height: 44px;
+}
+
+.chat-input-bar input::placeholder {
+  color: var(--text3);
+}
+
+.chat-input-bar input:focus {
+  border-color: var(--blue);
+}
+
+.chat-send-btn {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: var(--blue);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.chat-send-btn:active { opacity: 0.85; }
+
+.chat-send-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ══════════ TOAST NOTIFICATION ══════════ */
+.toast {
+  position: fixed;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--player-bg);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0;
+  transition: all 0.3s var(--spring);
+  z-index: 400;
+  box-shadow: var(--shadow-lg);
+  pointer-events: none;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* ══════════ MODAL ══════════ */
 .modal-bg {
   position: fixed;
@@ -1260,8 +1890,10 @@ html, body {
 
 /* ══════════ SCROLLBAR HIDDEN ══════════ */
 .view::-webkit-scrollbar,
+.section-view::-webkit-scrollbar,
 .np-scroll::-webkit-scrollbar,
-.filters::-webkit-scrollbar {
+.filters::-webkit-scrollbar,
+.chat-messages::-webkit-scrollbar {
   display: none;
 }
 
