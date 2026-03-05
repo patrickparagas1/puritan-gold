@@ -557,7 +557,6 @@
       "devotional"
     ]
   },
-
   {
     "id": 101,
     "title": "Wisdom for Our Family",
@@ -673,7 +672,630 @@
       "How can we trust God together when things are hard or confusing?"
     ]
   },
-
+  {
+    "id": 106,
+    "title": "Guarding Your Heart",
+    "subtitle": "Proverbs 4:23 — Family Devotional",
+    "description": "A family devotional about guarding our hearts above all else. What we let into our hearts — through our eyes, ears, and thoughts — shapes who we become. Learn how to be gatekeepers of your own heart.",
+    "file": null,
+    "duration": "6:00",
+    "durationSecs": 360,
+    "date": "2026-03-06",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "heart",
+      "guarding"
+    ],
+    "memoryVerse": "Above all else, guard your heart, for everything you do flows from it. — Proverbs 4:23",
+    "discussionQuestions": [
+      "If your heart were a castle, what would you want to keep out and what would you let in?",
+      "What are some things we watch, listen to, or talk about that could hurt our hearts?",
+      "What is one way our family can help each other guard our hearts this week?"
+    ]
+  },
+  {
+    "id": 107,
+    "title": "Talking to God Every Day",
+    "subtitle": "1 Thessalonians 5:17 — Family Devotional",
+    "description": "A family devotional about building a daily habit of prayer. The Puritans treasured morning and evening prayer — and our family can too. God wants to hear from us all throughout the day.",
+    "file": null,
+    "duration": "5:30",
+    "durationSecs": 330,
+    "date": "2026-03-07",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "prayer",
+      "daily-habits",
+      "puritans"
+    ],
+    "memoryVerse": "Pray continually. — 1 Thessalonians 5:17",
+    "discussionQuestions": [
+      "When is a good time for our family to pray together each day?",
+      "What are three things you can thank God for right now?",
+      "How can we remember to talk to God throughout the whole day, not just at meals and bedtime?"
+    ]
+  },
+  {
+    "id": 108,
+    "title": "Running from Danger",
+    "subtitle": "Proverbs 5:21-23 — Family Devotional",
+    "description": "A family devotional about learning to run away from things that can hurt us. Just like we run from danger in the street, God wants us to run from temptation and bad choices.",
+    "file": null,
+    "duration": "6:30",
+    "durationSecs": 390,
+    "date": "2026-03-08",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "temptation",
+      "choices"
+    ],
+    "memoryVerse": "For your ways are in full view of the LORD, and he examines all your paths. — Proverbs 5:21",
+    "discussionQuestions": [
+      "Can you think of a time when you knew something was wrong and walked away? How did that feel?",
+      "Why does God tell us to run from bad things instead of just standing near them?",
+      "What can our family do to help each other make good choices when we are tempted?"
+    ]
+  },
+  {
+    "id": 109,
+    "title": "God Is in Charge",
+    "subtitle": "Psalm 115:3 — Family Devotional",
+    "description": "A family devotional about the sovereignty of God. God is in charge of everything — the weather, the stars, and even the hard things in our lives. We can rest because our big God holds it all.",
+    "file": null,
+    "duration": "7:00",
+    "durationSecs": 420,
+    "date": "2026-03-09",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "sovereignty",
+      "trust",
+      "god's-power"
+    ],
+    "memoryVerse": "Our God is in heaven; he does whatever pleases him. — Psalm 115:3",
+    "discussionQuestions": [
+      "What are some big things God is in charge of that we could never control?",
+      "Does knowing God is in charge make you feel safe? Why or why not?",
+      "How can we trust God even when something hard or confusing happens?"
+    ]
+  },
+  {
+    "id": 110,
+    "title": "The Lazy and the Diligent",
+    "subtitle": "Proverbs 6:6-8 — Family Devotional",
+    "description": "A family devotional about hard work and diligence. The tiny ant teaches us a big lesson — work hard, plan ahead, and don't be lazy. God made us to do our best for His glory.",
+    "file": null,
+    "duration": "5:45",
+    "durationSecs": 345,
+    "date": "2026-03-10",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "diligence",
+      "hard-work"
+    ],
+    "memoryVerse": "Go to the ant, you sluggard; consider its ways and be wise! — Proverbs 6:6",
+    "discussionQuestions": [
+      "What can we learn from watching how ants work together?",
+      "What are your responsibilities at home and school that God wants you to do well?",
+      "How can our family encourage each other to work hard and not be lazy?"
+    ]
+  },
+  {
+    "id": 111,
+    "title": "Our Holy God",
+    "subtitle": "Isaiah 6:3 — Family Devotional",
+    "description": "A family devotional about the holiness of God. God is perfectly good, perfectly pure, and set apart from everything else. Understanding His holiness helps us worship Him with awe and love.",
+    "file": null,
+    "duration": "6:30",
+    "durationSecs": 390,
+    "date": "2026-03-11",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "holiness",
+      "worship",
+      "god's-character"
+    ],
+    "memoryVerse": "Holy, holy, holy is the LORD Almighty; the whole earth is full of his glory. — Isaiah 6:3",
+    "discussionQuestions": [
+      "What does 'holy' mean? Why do you think the angels say it three times?",
+      "How is God different from everyone and everything else?",
+      "How can we live in a way that shows we belong to a holy God?"
+    ]
+  },
+  {
+    "id": 112,
+    "title": "Staying on the Right Path",
+    "subtitle": "Proverbs 7:1-3 — Family Devotional",
+    "description": "A family devotional about staying close to God's Word so we stay on the right path. Sin can look appealing, but God's commands protect us like guardrails on a mountain road.",
+    "file": null,
+    "duration": "5:00",
+    "durationSecs": 300,
+    "date": "2026-03-12",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "obedience",
+      "protection"
+    ],
+    "memoryVerse": "Keep my commands and you will live; guard my teachings as the apple of your eye. — Proverbs 7:2",
+    "discussionQuestions": [
+      "Why do you think God gives us rules? Are they to be mean or to protect us?",
+      "What does it mean to guard God's teachings as the 'apple of your eye'?",
+      "What is one Bible verse our family can memorize this week to help us stay on the right path?"
+    ]
+  },
+  {
+    "id": 113,
+    "title": "Wisdom Was There from the Start",
+    "subtitle": "Proverbs 8:22-31 — Family Devotional",
+    "description": "A family devotional about God's wisdom at work in creation. Before the mountains, before the oceans, God's wisdom was there. The same wisdom that made the world is available to us!",
+    "file": null,
+    "duration": "7:30",
+    "durationSecs": 450,
+    "date": "2026-03-13",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "creation",
+      "wisdom"
+    ],
+    "memoryVerse": "I was there when he set the heavens in place, when he marked out the horizon on the face of the deep. — Proverbs 8:27",
+    "discussionQuestions": [
+      "What is the most amazing thing in creation to you — stars, animals, oceans, or something else?",
+      "How does it make you feel to know that God's wisdom made all of that?",
+      "How can we ask God for that same wisdom in our daily choices?"
+    ]
+  },
+  {
+    "id": 114,
+    "title": "Hiding God's Word in Our Hearts",
+    "subtitle": "Psalm 119:11 — Family Devotional",
+    "description": "A family devotional about the practice of Scripture meditation. When we read, memorize, and think about God's Word, it becomes a treasure stored inside us that guides and protects us every day.",
+    "file": null,
+    "duration": "6:00",
+    "durationSecs": 360,
+    "date": "2026-03-14",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "scripture",
+      "meditation",
+      "bible"
+    ],
+    "memoryVerse": "I have hidden your word in my heart that I might not sin against you. — Psalm 119:11",
+    "discussionQuestions": [
+      "What does it mean to 'hide' God's Word in your heart?",
+      "What is your favorite Bible verse and why does it mean so much to you?",
+      "How can our family make time each day to read and think about the Bible together?"
+    ]
+  },
+  {
+    "id": 115,
+    "title": "Two Invitations",
+    "subtitle": "Proverbs 9:10 — Family Devotional",
+    "description": "A family devotional about the two paths Proverbs 9 describes. Wisdom invites us to a feast of life, and foolishness calls us to destruction. Every day we choose which invitation to accept.",
+    "file": null,
+    "duration": "6:30",
+    "durationSecs": 390,
+    "date": "2026-03-15",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "choices",
+      "wisdom"
+    ],
+    "memoryVerse": "The fear of the LORD is the beginning of wisdom, and knowledge of the Holy One is understanding. — Proverbs 9:10",
+    "discussionQuestions": [
+      "If wisdom and foolishness both invited you to dinner, how would you know which one to follow?",
+      "What are some everyday choices where we pick between wisdom and foolishness?",
+      "How can we help each other in our family choose wisdom every day?"
+    ]
+  },
+  {
+    "id": 116,
+    "title": "Fighting Sin with God's Help",
+    "subtitle": "Romans 8:13 — Family Devotional",
+    "description": "A family devotional about putting sin to death with God's help. We all struggle with sin, but God gives us His Spirit to help us fight. We are not left alone in the battle.",
+    "file": null,
+    "duration": "7:00",
+    "durationSecs": 420,
+    "date": "2026-03-16",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "sin",
+      "holy-spirit",
+      "sanctification"
+    ],
+    "memoryVerse": "For if you live according to the flesh, you will die; but if by the Spirit you put to death the misdeeds of the body, you will live. — Romans 8:13",
+    "discussionQuestions": [
+      "What does it mean to fight against sin? Can we do it by ourselves?",
+      "How does the Holy Spirit help us say 'no' to wrong things?",
+      "What is one area where our family can ask God to help us grow stronger?"
+    ]
+  },
+  {
+    "id": 117,
+    "title": "Righteous and Wicked — Two Ways to Live",
+    "subtitle": "Proverbs 10:9 — Family Devotional",
+    "description": "A family devotional about living with integrity. Proverbs 10 shows us the difference between the righteous and the wicked in everyday life — words, work, and attitude.",
+    "file": null,
+    "duration": "5:30",
+    "durationSecs": 330,
+    "date": "2026-03-17",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "integrity",
+      "righteousness"
+    ],
+    "memoryVerse": "Whoever walks in integrity walks securely, but whoever takes crooked paths will be found out. — Proverbs 10:9",
+    "discussionQuestions": [
+      "What does it mean to walk with integrity? Can you think of an example?",
+      "Why is telling the truth always better, even when it is hard?",
+      "How can we practice being honest and doing right, even when no one is watching?"
+    ]
+  },
+  {
+    "id": 118,
+    "title": "Being Happy with What We Have",
+    "subtitle": "Philippians 4:11-12 — Family Devotional",
+    "description": "A family devotional about learning contentment. When we always want more, we miss the gifts God has already given us. True contentment comes from knowing that God provides everything we truly need.",
+    "file": null,
+    "duration": "6:00",
+    "durationSecs": 360,
+    "date": "2026-03-18",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "contentment",
+      "gratitude",
+      "provision"
+    ],
+    "memoryVerse": "I have learned to be content whatever the circumstances. — Philippians 4:11",
+    "discussionQuestions": [
+      "What is the difference between needing something and just wanting something?",
+      "Can you name five things God has given our family that we can be thankful for?",
+      "How can we practice being content and grateful instead of always wanting more?"
+    ]
+  },
+  {
+    "id": 119,
+    "title": "Walking in Honesty",
+    "subtitle": "Proverbs 11:3 — Family Devotional",
+    "description": "A family devotional about the value of integrity and honesty. When we are honest and upright, God guides our steps. But dishonesty always leads to ruin.",
+    "file": null,
+    "duration": "5:45",
+    "durationSecs": 345,
+    "date": "2026-03-19",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "integrity",
+      "honesty"
+    ],
+    "memoryVerse": "The integrity of the upright guides them, but the unfaithful are destroyed by their duplicity. — Proverbs 11:3",
+    "discussionQuestions": [
+      "What does integrity mean? Why is it important even in small things?",
+      "Can you think of a time when being honest was hard but it was the right thing to do?",
+      "How can our family be known as people who always tell the truth?"
+    ]
+  },
+  {
+    "id": 120,
+    "title": "Words That Build Up",
+    "subtitle": "Proverbs 12:18 — Family Devotional",
+    "description": "A family devotional about the power of our words and daily character. Reckless words can cut like a sword, but wise words bring healing. How we speak and act every day matters to God.",
+    "file": null,
+    "duration": "6:30",
+    "durationSecs": 390,
+    "date": "2026-03-20",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "words",
+      "character"
+    ],
+    "memoryVerse": "The words of the reckless pierce like swords, but the tongue of the wise brings healing. — Proverbs 12:18",
+    "discussionQuestions": [
+      "Have you ever been hurt by someone's words? How did it make you feel?",
+      "What are some words we can say to build up and encourage the people around us?",
+      "How can our family use our words to bring healing and not hurt this week?"
+    ]
+  },
+  {
+    "id": 121,
+    "title": "Living for God Every Day",
+    "subtitle": "Colossians 3:17 — Family Devotional",
+    "description": "A family devotional about bringing God into every part of our daily life. The Puritans believed there was no area of life outside of God's care — from work to play to rest.",
+    "file": null,
+    "duration": "5:00",
+    "durationSecs": 300,
+    "date": "2026-03-21",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "daily-life",
+      "puritans",
+      "worship"
+    ],
+    "memoryVerse": "And whatever you do, whether in word or deed, do it all in the name of the Lord Jesus, giving thanks to God the Father through him. — Colossians 3:17",
+    "discussionQuestions": [
+      "Can we worship God while doing homework, chores, or playing outside? How?",
+      "What does it mean to do everything 'in the name of the Lord Jesus'?",
+      "What is one everyday activity our family can do this week with more thankfulness to God?"
+    ]
+  },
+  {
+    "id": 122,
+    "title": "Walking with the Wise",
+    "subtitle": "Proverbs 13:20 — Family Devotional",
+    "description": "A family devotional about the power of friendship and influence. The people we spend time with shape who we become. Wise friends help us grow closer to God.",
+    "file": null,
+    "duration": "7:00",
+    "durationSecs": 420,
+    "date": "2026-03-22",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "friendship",
+      "influence"
+    ],
+    "memoryVerse": "Walk with the wise and become wise, for a companion of fools suffers harm. — Proverbs 13:20",
+    "discussionQuestions": [
+      "Who are some wise people in your life that help you follow God?",
+      "How do our friends affect the choices we make?",
+      "What kind of friend does God want you to be to others?"
+    ]
+  },
+  {
+    "id": 123,
+    "title": "God's Amazing Grace",
+    "subtitle": "Ephesians 2:8-9 — Family Devotional",
+    "description": "A family devotional about the sovereignty of God's grace in saving us. We cannot earn God's love — it is a free gift! Grace means God gives us what we do not deserve, and that is the best news in the world.",
+    "file": null,
+    "duration": "6:30",
+    "durationSecs": 390,
+    "date": "2026-03-23",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "grace",
+      "salvation",
+      "spurgeon"
+    ],
+    "memoryVerse": "For it is by grace you have been saved, through faith — and this is not from yourselves, it is the gift of God — not by works, so that no one can boast. — Ephesians 2:8-9",
+    "discussionQuestions": [
+      "What is the best gift you have ever received? How is God's grace even better?",
+      "Why can't we earn our way into heaven by being good enough?",
+      "How should knowing about God's grace change the way we treat others?"
+    ]
+  },
+  {
+    "id": 124,
+    "title": "The Way That Seems Right",
+    "subtitle": "Proverbs 14:12 — Family Devotional",
+    "description": "A family devotional about trusting God's way over our own. Sometimes what seems like a good idea to us can lead us the wrong way. God's Word is the only trustworthy map for life.",
+    "file": null,
+    "duration": "5:30",
+    "durationSecs": 330,
+    "date": "2026-03-24",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "guidance",
+      "trust"
+    ],
+    "memoryVerse": "There is a way that appears to be right, but in the end it leads to death. — Proverbs 14:12",
+    "discussionQuestions": [
+      "Have you ever thought something was a good idea but it turned out badly?",
+      "Why do we need God's Word to help us know the right way to go?",
+      "How can we ask God for direction when we are not sure what to do?"
+    ]
+  },
+  {
+    "id": 125,
+    "title": "Chosen by God",
+    "subtitle": "Ephesians 1:4 — Family Devotional",
+    "description": "A family devotional about the amazing truth that God chose us before the world began. Before we loved God, He already loved us. Being chosen by God is the greatest privilege anyone could have.",
+    "file": null,
+    "duration": "7:30",
+    "durationSecs": 450,
+    "date": "2026-03-25",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "election",
+      "god's-love",
+      "identity"
+    ],
+    "memoryVerse": "For he chose us in him before the creation of the world to be holy and blameless in his sight. — Ephesians 1:4",
+    "discussionQuestions": [
+      "How does it feel to know that God chose to love you before you were even born?",
+      "What does it mean to be 'holy and blameless' — can we do that on our own?",
+      "How can knowing we are chosen by God help us when we feel lonely or left out?"
+    ]
+  },
+  {
+    "id": 126,
+    "title": "A Gentle Answer",
+    "subtitle": "Proverbs 15:1 — Family Devotional",
+    "description": "A family devotional about responding with gentleness instead of anger. A soft, kind answer can stop a fight before it starts. God calls us to be peacemakers in our homes and beyond.",
+    "file": null,
+    "duration": "5:00",
+    "durationSecs": 300,
+    "date": "2026-03-26",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "gentleness",
+      "peacemaking"
+    ],
+    "memoryVerse": "A gentle answer turns away wrath, but a harsh word stirs up anger. — Proverbs 15:1",
+    "discussionQuestions": [
+      "What happens when someone yells back at someone who is already angry?",
+      "Can you think of a time when a kind word helped calm down a situation?",
+      "How can each person in our family practice giving gentle answers this week?"
+    ]
+  },
+  {
+    "id": 127,
+    "title": "God Directs Our Steps",
+    "subtitle": "Proverbs 16:9 — Family Devotional",
+    "description": "A family devotional about trusting God to guide our future. We can make plans, but God is the one who directs our steps. He knows what is best and leads us even when the path is unclear.",
+    "file": null,
+    "duration": "6:00",
+    "durationSecs": 360,
+    "date": "2026-03-27",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "guidance",
+      "god's-plan"
+    ],
+    "memoryVerse": "In their hearts humans plan their course, but the LORD establishes their steps. — Proverbs 16:9",
+    "discussionQuestions": [
+      "What are some plans or dreams you have for the future?",
+      "How does it make you feel to know that God is guiding your steps even when you cannot see the whole path?",
+      "What can our family do to include God in our plans and decisions?"
+    ]
+  },
+  {
+    "id": 128,
+    "title": "Made Right with God by Faith",
+    "subtitle": "Romans 5:1 — Family Devotional",
+    "description": "A family devotional about justification by faith alone. We are not made right with God by being perfect — we are made right by trusting in what Jesus did for us on the cross.",
+    "file": null,
+    "duration": "7:00",
+    "durationSecs": 420,
+    "date": "2026-03-28",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "justification",
+      "faith",
+      "gospel"
+    ],
+    "memoryVerse": "Therefore, since we have been justified through faith, we have peace with God through our Lord Jesus Christ. — Romans 5:1",
+    "discussionQuestions": [
+      "What does it mean to be 'justified' or made right with God?",
+      "Why can't we earn our way to heaven by trying to be really good?",
+      "How does knowing Jesus took our punishment help us have peace with God?"
+    ]
+  },
+  {
+    "id": 129,
+    "title": "A Friend Who Sticks Close",
+    "subtitle": "Proverbs 17:17 — Family Devotional",
+    "description": "A family devotional about godly friendship. A true friend loves at all times — in good days and bad days. The best friend we will ever have is Jesus, who laid down His life for us.",
+    "file": null,
+    "duration": "5:45",
+    "durationSecs": 345,
+    "date": "2026-03-29",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "friendship",
+      "love"
+    ],
+    "memoryVerse": "A friend loves at all times, and a brother is born for a time of adversity. — Proverbs 17:17",
+    "discussionQuestions": [
+      "What makes someone a really good friend?",
+      "How is Jesus the best friend we could ever have?",
+      "How can you be a loyal, loving friend to someone this week?"
+    ]
+  },
+  {
+    "id": 130,
+    "title": "God Is Our Strong Tower",
+    "subtitle": "Proverbs 18:10 — Family Devotional",
+    "description": "A family devotional about running to God for safety. When life feels scary or hard, God is like a strong tower we can run into. His name — who He is — is our protection.",
+    "file": null,
+    "duration": "6:30",
+    "durationSecs": 390,
+    "date": "2026-03-30",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "proverbs",
+      "protection",
+      "god's-name"
+    ],
+    "memoryVerse": "The name of the LORD is a fortified tower; the righteous run to it and are safe. — Proverbs 18:10",
+    "discussionQuestions": [
+      "What is a strong tower? Why would someone run into a tower for safety?",
+      "When you feel scared or worried, how can you 'run to God'?",
+      "What are some names of God that remind us He is our protector?"
+    ]
+  },
+  {
+    "id": 131,
+    "title": "Looking Back and Looking Ahead",
+    "subtitle": "Psalm 119:105 — Family Devotional",
+    "description": "A family devotional to review the month of March. We look back at all God has taught our family through Proverbs and the gospel, and we look ahead with excitement for what God will do next.",
+    "file": null,
+    "duration": "7:30",
+    "durationSecs": 450,
+    "date": "2026-03-31",
+    "series": "Family Devotional",
+    "section": "family",
+    "tags": [
+      "family",
+      "review",
+      "reflection",
+      "gratitude"
+    ],
+    "memoryVerse": "Your word is a lamp for my feet, a light on my path. — Psalm 119:105",
+    "discussionQuestions": [
+      "What is the most important thing you learned from God this month?",
+      "Which Bible verse from this month do you want to keep remembering?",
+      "What is one way our family has grown closer to God and each other this March?"
+    ]
+  },
   {
     "id": 201,
     "title": "What is the Fear of God?",
@@ -804,7 +1426,411 @@
     ],
     "activity": "Memorize Westminster Shorter Catechism Question 1 and its answer. Then discuss as a family: What does it look like in everyday life to glorify God and enjoy Him?"
   },
-
+  {
+    "id": 206,
+    "title": "The Proverbs on Diligence and Laziness",
+    "subtitle": "Unit 2, Lesson 6 — Hard Work and Faithfulness",
+    "description": "Explore what the book of Proverbs teaches about the value of diligence and the dangers of laziness. From the field of the sluggard to the hand of the diligent, Scripture gives us a clear picture of how God honors faithful, hard work.",
+    "file": null,
+    "duration": "24:00",
+    "durationSecs": 1440,
+    "date": "2026-03-06",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "proverbs",
+      "diligence",
+      "character"
+    ],
+    "unit": "Unit 2: Wisdom and Character",
+    "lessonNumber": 6,
+    "reviewQuestions": [
+      "What does Proverbs 10:4 say about the difference between a slack hand and a diligent hand?",
+      "Why does God care about how hard we work, even in small tasks?",
+      "What are some dangers of laziness that Proverbs warns us about?",
+      "How can diligence in our schoolwork and chores honor God?"
+    ],
+    "activity": "Create a 'Diligence Journal' for the week. Each day, write down one task you completed with your best effort and one area where you were tempted to be lazy. At the end of the week, review your entries and thank God for His help."
+  },
+  {
+    "id": 207,
+    "title": "How the Puritans Prayed",
+    "subtitle": "Unit 2, Lesson 7 — Prayer Disciplines",
+    "description": "The Puritans were known as mighty men and women of prayer. Learn how they structured their prayer lives, what they prayed for, and how disciplines like morning and evening prayer, prayer lists, and secret prayer shaped their walk with God.",
+    "file": null,
+    "duration": "27:00",
+    "durationSecs": 1620,
+    "date": "2026-03-07",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "puritans",
+      "prayer",
+      "disciplines"
+    ],
+    "unit": "Unit 2: Wisdom and Character",
+    "lessonNumber": 7,
+    "reviewQuestions": [
+      "How did the Puritans structure their daily prayer times?",
+      "What is 'secret prayer' and why did the Puritans value it so highly?",
+      "Name two things the Puritans commonly included in their prayers.",
+      "How can we build a stronger prayer life by learning from the Puritans?"
+    ],
+    "activity": "Design your own personal prayer schedule for morning and evening. Include categories like praise, confession, thanksgiving, and requests. Try following your schedule for three days and write about what you learned."
+  },
+  {
+    "id": 208,
+    "title": "Guarding Against Temptation",
+    "subtitle": "Unit 2, Lesson 8 — Biblical Strategies for Resisting Sin",
+    "description": "The Bible does not leave us without weapons against temptation. Study key passages from Proverbs, James, and 1 Corinthians that teach us how to recognize temptation, flee from it, and stand firm in the strength God provides.",
+    "file": null,
+    "duration": "25:00",
+    "durationSecs": 1500,
+    "date": "2026-03-08",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "temptation",
+      "holiness",
+      "character"
+    ],
+    "unit": "Unit 2: Wisdom and Character",
+    "lessonNumber": 8,
+    "reviewQuestions": [
+      "According to James 1:14-15, how does temptation work step by step?",
+      "What does 1 Corinthians 10:13 promise us about every temptation we face?",
+      "Name three practical strategies the Bible gives for fighting temptation.",
+      "Why is it important to guard against temptation before it arrives rather than in the moment?"
+    ],
+    "activity": "Create a 'Shield of Faith' poster. On a large shield shape, write out three Bible verses that help you fight temptation. Decorate it and hang it where you will see it every day as a reminder of God's promises."
+  },
+  {
+    "id": 209,
+    "title": "God's Sovereignty Over All Things",
+    "subtitle": "Unit 2, Lesson 9 — The Lord Reigns",
+    "description": "What does it mean that God is sovereign — that He rules over all things? From Proverbs 16:9 and 19:21 to the great doctrines of Scripture, learn how God's total control over history, nature, and our lives is both humbling and deeply comforting.",
+    "file": null,
+    "duration": "26:00",
+    "durationSecs": 1560,
+    "date": "2026-03-09",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "sovereignty",
+      "doctrine",
+      "proverbs"
+    ],
+    "unit": "Unit 2: Wisdom and Character",
+    "lessonNumber": 9,
+    "reviewQuestions": [
+      "What does the word 'sovereign' mean when we say God is sovereign?",
+      "What does Proverbs 16:9 teach us about our plans and God's purposes?",
+      "How is God's sovereignty a comfort when hard things happen?",
+      "If God controls everything, why should we still pray and make wise choices?"
+    ],
+    "activity": "Write a letter to someone going through a difficult time (real or imagined) explaining how God's sovereignty is a comfort. Use at least two Bible verses in your letter to encourage them."
+  },
+  {
+    "id": 210,
+    "title": "The Ant, the Sluggard, and the Seven Abominations",
+    "subtitle": "Unit 2, Lesson 10 — A Deep Dive into Proverbs 6",
+    "description": "Take a detailed look at Proverbs 6 and its vivid lessons: the tiny ant that teaches us diligence, the sluggard who loves his sleep, and the seven things that are an abomination to the Lord. Discover why God hates pride, lying, and division among brothers.",
+    "file": null,
+    "duration": "28:00",
+    "durationSecs": 1680,
+    "date": "2026-03-10",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "proverbs",
+      "diligence",
+      "sin"
+    ],
+    "unit": "Unit 2: Wisdom and Character",
+    "lessonNumber": 10,
+    "reviewQuestions": [
+      "What lessons does the ant teach us in Proverbs 6:6-8?",
+      "List the seven things that are an abomination to the Lord from Proverbs 6:16-19.",
+      "Why do you think God lists 'one who sows discord among brothers' as one of the things He hates?",
+      "How can we be more like the ant and less like the sluggard in our daily lives?"
+    ],
+    "activity": "Go outside and observe real ants for 10-15 minutes. Write or draw your observations about how they work. Then write a short paragraph comparing what you saw to what Proverbs 6 says about the ant. What can you learn from these tiny creatures?"
+  },
+  {
+    "id": 211,
+    "title": "The Holiness of God and Our Response",
+    "subtitle": "Unit 3, Lesson 11 — Standing Before a Holy God",
+    "description": "God is perfectly holy — set apart, pure, and without any sin. Study what Scripture reveals about God's holiness, from Isaiah's vision in the temple to the Proverbs' call to depart from evil. Learn how God's holiness should shape the way we live and worship.",
+    "file": null,
+    "duration": "25:00",
+    "durationSecs": 1500,
+    "date": "2026-03-11",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "holiness",
+      "doctrine",
+      "worship"
+    ],
+    "unit": "Unit 3: The Gospel and Grace",
+    "lessonNumber": 11,
+    "reviewQuestions": [
+      "What does it mean that God is holy?",
+      "What happened when Isaiah saw the Lord in Isaiah 6:1-5, and why did he react that way?",
+      "How does understanding God's holiness help us take sin more seriously?",
+      "What does Proverbs 3:7 say we should do in response to the fear of the Lord?"
+    ],
+    "activity": "Read Isaiah 6:1-8 aloud as a family. Then write your own prayer of response to God's holiness, including praise for who He is, confession of your sin, and a willingness to serve Him."
+  },
+  {
+    "id": 212,
+    "title": "Wisdom Personified — Christ in Proverbs 8",
+    "subtitle": "Unit 3, Lesson 12 — Wisdom Calls Out",
+    "description": "In Proverbs 8, Wisdom is personified as a woman calling out in the streets. But who is this Wisdom? Discover how the early church and many scholars have seen in Proverbs 8 a beautiful picture of the Lord Jesus Christ — the Wisdom of God made flesh.",
+    "file": null,
+    "duration": "26:00",
+    "durationSecs": 1560,
+    "date": "2026-03-12",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "proverbs",
+      "christ",
+      "gospel"
+    ],
+    "unit": "Unit 3: The Gospel and Grace",
+    "lessonNumber": 12,
+    "reviewQuestions": [
+      "In Proverbs 8, what does Wisdom say about where she was when the world was created?",
+      "How does 1 Corinthians 1:30 connect Jesus to wisdom?",
+      "Why is it important that true wisdom is not just an idea but a Person — Jesus Christ?",
+      "What does Proverbs 8:35 say about those who find Wisdom?"
+    ],
+    "activity": "Read Proverbs 8:22-36 and Colossians 1:15-20 side by side. Make a two-column chart listing what Proverbs 8 says about Wisdom and what Colossians 1 says about Christ. Write a sentence about what you discover."
+  },
+  {
+    "id": 213,
+    "title": "The Puritan Art of Meditation on Scripture",
+    "subtitle": "Unit 3, Lesson 13 — Chewing the Cud of God's Word",
+    "description": "The Puritans described meditation on Scripture as a cow chewing the cud — going over God's Word again and again until its sweetness fills your soul. Learn the lost art of biblical meditation: reading slowly, thinking deeply, and applying personally.",
+    "file": null,
+    "duration": "23:00",
+    "durationSecs": 1380,
+    "date": "2026-03-13",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "puritans",
+      "meditation",
+      "scripture"
+    ],
+    "unit": "Unit 3: The Gospel and Grace",
+    "lessonNumber": 13,
+    "reviewQuestions": [
+      "What does Psalm 1:2 say about the blessed man and meditation?",
+      "How is biblical meditation different from the world's idea of meditation?",
+      "What did the Puritans mean when they compared meditating on Scripture to a cow chewing the cud?",
+      "Name the three steps of Puritan meditation: read, think, and what?"
+    ],
+    "activity": "Choose one verse from Proverbs (such as Proverbs 3:5-6). Spend 15 minutes meditating on it using the Puritan method: read it five times slowly, write it out by hand, ask what it means, ask what it means for your life, and then turn it into a prayer."
+  },
+  {
+    "id": 214,
+    "title": "Two Ways to Live — Wisdom's Feast vs Folly's Trap",
+    "subtitle": "Unit 3, Lesson 14 — Proverbs 9 and the Two Invitations",
+    "description": "Proverbs 9 presents two invitations: Lady Wisdom prepares a feast and calls the simple to come and eat, while the woman Folly lures the naive with stolen water and secret bread. Every person must choose which table to sit at — and the consequences are eternal.",
+    "file": null,
+    "duration": "24:00",
+    "durationSecs": 1440,
+    "date": "2026-03-14",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "proverbs",
+      "gospel",
+      "choices"
+    ],
+    "unit": "Unit 3: The Gospel and Grace",
+    "lessonNumber": 14,
+    "reviewQuestions": [
+      "What does Lady Wisdom offer to those who accept her invitation in Proverbs 9:1-6?",
+      "How does Folly try to make sin look appealing in Proverbs 9:13-18?",
+      "What is the difference between the end result of following Wisdom versus following Folly?",
+      "How does the gospel of Jesus connect to Wisdom's invitation to 'come and eat'?"
+    ],
+    "activity": "Create a comic strip or illustrated story showing two characters — one who accepts Wisdom's invitation and one who follows Folly. Show the choices they make and where each path leads. Include at least one Proverbs verse in your illustrations."
+  },
+  {
+    "id": 215,
+    "title": "John Owen and the Mortification of Sin",
+    "subtitle": "Unit 3, Lesson 15 — Killing Sin Before It Kills You",
+    "description": "The great Puritan John Owen taught that believers must be always putting sin to death — what he called 'mortification.' Learn Owen's famous principle: 'Be killing sin, or it will be killing you,' and discover how the Holy Spirit gives us power to fight against sin every day.",
+    "file": null,
+    "duration": "27:00",
+    "durationSecs": 1620,
+    "date": "2026-03-15",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "puritans",
+      "sin",
+      "sanctification"
+    ],
+    "unit": "Unit 3: The Gospel and Grace",
+    "lessonNumber": 15,
+    "reviewQuestions": [
+      "Who was John Owen and why is he an important figure in church history?",
+      "What does 'mortification of sin' mean in plain language?",
+      "According to Romans 8:13, who gives us the power to put sin to death?",
+      "Why did Owen say that sin must be dealt with daily and not ignored?"
+    ],
+    "activity": "Write a short battle plan for fighting one specific sin or temptation you struggle with. Include: what the sin is, a Bible verse to memorize against it, a prayer asking for the Holy Spirit's help, and a practical step you can take when you are tempted."
+  },
+  {
+    "id": 216,
+    "title": "The Tongue — Words of Life and Death",
+    "subtitle": "Unit 4, Lesson 16 — The Power of Speech (Proverbs 10, 15)",
+    "description": "Proverbs has more to say about the tongue than almost any other topic. Study key passages from Proverbs 10 and 15 about the power of words to heal or destroy, encourage or crush, speak truth or spread lies. Learn why James says the tongue is like a small fire that can set a whole forest ablaze.",
+    "file": null,
+    "duration": "25:00",
+    "durationSecs": 1500,
+    "date": "2026-03-16",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "proverbs",
+      "speech",
+      "character"
+    ],
+    "unit": "Unit 4: Living Faithfully",
+    "lessonNumber": 16,
+    "reviewQuestions": [
+      "What does Proverbs 18:21 say about the power of the tongue?",
+      "According to Proverbs 15:1, what effect does a soft answer have compared to a harsh word?",
+      "Give an example of how words can be used to build someone up and how they can tear someone down.",
+      "Why is it so difficult to control our tongues, and what help does God offer us?"
+    ],
+    "activity": "For the next 24 hours, keep a 'Word Watch' journal. Write down moments when you used your words to encourage someone and moments when you spoke carelessly or unkindly. At the end, pray over your list and ask God to help you use your tongue for life."
+  },
+  {
+    "id": 217,
+    "title": "Thomas Watson on True Contentment",
+    "subtitle": "Unit 4, Lesson 17 — The Art of Divine Contentment",
+    "description": "The Puritan pastor Thomas Watson wrote beautifully about contentment — the rare jewel of learning to be satisfied in God no matter what our circumstances. Study Watson's teaching alongside Proverbs and Philippians 4:11-13 to discover that true contentment comes not from having more but from knowing God more.",
+    "file": null,
+    "duration": "22:00",
+    "durationSecs": 1320,
+    "date": "2026-03-17",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "puritans",
+      "contentment",
+      "character"
+    ],
+    "unit": "Unit 4: Living Faithfully",
+    "lessonNumber": 17,
+    "reviewQuestions": [
+      "Who was Thomas Watson, and what did he write about contentment?",
+      "What does Philippians 4:11-13 teach us about being content in every situation?",
+      "What is the difference between godly contentment and simply settling for less?",
+      "How does comparing ourselves to others steal our contentment?"
+    ],
+    "activity": "Make a 'Gratitude and Contentment' list of 20 things God has given you that money cannot buy — things like family, salvation, a beautiful sunset, or a good friend. Decorate your list and read it aloud as a prayer of thanks to God."
+  },
+  {
+    "id": 218,
+    "title": "Integrity and Uprightness in Daily Life",
+    "subtitle": "Unit 4, Lesson 18 — Walking Blamelessly (Proverbs 11-12)",
+    "description": "Proverbs 11 and 12 are full of wisdom about integrity — being honest, keeping your word, dealing fairly, and living the same way in private as you do in public. Learn what it means to walk blamelessly before God and why integrity is the foundation of a trustworthy life.",
+    "file": null,
+    "duration": "23:00",
+    "durationSecs": 1380,
+    "date": "2026-03-18",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "proverbs",
+      "integrity",
+      "character"
+    ],
+    "unit": "Unit 4: Living Faithfully",
+    "lessonNumber": 18,
+    "reviewQuestions": [
+      "What does Proverbs 11:3 say about the integrity of the upright?",
+      "What is the difference between integrity and reputation?",
+      "Give an example of what it looks like to have integrity when no one is watching.",
+      "According to Proverbs 12:22, what does the Lord think about lying lips versus those who act faithfully?"
+    ],
+    "activity": "Write a personal 'Integrity Pledge' — a list of five commitments to honest and upright living that you want to follow. Examples might include: 'I will tell the truth even when it is hard' or 'I will do my best work even when no one is watching.' Sign and date your pledge."
+  },
+  {
+    "id": 219,
+    "title": "The Puritans' Structured Daily Life",
+    "subtitle": "Unit 4, Lesson 19 — Redeeming the Time",
+    "description": "The Puritans believed every moment of life belonged to God and should be used wisely. Explore how they structured their days with times for worship, work, study, rest, and service. Learn how their disciplined approach to time was not legalism but love — a desire to make every hour count for God's glory.",
+    "file": null,
+    "duration": "26:00",
+    "durationSecs": 1560,
+    "date": "2026-03-19",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "puritans",
+      "discipline",
+      "daily-life"
+    ],
+    "unit": "Unit 4: Living Faithfully",
+    "lessonNumber": 19,
+    "reviewQuestions": [
+      "What does Ephesians 5:15-16 mean by 'redeeming the time'?",
+      "How did the Puritans typically structure their mornings and evenings?",
+      "Why did the Puritans see wasting time as a serious sin?",
+      "What is the difference between a disciplined daily schedule and legalism?"
+    ],
+    "activity": "Design your ideal God-honoring daily schedule. Include time for prayer, Bible reading, schoolwork, chores, exercise, family time, and rest. Try following your schedule for one full day and then write about what worked well and what was difficult."
+  },
+  {
+    "id": 220,
+    "title": "Walking with the Wise — Choosing Good Friends",
+    "subtitle": "Unit 4, Lesson 20 — The Company You Keep (Proverbs 13)",
+    "description": "Proverbs 13:20 says, 'Whoever walks with the wise becomes wise, but the companion of fools will suffer harm.' Explore what the Bible teaches about the power of friendship, how to choose godly companions, and why the people we spend time with shape who we become.",
+    "file": null,
+    "duration": "24:00",
+    "durationSecs": 1440,
+    "date": "2026-03-20",
+    "series": "Homeschool",
+    "section": "school",
+    "tags": [
+      "homeschool",
+      "proverbs",
+      "friendship",
+      "wisdom"
+    ],
+    "unit": "Unit 4: Living Faithfully",
+    "lessonNumber": 20,
+    "reviewQuestions": [
+      "What does Proverbs 13:20 say about the effect of walking with wise people?",
+      "Name three qualities you should look for in a godly friend.",
+      "How can bad friendships lead us away from God?",
+      "What does it mean to be a good friend to others according to Proverbs?"
+    ],
+    "activity": "Think about the story of David and Jonathan in 1 Samuel 18-20. Write a short essay or create a poster about what made their friendship so strong and honoring to God. Then list three ways you can be a better, more godly friend to the people in your life."
+  },
   {
     "id": 301,
     "title": "Beginning in Wisdom Together",
@@ -899,5 +1925,525 @@
     ],
     "reflectionPrompt": "Where do we need to trust God more in our marriage? Are there plans or worries we are holding onto instead of surrendering to Him?",
     "prayerFocus": "Surrender your plans to God together. Pray over any areas of anxiety or uncertainty and commit them to the Lord who directs your steps."
+  },
+  {
+    "id": 306,
+    "title": "Guarding Each Other's Hearts",
+    "subtitle": "Day 6 — Couples Devotional",
+    "description": "Connected to the Day 6 study on Proverbs 4 and guarding your heart. In marriage, you are called to protect not only your own heart but your spouse's as well — from bitterness, distraction, and anything that would pull you away from God and each other.",
+    "file": null,
+    "duration": "6:00",
+    "durationSecs": 360,
+    "date": "2026-03-06",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "heart",
+      "protection"
+    ],
+    "reflectionPrompt": "What are the things that most easily distract our hearts from God and from each other? How can we guard one another's hearts more intentionally this week?",
+    "prayerFocus": "Pray that God would give you both vigilant hearts — quick to notice when something is pulling you away from Him or from each other. Ask Him to help you guard your marriage with diligence."
+  },
+  {
+    "id": 307,
+    "title": "A Praying Marriage",
+    "subtitle": "Day 7 — Couples Devotional",
+    "description": "Connected to the Day 7 study on the Puritan practice of daily prayer. The Puritans understood that prayer was the lifeblood of the Christian home. Discover how to build a consistent and meaningful prayer life together as husband and wife.",
+    "file": null,
+    "duration": "7:00",
+    "durationSecs": 420,
+    "date": "2026-03-07",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "prayer",
+      "puritan",
+      "daily-life"
+    ],
+    "reflectionPrompt": "How consistent is our prayer life together? What time of day could we set aside to pray with each other — even if it's just five minutes?",
+    "prayerFocus": "Commit to praying together daily this week. Ask God to make prayer the heartbeat of your marriage and to draw you both into deeper dependence on Him."
+  },
+  {
+    "id": 308,
+    "title": "Fleeing Temptation Together",
+    "subtitle": "Day 8 — Couples Devotional",
+    "description": "Connected to the Day 8 study on Proverbs 5 and fleeing from temptation. Marriage is a sacred covenant, and God calls husbands and wives to protect that covenant fiercely. Learn how to build walls of faithfulness and transparency together.",
+    "file": null,
+    "duration": "6:30",
+    "durationSecs": 390,
+    "date": "2026-03-08",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "temptation",
+      "faithfulness"
+    ],
+    "reflectionPrompt": "Are there areas where we need to set better boundaries to protect our marriage? How can we be more transparent with each other about our struggles?",
+    "prayerFocus": "Pray for purity and faithfulness in your marriage. Ask God to give you both the courage to be honest and the strength to flee from every form of temptation."
+  },
+  {
+    "id": 309,
+    "title": "Resting in God's Sovereign Plan",
+    "subtitle": "Day 9 — Couples Devotional",
+    "description": "Connected to the Day 9 study on the sovereignty of God from A.W. Pink. When life does not go according to your plans, the sovereignty of God is your anchor. As a couple, find rest in knowing that God is working all things for your good and His glory.",
+    "file": null,
+    "duration": "5:30",
+    "durationSecs": 330,
+    "date": "2026-03-09",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "sovereignty",
+      "trust",
+      "pink"
+    ],
+    "reflectionPrompt": "Where have we seen God's sovereign hand at work in our marriage? Are there current circumstances where we need to trust His plan even though we cannot see the way forward?",
+    "prayerFocus": "Thank God for His sovereign care over your marriage. Surrender any disappointments or uncertainties to Him, and ask for the faith to trust His good purposes."
+  },
+  {
+    "id": 310,
+    "title": "Diligence in the Home",
+    "subtitle": "Day 10 — Couples Devotional",
+    "description": "Connected to the Day 10 study on Proverbs 6, the sluggard and the ant. Marriage thrives when both husband and wife are diligent — not only in work but in love, service, and spiritual growth. Learn from the ant's wisdom and apply it to your home.",
+    "file": null,
+    "duration": "5:45",
+    "durationSecs": 345,
+    "date": "2026-03-10",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "diligence",
+      "stewardship"
+    ],
+    "reflectionPrompt": "Are there areas in our marriage where we have grown lazy or complacent — spiritually, emotionally, or practically? What is one step we can take this week to be more diligent together?",
+    "prayerFocus": "Ask God to stir up diligence in your hearts. Pray for the energy and faithfulness to steward your marriage, your home, and your responsibilities well."
+  },
+  {
+    "id": 311,
+    "title": "Pursuing Holiness Side by Side",
+    "subtitle": "Day 11 — Couples Devotional",
+    "description": "Connected to the Day 11 study on the holiness of God from A.W. Pink. God's holiness is not meant to frighten us — it is meant to transform us. As a couple, explore what it means to pursue holiness together in the everyday rhythms of married life.",
+    "file": null,
+    "duration": "7:15",
+    "durationSecs": 435,
+    "date": "2026-03-11",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "holiness",
+      "pink",
+      "sanctification"
+    ],
+    "reflectionPrompt": "How does understanding God's holiness change the way we live as a couple? In what areas of our life together is God calling us to greater holiness?",
+    "prayerFocus": "Pray that your marriage would reflect the holiness of God. Ask Him to reveal any patterns of sin and to give you both a hunger for righteousness."
+  },
+  {
+    "id": 312,
+    "title": "Standing Firm Against Sin's Allure",
+    "subtitle": "Day 12 — Couples Devotional",
+    "description": "Connected to the Day 12 study on Proverbs 7 and the danger of sin's allure. Sin often begins with small compromises. In marriage, learn how to recognize the subtle enticements of the world and stand firm together in Christ.",
+    "file": null,
+    "duration": "6:15",
+    "durationSecs": 375,
+    "date": "2026-03-12",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "sin",
+      "vigilance"
+    ],
+    "reflectionPrompt": "What subtle temptations or cultural pressures do we face as a couple? How can we help each other see the danger of small compromises before they grow into bigger problems?",
+    "prayerFocus": "Pray for spiritual discernment as a couple. Ask God to open your eyes to any areas where the world's values have crept into your marriage, and pray for the strength to resist."
+  },
+  {
+    "id": 313,
+    "title": "Marveling at God's Creation Together",
+    "subtitle": "Day 13 — Couples Devotional",
+    "description": "Connected to the Day 13 study on Proverbs 8 and wisdom's call in creation. God's wisdom is woven into every corner of the created world. As a couple, rekindle your wonder at the God who made all things and who brought you together by His wise design.",
+    "file": null,
+    "duration": "5:00",
+    "durationSecs": 300,
+    "date": "2026-03-13",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "creation",
+      "wonder"
+    ],
+    "reflectionPrompt": "When was the last time we paused together to marvel at something God has made? How can we cultivate a shared sense of wonder and gratitude for His creation?",
+    "prayerFocus": "Thank God for the beauty of His creation and for the gift of experiencing it together. Pray that your marriage would be filled with awe and gratitude for the Creator."
+  },
+  {
+    "id": 314,
+    "title": "Meditating on Scripture as One",
+    "subtitle": "Day 14 — Couples Devotional",
+    "description": "Connected to the Day 14 study on Scripture meditation. The Puritans called Scripture meditation 'the soul's chewing.' As a couple, learn how to move beyond surface-level reading and let God's Word take deep root in your marriage.",
+    "file": null,
+    "duration": "6:45",
+    "durationSecs": 405,
+    "date": "2026-03-14",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "scripture",
+      "meditation",
+      "devotional"
+    ],
+    "reflectionPrompt": "What passage of Scripture has meant the most to our marriage? How can we meditate on God's Word together more deeply — not just reading, but truly dwelling on it?",
+    "prayerFocus": "Ask God to make His Word come alive in your marriage. Pray for hearts that are soft and attentive, and commit to meditating on a passage together this week."
+  },
+  {
+    "id": 315,
+    "title": "Choosing the Better Feast",
+    "subtitle": "Day 15 — Couples Devotional",
+    "description": "Connected to the Day 15 study on Proverbs 9 and the two feasts, two ways. Every day, couples face invitations — some from wisdom, some from folly. Learn to recognize the difference and choose together the feast that leads to life.",
+    "file": null,
+    "duration": "5:30",
+    "durationSecs": 330,
+    "date": "2026-03-15",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "wisdom",
+      "choices"
+    ],
+    "reflectionPrompt": "What voices are we listening to as a couple? Are there influences — media, friendships, habits — that are leading us toward folly rather than toward wisdom?",
+    "prayerFocus": "Pray for discernment in your daily choices. Ask God to help you both recognize wisdom's voice and to turn away from the enticements of folly."
+  },
+  {
+    "id": 316,
+    "title": "Fighting Sin Together",
+    "subtitle": "Day 16 — Couples Devotional",
+    "description": "Connected to the Day 16 study on the mortification of sin from John Owen. Owen taught that sin must be killed or it will kill you. In marriage, you do not fight sin alone — you fight it side by side, strengthened by grace and by each other.",
+    "file": null,
+    "duration": "7:30",
+    "durationSecs": 450,
+    "date": "2026-03-16",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "sin",
+      "owen",
+      "sanctification"
+    ],
+    "reflectionPrompt": "Are there sins we have been tolerating rather than actively fighting? How can we lovingly help each other put sin to death by the power of the Holy Spirit?",
+    "prayerFocus": "Confess any besetting sins to God together. Ask the Holy Spirit for power to mortify sin in your lives and to replace it with the fruit of the Spirit."
+  },
+  {
+    "id": 317,
+    "title": "Bearing Fruit in Our Words",
+    "subtitle": "Day 17 — Couples Devotional",
+    "description": "Connected to the Day 17 study on Proverbs 10 and the contrast between the righteous and the wicked. The mouth of the righteous is a fountain of life. As a couple, examine how your words either build up or tear down your marriage.",
+    "file": null,
+    "duration": "6:00",
+    "durationSecs": 360,
+    "date": "2026-03-17",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "words",
+      "righteousness"
+    ],
+    "reflectionPrompt": "How do we speak to each other — especially in moments of frustration or disagreement? What would it look like for our words to always be a fountain of life to one another?",
+    "prayerFocus": "Pray over your words as a couple. Ask God to make your mouths a source of encouragement, truth, and grace — especially in the difficult moments."
+  },
+  {
+    "id": 318,
+    "title": "The Gift of Contentment",
+    "subtitle": "Day 18 — Couples Devotional",
+    "description": "Connected to the Day 18 study on contentment from Thomas Watson. Watson called contentment a 'rare jewel.' In a culture that constantly tells you to want more, learn as a couple to find deep satisfaction in what God has already given you.",
+    "file": null,
+    "duration": "6:30",
+    "durationSecs": 390,
+    "date": "2026-03-18",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "contentment",
+      "watson",
+      "gratitude"
+    ],
+    "reflectionPrompt": "Where are we most tempted to be discontent — in our finances, our circumstances, or our relationship? What would it look like to practice genuine contentment together?",
+    "prayerFocus": "Thank God for the blessings He has given your marriage. Pray for contented hearts that rest in His provision and refuse the lie that more things will bring more joy."
+  },
+  {
+    "id": 319,
+    "title": "Walking in Integrity Together",
+    "subtitle": "Day 19 — Couples Devotional",
+    "description": "Connected to the Day 19 study on Proverbs 11 and integrity. Integrity means wholeness — being the same person in private as in public. As a couple, commit to building a marriage marked by honesty, transparency, and trustworthiness.",
+    "file": null,
+    "duration": "5:45",
+    "durationSecs": 345,
+    "date": "2026-03-19",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "integrity",
+      "honesty"
+    ],
+    "reflectionPrompt": "Is there anything we have been hiding from each other — fears, failures, or struggles? How can we create a safe space in our marriage for complete honesty?",
+    "prayerFocus": "Pray for integrity in your marriage. Ask God to remove any masks or pretenses and to build a relationship rooted in truth, safety, and trust."
+  },
+  {
+    "id": 320,
+    "title": "Character in the Ordinary Days",
+    "subtitle": "Day 20 — Couples Devotional",
+    "description": "Connected to the Day 20 study on Proverbs 12 and character in daily life. Marriage is built not in grand gestures but in the thousand small moments of faithfulness. Explore how godly character shapes the everyday rhythms of your life together.",
+    "file": null,
+    "duration": "5:15",
+    "durationSecs": 315,
+    "date": "2026-03-20",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "character",
+      "daily-life"
+    ],
+    "reflectionPrompt": "In the ordinary routines of our day — morning, meals, evening — how can we be more intentional about showing love and building godly character together?",
+    "prayerFocus": "Pray for faithfulness in the small things. Ask God to help you see every ordinary moment as an opportunity to love each other well and to reflect His character."
+  },
+  {
+    "id": 321,
+    "title": "A Puritan Home",
+    "subtitle": "Day 21 — Couples Devotional",
+    "description": "Connected to the Day 21 study on Puritan daily life. The Puritans saw the home as a little church — a sacred place where God was honored in every meal, every conversation, and every task. Reimagine your home as a place set apart for God's glory.",
+    "file": null,
+    "duration": "7:00",
+    "durationSecs": 420,
+    "date": "2026-03-21",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "puritan",
+      "home",
+      "worship"
+    ],
+    "reflectionPrompt": "What would it look like for our home to be a 'little church'? How can we make our daily routines — meals, mornings, evenings — more intentionally God-honoring?",
+    "prayerFocus": "Dedicate your home to God. Pray that every room, every conversation, and every meal would be touched by His presence and used for His glory."
+  },
+  {
+    "id": 322,
+    "title": "Choosing Our Companions Wisely",
+    "subtitle": "Day 22 — Couples Devotional",
+    "description": "Connected to the Day 22 study on Proverbs 13 and walking with the wise. The friendships you keep as a couple shape the health of your marriage. Learn to surround yourselves with people who will strengthen your faith and encourage your love.",
+    "file": null,
+    "duration": "6:00",
+    "durationSecs": 360,
+    "date": "2026-03-22",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "friendship",
+      "community"
+    ],
+    "reflectionPrompt": "Who are the wise people in our lives? Do we have friendships with other godly couples who challenge and encourage us? How can we build deeper community?",
+    "prayerFocus": "Pray for godly friendships. Ask God to surround your marriage with wise, faithful people who love Him and who will speak truth into your lives."
+  },
+  {
+    "id": 323,
+    "title": "Trusting Grace, Not Our Own Way",
+    "subtitle": "Day 23 — Couples Devotional",
+    "description": "Connected to the Day 23 study on Spurgeon and the sovereignty of grace. Grace is not something we earn — it is a gift sovereignly given. As a couple, release the burden of trying to be enough and rest together in the sufficiency of God's grace.",
+    "file": null,
+    "duration": "5:30",
+    "durationSecs": 330,
+    "date": "2026-03-23",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "spurgeon",
+      "grace",
+      "sovereignty"
+    ],
+    "reflectionPrompt": "Where do we try to earn God's approval instead of resting in His grace? How does the gospel of grace change the way we treat each other — especially when we fail?",
+    "prayerFocus": "Praise God for His sovereign grace in your marriage. Pray that you would extend grace to each other as freely as Christ has extended it to you."
+  },
+  {
+    "id": 324,
+    "title": "When Our Way Seems Right",
+    "subtitle": "Day 24 — Couples Devotional",
+    "description": "Connected to the Day 24 study on Proverbs 14 and the way that seems right. Every couple faces moments when their own logic feels certain — but God's way is higher. Learn the humility of submitting your plans and perspectives to the wisdom of God.",
+    "file": null,
+    "duration": "6:15",
+    "durationSecs": 375,
+    "date": "2026-03-24",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "humility",
+      "guidance"
+    ],
+    "reflectionPrompt": "Have there been times when we were sure we were right but later realized we were wrong? How can we cultivate humility in our decision-making as a couple?",
+    "prayerFocus": "Ask God for humility in your marriage. Pray that you would always seek His way above your own and that you would be open to correction — from Him and from each other."
+  },
+  {
+    "id": 325,
+    "title": "Chosen Together in Christ",
+    "subtitle": "Day 25 — Couples Devotional",
+    "description": "Connected to the Day 25 study on the doctrine of election from A.W. Pink. If God chose you before the foundation of the world, then your marriage is no accident. Marvel together at the truth that God sovereignly brought you together for His purposes.",
+    "file": null,
+    "duration": "7:15",
+    "durationSecs": 435,
+    "date": "2026-03-25",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "election",
+      "pink",
+      "sovereignty"
+    ],
+    "reflectionPrompt": "How does the doctrine of election change the way we view our marriage? If God chose us in Christ before the world began, what does that say about His purpose for us together?",
+    "prayerFocus": "Thank God for choosing you — individually in Christ and together as a couple. Pray that your marriage would fulfill the purposes He ordained for it before time began."
+  },
+  {
+    "id": 326,
+    "title": "A Gentle Answer Turns Away Wrath",
+    "subtitle": "Day 26 — Couples Devotional",
+    "description": "Connected to the Day 26 study on Proverbs 15 and the gentle answer. In marriage, the way you respond to each other matters deeply. A harsh word stirs up anger, but a gentle answer can heal wounds and draw you closer together.",
+    "file": null,
+    "duration": "5:45",
+    "durationSecs": 345,
+    "date": "2026-03-26",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "gentleness",
+      "communication"
+    ],
+    "reflectionPrompt": "When was the last time a gentle response defused a tense moment between us? How can we practice responding to each other with softness — even when we feel hurt or frustrated?",
+    "prayerFocus": "Pray for gentle tongues and patient hearts. Ask God to slow your reactions and to fill your responses with grace, especially in moments of conflict."
+  },
+  {
+    "id": 327,
+    "title": "Letting the Lord Direct Our Steps",
+    "subtitle": "Day 27 — Couples Devotional",
+    "description": "Connected to the Day 27 study on Proverbs 16 and the Lord directing our steps. You may plan your way as a couple, but ultimately it is the Lord who establishes your path. Learn to hold your plans with open hands and follow wherever He leads.",
+    "file": null,
+    "duration": "6:30",
+    "durationSecs": 390,
+    "date": "2026-03-27",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "guidance",
+      "surrender"
+    ],
+    "reflectionPrompt": "What plans or dreams are we holding onto tightly right now? How can we open our hands and invite God to redirect our steps if His plan is different from ours?",
+    "prayerFocus": "Surrender your plans to the Lord as a couple. Pray for the willingness to follow His leading, even when it means letting go of your own expectations."
+  },
+  {
+    "id": 328,
+    "title": "Justified Together by Faith",
+    "subtitle": "Day 28 — Couples Devotional",
+    "description": "Connected to the Day 28 study on justification by faith alone. The same gospel that saves you individually is the gospel that sustains your marriage. When you remember that you are both justified sinners, you can love each other with patience, forgiveness, and grace.",
+    "file": null,
+    "duration": "7:00",
+    "durationSecs": 420,
+    "date": "2026-03-28",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "justification",
+      "faith",
+      "gospel"
+    ],
+    "reflectionPrompt": "How does knowing that we are both justified by faith — not by works — change the way we treat each other? Are there areas where we need to extend more forgiveness?",
+    "prayerFocus": "Thank God for the gift of justification by faith alone. Pray that the gospel would be the foundation of your marriage — freeing you to forgive, to be patient, and to love without conditions."
+  },
+  {
+    "id": 329,
+    "title": "The Blessing of True Friendship",
+    "subtitle": "Day 29 — Couples Devotional",
+    "description": "Connected to the Day 29 study on Proverbs 17 and friendship. The deepest marriages are built on genuine friendship. Beyond romance, God calls you to be each other's closest companion — loyal, present, and loving at all times.",
+    "file": null,
+    "duration": "5:15",
+    "durationSecs": 315,
+    "date": "2026-03-29",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "friendship",
+      "companionship"
+    ],
+    "reflectionPrompt": "Are we truly best friends? What activities, conversations, or habits help us enjoy each other's company? How can we strengthen the friendship at the heart of our marriage?",
+    "prayerFocus": "Thank God for the gift of friendship in your marriage. Pray for delight in each other's company and for the kind of loyal love that endures through every season."
+  },
+  {
+    "id": 330,
+    "title": "Our Strong Tower",
+    "subtitle": "Day 30 — Couples Devotional",
+    "description": "Connected to the Day 30 study on Proverbs 18 and the strong tower. The name of the Lord is a strong tower — the righteous run into it and are safe. As a couple, make God your refuge in every storm, every trial, and every season of uncertainty.",
+    "file": null,
+    "duration": "6:45",
+    "durationSecs": 405,
+    "date": "2026-03-30",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "proverbs",
+      "refuge",
+      "security"
+    ],
+    "reflectionPrompt": "When life feels overwhelming, where do we run for safety? Do we run to God first, or do we turn to other comforts? How can we make the Lord our strong tower as a couple?",
+    "prayerFocus": "Run to God together right now. Bring any burdens, fears, or trials before Him and declare that He is your strong tower — your refuge and your safety."
+  },
+  {
+    "id": 331,
+    "title": "Looking Back, Pressing Forward",
+    "subtitle": "Day 31 — Couples Devotional",
+    "description": "Connected to the Day 31 month review and reflection. As March draws to a close, take time as a couple to look back on all God has taught you, the growth He has brought, and the grace He has shown. Then set your faces forward together toward the next season He has prepared.",
+    "file": null,
+    "duration": "7:30",
+    "durationSecs": 450,
+    "date": "2026-03-31",
+    "series": "Together",
+    "section": "together",
+    "tags": [
+      "couples",
+      "reflection",
+      "gratitude",
+      "growth"
+    ],
+    "reflectionPrompt": "What is the most important thing God has taught us as a couple this month? How have we grown closer to Him and to each other? What do we want to carry forward into the next season?",
+    "prayerFocus": "Thank God for His faithfulness throughout this month. Praise Him for every lesson, every conversation, and every moment of growth. Pray for continued grace and unity as you step into the next season together."
   }
 ]
