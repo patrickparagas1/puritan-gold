@@ -44,8 +44,14 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // For app shell, cache first
+  // Network-first for app shell files (so updates appear faster)
   event.respondWith(
-    caches.match(event.request).then(cached => cached || fetch(event.request))
+    fetch(event.request)
+      .then(response => {
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+        return response;
+      })
+      .catch(() => caches.match(event.request))
   );
 });
