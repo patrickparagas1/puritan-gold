@@ -3,6 +3,8 @@ const App = {
   audio: new Audio(),
   currentEp: null,
   currentView: 'episodes',
+  speeds: [0.75, 1, 1.25, 1.5, 1.75, 2],
+  speedIndex: 1,
 
   async init() {
     await this.loadEpisodes();
@@ -55,23 +57,37 @@ const App = {
 
       const listened = this.isListened(ep.id);
       const seriesClass = this.getSeriesClass(ep.series);
-      const dayLabel = this.getDayLabel(ep.id);
+      const dateStr = this.formatDate(ep.date);
+      const dayName = this.getDayName(ep.date);
+      const summary = ep.description || ep.subtitle || '';
 
       html += `
-        <div class="episode-card ${listened ? 'listened' : ''}" data-id="${ep.id}" onclick="App.playEpisode(${ep.id})">
-          <div class="ep-number" id="ep-num-${ep.id}">${dayLabel}</div>
-          <div class="ep-info">
+        <div class="episode-card ${listened ? 'listened' : ''}" data-id="${ep.id}">
+          <div class="ep-left" onclick="App.playEpisode(${ep.id})">
+            <div class="ep-number" id="ep-num-${ep.id}">${ep.id}</div>
+            <div class="ep-date">${dayName}</div>
+          </div>
+          <div class="ep-info" onclick="App.playEpisode(${ep.id})">
             <div class="ep-title">${ep.title}</div>
             <div class="ep-subtitle">${ep.subtitle || ''}</div>
             <div class="ep-meta">
               <span class="ep-series-badge ${seriesClass}">${ep.series || 'General'}</span>
-              ${ep.duration} min
+              <span class="ep-duration">${ep.duration}</span>
             </div>
+            <div class="ep-summary" id="summary-${ep.id}">${summary}</div>
+          </div>
+          <div class="ep-actions">
+            <button class="info-btn" onclick="event.stopPropagation(); App.toggleSummary(${ep.id})">i</button>
           </div>
         </div>`;
     });
 
     container.innerHTML = html;
+  },
+
+  toggleSummary(id) {
+    const el = document.getElementById('summary-' + id);
+    if (el) el.classList.toggle('visible');
   },
 
   renderSchedule() {
@@ -89,18 +105,26 @@ const App = {
       1: 'Wisdom Begins — Proverbs 1-4 & Spurgeon',
       2: 'Walking in Righteousness — Proverbs 5-8 & A.W. Pink',
       3: 'The Fear of the Lord — Proverbs 9-12 & Puritan Doctrine',
-      4: 'Living Wisely — Proverbs 13-16 & Practical Theology'
+      4: 'Living Wisely — Proverbs 13-16 & Practical Theology',
+      5: 'Pressing On — Proverbs 17-18 & Review'
     };
 
-    Object.keys(weeks).sort((a,b) => a-b).forEach(w => {
-      const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+    Object.keys(weeks).sort((a, b) => a - b).forEach(w => {
       html += `<div class="schedule-week">
         <div class="schedule-week-title">Week ${w}: ${weekThemes[w] || ''}</div>`;
-      weeks[w].forEach((ep, i) => {
+      weeks[w].forEach(ep => {
         const listened = this.isListened(ep.id);
-        html += `<div class="schedule-day" onclick="App.playEpisode(${ep.id})" style="cursor:pointer;opacity:${listened ? 0.5 : 1}">
-          <div class="schedule-day-label">${days[i] || ''}</div>
-          <div class="schedule-day-title">${listened ? '✓ ' : ''}${ep.title}</div>
+        const d = new Date(ep.date + 'T12:00:00');
+        const dayNum = d.getDate();
+        const dayName = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()];
+
+        html += `<div class="schedule-day ${listened ? 'listened' : ''}" onclick="App.playEpisode(${ep.id})">
+          <div class="schedule-day-date">
+            <div class="schedule-day-num">${dayNum}</div>
+            <div class="schedule-day-name">${dayName}</div>
+          </div>
+          <div class="schedule-day-title">${listened ? '&#10003; ' : ''}${ep.title}</div>
+          <div class="schedule-day-series">${ep.series || ''}</div>
         </div>`;
       });
       html += '</div>';
@@ -119,7 +143,6 @@ const App = {
       progressFill.style.width = pct + '%';
       document.querySelector('.player-time').textContent =
         this.formatTime(this.audio.currentTime) + ' / ' + this.formatTime(this.audio.duration);
-      // Save position every 5 seconds
       if (this.currentEp && Math.floor(this.audio.currentTime) % 5 === 0) {
         this.savePosition(this.currentEp.id, this.audio.currentTime);
       }
@@ -129,7 +152,6 @@ const App = {
       this.markListened(this.currentEp.id);
       this.renderEpisodes();
       this.renderSchedule();
-      // Auto-play next
       const nextId = this.currentEp.id + 1;
       const next = this.episodes.find(e => e.id === nextId);
       if (next) this.playEpisode(nextId);
@@ -149,24 +171,18 @@ const App = {
 
     this.currentEp = ep;
     this.audio.src = '../' + ep.file;
+    this.audio.playbackRate = this.speeds[this.speedIndex];
 
-    // Restore saved position
     const saved = this.getPosition(id);
-    if (saved > 0) {
-      this.audio.currentTime = saved;
-    }
+    if (saved > 0) this.audio.currentTime = saved;
 
     this.audio.play();
 
-    // Update UI
     document.querySelector('.player-bar').classList.add('visible');
     document.querySelector('.player-title').textContent = ep.title;
     document.querySelector('.player-time').textContent = '0:00 / ' + ep.duration;
-
-    // Update play button
     this.updatePlayButton(true);
 
-    // Highlight current card
     document.querySelectorAll('.episode-card').forEach(c => c.classList.remove('playing'));
     document.querySelectorAll('.ep-number').forEach(n => n.classList.remove('playing-indicator'));
     const card = document.querySelector(`.episode-card[data-id="${id}"]`);
@@ -175,7 +191,6 @@ const App = {
       card.querySelector('.ep-number').classList.add('playing-indicator');
     }
 
-    // MediaSession API for lock screen controls
     if ('mediaSession' in navigator) {
       navigator.mediaSession.metadata = new MediaMetadata({
         title: ep.title,
@@ -207,20 +222,35 @@ const App = {
       : '<svg class="icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>';
   },
 
+  cycleSpeed() {
+    this.speedIndex = (this.speedIndex + 1) % this.speeds.length;
+    const speed = this.speeds[this.speedIndex];
+    this.audio.playbackRate = speed;
+    document.querySelector('.speed-btn').textContent = speed + 'x';
+    localStorage.setItem('speed', this.speedIndex.toString());
+  },
+
   skipBack() {
     this.audio.currentTime = Math.max(0, this.audio.currentTime - 15);
   },
 
   skipForward() {
-    this.audio.currentTime = Math.min(this.audio.duration, this.audio.currentTime + 30);
+    this.audio.currentTime = Math.min(this.audio.duration || 0, this.audio.currentTime + 30);
   },
 
   // Helpers
   getWeekNumber(id) { return Math.ceil(id / 7); },
 
-  getDayLabel(id) {
-    const days = ['M','T','W','T','F','S','S'];
-    return days[(id - 1) % 7] || id;
+  getDayName(dateStr) {
+    if (!dateStr) return '';
+    const d = new Date(dateStr + 'T12:00:00');
+    return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()] || '';
+  },
+
+  formatDate(dateStr) {
+    if (!dateStr) return '';
+    const d = new Date(dateStr + 'T12:00:00');
+    return `Mar ${d.getDate()}`;
   },
 
   getSeriesClass(series) {
@@ -247,12 +277,17 @@ const App = {
   getPosition(id) { return parseFloat(localStorage.getItem('pos_' + id) || '0'); },
 
   saveState() {
-    if (this.currentEp) {
-      localStorage.setItem('lastEp', this.currentEp.id.toString());
-    }
+    if (this.currentEp) localStorage.setItem('lastEp', this.currentEp.id.toString());
   },
 
   restoreState() {
+    // Restore speed
+    const savedSpeed = parseInt(localStorage.getItem('speed') || '1');
+    if (savedSpeed >= 0 && savedSpeed < this.speeds.length) {
+      this.speedIndex = savedSpeed;
+      document.querySelector('.speed-btn').textContent = this.speeds[this.speedIndex] + 'x';
+    }
+
     const lastId = parseInt(localStorage.getItem('lastEp') || '0');
     if (lastId) {
       const ep = this.episodes.find(e => e.id === lastId);

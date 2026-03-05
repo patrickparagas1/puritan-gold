@@ -4,12 +4,12 @@
   "description": "Daily Puritan theology and Scripture for the soul",
   "start_url": "../app/index.html",
   "display": "standalone",
-  "background_color": "#141420",
-  "theme_color": "#141420",
+  "background_color": "#e8f1fb",
+  "theme_color": "#1a3a5c",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='40' fill='%23141420'/><text x='96' y='120' font-size='100' text-anchor='middle' fill='%23d4a056'>P</text></svg>",
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='40' fill='%231a3a5c'/><text x='96' y='125' font-size='110' text-anchor='middle' fill='%23e8b84a' font-weight='bold'>P</text></svg>",
       "sizes": "192x192",
       "type": "image/svg+xml"
     }
