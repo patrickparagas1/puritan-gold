@@ -1,3 +1,40 @@
+// ═══════════════════════════════════════════════════════════════
+// PURITAN SYSTEM PROMPT (for Claude AI chat)
+// ═══════════════════════════════════════════════════════════════
+const PURITAN_SYSTEM_PROMPT = `You are a warm, wise Puritan pastor in the tradition of Richard Baxter, Matthew Henry, and Thomas Watson. You serve as the spiritual counselor within the "Puritan Gold" devotional app.
+
+Your character:
+- You speak with pastoral warmth and theological depth
+- You occasionally use "thee," "thou," and "thy" but keep language accessible
+- You reference Scripture frequently, quoting from the King James Version
+- You draw on Puritan authors: John Owen, Richard Baxter, Thomas Watson, Thomas Brooks, Jonathan Edwards, John Bunyan, Charles Spurgeon, Matthew Henry
+- You are Reformed in theology: you affirm the sovereignty of God, justification by faith alone, the authority of Scripture, covenant theology, and the Westminster Standards
+- You are deeply practical — you connect theology to daily living, marriage, parenting, work, and devotional life
+
+Your tone:
+- Pastoral and encouraging, never harsh or condemning
+- You treat every question with dignity and seriousness
+- You point people to Christ in every answer
+- You balance doctrinal precision with spiritual warmth
+- Your responses are substantive (2-4 paragraphs) but not overly academic
+
+Areas of expertise:
+- Reformed theology and the doctrines of grace
+- Puritan devotional practices (prayer, meditation, self-examination)
+- Scripture exposition (especially Proverbs, Psalms, Romans, Ephesians)
+- Family worship and household godliness
+- Marriage and parenting from a biblical perspective
+- The Christian life: sanctification, assurance, dealing with sin, spiritual growth
+- Church history, especially the Puritan era (1550-1700)
+- Practical wisdom for daily living
+
+When answering:
+- Always include at least one Scripture reference
+- Reference at least one Puritan author when relevant
+- End with a brief prayer or blessing when appropriate
+- Keep responses focused and practical
+- If asked about the app or episodes, you can reference "Puritan Gold" content`;
+
 const App = {
   // ── State ──
   episodes: [],
@@ -20,6 +57,8 @@ const App = {
   chatAudioEnabled: true,
   _lastResponseId: null,
   _recentResponseIds: [],
+  _aiConversation: [],  // conversation history for Claude AI
+  _streaming: false,     // whether AI is currently streaming
 
   // ── Initialize ──
   async init() {
@@ -177,6 +216,7 @@ const App = {
           </div>
           <div class="ep-actions">
             <button class="info-btn" onclick="event.stopPropagation(); App.toggleSummary(${ep.id})">i</button>
+            <button class="share-btn" onclick="event.stopPropagation(); App.shareEpisode(${ep.id})" title="Share">🔗</button>
           </div>
           ${progress > 0 || listened ? `<div class="ep-progress ${listened ? 'done' : ''}"><div class="ep-progress-fill" style="width:${listened ? 100 : progress}%"></div></div>` : ''}
         </div>`;
@@ -230,6 +270,11 @@ const App = {
                     onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
               ${hasAudio ? `▶ Play (${ep.duration})` : '🔜 Audio Coming Soon'}
             </button>
+            <div class="card-action-btns">
+              ${hasAudio ? `<button class="dl-btn" onclick="App.downloadAudio(${ep.id})" title="Download Audio">⬇️</button>` : ''}
+              <button class="dl-btn" onclick="App.downloadScript(${ep.id})" title="Download Script">📄</button>
+              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share">🔗</button>
+            </div>
           </div>
         </div>`;
     });
@@ -279,13 +324,19 @@ const App = {
         const done = this.isListened(ep.id);
         const hasAudio = ep.file !== null;
         html += `
-          <div class="school-lesson" onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
-            <div class="school-lesson-num ${done ? 'done' : ''}">${done ? '✓' : ep.lessonNumber || '?'}</div>
-            <div class="school-lesson-info">
+          <div class="school-lesson">
+            <div class="school-lesson-num ${done ? 'done' : ''}" onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">${done ? '✓' : ep.lessonNumber || '?'}</div>
+            <div class="school-lesson-info" onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
               <div class="school-lesson-title">${ep.title}</div>
               <div class="school-lesson-sub">${ep.subtitle || ep.description || ''}</div>
             </div>
-            <div class="school-lesson-dur">${hasAudio ? ep.duration : 'Soon'}</div>
+            <div class="school-lesson-actions">
+              <span class="school-lesson-dur">${hasAudio ? ep.duration : 'Soon'}</span>
+              <div class="card-action-btns-inline">
+                ${hasAudio ? `<button class="dl-btn-sm" onclick="event.stopPropagation(); App.downloadAudio(${ep.id})" title="Download">⬇️</button>` : ''}
+                <button class="share-btn-sm" onclick="event.stopPropagation(); App.shareEpisode(${ep.id})" title="Share">🔗</button>
+              </div>
+            </div>
           </div>`;
       });
 
@@ -337,6 +388,11 @@ const App = {
                     onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
               ${hasAudio ? `▶ Listen (${ep.duration})` : '🔜 Audio Coming Soon'}
             </button>
+            <div class="card-action-btns">
+              ${hasAudio ? `<button class="dl-btn" onclick="App.downloadAudio(${ep.id})" title="Download Audio">⬇️</button>` : ''}
+              <button class="dl-btn" onclick="App.downloadScript(${ep.id})" title="Download Script">📄</button>
+              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share">🔗</button>
+            </div>
           </div>
         </div>`;
     });
@@ -1356,7 +1412,7 @@ const App = {
   },
 
   async sendChat(text) {
-    if (!text.trim()) return;
+    if (!text.trim() || this._streaming) return;
 
     // Hide welcome, show messages
     const welcome = document.querySelector('.chat-welcome');
@@ -1370,17 +1426,129 @@ const App = {
     const input = document.getElementById('chatInput');
     if (input) input.value = '';
 
-    // Find best response using keyword matching
-    const response = this._findBestResponse(text);
-
-    // Add the assistant response
-    this.chatMessages.push({ role: 'assistant', content: response });
-    this.renderChatMessages();
-
-    // If audio enabled, speak the response
-    if (this.chatAudioEnabled) {
-      this.speakText(response);
+    // Check for API key → AI mode, else keyword fallback
+    const apiKey = this.getApiKey();
+    if (apiKey) {
+      await this._sendAIChat(text, apiKey);
+    } else {
+      // Keyword fallback
+      const response = this._findBestResponse(text);
+      this.chatMessages.push({ role: 'assistant', content: response });
+      this.renderChatMessages();
+      if (this.chatAudioEnabled) this.speakText(response);
     }
+  },
+
+  async _sendAIChat(text, apiKey) {
+    // Add to AI conversation history
+    this._aiConversation.push({ role: 'user', content: text });
+    // Keep last 20 messages for context
+    if (this._aiConversation.length > 20) {
+      this._aiConversation = this._aiConversation.slice(-20);
+    }
+
+    // Add streaming placeholder
+    this.chatMessages.push({ role: 'assistant', content: '', streaming: true });
+    this.renderChatMessages();
+    this._streaming = true;
+
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true'
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1024,
+          system: PURITAN_SYSTEM_PROMPT,
+          messages: this._aiConversation,
+          stream: true
+        })
+      });
+
+      if (!response.ok) {
+        const err = await response.text();
+        throw new Error(`API error ${response.status}: ${err}`);
+      }
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let fullText = '';
+      let buffer = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop(); // keep incomplete line
+
+        for (const line of lines) {
+          if (line.startsWith('data: ')) {
+            const data = line.slice(6);
+            if (data === '[DONE]') continue;
+            try {
+              const parsed = JSON.parse(data);
+              if (parsed.type === 'content_block_delta' && parsed.delta?.text) {
+                fullText += parsed.delta.text;
+                // Update the last message in place
+                this.chatMessages[this.chatMessages.length - 1].content = fullText;
+                this._updateStreamingMessage(fullText);
+              }
+            } catch (e) {
+              // ignore parse errors on non-JSON lines
+            }
+          }
+        }
+      }
+
+      // Finalize
+      this.chatMessages[this.chatMessages.length - 1].streaming = false;
+      this._aiConversation.push({ role: 'assistant', content: fullText });
+      this.renderChatMessages();
+
+      // Speak if audio enabled
+      if (this.chatAudioEnabled && fullText) {
+        this.speakText(fullText);
+      }
+
+    } catch (err) {
+      console.error('AI Chat error:', err);
+      // Remove streaming placeholder
+      this.chatMessages.pop();
+      // Fall back to keyword matching
+      const fallback = this._findBestResponse(text);
+      this.chatMessages.push({ role: 'assistant', content: `${fallback}\n\n_(AI unavailable — using offline mode)_` });
+      this.renderChatMessages();
+      if (this.chatAudioEnabled) this.speakText(fallback);
+    } finally {
+      this._streaming = false;
+    }
+  },
+
+  _updateStreamingMessage(text) {
+    const container = document.getElementById('chatMessages');
+    if (!container) return;
+    const bubbles = container.querySelectorAll('.chat-assistant');
+    const last = bubbles[bubbles.length - 1];
+    if (last) {
+      last.innerHTML = this._formatChatText(text) + '<span class="streaming-cursor">▊</span>';
+      container.scrollTop = container.scrollHeight;
+    }
+  },
+
+  _formatChatText(text) {
+    // Basic markdown-ish formatting
+    return this.escapeHtml(text)
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      .replace(/_(.*?)_/g, '<em>$1</em>')
+      .replace(/\n/g, '<br>');
   },
 
   sendChatFromInput() {
@@ -1395,9 +1563,14 @@ const App = {
     if (!container) return;
 
     let html = '';
-    for (const msg of this.chatMessages) {
+    for (let i = 0; i < this.chatMessages.length; i++) {
+      const msg = this.chatMessages[i];
       const cls = msg.role === 'user' ? 'chat-user' : 'chat-assistant';
-      html += `<div class="chat-bubble ${cls}">${this.escapeHtml(msg.content)}</div>`;
+      const content = msg.role === 'assistant' ? this._formatChatText(msg.content) : this.escapeHtml(msg.content);
+      const cursor = msg.streaming ? '<span class="streaming-cursor">▊</span>' : '';
+      const shareBtn = msg.role === 'assistant' && !msg.streaming && msg.content ?
+        `<button class="chat-share-btn" onclick="App.shareChatMessage(App.chatMessages[${i}].content)" title="Share">🔗</button>` : '';
+      html += `<div class="chat-bubble ${cls}">${content}${cursor}${shareBtn}</div>`;
     }
 
     container.innerHTML = html;
@@ -1430,6 +1603,154 @@ const App = {
     const maleVoice = voices.find(v => v.name.includes('Daniel') || v.name.includes('Male') || v.name.includes('en-GB'));
     if (maleVoice) utterance.voice = maleVoice;
     window.speechSynthesis.speak(utterance);
+  },
+
+  // ── Download & Share ──
+  downloadAudio(id) {
+    const ep = this.allEpisodes.find(e => e.id === id);
+    if (!ep || !ep.file) {
+      this.showToast('Audio not available yet');
+      return;
+    }
+    const a = document.createElement('a');
+    a.href = '../' + ep.file;
+    a.download = ep.file.split('/').pop();
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    this.showToast('Downloading audio...');
+  },
+
+  downloadScript(id) {
+    const ep = this.allEpisodes.find(e => e.id === id);
+    if (!ep) return;
+    // Determine script filename based on section and id
+    let scriptFile;
+    if (ep.section === 'family') scriptFile = `scripts/family_${id}.txt`;
+    else if (ep.section === 'school') scriptFile = `scripts/school_${id}.txt`;
+    else if (ep.section === 'together') scriptFile = `scripts/together_${id}.txt`;
+    else scriptFile = `scripts/ep${String(id).padStart(3, '0')}.txt`;
+
+    const a = document.createElement('a');
+    a.href = '../' + scriptFile;
+    a.download = scriptFile.split('/').pop();
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    this.showToast('Downloading script...');
+  },
+
+  async shareEpisode(id) {
+    const ep = this.allEpisodes.find(e => e.id === id);
+    if (!ep) return;
+
+    const appUrl = 'https://patrickparagas1.github.io/puritan-gold/app/';
+    let shareText = `📖 ${ep.title}`;
+    if (ep.subtitle) shareText += ` — ${ep.subtitle}`;
+    shareText += `\n\n`;
+    if (ep.description) shareText += ep.description.substring(0, 200) + '\n\n';
+    shareText += `Listen on Puritan Gold: ${appUrl}`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: ep.title, text: shareText, url: appUrl });
+      } catch (e) {
+        // User cancelled or error
+      }
+    } else {
+      // Desktop fallback: copy to clipboard
+      try {
+        await navigator.clipboard.writeText(shareText);
+        this.showToast('Copied to clipboard!');
+      } catch (e) {
+        this.showToast('Could not share');
+      }
+    }
+  },
+
+  async shareChatMessage(text) {
+    const shareText = `🙏 From "Ask a Puritan" (Puritan Gold):\n\n${text}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: 'Ask a Puritan', text: shareText });
+      } catch (e) {}
+    } else {
+      try {
+        await navigator.clipboard.writeText(shareText);
+        this.showToast('Copied to clipboard!');
+      } catch (e) {
+        this.showToast('Could not copy');
+      }
+    }
+  },
+
+  showToast(message) {
+    let toast = document.getElementById('toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'toast';
+      toast.className = 'toast';
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.add('visible');
+    clearTimeout(this._toastTimer);
+    this._toastTimer = setTimeout(() => toast.classList.remove('visible'), 2500);
+  },
+
+  // ── AI Chat Settings ──
+  getApiKey() {
+    return localStorage.getItem('puritan_api_key') || '';
+  },
+
+  saveApiKey(key) {
+    if (key && key.trim()) {
+      localStorage.setItem('puritan_api_key', key.trim());
+      this.showToast('API key saved');
+    }
+    this.closeSettings();
+  },
+
+  clearApiKey() {
+    localStorage.removeItem('puritan_api_key');
+    this._aiConversation = [];
+    this.showToast('API key removed');
+    this.closeSettings();
+  },
+
+  openSettings() {
+    const modal = document.getElementById('settingsModal');
+    if (modal) {
+      modal.classList.add('open');
+      const input = document.getElementById('apiKeyInput');
+      if (input) input.value = this.getApiKey();
+    }
+  },
+
+  closeSettings() {
+    const modal = document.getElementById('settingsModal');
+    if (modal) modal.classList.remove('open');
+  },
+
+  clearChatHistory() {
+    this.chatMessages = [];
+    this._aiConversation = [];
+    const container = document.getElementById('chatMessages');
+    if (container) {
+      container.innerHTML = `
+        <div class="chat-welcome">
+          <div class="chat-welcome-icon">P</div>
+          <h3>Ask a Puritan</h3>
+          <p>Ask questions about Reformed theology, the Puritans, Scripture, and the Christian life.</p>
+          <div class="chat-suggestions">
+            <button class="chat-suggestion" onclick="App.askSuggestion(this)"><span class="suggestion-icon">✝️</span><span class="suggestion-text">What is justification by faith?</span></button>
+            <button class="chat-suggestion" onclick="App.askSuggestion(this)"><span class="suggestion-icon">🙏</span><span class="suggestion-text">How did the Puritans pray?</span></button>
+            <button class="chat-suggestion" onclick="App.askSuggestion(this)"><span class="suggestion-icon">📜</span><span class="suggestion-text">Explain covenant theology</span></button>
+            <button class="chat-suggestion" onclick="App.askSuggestion(this)"><span class="suggestion-icon">👨‍👩‍👧</span><span class="suggestion-text">How to lead family worship?</span></button>
+          </div>
+        </div>`;
+    }
+    this.showToast('Chat cleared');
   },
 
   // ── Media Session (Lock Screen Controls) ──

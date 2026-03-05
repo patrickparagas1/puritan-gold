@@ -122,6 +122,8 @@
           <button class="chat-send-btn" id="chatSendBtn" onclick="App.sendChatFromInput()" aria-label="Send">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
           </button>
+          <button class="chat-clear-btn" onclick="App.clearChatHistory()" aria-label="Clear chat" title="Clear chat">🗑️</button>
+          <button class="chat-settings-btn" onclick="App.openSettings()" aria-label="Settings" title="AI Settings">⚙️</button>
         </div>
       </section>
 
@@ -234,6 +236,23 @@
       <button class="modal-opt" onclick="App.setSleep(-1)">End of episode</button>
       <button class="modal-opt cancel" id="sleepCancelBtn" onclick="App.setSleep(0)">Cancel Timer</button>
       <button class="modal-opt done" onclick="App.closeSleepModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal-bg" id="settingsModal" onclick="App.closeSettings()">
+    <div class="modal settings-modal" onclick="event.stopPropagation()">
+      <h3 class="modal-h">⚙️ AI Settings</h3>
+      <p class="settings-desc">Enter your Anthropic API key to enable AI-powered responses. Without a key, the app uses offline keyword matching.</p>
+      <div class="settings-input-row">
+        <input type="password" id="apiKeyInput" placeholder="sk-ant-..." class="settings-input">
+      </div>
+      <p class="settings-privacy">🔒 Your key is stored only on this device and never sent anywhere except Anthropic's API.</p>
+      <div class="settings-actions">
+        <button class="modal-opt" onclick="App.saveApiKey(document.getElementById('apiKeyInput').value)">Save Key</button>
+        <button class="modal-opt cancel" onclick="App.clearApiKey()">Remove Key</button>
+        <button class="modal-opt done" onclick="App.closeSettings()">Close</button>
+      </div>
     </div>
   </div>
 

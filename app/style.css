@@ -2201,3 +2201,214 @@ html, body {
 :focus:not(:focus-visible) {
   outline: none;
 }
+
+/* ══════════ DOWNLOAD & SHARE BUTTONS ══════════ */
+.card-action-btns {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.card-action-btns-inline {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.dl-btn,
+.share-btn {
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid rgba(53,116,204,0.1);
+  border-radius: 12px;
+  background: var(--bg2);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s var(--ease-out);
+}
+
+.dl-btn:active,
+.share-btn:active {
+  transform: scale(0.92);
+  background: var(--blue-pale);
+}
+
+.dl-btn-sm,
+.share-btn-sm {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s var(--ease-out);
+  opacity: 0.6;
+}
+
+.dl-btn-sm:hover,
+.share-btn-sm:hover {
+  opacity: 1;
+  background: var(--bg2);
+}
+
+.dl-btn-sm:active,
+.share-btn-sm:active {
+  transform: scale(0.9);
+}
+
+.ep-actions .share-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 14px;
+  opacity: 0.5;
+  margin-top: 4px;
+}
+
+.ep-actions .share-btn:hover {
+  opacity: 1;
+  background: var(--bg2);
+}
+
+.school-lesson-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* ══════════ SETTINGS MODAL ══════════ */
+.settings-modal {
+  padding: 28px 24px 24px;
+}
+
+.settings-desc {
+  font-size: 13px;
+  color: var(--text3);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.settings-input-row {
+  margin-bottom: 12px;
+}
+
+.settings-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid rgba(53,116,204,0.12);
+  border-radius: 14px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  font-family: monospace;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.settings-input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(53,116,204,0.1);
+}
+
+.settings-input::placeholder {
+  color: var(--text3);
+  font-family: monospace;
+}
+
+.settings-privacy {
+  font-size: 12px;
+  color: var(--text3);
+  text-align: center;
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+
+.settings-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ══════════ CHAT BUTTONS (Clear & Settings) ══════════ */
+.chat-clear-btn,
+.chat-settings-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: var(--bg2);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s var(--ease-out);
+}
+
+.chat-clear-btn:active,
+.chat-settings-btn:active {
+  opacity: 0.75;
+  transform: scale(0.92);
+}
+
+/* ══════════ STREAMING CURSOR ══════════ */
+.streaming-cursor {
+  display: inline;
+  animation: blink 0.8s infinite;
+  color: var(--gold-bright);
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ══════════ CHAT SHARE BUTTON ══════════ */
+.chat-share-btn {
+  display: block;
+  margin-top: 8px;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+  float: right;
+}
+
+.chat-share-btn:hover {
+  opacity: 1;
+}
+
+.chat-bubble.chat-assistant {
+  overflow-wrap: break-word;
+}
+
+.chat-bubble.chat-assistant strong {
+  font-weight: 700;
+  color: var(--gold-bright);
+}
+
+.chat-bubble.chat-assistant em {
+  font-style: italic;
+  opacity: 0.9;
+}
