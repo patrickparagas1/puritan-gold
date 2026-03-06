@@ -82,7 +82,10 @@ const App = {
     const chatInput = document.getElementById('chatInput');
     if (chatInput) {
       chatInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') this.sendChatFromInput();
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          this.sendChatFromInput();
+        }
       });
     }
   },
@@ -896,7 +899,8 @@ const App = {
 
   // ── Chat ──
   askSuggestion(btn) {
-    const text = btn.textContent.trim();
+    const textSpan = btn.querySelector('.suggestion-text');
+    const text = textSpan ? textSpan.textContent.trim() : btn.textContent.trim();
     this.sendChat(text);
   },
 
@@ -1447,10 +1451,11 @@ const App = {
       this._aiConversation = this._aiConversation.slice(-20);
     }
 
-    // Add streaming placeholder
-    this.chatMessages.push({ role: 'assistant', content: '', streaming: true });
+    // Add streaming placeholder with thinking state
+    this.chatMessages.push({ role: 'assistant', content: '', streaming: true, thinking: true });
     this.renderChatMessages();
     this._streaming = true;
+    this._setChatInputEnabled(false);
 
     try {
       const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -1496,8 +1501,10 @@ const App = {
               const parsed = JSON.parse(data);
               if (parsed.type === 'content_block_delta' && parsed.delta?.text) {
                 fullText += parsed.delta.text;
-                // Update the last message in place
-                this.chatMessages[this.chatMessages.length - 1].content = fullText;
+                // Clear thinking state on first token
+                const lastMsg = this.chatMessages[this.chatMessages.length - 1];
+                lastMsg.content = fullText;
+                lastMsg.thinking = false;
                 this._updateStreamingMessage(fullText);
               }
             } catch (e) {
@@ -1523,12 +1530,26 @@ const App = {
       this.chatMessages.pop();
       // Fall back to keyword matching
       const fallback = this._findBestResponse(text);
-      this.chatMessages.push({ role: 'assistant', content: `${fallback}\n\n_(AI unavailable — using offline mode)_` });
+      const fallbackContent = `${fallback}\n\n_(AI unavailable — using offline mode)_`;
+      this.chatMessages.push({ role: 'assistant', content: fallbackContent });
+      // Keep conversation in sync so next AI request has correct context
+      this._aiConversation.push({ role: 'assistant', content: fallbackContent });
       this.renderChatMessages();
       if (this.chatAudioEnabled) this.speakText(fallback);
     } finally {
       this._streaming = false;
+      this._setChatInputEnabled(true);
     }
+  },
+
+  _setChatInputEnabled(enabled) {
+    const input = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('chatSendBtn');
+    if (input) {
+      input.disabled = !enabled;
+      input.placeholder = enabled ? 'Ask a question...' : 'Thinking...';
+    }
+    if (sendBtn) sendBtn.disabled = !enabled;
   },
 
   _updateStreamingMessage(text) {
@@ -1543,12 +1564,20 @@ const App = {
   },
 
   _formatChatText(text) {
-    // Basic markdown-ish formatting
-    return this.escapeHtml(text)
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\*(.*?)\*/g, '<em>$1</em>')
-      .replace(/_(.*?)_/g, '<em>$1</em>')
-      .replace(/\n/g, '<br>');
+    // Basic markdown-ish formatting with safe ordering
+    let html = this.escapeHtml(text);
+    // Bold first (** before *)
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // Italic with * (only single *, not **) — Safari-safe (no lookbehind)
+    html = html.replace(/(?:^|[^*])\*([^*]+?)\*(?=[^*]|$)/g, function(match, p1) {
+      const leading = match.charAt(0) === '*' ? '' : match.charAt(0);
+      return leading + '<em>' + p1 + '</em>';
+    });
+    // Scripture references and quotes in quotation marks — make them golden
+    html = html.replace(/&quot;(.*?)&quot;/g, '<q>$1</q>');
+    // Line breaks
+    html = html.replace(/\n/g, '<br>');
+    return html;
   },
 
   sendChatFromInput() {
@@ -1566,6 +1595,13 @@ const App = {
     for (let i = 0; i < this.chatMessages.length; i++) {
       const msg = this.chatMessages[i];
       const cls = msg.role === 'user' ? 'chat-user' : 'chat-assistant';
+
+      if (msg.thinking) {
+        // Show thinking indicator
+        html += `<div class="chat-bubble chat-assistant"><div class="thinking-dots"><span></span><span></span><span></span></div></div>`;
+        continue;
+      }
+
       const content = msg.role === 'assistant' ? this._formatChatText(msg.content) : this.escapeHtml(msg.content);
       const cursor = msg.streaming ? '<span class="streaming-cursor">▊</span>' : '';
       const shareBtn = msg.role === 'assistant' && !msg.streaming && msg.content ?
@@ -1588,14 +1624,25 @@ const App = {
     const btn = document.getElementById('chatAudioToggle');
     if (btn) {
       btn.classList.toggle('active', this.chatAudioEnabled);
-      btn.textContent = this.chatAudioEnabled ? '🔊' : '🔇';
+      btn.innerHTML = this.chatAudioEnabled
+        ? '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>';
+    }
+    // Stop any current speech when toggling off
+    if (!this.chatAudioEnabled && 'speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
     }
   },
 
   speakText(text) {
     if (!('speechSynthesis' in window)) return;
     window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
+    // Truncate very long text to avoid Web Speech API silent failures
+    const maxLen = 5000;
+    let speakable = text.length > maxLen ? text.substring(0, maxLen) + '...' : text;
+    // Strip markdown formatting for cleaner speech
+    speakable = speakable.replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1');
+    const utterance = new SpeechSynthesisUtterance(speakable);
     utterance.rate = 0.9;
     utterance.pitch = 0.95;
     // Try to use a male English voice
