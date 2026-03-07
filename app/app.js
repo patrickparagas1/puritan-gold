@@ -28,12 +28,42 @@ Areas of expertise:
 - Church history, especially the Puritan era (1550-1700)
 - Practical wisdom for daily living
 
-When answering:
-- Always include at least one Scripture reference
-- Reference at least one Puritan author when relevant
-- End with a brief prayer or blessing when appropriate
-- Keep responses focused and practical
-- If asked about the app or episodes, you can reference "Puritan Gold" content`;
+When answering — ALWAYS in this order of priority:
+1. SCRIPTURE FIRST: Ground every answer in what the Bible actually says. Quote specific verses (KJV). Show exactly where God's Word speaks to the matter. This is the foundation — never skip this.
+2. BIBLICAL LOGIC: Explain the theological reasoning — how Scripture passages connect, what systematic theology teaches on the subject, what the whole counsel of God reveals.
+3. PURITAN WISDOM: Then and only then, show what the great Puritans said. Quote specific authors and works. Show how they applied Scripture to the question.
+4. PRACTICAL APPLICATION: End with how this truth should change daily life — prayer, family, work, worship.
+
+Always include multiple Scripture references (at least 2-3). The Bible must be the primary authority in every response — Puritan quotes support Scripture, never replace it.
+End with a brief prayer or blessing when appropriate.
+If asked about the app or episodes, you can reference "Puritan Gold" content.`;
+
+const PATRICK_SYSTEM_PROMPT = `You are Pastor Gold — Patrick's personal spiritual shepherd within the Puritan Gold app. You speak in the warm, wise tradition of Richard Baxter and Matthew Henry.
+
+You know Patrick personally:
+- He is a devoted Christian father with mixed-age children
+- He is growing in Reformed theology and Puritan devotion
+- He uses Puritan Gold daily: Study (currently in Proverbs/Romans), Family devotionals with his kids, School curriculum, and Together devotionals with his wife
+- He has a "My Growth" section for deeper Puritan reading, pastoral mentoring, and theological deep-dives
+
+Your role with Patrick specifically:
+- Be his personal pastor and accountability partner
+- Ask him about his prayer life, his family worship, his marriage
+- Challenge him to go deeper — recommend specific Puritan works to read
+- Reference what he's currently studying (Proverbs in March, Romans in April)
+- Speak to him as a fellow laborer in Christ, not just a student
+- Be direct and bold in encouragement — Puritans did not mince words about holiness
+- Pray for him specifically when he shares struggles
+
+Your theology and approach are identical to the general Puritan pastor, but your tone is more intimate, more personal, more like a dear friend who loves his soul. You may say things like "Brother Patrick" or "my friend." You know his heart for his family and his desire to walk worthy of the calling.
+
+When answering — ALWAYS in this order of priority:
+1. SCRIPTURE FIRST: What does the Bible actually say? Quote specific verses (KJV). Show exactly where God's Word speaks. Multiple references (at least 2-3). This is the foundation.
+2. BIBLICAL LOGIC: Connect the passages. Show the theological reasoning. How does this fit in the whole counsel of God?
+3. PURITAN WISDOM: What did Owen, Watson, Baxter, Goodwin, Brooks say? Quote specific works. Show how they applied Scripture.
+4. PERSONAL APPLICATION: How should this change Patrick's life today — as a father, husband, man of God?
+
+The Bible is the FINAL AUTHORITY. Do extensive research in the Scriptures. Puritan quotes support Scripture, never replace it.`;
 
 const App = {
   // ── State ──
@@ -41,10 +71,11 @@ const App = {
   familyEpisodes: [],
   schoolEpisodes: [],
   togetherEpisodes: [],
+  personalEpisodes: [],
   allEpisodes: [],
   audio: new Audio(),
   currentEp: null,
-  section: 'study',       // 'study' | 'family' | 'school' | 'together' | 'ask'
+  section: 'study',       // 'study' | 'family' | 'school' | 'together' | 'personal' | 'ask'
   studyTab: 'episodes',   // sub-tab within study: 'episodes' | 'calendar'
   filter: 'all',
   speeds: [0.75, 1, 1.25, 1.5, 1.75, 2],
@@ -59,6 +90,9 @@ const App = {
   _recentResponseIds: [],
   _aiConversation: [],  // conversation history for Claude AI
   _streaming: false,     // whether AI is currently streaming
+  currentMonth: { year: 2026, month: 2 }, // 0-indexed (2 = March)
+  _monthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+  _monthAbbr: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
 
   // ── Initialize ──
   async init() {
@@ -66,11 +100,13 @@ const App = {
     this.setupBottomNav();
     this.setupTabs();
     this.setupFilters();
+    this.updateMonthLabel();
     this.renderEpisodes();
     this.renderCalendar();
     this.renderFamily();
     this.renderSchool();
     this.renderTogether();
+    this.renderPersonal();
     this.setupPlayer();
     this.setupNowPlaying();
     this.setupServiceWorker();
@@ -93,20 +129,69 @@ const App = {
   async loadEpisodes() {
     try {
       const res = await fetch('../episodes.json?' + Date.now());
-      const allEpisodes = await res.json();
-      // Separate by section
-      this.episodes = allEpisodes.filter(e => e.section === 'study' || !e.section);
-      this.familyEpisodes = allEpisodes.filter(e => e.section === 'family');
-      this.schoolEpisodes = allEpisodes.filter(e => e.section === 'school');
-      this.togetherEpisodes = allEpisodes.filter(e => e.section === 'together');
-      this.allEpisodes = allEpisodes;
+      this.allEpisodes = await res.json();
     } catch (e) {
-      this.episodes = [];
-      this.familyEpisodes = [];
-      this.schoolEpisodes = [];
-      this.togetherEpisodes = [];
       this.allEpisodes = [];
     }
+    this.applyMonthFilter();
+  },
+
+  filterByMonth(episodes) {
+    const { year, month } = this.currentMonth;
+    return episodes.filter(e => {
+      if (!e.date) return false;
+      const d = new Date(e.date + 'T12:00:00');
+      return d.getMonth() === month && d.getFullYear() === year;
+    });
+  },
+
+  applyMonthFilter() {
+    const all = this.allEpisodes;
+    this.episodes = this.filterByMonth(all.filter(e => e.section === 'study' || !e.section));
+    this.familyEpisodes = this.filterByMonth(all.filter(e => e.section === 'family'));
+    this.schoolEpisodes = this.filterByMonth(all.filter(e => e.section === 'school'));
+    this.togetherEpisodes = this.filterByMonth(all.filter(e => e.section === 'together'));
+    this.personalEpisodes = this.filterByMonth(all.filter(e => e.section === 'personal'));
+  },
+
+  updateMonthLabel() {
+    const { year, month } = this.currentMonth;
+    const label = `${this._monthNames[month]} ${year}`;
+    const el = document.getElementById('monthLabel');
+    if (el) el.textContent = label;
+    const cal = document.getElementById('calMonthLabel');
+    if (cal) cal.textContent = label;
+  },
+
+  prevMonth() {
+    let { year, month } = this.currentMonth;
+    if (month === 2 && year === 2026) return; // March 2026 is earliest
+    month--;
+    if (month < 0) { month = 11; year--; }
+    this.currentMonth = { year, month };
+    this.applyMonthFilter();
+    this.updateMonthLabel();
+    this.reRenderAll();
+  },
+
+  nextMonth() {
+    let { year, month } = this.currentMonth;
+    if (month === 3 && year === 2026) return; // April 2026 is latest for now
+    month++;
+    if (month > 11) { month = 0; year++; }
+    this.currentMonth = { year, month };
+    this.applyMonthFilter();
+    this.updateMonthLabel();
+    this.reRenderAll();
+  },
+
+  reRenderAll() {
+    this.renderEpisodes();
+    this.renderCalendar();
+    this.renderFamily();
+    this.renderSchool();
+    this.renderTogether();
+    this.renderPersonal();
   },
 
   // ── Bottom Navigation ──
@@ -253,7 +338,7 @@ const App = {
 
       html += `
         <div class="family-card ${listened ? 'listened' : ''}">
-          <div class="family-date">📅 ${dayName}, March ${d.getDate()} — Day ${ep.id - 100}</div>
+          <div class="family-date">📅 ${dayName}, ${this._monthNames[d.getMonth()]} ${d.getDate()} — Day ${ep.day || d.getDate()}</div>
           <div class="family-title">${ep.title}</div>
           <div class="family-scripture">${ep.subtitle || ''}</div>
           ${ep.memoryVerse ? `
@@ -373,7 +458,7 @@ const App = {
 
       html += `
         <div class="together-card ${listened ? 'listened' : ''}">
-          <div class="together-date">💑 ${dayName}, March ${d.getDate()}</div>
+          <div class="together-date">💑 ${dayName}, ${this._monthNames[d.getMonth()]} ${d.getDate()}</div>
           <div class="together-title">${ep.title}</div>
           ${connectedTitle ? `<div class="together-connected">Connected to: "${connectedTitle}"</div>` : ''}
           <div class="together-scripture">📖 ${ep.subtitle || 'Read together'}</div>
@@ -403,15 +488,64 @@ const App = {
     container.innerHTML = html;
   },
 
+  // ── Render Personal Growth ──
+  renderPersonal() {
+    const container = document.getElementById('personalList');
+    if (!container) return;
+
+    if (!this.personalEpisodes.length) {
+      container.innerHTML = '<div class="empty-state">Personal growth content coming soon!</div>';
+      return;
+    }
+
+    const typeBadges = { reading: '📖 Reading', pastoral: '🙏 Pastoral', theological: '🎓 Theological' };
+    const typeClasses = { reading: 'badge-reading', pastoral: 'badge-pastoral', theological: 'badge-theological' };
+
+    let html = '';
+    this.personalEpisodes.forEach(ep => {
+      const d = new Date(ep.date + 'T12:00:00');
+      const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const dayName = dayNames[d.getDay()];
+      const hasAudio = ep.file !== null;
+      const listened = this.isListened(ep.id);
+      const pType = ep.personalType || 'reading';
+      const badge = typeBadges[pType] || pType;
+      const badgeCls = typeClasses[pType] || '';
+
+      html += `
+        <div class="personal-card ${listened ? 'listened' : ''}">
+          <div class="personal-header">
+            <div class="personal-date">${dayName}, ${this._monthNames[d.getMonth()]} ${d.getDate()}</div>
+            <span class="personal-badge ${badgeCls}">${badge}</span>
+          </div>
+          <div class="personal-title">${ep.title}</div>
+          <div class="personal-subtitle">${ep.subtitle || ''}</div>
+          ${ep.description ? `<div class="personal-desc">${ep.description}</div>` : ''}
+          <div class="personal-actions">
+            <button class="personal-play-btn ${hasAudio ? '' : 'no-audio'}"
+                    onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
+              ${hasAudio ? `▶ Listen (${ep.duration})` : '🔜 Coming Soon'}
+            </button>
+            <div class="card-action-btns">
+              ${hasAudio ? `<button class="dl-btn" onclick="App.downloadAudio(${ep.id})" title="Download Audio">⬇️</button>` : ''}
+              <button class="dl-btn" onclick="App.downloadScript(${ep.id})" title="Download Script">📄</button>
+              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share">🔗</button>
+            </div>
+          </div>
+        </div>`;
+    });
+
+    container.innerHTML = html;
+  },
+
   // ── Render Calendar ──
   renderCalendar() {
     const grid = document.getElementById('calGrid');
     if (!grid) return;
 
-    // March 2026: starts on Sunday (day 0), 31 days
-    const year = 2026, month = 2; // JS months are 0-indexed
-    const firstDay = new Date(year, month, 1).getDay(); // 0 = Sunday
-    const daysInMonth = new Date(year, month + 1, 0).getDate(); // 31
+    const { year, month } = this.currentMonth;
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
     const today = new Date();
     const todayDate = today.getFullYear() === year && today.getMonth() === month ? today.getDate() : -1;
 
@@ -477,7 +611,7 @@ const App = {
     const ep = this.episodes.find(e => {
       if (!e.date) return false;
       const d = new Date(e.date + 'T12:00:00');
-      return d.getDate() === day && d.getMonth() === 2 && d.getFullYear() === 2026;
+      return d.getDate() === day && d.getMonth() === this.currentMonth.month && d.getFullYear() === this.currentMonth.year;
     });
 
     if (!ep) {
@@ -509,7 +643,7 @@ const App = {
     detail.innerHTML = `
       <div class="cal-ep-card ${isPlaying ? 'playing' : ''}" onclick="App.playEpisode(${ep.id})">
         <div class="cal-ep-header">
-          <div class="cal-ep-date">${dayName}, March ${day}</div>
+          <div class="cal-ep-date">${dayName}, ${this._monthNames[this.currentMonth.month]} ${day}</div>
           <span class="cal-ep-status ${statusClass}">${statusText}</span>
         </div>
         <div class="cal-ep-title">${ep.title}</div>
@@ -562,11 +696,7 @@ const App = {
         this.markListened(this.currentEp.id);
         this.recordListenDate();
         this.updateStreak();
-        this.renderEpisodes();
-        this.renderCalendar();
-        this.renderFamily();
-        this.renderSchool();
-        this.renderTogether();
+        this.reRenderAll();
       }
 
       // Sleep timer: end of episode
@@ -576,11 +706,16 @@ const App = {
         return;
       }
 
-      // Autoplay next
+      // Autoplay next — find next episode in the same section
       if (this.autoplay && this.currentEp) {
-        const nextId = this.currentEp.id + 1;
-        const next = this.episodes.find(e => e.id === nextId);
-        if (next) this.playEpisode(nextId);
+        const lists = [this.episodes, this.familyEpisodes, this.schoolEpisodes, this.togetherEpisodes, this.personalEpisodes];
+        for (const list of lists) {
+          const idx = list.findIndex(e => e.id === this.currentEp.id);
+          if (idx >= 0 && idx < list.length - 1) {
+            this.playEpisode(list[idx + 1].id);
+            break;
+          }
+        }
       }
     });
 
@@ -1469,7 +1604,7 @@ const App = {
         body: JSON.stringify({
           model: 'claude-sonnet-4-20250514',
           max_tokens: 1024,
-          system: PURITAN_SYSTEM_PROMPT,
+          system: this.isPatrickMode() ? PATRICK_SYSTEM_PROMPT : PURITAN_SYSTEM_PROMPT,
           messages: this._aiConversation,
           stream: true
         })
@@ -1771,12 +1906,45 @@ const App = {
       modal.classList.add('open');
       const input = document.getElementById('apiKeyInput');
       if (input) input.value = this.getApiKey();
+      const pinInput = document.getElementById('pinInput');
+      if (pinInput) pinInput.value = this.getPin();
     }
   },
 
   closeSettings() {
     const modal = document.getElementById('settingsModal');
     if (modal) modal.classList.remove('open');
+  },
+
+  // ── Pin (Patrick Mode) ──
+  getPin() { return localStorage.getItem('puritan_pin') || ''; },
+
+  savePin(pin) {
+    if (pin && pin.trim().length === 4) {
+      localStorage.setItem('puritan_pin', pin.trim());
+      this.showToast('Pin saved — pastoral mode active');
+      this._updatePatrickIndicator();
+    } else {
+      this.showToast('Pin must be 4 digits');
+    }
+  },
+
+  clearPin() {
+    localStorage.removeItem('puritan_pin');
+    this._aiConversation = [];
+    this.showToast('Pin removed');
+    this._updatePatrickIndicator();
+  },
+
+  isPatrickMode() {
+    return this.getPin() === '1689'; // 1689 London Baptist Confession
+  },
+
+  _updatePatrickIndicator() {
+    const askView = document.getElementById('askView');
+    if (askView) {
+      askView.classList.toggle('patrick-mode', this.isPatrickMode());
+    }
   },
 
   clearChatHistory() {
@@ -1839,7 +2007,13 @@ const App = {
   },
 
   // ── Helpers ──
-  getWeekNumber(id) { return Math.ceil(id / 7); },
+  getWeekNumber(id) {
+    // Normalize to day-within-month for week calculation
+    let day = id;
+    if (id >= 32 && id <= 61) day = id - 31; // April study
+    else if (id > 61) day = id; // fallback
+    return Math.ceil(day / 7);
+  },
 
   getDayName(dateStr) {
     if (!dateStr) return '';
@@ -1850,7 +2024,7 @@ const App = {
   formatDate(dateStr) {
     if (!dateStr) return '';
     const d = new Date(dateStr + 'T12:00:00');
-    return `Mar ${d.getDate()}`;
+    return `${this._monthAbbr[d.getMonth()]} ${d.getDate()}`;
   },
 
   getSeriesClass(series) {

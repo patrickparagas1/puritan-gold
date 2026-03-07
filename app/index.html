@@ -21,6 +21,11 @@
         </div>
       </div>
       <p class="subtitle">Theology for the Soul</p>
+      <div class="month-nav" id="monthNav">
+        <button class="month-arrow" onclick="App.prevMonth()" aria-label="Previous month">◀</button>
+        <span class="month-label" id="monthLabel">March 2026</span>
+        <button class="month-arrow" onclick="App.nextMonth()" aria-label="Next month">▶</button>
+      </div>
     </header>
 
     <main class="content">
@@ -53,7 +58,7 @@
         <div class="view calendar-view" id="calendarView">
           <div class="cal-container">
             <div class="cal-month-nav">
-              <span class="cal-month-label">March 2026</span>
+              <span class="cal-month-label" id="calMonthLabel">March 2026</span>
             </div>
             <div class="cal-header">
               <div class="cal-dow">Su</div>
@@ -97,6 +102,15 @@
           <p class="section-subtitle">Strengthen your marriage in Christ</p>
         </div>
         <div id="togetherList" class="card-list"></div>
+      </section>
+
+      <!-- ========== PERSONAL GROWTH SECTION ========== -->
+      <section class="section-view" id="personalView">
+        <div class="section-header">
+          <h2 class="section-title">My Growth</h2>
+          <p class="section-subtitle">Deeper walks with the Puritans</p>
+        </div>
+        <div id="personalList" class="card-list"></div>
       </section>
 
       <!-- ========== ASK SECTION ========== -->
@@ -169,6 +183,10 @@
       <button class="nav-item" data-section="together">
         <span class="nav-icon">👫🏻</span>
         <span class="nav-label">Together</span>
+      </button>
+      <button class="nav-item" data-section="personal">
+        <span class="nav-icon">🌱</span>
+        <span class="nav-label">Growth</span>
       </button>
       <button class="nav-item" data-section="ask">
         <span class="nav-icon">🙏</span>
@@ -248,6 +266,15 @@
         <input type="password" id="apiKeyInput" placeholder="sk-ant-..." class="settings-input">
       </div>
       <p class="settings-privacy">🔒 Your key is stored only on this device and never sent anywhere except Anthropic's API.</p>
+      <div class="settings-divider"></div>
+      <p class="settings-desc">Enter a 4-digit pin to unlock personalized pastoral mode.</p>
+      <div class="settings-input-row">
+        <input type="password" id="pinInput" placeholder="4-digit pin" maxlength="4" class="settings-input" style="max-width:140px;text-align:center;letter-spacing:8px;">
+      </div>
+      <div class="settings-actions">
+        <button class="modal-opt" onclick="App.savePin(document.getElementById('pinInput').value)">Save Pin</button>
+        <button class="modal-opt cancel" onclick="App.clearPin()">Remove Pin</button>
+      </div>
       <div class="settings-actions">
         <button class="modal-opt" onclick="App.saveApiKey(document.getElementById('apiKeyInput').value)">Save Key</button>
         <button class="modal-opt cancel" onclick="App.clearApiKey()">Remove Key</button>

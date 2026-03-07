@@ -2464,3 +2464,149 @@ html, body {
   color: var(--gold-bright);
   opacity: 0.7;
 }
+
+/* ══════════ MONTH NAVIGATION ══════════ */
+.month-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px 0 4px;
+}
+
+.month-arrow {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 18px;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.month-arrow:hover { background: rgba(184,137,42,0.1); }
+.month-arrow:active { transform: scale(0.9); }
+
+.month-label {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .month-label { color: var(--text); }
+}
+
+/* ══════════ PERSONAL GROWTH SECTION ══════════ */
+.personal-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 12px 16px;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--gold);
+  transition: all 0.2s;
+}
+
+.personal-card.listened {
+  opacity: 0.7;
+  border-left-color: var(--accent);
+}
+
+.personal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.personal-date {
+  font-size: 12px;
+  color: var(--text3);
+  font-weight: 600;
+}
+
+.personal-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: rgba(184,137,42,0.15);
+  color: var(--gold);
+}
+
+.personal-badge.badge-reading { background: rgba(53,116,204,0.12); color: var(--accent); }
+.personal-badge.badge-pastoral { background: rgba(184,137,42,0.15); color: var(--gold); }
+.personal-badge.badge-theological { background: rgba(120,70,180,0.12); color: #7846b4; }
+
+@media (prefers-color-scheme: dark) {
+  .personal-badge.badge-theological { color: #b892e8; background: rgba(120,70,180,0.25); }
+}
+
+.personal-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.personal-subtitle {
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.personal-desc {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.personal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.personal-play-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, var(--gold) 0%, #d4a843 100%);
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.personal-play-btn:active { transform: scale(0.97); }
+.personal-play-btn.no-audio { background: var(--bg); color: var(--text3); cursor: default; }
+
+/* ══════════ PATRICK MODE ══════════ */
+.ask-view.patrick-mode .chat-welcome-icon {
+  background: linear-gradient(135deg, var(--gold) 0%, #d4a843 100%) !important;
+  box-shadow: 0 0 20px rgba(184,137,42,0.4);
+}
+
+.ask-view.patrick-mode .chat-input-bar {
+  border-top: 2px solid var(--gold);
+}
+
+/* ══════════ SETTINGS DIVIDER ══════════ */
+.settings-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 16px 0;
+}
+
+/* ══════════ 6-TAB BOTTOM NAV ══════════ */
+.nav-item .nav-icon { font-size: 20px; }
+.nav-item .nav-label { font-size: 10px; }
