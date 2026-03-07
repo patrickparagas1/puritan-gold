@@ -1684,16 +1684,15 @@ const App = {
     const input = document.getElementById('chatInput');
     if (input) input.value = '';
 
-    // Check for API key → AI mode, else keyword fallback
+    // Check for API key → live AI mode
     const apiKey = this.getApiKey();
     if (apiKey) {
       await this._sendAIChat(text, apiKey);
     } else {
-      // Keyword fallback
-      const response = this._findBestResponse(text);
+      // No API key — prompt user to add one
+      const response = `**To get live, researched answers you need to add your API key.**\n\nTap the ⚙️ gear icon below → paste your Anthropic API key (starts with \`sk-ant-\`) → tap "Save Key".\n\nOnce added, I'll think deeply about every question and give you real, substantive answers backed by Scripture and research.\n\n**Get your key free at:** [console.anthropic.com](https://console.anthropic.com)`;
       this.chatMessages.push({ role: 'assistant', content: response });
       this.renderChatMessages();
-      if (this.chatAudioEnabled) this.speakText(response);
     }
   },
 
@@ -1782,14 +1781,21 @@ const App = {
       console.error('AI Chat error:', err);
       // Remove streaming placeholder
       this.chatMessages.pop();
-      // Fall back to keyword matching
-      const fallback = this._findBestResponse(text);
-      const fallbackContent = `${fallback}\n\n_(AI unavailable — using offline mode)_`;
-      this.chatMessages.push({ role: 'assistant', content: fallbackContent });
-      // Keep conversation in sync so next AI request has correct context
-      this._aiConversation.push({ role: 'assistant', content: fallbackContent });
+      // Show clear error with troubleshooting
+      let errorMsg = '**Connection Error**\n\n';
+      const errStr = err.message || '';
+      if (errStr.includes('401') || errStr.includes('authentication')) {
+        errorMsg += 'Your API key appears to be invalid. Tap the ⚙️ gear icon to update it.\n\nMake sure it starts with `sk-ant-` and is copied completely.';
+      } else if (errStr.includes('429')) {
+        errorMsg += 'Rate limit reached. Please wait a moment and try again.';
+      } else if (errStr.includes('insufficient') || errStr.includes('credit')) {
+        errorMsg += 'Your API account may need credits. Check your balance at [console.anthropic.com](https://console.anthropic.com).';
+      } else {
+        errorMsg += `Could not reach the AI service. Check your internet connection and try again.\n\n_Error: ${errStr.substring(0, 100)}_`;
+      }
+      this.chatMessages.push({ role: 'assistant', content: errorMsg });
+      this._aiConversation.pop(); // Remove the failed user message from AI history
       this.renderChatMessages();
-      if (this.chatAudioEnabled) this.speakText(fallback);
     } finally {
       this._streaming = false;
       this._setChatInputEnabled(true);
