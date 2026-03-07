@@ -156,6 +156,7 @@ const App = {
     this.restoreState();
     this.updateStreak();
     this._updatePatrickIndicator();
+    this._updateKeySetupVisibility();
     this.scrollToNext();
 
     // Chat input keyboard handler
@@ -493,7 +494,10 @@ const App = {
               <span class="school-lesson-dur">${hasAudio ? ep.duration : 'Soon'}</span>
               <div class="card-action-btns-inline">
                 <button class="share-btn-sm" onclick="event.stopPropagation(); App.shareEpisode(${ep.id})" title="Share">${ICONS.share}</button>
-                <button class="share-btn-sm" onclick="event.stopPropagation(); App.toggleEpMenu(${ep.id})" title="More">${ICONS.dots}</button>
+                <div class="ep-menu-wrap">
+                  <button class="ep-menu-btn" onclick="event.stopPropagation(); App.toggleEpMenu(${ep.id})" title="More">${ICONS.dots}</button>
+                  ${this._openMenuId === ep.id ? this._renderEpMenu(ep.id) : ''}
+                </div>
               </div>
             </div>
           </div>`;
@@ -1932,8 +1936,8 @@ const App = {
     if (apiKey) {
       await this._sendAIChat(text, apiKey);
     } else {
-      // No API key — prompt user to add one
-      const response = `**To get live, researched answers you need to add your API key.**\n\nTap the ⚙️ gear icon below → paste your Anthropic API key (starts with \`sk-ant-\`) → tap "Save Key".\n\nOnce added, I'll think deeply about every question and give you real, substantive answers backed by Scripture and research.\n\n**Get your key free at:** [console.anthropic.com](https://console.anthropic.com)`;
+      // No API key — prompt user to scroll up
+      const response = `**Almost there!** Scroll up and paste your API key in the setup box above, then tap **Connect**.\n\nIt takes 30 seconds:\n1. Open [console.anthropic.com](https://console.anthropic.com/settings/keys)\n2. Create a free account & copy your key\n3. Paste it above and tap Connect\n\nOnce connected, I'll answer anything with wisdom from Scripture and the Puritans.`;
       this.chatMessages.push({ role: 'assistant', content: response });
       this.renderChatMessages();
     }
@@ -2333,15 +2337,44 @@ const App = {
   saveApiKey(key) {
     if (key && key.trim()) {
       localStorage.setItem('puritan_api_key', key.trim());
-      this.showToast('API key saved');
+      this.showToast('API key saved — you\'re all set!');
+      this._updateKeySetupVisibility();
     }
     this.closeSettings();
+  },
+
+  saveKeyFromChat() {
+    const input = document.getElementById('chatKeyInput');
+    if (!input) return;
+    const key = input.value.trim();
+    if (!key) {
+      this.showToast('Please paste your API key first');
+      return;
+    }
+    if (!key.startsWith('sk-ant-')) {
+      this.showToast('Key should start with sk-ant-');
+      return;
+    }
+    localStorage.setItem('puritan_api_key', key);
+    this.showToast('Connected! Try asking a question below.');
+    this._updateKeySetupVisibility();
+    // Also update settings modal input
+    const settingsInput = document.getElementById('apiKeyInput');
+    if (settingsInput) settingsInput.value = key;
+  },
+
+  _updateKeySetupVisibility() {
+    const setup = document.getElementById('chatKeySetup');
+    if (setup) {
+      setup.style.display = this.getApiKey() ? 'none' : 'block';
+    }
   },
 
   clearApiKey() {
     localStorage.removeItem('puritan_api_key');
     this._aiConversation = [];
     this.showToast('API key removed');
+    this._updateKeySetupVisibility();
     this.closeSettings();
   },
 

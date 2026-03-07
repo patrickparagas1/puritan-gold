@@ -159,6 +159,24 @@
             <div class="chat-welcome-icon">P</div>
             <h3>Ask Anything</h3>
             <p>Theology, science, life, nature, history — answered with wisdom from Scripture and the Puritans.</p>
+
+            <div class="chat-key-setup" id="chatKeySetup">
+              <div class="key-setup-title">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+                Quick Setup (30 seconds)
+              </div>
+              <div class="key-setup-steps">
+                <div class="key-step"><span class="key-step-num">1</span> <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener" class="key-step-link">Open Anthropic Console →</a></div>
+                <div class="key-step"><span class="key-step-num">2</span> Create a free account & copy your API key</div>
+                <div class="key-step"><span class="key-step-num">3</span> Paste it below and tap <strong>Connect</strong></div>
+              </div>
+              <div class="key-setup-input-row">
+                <input type="text" id="chatKeyInput" placeholder="Paste your key here (sk-ant-...)" class="key-setup-input" autocomplete="off" spellcheck="false">
+                <button class="key-setup-save" onclick="App.saveKeyFromChat()">Connect</button>
+              </div>
+              <div class="key-setup-note">Your key stays on this device only. Never shared.</div>
+            </div>
+
             <div class="chat-suggestions" id="chatSuggestions">
               <button class="chat-suggestion" onclick="App.askSuggestion(this)"><span class="suggestion-text">What is justification by faith?</span></button>
               <button class="chat-suggestion" onclick="App.askSuggestion(this)"><span class="suggestion-text">Why did God create dolphins?</span></button>
@@ -338,29 +356,26 @@
   <div class="modal-bg" id="settingsModal" onclick="App.closeSettings()">
     <div class="modal settings-modal" onclick="event.stopPropagation()">
       <h3 class="modal-h">Settings</h3>
-      <p class="settings-desc">Enter your Anthropic API key to enable AI-powered responses.</p>
-      <div class="settings-input-row">
-        <input type="password" id="apiKeyInput" placeholder="sk-ant-..." class="settings-input">
+      <p class="settings-label">API Key</p>
+      <div class="settings-input-row-inline">
+        <input type="text" id="apiKeyInput" placeholder="sk-ant-..." class="settings-input" autocomplete="off" spellcheck="false">
+        <button class="settings-save-btn" onclick="App.saveApiKey(document.getElementById('apiKeyInput').value)">Save</button>
       </div>
       <div class="settings-key-help">
         <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener" class="settings-key-link">
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          Get your free key at console.anthropic.com
+          Get your key at console.anthropic.com
         </a>
+        <button class="settings-remove-btn" onclick="App.clearApiKey()">Remove Key</button>
       </div>
-      <p class="settings-privacy">Your key is stored only on this device.</p>
       <div class="settings-divider"></div>
-      <p class="settings-desc">Enter a 4-digit pin to unlock personalized pastoral mode.</p>
-      <div class="settings-input-row">
+      <p class="settings-label">Pastoral Mode Pin</p>
+      <div class="settings-input-row-inline">
         <input type="password" id="pinInput" placeholder="4-digit pin" maxlength="4" class="settings-input" style="max-width:140px;text-align:center;letter-spacing:8px;">
+        <button class="settings-save-btn" onclick="App.savePin(document.getElementById('pinInput').value)">Save</button>
       </div>
       <div class="settings-actions">
-        <button class="modal-opt" onclick="App.savePin(document.getElementById('pinInput').value)">Save Pin</button>
         <button class="modal-opt cancel" onclick="App.clearPin()">Remove Pin</button>
-      </div>
-      <div class="settings-actions">
-        <button class="modal-opt" onclick="App.saveApiKey(document.getElementById('apiKeyInput').value)">Save Key</button>
-        <button class="modal-opt cancel" onclick="App.clearApiKey()">Remove Key</button>
         <button class="modal-opt done" onclick="App.closeSettings()">Close</button>
       </div>
     </div>

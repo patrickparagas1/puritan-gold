@@ -2064,8 +2064,125 @@ html, body {
   color: var(--text2);
   line-height: 1.65;
   max-width: 280px;
-  margin: 0 auto 28px;
+  margin: 0 auto 20px;
   font-weight: 400;
+}
+
+/* ── Inline API Key Setup ── */
+.chat-key-setup {
+  background: var(--card);
+  border: 1.5px solid rgba(212,162,60,0.25);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 0 auto 24px;
+  max-width: 340px;
+  text-align: left;
+  box-shadow: 0 2px 12px rgba(212,162,60,0.08);
+}
+
+.key-setup-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+.key-setup-title svg {
+  color: var(--gold-bright);
+  flex-shrink: 0;
+}
+
+.key-setup-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.key-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.key-step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--gold-bright);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.key-step-link {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.key-step-link:active {
+  opacity: 0.7;
+}
+
+.key-setup-input-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.key-setup-input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1.5px solid rgba(53,116,204,0.15);
+  border-radius: 12px;
+  background: var(--bg);
+  font-size: 13px;
+  color: var(--text);
+  outline: none;
+  font-family: 'SF Mono', monospace;
+  min-width: 0;
+}
+
+.key-setup-input:focus {
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 0 3px rgba(212,162,60,0.15);
+}
+
+.key-setup-save {
+  padding: 12px 20px;
+  background: var(--gold-bright);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.key-setup-save:active {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+.key-setup-note {
+  font-size: 11px;
+  color: var(--text3);
+  text-align: center;
+  font-weight: 500;
 }
 
 .chat-suggestions {
@@ -2420,8 +2537,21 @@ html, body {
 
 .card-action-btns-inline {
   display: flex;
-  gap: 4px;
+  gap: 6px;
   align-items: center;
+}
+
+.card-action-btns-inline .ep-menu-btn {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  border: 1px solid rgba(53,116,204,0.1);
+}
+
+.card-action-btns-inline .ep-menu-btn svg {
+  width: 14px;
+  height: 14px;
 }
 
 .dl-btn,
@@ -2454,24 +2584,30 @@ html, body {
 
 .dl-btn-sm,
 .share-btn-sm {
-  width: 30px;
-  height: 30px;
-  border: none;
-  border-radius: 8px;
-  background: transparent;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(53,116,204,0.1);
+  border-radius: 10px;
+  background: var(--bg2);
   font-size: 14px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.15s var(--ease-out);
-  opacity: 0.6;
+  color: var(--text2);
+}
+
+.dl-btn-sm svg,
+.share-btn-sm svg {
+  width: 14px;
+  height: 14px;
 }
 
 .dl-btn-sm:hover,
 .share-btn-sm:hover {
-  opacity: 1;
-  background: var(--bg2);
+  background: rgba(53,116,204,0.08);
+  border-color: rgba(53,116,204,0.2);
 }
 
 .dl-btn-sm:active,
@@ -2518,6 +2654,48 @@ html, body {
 
 .settings-input-row {
   margin-bottom: 12px;
+}
+
+.settings-input-row-inline {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.settings-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.settings-save-btn {
+  padding: 12px 20px;
+  background: var(--gold-bright);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.settings-save-btn:active {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+.settings-remove-btn {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 0;
 }
 
 .settings-input {
@@ -2748,7 +2926,7 @@ html, body {
 
 .personal-card.listened {
   opacity: 0.7;
-  border-left-color: var(--accent);
+  border-left-color: var(--gold-bright);
 }
 
 .personal-header {
@@ -2773,7 +2951,7 @@ html, body {
   color: var(--gold);
 }
 
-.personal-badge.badge-reading { background: rgba(53,116,204,0.12); color: var(--accent); }
+.personal-badge.badge-reading { background: rgba(53,116,204,0.12); color: var(--gold-bright); }
 .personal-badge.badge-pastoral { background: rgba(184,137,42,0.15); color: var(--gold); }
 .personal-badge.badge-theological { background: rgba(120,70,180,0.12); color: #7846b4; }
 
@@ -2960,12 +3138,12 @@ html, body {
 }
 
 .ep-menu-btn {
-  width: 32px;
-  height: 32px;
-  border: none;
-  border-radius: 10px;
-  background: transparent;
-  color: var(--text3);
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid rgba(53,116,204,0.12);
+  border-radius: 12px;
+  background: var(--bg2);
+  color: var(--text2);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -2977,8 +3155,19 @@ html, body {
   min-height: 44px;
 }
 
+.ep-menu-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ep-menu-btn:hover {
+  background: rgba(53,116,204,0.08);
+  border-color: rgba(53,116,204,0.2);
+  color: var(--text);
+}
+
 .ep-menu-btn:active {
-  background: var(--bg2);
+  background: rgba(53,116,204,0.14);
   transform: scale(0.92);
 }
 
@@ -3056,8 +3245,11 @@ html, body {
 
 /* ══════════ SETTINGS KEY HELP LINK ══════════ */
 .settings-key-help {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 8px;
+  gap: 8px;
 }
 
 .settings-key-link {
