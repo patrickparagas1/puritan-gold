@@ -345,18 +345,20 @@ const App = {
 
       const listened = this.isListened(ep.id);
       const seriesClass = this.getSeriesClass(ep.series);
-      const dayName = this.getDayName(ep.date);
+      const d = new Date(ep.date + 'T12:00:00');
+      const fullDayNames = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
+      const dayName = fullDayNames[d.getDay()];
       const summary = ep.description || ep.subtitle || '';
       const progress = this.getProgress(ep);
       const isPlaying = this.currentEp && this.currentEp.id === ep.id;
 
       const isFav = this._favorites.includes(ep.id);
       const hasAudio = ep.file !== null;
-      const dayNum = ep.date ? new Date(ep.date + 'T12:00:00').getDate() : ep.id;
+      const dayNum = ep.date ? d.getDate() : ep.id;
       html += `
         <div class="study-card ${listened ? 'listened' : ''} ${isPlaying ? 'playing' : ''}" data-id="${ep.id}">
           ${isFav ? '<div class="fav-indicator"></div>' : ''}
-          <div class="study-date">${dayName.toUpperCase()}, ${this._monthNames[new Date(ep.date + 'T12:00:00').getMonth()].toUpperCase()} ${dayNum} — DAY ${dayNum}</div>
+          <div class="study-date">${dayName}, ${this._monthNames[d.getMonth()].toUpperCase()} ${dayNum} — DAY ${dayNum}</div>
           <div class="study-title">${ep.title}</div>
           <div class="study-subtitle">${ep.subtitle || ''}</div>
           <div class="study-meta">
@@ -477,7 +479,7 @@ const App = {
           <div class="school-unit-header">
             <div class="school-unit-title">${unitName}</div>
             <div class="school-unit-meta">
-              <span>${completed}/${total} lessons done</span>
+              <span>${completed}/${total} lessons</span>
               <span>${pct}%</span>
             </div>
             <div class="school-progress-bar">
@@ -486,21 +488,42 @@ const App = {
           </div>`;
 
       lessons.forEach(ep => {
-        const done = this.isListened(ep.id);
+        const d = new Date(ep.date + 'T12:00:00');
+        const dayNames = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
+        const dayName = dayNames[d.getDay()];
         const hasAudio = ep.file !== null;
+        const listened = this.isListened(ep.id);
+        const isFav = this._favorites.includes(ep.id);
+
         html += `
-          <div class="school-lesson">
-            <div class="school-lesson-num ${done ? 'done' : ''}" onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">${done ? '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>' : ep.lessonNumber || '?'}</div>
-            <div class="school-lesson-info" onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
-              <div class="school-lesson-title">${ep.title}</div>
-              <div class="school-lesson-sub">${ep.subtitle || ep.description || ''}</div>
-            </div>
-            <div class="school-lesson-actions">
-              <span class="school-lesson-dur">${hasAudio ? ep.duration : 'Soon'}</span>
-              <div class="card-action-btns-inline">
-                <button class="share-btn-sm" onclick="event.stopPropagation(); App.shareEpisode(${ep.id})" title="Share">${ICONS.share}</button>
+          <div class="school-card ${listened ? 'listened' : ''}">
+            ${isFav ? '<div class="fav-indicator"></div>' : ''}
+            <div class="school-card-date">${dayName}, ${this._monthNames[d.getMonth()].toUpperCase()} ${d.getDate()} — LESSON ${ep.lessonNumber || '?'}</div>
+            <div class="school-card-title">${ep.title}</div>
+            <div class="school-card-subtitle">${ep.subtitle || ''}</div>
+            ${ep.reviewQuestions && ep.reviewQuestions.length ? `
+              <div class="school-review">
+                <div class="school-review-label">Review Questions</div>
+                ${ep.reviewQuestions.map(q => `<div class="school-review-q">${q}</div>`).join('')}
+              </div>
+            ` : ''}
+            ${ep.activity ? `
+              <div class="school-activity">
+                <div class="school-activity-label">Activity</div>
+                <div class="school-activity-text">${ep.activity.length > 200 ? ep.activity.slice(0, 200) + '…' : ep.activity}</div>
+              </div>
+            ` : ''}
+            <pre class="script-view" id="script-${ep.id}"></pre>
+            <div class="school-card-actions">
+              <button class="school-play-btn ${hasAudio ? '' : 'no-audio'}"
+                      onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
+                ${hasAudio ? `<svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg> Play (${ep.duration})` : 'Audio Coming Soon'}
+              </button>
+              <div class="card-action-btns">
+                <button class="dl-btn" onclick="App.viewScript(${ep.id})" title="Read Script">${ICONS.script}</button>
+                <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share">${ICONS.share}</button>
                 <div class="ep-menu-wrap">
-                  <button class="ep-menu-btn" onclick="event.stopPropagation(); App.toggleEpMenu(${ep.id})" title="More">${ICONS.dots}</button>
+                  <button class="ep-menu-btn" onclick="event.stopPropagation(); App.toggleEpMenu(${ep.id})">${ICONS.dots}</button>
                   ${this._openMenuId === ep.id ? this._renderEpMenu(ep.id) : ''}
                 </div>
               </div>
@@ -588,7 +611,7 @@ const App = {
     let html = '';
     this.personalEpisodes.forEach(ep => {
       const d = new Date(ep.date + 'T12:00:00');
-      const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const dayNames = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
       const dayName = dayNames[d.getDay()];
       const hasAudio = ep.file !== null;
       const listened = this.isListened(ep.id);
@@ -599,7 +622,7 @@ const App = {
       html += `
         <div class="personal-card ${listened ? 'listened' : ''}">
           <div class="personal-header">
-            <div class="personal-date">${dayName}, ${this._monthNames[d.getMonth()]} ${d.getDate()}</div>
+            <div class="personal-date">${dayName}, ${this._monthNames[d.getMonth()].toUpperCase()} ${d.getDate()}</div>
             <span class="personal-badge ${badgeCls}">${badge}</span>
           </div>
           <div class="personal-title">${ep.title}</div>

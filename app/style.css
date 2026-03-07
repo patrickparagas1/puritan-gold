@@ -24,6 +24,10 @@
   --blue-light: #5592e0;
   --blue-pale: #dce8f5;
   --blue-deep: #162d48;
+  --green: #2d8a4e;
+  --green-light: #3da863;
+  --green-pale: #e0f2e7;
+  --green-deep: #1e5e35;
   --text: #1a2a3a;
   --text2: #5c7490;
   --text3: #94a5b8;
@@ -340,6 +344,7 @@ html, body {
 /* Study cards - matching Family/Together/Growth style */
 .study-card {
   background: var(--card);
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(246,249,252,0.4) 100%);
   border-radius: var(--r);
   box-shadow: var(--shadow);
   border: 1px solid rgba(53,116,204,0.04);
@@ -348,7 +353,11 @@ html, body {
   margin-bottom: 14px;
   position: relative;
   overflow: hidden;
-  transition: transform 0.2s var(--ease-out), box-shadow 0.2s;
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+}
+
+.study-card:active {
+  transform: scale(0.99) translateY(-1px);
 }
 
 .study-card.playing {
@@ -363,8 +372,9 @@ html, body {
 .study-date {
   font-size: 11px;
   font-weight: 700;
-  color: var(--text2);
-  letter-spacing: 1px;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
   margin-bottom: 8px;
 }
 
@@ -405,19 +415,21 @@ html, body {
 }
 
 .study-play-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  background: var(--blue);
-  color: #fff;
+  flex: 1;
+  padding: 12px;
   border: none;
   border-radius: 14px;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+  color: white;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s;
-  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s var(--ease-out);
+  box-shadow: 0 2px 10px rgba(53,116,204,0.2);
 }
 
 .study-play-btn svg.btn-icon {
@@ -426,14 +438,14 @@ html, body {
 }
 
 .study-play-btn:active {
-  transform: scale(0.96);
-  opacity: 0.9;
+  opacity: 0.85;
+  transform: scale(0.97);
 }
 
 .study-play-btn.no-audio {
-  background: var(--bg);
-  color: var(--text3);
-  cursor: default;
+  background: var(--blue-pale);
+  color: var(--blue);
+  box-shadow: none;
 }
 
 /* Legacy episode-card (keep for backward compat) */
@@ -1867,19 +1879,20 @@ html, body {
 }
 
 .school-unit-header {
-  background: linear-gradient(135deg, var(--blue-deep) 0%, #2c5a8a 100%);
+  background: linear-gradient(135deg, var(--green-deep) 0%, var(--green) 100%);
   color: white;
-  border-radius: var(--r) var(--r) 0 0;
+  border-radius: var(--r);
   padding: 18px 20px;
   position: relative;
   overflow: hidden;
+  margin-bottom: 14px;
 }
 
 .school-unit-header::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 50%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -1895,12 +1908,12 @@ html, body {
   align-items: center;
   justify-content: space-between;
   font-size: 12px;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .school-progress-bar {
   height: 3px;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.2);
   border-radius: 2px;
   margin-top: 12px;
   overflow: hidden;
@@ -1913,71 +1926,140 @@ html, body {
   transition: width 0.3s;
 }
 
-.school-lesson {
+/* School cards — matches Family/Together/Growth pattern */
+.school-card {
   background: var(--card);
-  padding: 16px 20px;
-  border-bottom: 0.5px solid rgba(53,116,204,0.06);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  cursor: pointer;
-  transition: background 0.2s var(--ease-out);
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(246,249,252,0.4) 100%);
+  border-radius: var(--r);
+  padding: 20px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(45,138,78,0.06);
+  border-left: 4px solid var(--green);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
 }
 
-.school-lesson:last-child {
-  border-bottom: none;
-  border-radius: 0 0 var(--r) var(--r);
+.school-card:active {
+  transform: scale(0.99) translateY(-1px);
 }
 
-.school-lesson:active {
-  background: var(--card-hover);
-  transform: translateY(-0.5px);
+.school-card.listened {
+  opacity: 0.7;
 }
 
-.school-lesson-num {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: var(--blue-pale);
-  color: var(--blue);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: 800;
-  flex-shrink: 0;
-  transition: all 0.2s var(--ease-out);
-}
-
-.school-lesson-num.done {
-  background: #e8f5e8;
-  color: #2d7a2d;
-}
-
-.school-lesson-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.school-lesson-title {
-  font-size: 15px;
+.school-card-date {
+  font-size: 11px;
   font-weight: 700;
-  color: var(--text);
-  margin-bottom: 2px;
-  letter-spacing: -0.01em;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
 }
 
-.school-lesson-sub {
-  font-size: 12px;
-  color: var(--text2);
+.school-card-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.school-card-subtitle {
+  font-size: 13px;
+  color: var(--green);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.school-review {
+  margin-bottom: 14px;
+}
+
+.school-review-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+}
+
+.school-review-q {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.55;
+  padding: 5px 0 5px 16px;
+  position: relative;
   font-weight: 400;
 }
 
-.school-lesson-dur {
-  font-size: 12px;
-  color: var(--text3);
-  font-weight: 500;
-  flex-shrink: 0;
+.school-review-q::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: bold;
+}
+
+.school-activity {
+  background: var(--green-pale);
+  border-radius: var(--r-sm);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border-left: 3px solid var(--green);
+}
+
+.school-activity-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+
+.school-activity-text {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.55;
+  font-weight: 400;
+}
+
+.school-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.school-play-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s var(--ease-out);
+  box-shadow: 0 2px 10px rgba(45,138,78,0.2);
+}
+
+.school-play-btn:active {
+  opacity: 0.85;
+  transform: scale(0.97);
+}
+
+.school-play-btn.no-audio {
+  background: var(--green-pale);
+  color: var(--green);
+  box-shadow: none;
 }
 
 /* ══════════ TOGETHER / COUPLES CARDS ══════════ */
@@ -2728,13 +2810,7 @@ html, body {
   background: var(--bg2);
 }
 
-.school-lesson-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-  flex-shrink: 0;
-}
+/* legacy school-lesson-actions removed — now using school-card-actions */
 
 /* ══════════ SETTINGS MODAL ══════════ */
 .settings-modal {
