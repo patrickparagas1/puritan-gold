@@ -204,6 +204,11 @@ const App = {
     this.renderSchool();
     this.renderTogether();
     this.renderPersonal();
+    // Re-render any active section calendar
+    ['family','school','together','personal'].forEach(s => {
+      const cal = document.getElementById(s + 'Cal');
+      if (cal && cal.classList.contains('active')) this.renderSectionCalendar(s);
+    });
   },
 
   // ── Bottom Navigation ──
@@ -229,9 +234,11 @@ const App = {
 
   // ── Tabs (Study sub-tabs: Episodes / Calendar) ──
   setupTabs() {
-    document.querySelectorAll('.study-tab').forEach(tab => {
+    const studyView = document.getElementById('studyView');
+    if (!studyView) return;
+    studyView.querySelectorAll('.tab').forEach(tab => {
       tab.addEventListener('click', () => {
-        document.querySelectorAll('.study-tab').forEach(t => t.classList.remove('active'));
+        studyView.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
         this.studyTab = tab.dataset.view;
 
@@ -687,9 +694,11 @@ const App = {
   switchSectionTab(section, tab) {
     const view = document.getElementById(section + 'View');
     if (!view) return;
-    view.querySelectorAll('.section-tab').forEach(t => t.classList.toggle('active', t.dataset.sectionTab === tab));
-    view.querySelectorAll('.section-tab-content').forEach(c => c.classList.toggle('active', c.dataset.tabView === tab));
-    if (tab === 'cal') this.renderSectionCalendar(section);
+    // Toggle tab buttons
+    view.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.view === tab));
+    // Toggle view panels
+    view.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.dataset.tabView === tab));
+    if (tab === 'calendar') this.renderSectionCalendar(section);
   },
 
   _getSectionEpisodes(section) {
@@ -701,6 +710,9 @@ const App = {
     const grid = document.getElementById(section + 'CalGrid');
     if (!grid) return;
     const { year, month } = this.currentMonth;
+    // Update month label
+    const label = document.getElementById(section + 'CalMonthLabel');
+    if (label) label.textContent = `${this._monthNames[month]} ${year}`;
     const firstDay = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const today = new Date();
@@ -772,6 +784,132 @@ const App = {
           ${isPlaying && !this.audio.paused ? 'Now Playing' : listened ? 'Replay' : progress > 0 ? 'Resume' : 'Play Episode'}
         </button>` : '<div class="cal-detail-empty" style="padding:8px 0;font-size:12px;">Audio coming soon</div>'}
       </div>`;
+  },
+
+  // ── Master Calendar ──
+  _masterCalDay: null,
+  _sectionColors: {
+    study: '#3574cc',
+    family: '#e67e22',
+    school: '#9b59b6',
+    together: '#e74c3c',
+    personal: '#d4a23c'
+  },
+  _sectionLabels: {
+    study: 'Study',
+    family: 'Family',
+    school: 'School',
+    together: 'Together',
+    personal: 'Growth'
+  },
+
+  openMasterCalendar() {
+    document.getElementById('masterCalOverlay').classList.add('open');
+    this._masterCalDay = null;
+    this.renderMasterCalendar();
+  },
+
+  closeMasterCalendar() {
+    document.getElementById('masterCalOverlay').classList.remove('open');
+  },
+
+  renderMasterCalendar() {
+    const grid = document.getElementById('masterCalGrid');
+    const detail = document.getElementById('masterCalDetail');
+    if (!grid) return;
+
+    const { year, month } = this.currentMonth;
+    document.getElementById('masterCalMonth').textContent = `${this._monthNames[month]} ${year}`;
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const today = new Date();
+    const todayDate = today.getFullYear() === year && today.getMonth() === month ? today.getDate() : -1;
+
+    // Build per-day data for all sections
+    const allSections = {
+      study: this.episodes,
+      family: this.familyEpisodes,
+      school: this.schoolEpisodes,
+      together: this.togetherEpisodes,
+      personal: this.personalEpisodes
+    };
+
+    const dayData = {}; // day -> { section: ep }
+    for (const [section, eps] of Object.entries(allSections)) {
+      (eps || []).forEach(ep => {
+        if (!ep.date) return;
+        const d = new Date(ep.date + 'T12:00:00');
+        if (d.getMonth() === month && d.getFullYear() === year) {
+          const day = d.getDate();
+          if (!dayData[day]) dayData[day] = {};
+          dayData[day][section] = ep;
+        }
+      });
+    }
+
+    let html = '';
+    for (let i = 0; i < firstDay; i++) html += '<div class="mc-day empty"><span class="mc-day-num"></span></div>';
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const isToday = day === todayDate;
+      const isSelected = this._masterCalDay === day;
+      const sections = dayData[day] || {};
+      const sectionKeys = Object.keys(sections);
+
+      let dotsHtml = '';
+      if (sectionKeys.length) {
+        dotsHtml = '<div class="mc-dots">';
+        sectionKeys.forEach(s => {
+          dotsHtml += `<span class="mc-section-dot" style="background:${this._sectionColors[s]}"></span>`;
+        });
+        dotsHtml += '</div>';
+      }
+
+      html += `<div class="mc-day ${isToday ? 'today' : ''} ${isSelected ? 'selected' : ''}" onclick="App.selectMasterCalDay(${day})">
+        <span class="mc-day-num">${day}</span>
+        ${dotsHtml}
+      </div>`;
+    }
+
+    grid.innerHTML = html;
+
+    // Show detail if day is selected
+    if (this._masterCalDay && dayData[this._masterCalDay]) {
+      this.showMasterCalDetail(this._masterCalDay, dayData[this._masterCalDay]);
+    } else {
+      detail.innerHTML = '';
+    }
+  },
+
+  selectMasterCalDay(day) {
+    this._masterCalDay = day;
+    this.renderMasterCalendar();
+  },
+
+  showMasterCalDetail(day, sections) {
+    const detail = document.getElementById('masterCalDetail');
+    if (!detail) return;
+    const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const d = new Date(this.currentMonth.year, this.currentMonth.month, day);
+    const dayName = dayNames[d.getDay()];
+
+    let html = `<div style="font-size:12px;font-weight:700;color:var(--text2);padding:4px 0 8px;text-transform:uppercase;letter-spacing:0.5px;">${dayName}, ${this._monthNames[this.currentMonth.month]} ${day}</div>`;
+
+    for (const [section, ep] of Object.entries(sections)) {
+      const color = this._sectionColors[section];
+      const label = this._sectionLabels[section];
+      html += `<div class="mc-detail-card" onclick="App.closeMasterCalendar(); App.playEpisode(${ep.id})">
+        <span class="mc-detail-dot" style="background:${color}"></span>
+        <div class="mc-detail-info">
+          <div class="mc-detail-section" style="color:${color}">${label}</div>
+          <div class="mc-detail-title">${ep.title}</div>
+        </div>
+        <span class="mc-detail-dur">${ep.duration || ''}</span>
+      </div>`;
+    }
+
+    detail.innerHTML = html;
   },
 
   // ── Player Setup ──
