@@ -351,27 +351,32 @@ const App = {
       const isPlaying = this.currentEp && this.currentEp.id === ep.id;
 
       const isFav = this._favorites.includes(ep.id);
+      const hasAudio = ep.file !== null;
+      const dayNum = ep.date ? new Date(ep.date + 'T12:00:00').getDate() : ep.id;
       html += `
-        <div class="episode-card ${listened ? 'listened' : ''} ${isPlaying ? 'playing' : ''}" data-id="${ep.id}">
+        <div class="study-card ${listened ? 'listened' : ''} ${isPlaying ? 'playing' : ''}" data-id="${ep.id}">
           ${isFav ? '<div class="fav-indicator"></div>' : ''}
-          <div class="ep-left" onclick="App.playEpisode(${ep.id})">
-            <div class="ep-num ${isPlaying ? 'active' : ''}" id="ep-num-${ep.id}">${ep.date ? new Date(ep.date + 'T12:00:00').getDate() : ep.id}</div>
-            <div class="ep-day">${dayName}</div>
+          <div class="study-date">${dayName.toUpperCase()}, ${this._monthNames[new Date(ep.date + 'T12:00:00').getMonth()].toUpperCase()} ${dayNum} — DAY ${dayNum}</div>
+          <div class="study-title">${ep.title}</div>
+          <div class="study-subtitle">${ep.subtitle || ''}</div>
+          <div class="study-meta">
+            <span class="ep-badge ${seriesClass}">${ep.series || 'General'}</span>
+            <span class="study-dur">${ep.duration}</span>
           </div>
-          <div class="ep-info" onclick="App.playEpisode(${ep.id})">
-            <div class="ep-title">${ep.title}</div>
-            <div class="ep-subtitle">${ep.subtitle || ''}</div>
-            <div class="ep-meta">
-              <span class="ep-badge ${seriesClass}">${ep.series || 'General'}</span>
-              <span class="ep-dur">${ep.duration}</span>
-            </div>
-            <div class="ep-summary" id="summary-${ep.id}">${summary}</div>
-            <pre class="script-view" id="script-${ep.id}"></pre>
-          </div>
-          <div class="ep-actions">
-            <div class="ep-menu-wrap">
-              <button class="ep-menu-btn" onclick="event.stopPropagation(); App.toggleEpMenu(${ep.id})" aria-label="More options">${ICONS.dots}</button>
-              ${this._openMenuId === ep.id ? this._renderEpMenu(ep.id) : ''}
+          <div class="ep-summary" id="summary-${ep.id}">${summary}</div>
+          <pre class="script-view" id="script-${ep.id}"></pre>
+          <div class="study-actions">
+            <button class="study-play-btn ${hasAudio ? '' : 'no-audio'}"
+                    onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
+              ${hasAudio ? `<svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg> Play (${ep.duration})` : 'Audio Coming Soon'}
+            </button>
+            <div class="card-action-btns">
+              <button class="dl-btn" onclick="App.viewScript(${ep.id})" title="Read Script">${ICONS.script}</button>
+              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share">${ICONS.share}</button>
+              <div class="ep-menu-wrap">
+                <button class="ep-menu-btn" onclick="event.stopPropagation(); App.toggleEpMenu(${ep.id})">${ICONS.dots}</button>
+                ${this._openMenuId === ep.id ? this._renderEpMenu(ep.id) : ''}
+              </div>
             </div>
           </div>
           ${progress > 0 || listened ? `<div class="ep-progress ${listened ? 'done' : ''}"><div class="ep-progress-fill" style="width:${listened ? 100 : progress}%"></div></div>` : ''}
@@ -1937,14 +1942,14 @@ const App = {
       await this._sendAIChat(text, apiKey);
     } else {
       // No API key — prompt user to scroll up
-      const response = `**Almost there!** Scroll up and paste your API key in the setup box above, then tap **Connect**.\n\nIt takes 30 seconds:\n1. Open [console.anthropic.com](https://console.anthropic.com/settings/keys)\n2. Create a free account & copy your key\n3. Paste it above and tap Connect\n\nOnce connected, I'll answer anything with wisdom from Scripture and the Puritans.`;
+      const response = `**Almost there!** Scroll up and paste your Google Gemini API key in the setup box above, then tap **Connect**.\n\nIt takes 30 seconds — **100% free, no credit card needed:**\n1. Open [aistudio.google.com](https://aistudio.google.com/apikey)\n2. Sign in with your Google account & click "Create API Key"\n3. Copy the key, paste it above, and tap Connect\n\nOnce connected, I'll answer anything with wisdom from Scripture and the Puritans.`;
       this.chatMessages.push({ role: 'assistant', content: response });
       this.renderChatMessages();
     }
   },
 
   async _sendAIChat(text, apiKey) {
-    // Add to AI conversation history
+    // Add to AI conversation history (Gemini uses different role names)
     this._aiConversation.push({ role: 'user', content: text });
     // Keep last 20 messages for context
     if (this._aiConversation.length > 20) {
@@ -1958,20 +1963,21 @@ const App = {
     this._setChatInputEnabled(false);
 
     try {
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
+      // Convert conversation to Gemini format
+      const geminiHistory = this._aiConversation.slice(0, -1).map(msg => ({
+        role: msg.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: msg.content }]
+      }));
+
+      const systemPrompt = this.isPatrickMode() ? PATRICK_SYSTEM_PROMPT : PURITAN_SYSTEM_PROMPT;
+
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:streamGenerateContent?alt=sse&key=${apiKey}`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': apiKey,
-          'anthropic-version': '2023-06-01',
-          'anthropic-dangerous-direct-browser-access': 'true'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 2048,
-          system: this.isPatrickMode() ? PATRICK_SYSTEM_PROMPT : PURITAN_SYSTEM_PROMPT,
-          messages: this._aiConversation,
-          stream: true
+          system_instruction: { parts: [{ text: systemPrompt }] },
+          contents: [...geminiHistory, { role: 'user', parts: [{ text }] }],
+          generationConfig: { maxOutputTokens: 2048, temperature: 0.7 }
         })
       });
 
@@ -1991,24 +1997,28 @@ const App = {
 
         buffer += decoder.decode(value, { stream: true });
         const lines = buffer.split('\n');
-        buffer = lines.pop(); // keep incomplete line
+        buffer = lines.pop();
 
         for (const line of lines) {
           if (line.startsWith('data: ')) {
-            const data = line.slice(6);
-            if (data === '[DONE]') continue;
+            const data = line.slice(6).trim();
+            if (!data) continue;
             try {
               const parsed = JSON.parse(data);
-              if (parsed.type === 'content_block_delta' && parsed.delta?.text) {
-                fullText += parsed.delta.text;
-                // Clear thinking state on first token
-                const lastMsg = this.chatMessages[this.chatMessages.length - 1];
-                lastMsg.content = fullText;
-                lastMsg.thinking = false;
-                this._updateStreamingMessage(fullText);
+              const parts = parsed.candidates?.[0]?.content?.parts;
+              if (parts) {
+                for (const part of parts) {
+                  if (part.text) {
+                    fullText += part.text;
+                    const lastMsg = this.chatMessages[this.chatMessages.length - 1];
+                    lastMsg.content = fullText;
+                    lastMsg.thinking = false;
+                    this._updateStreamingMessage(fullText);
+                  }
+                }
               }
             } catch (e) {
-              // ignore parse errors on non-JSON lines
+              // ignore parse errors
             }
           }
         }
@@ -2026,22 +2036,20 @@ const App = {
 
     } catch (err) {
       console.error('AI Chat error:', err);
-      // Remove streaming placeholder
       this.chatMessages.pop();
-      // Show clear error with troubleshooting
       let errorMsg = '**Connection Error**\n\n';
       const errStr = err.message || '';
-      if (errStr.includes('401') || errStr.includes('authentication')) {
-        errorMsg += 'Your API key appears to be invalid. Tap the ⚙️ gear icon to update it.\n\nMake sure it starts with `sk-ant-` and is copied completely.';
+      if (errStr.includes('400')) {
+        errorMsg += 'Your API key may be invalid. Tap ⚙️ to update it.\n\nGet a free key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey)';
       } else if (errStr.includes('429')) {
-        errorMsg += 'Rate limit reached. Please wait a moment and try again.';
-      } else if (errStr.includes('insufficient') || errStr.includes('credit')) {
-        errorMsg += 'Your API account may need credits. Check your balance at [console.anthropic.com](https://console.anthropic.com).';
+        errorMsg += 'Rate limit reached. The free tier allows 15 requests/minute. Wait a moment and try again.';
+      } else if (errStr.includes('403')) {
+        errorMsg += 'API key not authorized. Make sure you created a key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey) and the Gemini API is enabled.';
       } else {
         errorMsg += `Could not reach the AI service. Check your internet connection and try again.\n\n_Error: ${errStr.substring(0, 100)}_`;
       }
       this.chatMessages.push({ role: 'assistant', content: errorMsg });
-      this._aiConversation.pop(); // Remove the failed user message from AI history
+      this._aiConversation.pop();
       this.renderChatMessages();
     } finally {
       this._streaming = false;
@@ -2351,8 +2359,8 @@ const App = {
       this.showToast('Please paste your API key first');
       return;
     }
-    if (!key.startsWith('sk-ant-')) {
-      this.showToast('Key should start with sk-ant-');
+    if (!key.startsWith('AIza')) {
+      this.showToast('Key should start with AIza...');
       return;
     }
     localStorage.setItem('puritan_api_key', key);
