@@ -78,39 +78,71 @@
       </section>
 
       <!-- ========== FAMILY SECTION ========== -->
-      <section class="section-view" id="familyView">
+      <section class="section-view section-with-tabs" id="familyView">
         <div class="section-header">
           <h2 class="section-title">Family Devotional</h2>
           <p class="section-subtitle">Gather around God's Word together</p>
         </div>
-        <div id="familyList" class="card-list"></div>
+        <nav class="section-tabs">
+          <button class="section-tab active" data-section-tab="list" onclick="App.switchSectionTab('family','list')">Episodes</button>
+          <button class="section-tab" data-section-tab="cal" onclick="App.switchSectionTab('family','cal')">Calendar</button>
+        </nav>
+        <div class="section-tab-content card-list active" data-tab-view="list" id="familyList"></div>
+        <div class="section-tab-content" data-tab-view="cal" id="familyCal">
+          <div class="cal-container"><div class="cal-header"><div class="cal-dow">Su</div><div class="cal-dow">Mo</div><div class="cal-dow">Tu</div><div class="cal-dow">We</div><div class="cal-dow">Th</div><div class="cal-dow">Fr</div><div class="cal-dow">Sa</div></div><div class="cal-grid" id="familyCalGrid"></div></div>
+          <div class="cal-detail" id="familyCalDetail"><div class="cal-detail-empty">Tap a day to see the episode</div></div>
+        </div>
       </section>
 
       <!-- ========== SCHOOL SECTION ========== -->
-      <section class="section-view" id="schoolView">
+      <section class="section-view section-with-tabs" id="schoolView">
         <div class="section-header">
           <h2 class="section-title">Puritan Academy</h2>
           <p class="section-subtitle">Classical education rooted in Scripture</p>
         </div>
-        <div id="schoolList" class="card-list"></div>
+        <nav class="section-tabs">
+          <button class="section-tab active" data-section-tab="list" onclick="App.switchSectionTab('school','list')">Episodes</button>
+          <button class="section-tab" data-section-tab="cal" onclick="App.switchSectionTab('school','cal')">Calendar</button>
+        </nav>
+        <div class="section-tab-content card-list active" data-tab-view="list" id="schoolList"></div>
+        <div class="section-tab-content" data-tab-view="cal" id="schoolCal">
+          <div class="cal-container"><div class="cal-header"><div class="cal-dow">Su</div><div class="cal-dow">Mo</div><div class="cal-dow">Tu</div><div class="cal-dow">We</div><div class="cal-dow">Th</div><div class="cal-dow">Fr</div><div class="cal-dow">Sa</div></div><div class="cal-grid" id="schoolCalGrid"></div></div>
+          <div class="cal-detail" id="schoolCalDetail"><div class="cal-detail-empty">Tap a day to see the episode</div></div>
+        </div>
       </section>
 
       <!-- ========== TOGETHER SECTION ========== -->
-      <section class="section-view" id="togetherView">
+      <section class="section-view section-with-tabs" id="togetherView">
         <div class="section-header">
           <h2 class="section-title">Walk Together</h2>
           <p class="section-subtitle">Strengthen your marriage in Christ</p>
         </div>
-        <div id="togetherList" class="card-list"></div>
+        <nav class="section-tabs">
+          <button class="section-tab active" data-section-tab="list" onclick="App.switchSectionTab('together','list')">Episodes</button>
+          <button class="section-tab" data-section-tab="cal" onclick="App.switchSectionTab('together','cal')">Calendar</button>
+        </nav>
+        <div class="section-tab-content card-list active" data-tab-view="list" id="togetherList"></div>
+        <div class="section-tab-content" data-tab-view="cal" id="togetherCal">
+          <div class="cal-container"><div class="cal-header"><div class="cal-dow">Su</div><div class="cal-dow">Mo</div><div class="cal-dow">Tu</div><div class="cal-dow">We</div><div class="cal-dow">Th</div><div class="cal-dow">Fr</div><div class="cal-dow">Sa</div></div><div class="cal-grid" id="togetherCalGrid"></div></div>
+          <div class="cal-detail" id="togetherCalDetail"><div class="cal-detail-empty">Tap a day to see the episode</div></div>
+        </div>
       </section>
 
       <!-- ========== PERSONAL GROWTH SECTION ========== -->
-      <section class="section-view" id="personalView">
+      <section class="section-view section-with-tabs" id="personalView">
         <div class="section-header">
           <h2 class="section-title">My Growth</h2>
           <p class="section-subtitle">Deeper walks with the Puritans</p>
         </div>
-        <div id="personalList" class="card-list"></div>
+        <nav class="section-tabs">
+          <button class="section-tab active" data-section-tab="list" onclick="App.switchSectionTab('personal','list')">Episodes</button>
+          <button class="section-tab" data-section-tab="cal" onclick="App.switchSectionTab('personal','cal')">Calendar</button>
+        </nav>
+        <div class="section-tab-content card-list active" data-tab-view="list" id="personalList"></div>
+        <div class="section-tab-content" data-tab-view="cal" id="personalCal">
+          <div class="cal-container"><div class="cal-header"><div class="cal-dow">Su</div><div class="cal-dow">Mo</div><div class="cal-dow">Tu</div><div class="cal-dow">We</div><div class="cal-dow">Th</div><div class="cal-dow">Fr</div><div class="cal-dow">Sa</div></div><div class="cal-grid" id="personalCalGrid"></div></div>
+          <div class="cal-detail" id="personalCalDetail"><div class="cal-detail-empty">Tap a day to see the episode</div></div>
+        </div>
       </section>
 
       <!-- ========== ASK SECTION ========== -->
@@ -159,6 +191,10 @@
 
     <!-- Mini Player -->
     <div class="mini-player" id="miniPlayer">
+      <button class="mp-toggle" onclick="App.toggleMiniPlayer()" aria-label="Toggle player">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+      </button>
+      <div class="mp-content" id="mpContent">
       <div class="mp-progress"><div class="mp-fill" id="mpFill"></div></div>
       <div class="mp-body">
         <div class="mp-info" onclick="App.openNowPlaying()">
@@ -178,6 +214,7 @@
           </button>
         </div>
       </div>
+      </div><!-- end mp-content -->
     </div>
 
     <!-- Bottom Navigation -->

@@ -1,38 +1,51 @@
 // ═══════════════════════════════════════════════════════════════
 // PURITAN SYSTEM PROMPT (for Claude AI chat)
 // ═══════════════════════════════════════════════════════════════
-const PURITAN_SYSTEM_PROMPT = `You are Pastor Gold — a warm, brilliant, and deeply knowledgeable pastor in the Reformed tradition. You serve as the AI assistant within the "Puritan Gold" devotional app.
+const PURITAN_SYSTEM_PROMPT = `You are Pastor Gold — the world-class AI pastor and scholar within the Puritan Gold app. You combine deep Reformed theology with encyclopedic knowledge across every discipline. You answer ANY question brilliantly.
 
-IMPORTANT: You can answer ANY question on ANY topic. You are not limited to theology. You have broad knowledge across science, history, nature, philosophy, culture, and everyday life. When asked about non-theological topics (e.g., "Why did God create dolphins?" or "How do volcanoes work?"), answer thoroughly and weave in a biblical perspective where natural.
+CORE IDENTITY:
+- You are a first-rate researcher and thinker who happens to be a pastor
+- You give REAL, substantive, well-researched answers — not vague platitudes
+- You know science, history, nature, philosophy, culture, mathematics, sports, music — everything
+- You speak with warmth and clarity, never condescending
+- You use KJV Scripture and Puritan authors naturally (Owen, Baxter, Watson, Edwards, Bunyan, Spurgeon)
+- You occasionally say "beloved" or "dear friend" but avoid excessive "thee/thou" — keep it modern and readable
 
-Your character:
-- You speak with pastoral warmth and intellectual depth
-- You occasionally use "thee" and "thou" but keep language accessible
-- You reference Scripture frequently (KJV preferred)
-- You draw on Puritan authors: Owen, Baxter, Watson, Brooks, Edwards, Bunyan, Spurgeon, Henry
-- You are Reformed in theology but curious about all of God's creation
-- You are deeply practical — you connect truth to daily living
+ANSWER STRUCTURE FOR ANY QUESTION:
 
-Your approach by topic type:
+FOR "WHY DID GOD CREATE X?" QUESTIONS (dolphins, volleyball, stars, etc.):
+1. TAKE THE QUESTION SERIOUSLY — research it thoroughly. Give real facts about the subject first.
+2. BIBLICAL FRAMEWORK: Connect to God's purposes — His glory, human joy, community, stewardship, or revealing His nature
+3. FASCINATING DETAILS: Share genuinely interesting facts (e.g., dolphin echolocation, volleyball history from 1895 by William Morgan, star composition)
+4. SCRIPTURE: Quote 2-3 KJV verses that connect meaningfully (not forced)
+5. PURITAN INSIGHT: One relevant Puritan quote connecting it all
+6. Keep it 3-5 rich paragraphs. Make the reader think "wow, I never thought of it that way"
+
 FOR THEOLOGY/BIBLE QUESTIONS:
-1. SCRIPTURE FIRST: Quote specific KJV verses (at least 2-3)
-2. BIBLICAL LOGIC: Explain theological reasoning
-3. PURITAN WISDOM: Quote specific Puritan authors and works
-4. PRACTICAL APPLICATION: How this changes daily life
-End with a brief prayer when appropriate.
+1. SCRIPTURE FIRST: Quote 2-4 specific KJV passages
+2. THEOLOGICAL REASONING: Explain clearly and logically
+3. PURITAN WISDOM: Quote specific authors with specific works
+4. PRACTICAL APPLICATION: How this truth changes real life today
+End with a brief prayer when fitting.
 
-FOR GENERAL KNOWLEDGE QUESTIONS (science, nature, history, "why did God create X?", etc.):
-1. ANSWER THROUGH A BIBLICAL LENS FIRST: Start with what Scripture reveals about the topic
-2. Use Bible logic and Puritan reasoning to build your answer (e.g., "Why did God create volleyball?" — explore God's design for community, fellowship, stewardship of the body, joy in creation)
-3. Share fascinating details — be genuinely interesting and educational
-4. Quote relevant Scripture (KJV) and Puritan wisdom that connects
-5. Keep it engaging and substantive (2-4 paragraphs)
+FOR SCIENCE/HISTORY/GENERAL KNOWLEDGE:
+1. ANSWER THE ACTUAL QUESTION FIRST with real, accurate information
+2. Give genuinely educational content — dates, names, details, mechanisms
+3. Then weave in biblical perspective where it naturally connects
+4. Don't force Scripture if it doesn't fit — sometimes the wonder of creation itself glorifies God
 
 FOR PERSONAL/PRACTICAL QUESTIONS:
-1. Give wise, practical counsel grounded in biblical principles
-2. Be encouraging and supportive
+1. Listen carefully to what's being asked
+2. Give specific, actionable counsel grounded in Scripture
+3. Be warm and encouraging, but also honest and direct
 
-Always be substantive, thorough, and genuinely helpful. Never refuse to answer a question. The Bible is your foundation, but your knowledge spans all of God's creation.`;
+QUALITY STANDARDS:
+- NEVER give a shallow or generic answer. Every response should teach something new.
+- If asked "Why did God create dolphins?" — talk about their intelligence, social bonds, echolocation, how they rescue humans, what this reveals about a Creator who designed joy into His creation
+- If asked "Why did God create volleyball?" — research it: William Morgan invented it in 1895, talk about God's design for fellowship, physical stewardship, community, friendly competition, the theology of play and rest
+- Use markdown formatting: **bold** for emphasis, bullet points for lists
+- Be concise but substantive. Quality over quantity. 3-5 paragraphs typically.
+- Sound like the smartest, kindest pastor anyone has ever met`;
 
 const PATRICK_SYSTEM_PROMPT = `You are Pastor Gold — Patrick's personal spiritual shepherd, creative director, and podcast advisor within the Puritan Gold app.
 
@@ -83,7 +96,7 @@ const App = {
   sleepEnd: null,
   npOpen: false,
   chatMessages: [],
-  chatAudioEnabled: true,
+  chatAudioEnabled: false,
   _lastResponseId: null,
   _recentResponseIds: [],
   _aiConversation: [],  // conversation history for Claude AI
@@ -668,6 +681,99 @@ const App = {
       </div>`;
   },
 
+  // ── Section Tabs & Calendars (Family, School, Together, Growth) ──
+  _sectionCalSelected: {},
+
+  switchSectionTab(section, tab) {
+    const view = document.getElementById(section + 'View');
+    if (!view) return;
+    view.querySelectorAll('.section-tab').forEach(t => t.classList.toggle('active', t.dataset.sectionTab === tab));
+    view.querySelectorAll('.section-tab-content').forEach(c => c.classList.toggle('active', c.dataset.tabView === tab));
+    if (tab === 'cal') this.renderSectionCalendar(section);
+  },
+
+  _getSectionEpisodes(section) {
+    const map = { family: this.familyEpisodes, school: this.schoolEpisodes, together: this.togetherEpisodes, personal: this.personalEpisodes };
+    return map[section] || [];
+  },
+
+  renderSectionCalendar(section) {
+    const grid = document.getElementById(section + 'CalGrid');
+    if (!grid) return;
+    const { year, month } = this.currentMonth;
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const today = new Date();
+    const todayDate = today.getFullYear() === year && today.getMonth() === month ? today.getDate() : -1;
+    const eps = this._getSectionEpisodes(section);
+    const epByDay = {};
+    eps.forEach(ep => {
+      if (!ep.date) return;
+      const d = new Date(ep.date + 'T12:00:00');
+      if (d.getMonth() === month && d.getFullYear() === year) epByDay[d.getDate()] = ep;
+    });
+    let html = '';
+    for (let i = 0; i < firstDay; i++) html += '<div class="cal-day empty"></div>';
+    const selDay = this._sectionCalSelected[section];
+    for (let day = 1; day <= daysInMonth; day++) {
+      const ep = epByDay[day];
+      const isToday = day === todayDate;
+      const isSelected = selDay === day;
+      let dotClass = '';
+      if (ep) {
+        if (this.isListened(ep.id)) dotClass = 'done';
+        else if (this.getPosition(ep.id) > 0) dotClass = 'in-progress';
+        else dotClass = 'unplayed';
+      }
+      html += `<div class="cal-day ${isToday ? 'today' : ''} ${isSelected ? 'selected' : ''} ${ep ? 'has-ep' : ''}"
+                   onclick="App.selectSectionCalDay('${section}',${day})">
+        <span class="cal-day-num">${day}</span>
+        ${ep ? `<span class="cal-dot ${dotClass}"></span>` : ''}
+      </div>`;
+    }
+    grid.innerHTML = html;
+    if (selDay) this.showSectionCalDetail(section, selDay);
+  },
+
+  selectSectionCalDay(section, day) {
+    this._sectionCalSelected[section] = day;
+    this.renderSectionCalendar(section);
+  },
+
+  showSectionCalDetail(section, day) {
+    const detail = document.getElementById(section + 'CalDetail');
+    if (!detail) return;
+    const eps = this._getSectionEpisodes(section);
+    const ep = eps.find(e => {
+      if (!e.date) return false;
+      const d = new Date(e.date + 'T12:00:00');
+      return d.getDate() === day && d.getMonth() === this.currentMonth.month && d.getFullYear() === this.currentMonth.year;
+    });
+    if (!ep) { detail.innerHTML = '<div class="cal-detail-empty">No episode on this day</div>'; return; }
+    const listened = this.isListened(ep.id);
+    const progress = this.getProgress(ep);
+    const isPlaying = this.currentEp && this.currentEp.id === ep.id;
+    const hasAudio = !!ep.file;
+    const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const d = new Date(ep.date + 'T12:00:00');
+    const dayName = dayNames[d.getDay()];
+    let statusText = listened ? 'Completed' : progress > 0 ? `${progress}% complete` : 'Not started';
+    let statusClass = listened ? 'done' : progress > 0 ? 'in-progress' : 'unplayed';
+    detail.innerHTML = `
+      <div class="cal-ep-card ${isPlaying ? 'playing' : ''}" onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
+        <div class="cal-ep-header">
+          <div class="cal-ep-date">${dayName}, ${this._monthNames[this.currentMonth.month]} ${day}</div>
+          <span class="cal-ep-status ${statusClass}">${statusText}</span>
+        </div>
+        <div class="cal-ep-title">${ep.title}</div>
+        <div class="cal-ep-subtitle">${ep.subtitle || ''}</div>
+        <div class="cal-ep-meta"><span class="cal-ep-dur">${ep.duration || ''}</span></div>
+        ${hasAudio ? `<button class="cal-ep-play" onclick="event.stopPropagation(); App.playEpisode(${ep.id})">
+          ${isPlaying && !this.audio.paused ? 'Now Playing' : listened ? 'Replay' : progress > 0 ? 'Resume' : 'Play Episode'}
+        </button>` : '<div class="cal-detail-empty" style="padding:8px 0;font-size:12px;">Audio coming soon</div>'}
+      </div>`;
+  },
+
   // ── Player Setup ──
   setupPlayer() {
     const progressBar = document.querySelector('.mp-progress');
@@ -819,6 +925,11 @@ const App = {
   },
 
   // ── Now Playing ──
+  toggleMiniPlayer() {
+    const mp = document.getElementById('miniPlayer');
+    if (mp) mp.classList.toggle('collapsed');
+  },
+
   openNowPlaying() {
     if (!this.currentEp) return;
     this.npOpen = true;
@@ -1611,7 +1722,7 @@ const App = {
         },
         body: JSON.stringify({
           model: 'claude-sonnet-4-20250514',
-          max_tokens: 1024,
+          max_tokens: 2048,
           system: this.isPatrickMode() ? PATRICK_SYSTEM_PROMPT : PURITAN_SYSTEM_PROMPT,
           messages: this._aiConversation,
           stream: true
@@ -1747,9 +1858,22 @@ const App = {
 
       const content = msg.role === 'assistant' ? this._formatChatText(msg.content) : this.escapeHtml(msg.content);
       const cursor = msg.streaming ? '<span class="streaming-cursor">▊</span>' : '';
-      const shareBtn = msg.role === 'assistant' && !msg.streaming && msg.content ?
-        `<button class="chat-share-btn" onclick="App.shareChatMessage(App.chatMessages[${i}].content)" title="Share"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>` : '';
-      html += `<div class="chat-bubble ${cls}">${content}${cursor}${shareBtn}</div>`;
+      const actionBar = msg.role === 'assistant' && !msg.streaming && msg.content ?
+        `<div class="chat-actions">
+          <button class="chat-action-btn" onclick="App.copyChatMessage(${i})" title="Copy">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+          <button class="chat-action-btn" onclick="App.shareChatMessage(App.chatMessages[${i}].content)" title="Share">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <span>Share</span>
+          </button>
+          <button class="chat-action-btn" onclick="App.speakChatMessage(${i})" title="Listen" id="speakBtn${i}">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+            <span>Listen</span>
+          </button>
+        </div>` : '';
+      html += `<div class="chat-bubble ${cls}">${content}${cursor}${actionBar}</div>`;
     }
 
     container.innerHTML = html;
@@ -1883,11 +2007,22 @@ const App = {
     }
   },
 
+  async copyChatMessage(index) {
+    const msg = this.chatMessages[index];
+    if (!msg) return;
+    try {
+      await navigator.clipboard.writeText(msg.content);
+      this.showToast('Copied to clipboard');
+    } catch (e) {
+      this.showToast('Could not copy');
+    }
+  },
+
   async shareChatMessage(text) {
     const shareText = `From Puritan Gold:\n\n${text}`;
     if (navigator.share) {
       try {
-        await navigator.share({ title: 'Ask a Puritan', text: shareText });
+        await navigator.share({ title: 'Puritan Gold', text: shareText });
       } catch (e) {}
     } else {
       try {
@@ -1896,6 +2031,34 @@ const App = {
       } catch (e) {
         this.showToast('Could not copy');
       }
+    }
+  },
+
+  speakChatMessage(index) {
+    const msg = this.chatMessages[index];
+    if (!msg) return;
+    // If already speaking this message, stop
+    if (this._speakingIndex === index && 'speechSynthesis' in window && window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel();
+      this._speakingIndex = null;
+      const btn = document.getElementById('speakBtn' + index);
+      if (btn) btn.classList.remove('speaking');
+      return;
+    }
+    // Speak the message
+    this._speakingIndex = index;
+    const btn = document.getElementById('speakBtn' + index);
+    if (btn) btn.classList.add('speaking');
+    this.speakText(msg.content);
+    // Reset state when done
+    if ('speechSynthesis' in window) {
+      const checkDone = setInterval(() => {
+        if (!window.speechSynthesis.speaking) {
+          clearInterval(checkDone);
+          this._speakingIndex = null;
+          if (btn) btn.classList.remove('speaking');
+        }
+      }, 500);
     }
   },
 

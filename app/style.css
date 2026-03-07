@@ -246,11 +246,8 @@ html, body {
 }
 
 .view {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -275,6 +272,67 @@ html, body {
 }
 
 .section-view.active {
+  display: block;
+}
+
+/* Study uses flex so tabs/filters stay on top and views scroll below */
+#studyView {
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+#studyView.active {
+  display: flex;
+}
+
+/* ══════════ SECTION WITH TABS (Family, School, Together, Growth) ══════════ */
+.section-with-tabs {
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+.section-with-tabs.active {
+  display: flex;
+}
+
+.section-tabs {
+  display: flex;
+  padding: 0 20px;
+  gap: 4px;
+  flex-shrink: 0;
+  background: var(--bg);
+}
+
+.section-tab {
+  flex: 1;
+  padding: 10px 8px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text3);
+  border: none;
+  background: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.section-tab.active {
+  color: var(--blue);
+  border-bottom-color: var(--gold-bright);
+}
+
+.section-tab-content {
+  display: none;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 120px;
+}
+
+.section-tab-content.active {
   display: block;
 }
 
@@ -574,6 +632,46 @@ html, body {
 
 .mini-player.visible {
   transform: translateY(0);
+}
+
+.mp-toggle {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 28px;
+  border: none;
+  background: rgba(22,45,72,0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 14px 14px 0 0;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-left: 1px solid rgba(255,255,255,0.06);
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+.mp-toggle:hover { color: rgba(255,255,255,0.9); }
+
+.mini-player.collapsed .mp-toggle svg {
+  transform: rotate(180deg);
+}
+
+.mp-content {
+  transition: max-height 0.3s var(--ease-out), opacity 0.2s ease;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.mini-player.collapsed .mp-content {
+  max-height: 0;
+  opacity: 0;
 }
 
 .mp-progress {
@@ -2301,23 +2399,53 @@ html, body {
   51%, 100% { opacity: 0; }
 }
 
-/* ══════════ CHAT SHARE BUTTON ══════════ */
-.chat-share-btn {
-  display: block;
-  margin-top: 8px;
-  padding: 4px 8px;
-  border: none;
-  border-radius: 8px;
-  background: transparent;
-  font-size: 12px;
-  cursor: pointer;
-  opacity: 0.4;
-  transition: opacity 0.2s;
-  float: right;
+/* ══════════ CHAT ACTION BUTTONS ══════════ */
+.chat-actions {
+  display: flex;
+  gap: 4px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0,0,0,0.06);
 }
 
-.chat-share-btn:hover {
-  opacity: 1;
+.chat-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 20px;
+  background: rgba(255,255,255,0.7);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  letter-spacing: 0.01em;
+}
+
+.chat-action-btn:hover {
+  background: rgba(255,255,255,1);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.chat-action-btn:active {
+  transform: scale(0.95);
+}
+
+.chat-action-btn.speaking {
+  background: var(--blue);
+  color: white;
+  border-color: var(--blue);
+}
+
+.chat-action-btn.speaking svg {
+  stroke: white;
+}
+
+.chat-action-btn svg {
+  flex-shrink: 0;
 }
 
 .chat-bubble.chat-assistant {
