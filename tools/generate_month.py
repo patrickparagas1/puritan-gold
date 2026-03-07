@@ -154,8 +154,9 @@ def generate_audio(script_text, output_path):
                 "-i", speech_path,
                 "-stream_loop", "-1", "-i", AMBIENT_FILE,
                 "-filter_complex",
-                f"[1:a]atrim=0:{duration_secs},volume=0.18,"
-                f"equalizer=f=200:width_type=o:width=2:g=2[amb];"
+                f"[1:a]atrim=0:{duration_secs},volume=0.08,"
+                f"lowpass=f=800,highpass=f=60,"
+                f"equalizer=f=300:width_type=o:width=1.5:g=3[amb];"
                 f"[0:a][amb]amix=inputs=2:duration=first:dropout_transition=3",
                 "-codec:a", "libmp3lame", "-q:a", "4",
                 output_path

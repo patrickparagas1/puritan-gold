@@ -1,69 +1,67 @@
 // ═══════════════════════════════════════════════════════════════
 // PURITAN SYSTEM PROMPT (for Claude AI chat)
 // ═══════════════════════════════════════════════════════════════
-const PURITAN_SYSTEM_PROMPT = `You are a warm, wise Puritan pastor in the tradition of Richard Baxter, Matthew Henry, and Thomas Watson. You serve as the spiritual counselor within the "Puritan Gold" devotional app.
+const PURITAN_SYSTEM_PROMPT = `You are Pastor Gold — a warm, brilliant, and deeply knowledgeable pastor in the Reformed tradition. You serve as the AI assistant within the "Puritan Gold" devotional app.
+
+IMPORTANT: You can answer ANY question on ANY topic. You are not limited to theology. You have broad knowledge across science, history, nature, philosophy, culture, and everyday life. When asked about non-theological topics (e.g., "Why did God create dolphins?" or "How do volcanoes work?"), answer thoroughly and weave in a biblical perspective where natural.
 
 Your character:
-- You speak with pastoral warmth and theological depth
-- You occasionally use "thee," "thou," and "thy" but keep language accessible
-- You reference Scripture frequently, quoting from the King James Version
-- You draw on Puritan authors: John Owen, Richard Baxter, Thomas Watson, Thomas Brooks, Jonathan Edwards, John Bunyan, Charles Spurgeon, Matthew Henry
-- You are Reformed in theology: you affirm the sovereignty of God, justification by faith alone, the authority of Scripture, covenant theology, and the Westminster Standards
-- You are deeply practical — you connect theology to daily living, marriage, parenting, work, and devotional life
+- You speak with pastoral warmth and intellectual depth
+- You occasionally use "thee" and "thou" but keep language accessible
+- You reference Scripture frequently (KJV preferred)
+- You draw on Puritan authors: Owen, Baxter, Watson, Brooks, Edwards, Bunyan, Spurgeon, Henry
+- You are Reformed in theology but curious about all of God's creation
+- You are deeply practical — you connect truth to daily living
 
-Your tone:
-- Pastoral and encouraging, never harsh or condemning
-- You treat every question with dignity and seriousness
-- You point people to Christ in every answer
-- You balance doctrinal precision with spiritual warmth
-- Your responses are substantive (2-4 paragraphs) but not overly academic
+Your approach by topic type:
+FOR THEOLOGY/BIBLE QUESTIONS:
+1. SCRIPTURE FIRST: Quote specific KJV verses (at least 2-3)
+2. BIBLICAL LOGIC: Explain theological reasoning
+3. PURITAN WISDOM: Quote specific Puritan authors and works
+4. PRACTICAL APPLICATION: How this changes daily life
+End with a brief prayer when appropriate.
 
-Areas of expertise:
-- Reformed theology and the doctrines of grace
-- Puritan devotional practices (prayer, meditation, self-examination)
-- Scripture exposition (especially Proverbs, Psalms, Romans, Ephesians)
-- Family worship and household godliness
-- Marriage and parenting from a biblical perspective
-- The Christian life: sanctification, assurance, dealing with sin, spiritual growth
-- Church history, especially the Puritan era (1550-1700)
-- Practical wisdom for daily living
+FOR GENERAL KNOWLEDGE QUESTIONS (science, nature, history, "why did God create X?", etc.):
+1. ANSWER THROUGH A BIBLICAL LENS FIRST: Start with what Scripture reveals about the topic
+2. Use Bible logic and Puritan reasoning to build your answer (e.g., "Why did God create volleyball?" — explore God's design for community, fellowship, stewardship of the body, joy in creation)
+3. Share fascinating details — be genuinely interesting and educational
+4. Quote relevant Scripture (KJV) and Puritan wisdom that connects
+5. Keep it engaging and substantive (2-4 paragraphs)
 
-When answering — ALWAYS in this order of priority:
-1. SCRIPTURE FIRST: Ground every answer in what the Bible actually says. Quote specific verses (KJV). Show exactly where God's Word speaks to the matter. This is the foundation — never skip this.
-2. BIBLICAL LOGIC: Explain the theological reasoning — how Scripture passages connect, what systematic theology teaches on the subject, what the whole counsel of God reveals.
-3. PURITAN WISDOM: Then and only then, show what the great Puritans said. Quote specific authors and works. Show how they applied Scripture to the question.
-4. PRACTICAL APPLICATION: End with how this truth should change daily life — prayer, family, work, worship.
+FOR PERSONAL/PRACTICAL QUESTIONS:
+1. Give wise, practical counsel grounded in biblical principles
+2. Be encouraging and supportive
 
-Always include multiple Scripture references (at least 2-3). The Bible must be the primary authority in every response — Puritan quotes support Scripture, never replace it.
-End with a brief prayer or blessing when appropriate.
-If asked about the app or episodes, you can reference "Puritan Gold" content.`;
+Always be substantive, thorough, and genuinely helpful. Never refuse to answer a question. The Bible is your foundation, but your knowledge spans all of God's creation.`;
 
-const PATRICK_SYSTEM_PROMPT = `You are Pastor Gold — Patrick's personal spiritual shepherd within the Puritan Gold app. You speak in the warm, wise tradition of Richard Baxter and Matthew Henry.
+const PATRICK_SYSTEM_PROMPT = `You are Pastor Gold — Patrick's personal spiritual shepherd, creative director, and podcast advisor within the Puritan Gold app.
+
+IMPORTANT: You can answer ANY question Patrick asks — theology, science, life advice, parenting, anything. You are his personal AI pastor with broad knowledge.
 
 You know Patrick personally:
 - He is a devoted Christian father with mixed-age children
 - He is growing in Reformed theology and Puritan devotion
-- He uses Puritan Gold daily: Study (currently in Proverbs/Romans), Family devotionals with his kids, School curriculum, and Together devotionals with his wife
-- He has a "My Growth" section for deeper Puritan reading, pastoral mentoring, and theological deep-dives
+- He uses Puritan Gold daily: Study (Proverbs in March, Romans in April), Family devotionals, School curriculum, Together devotionals with his wife
+- He has a "My Growth" section for deeper Puritan reading
+- He is the CREATOR and producer of the Puritan Gold podcast app
 
-Your role with Patrick specifically:
-- Be his personal pastor and accountability partner
-- Ask him about his prayer life, his family worship, his marriage
-- Challenge him to go deeper — recommend specific Puritan works to read
-- Reference what he's currently studying (Proverbs in March, Romans in April)
-- Speak to him as a fellow laborer in Christ, not just a student
-- Be direct and bold in encouragement — Puritans did not mince words about holiness
-- Pray for him specifically when he shares struggles
+Your roles with Patrick:
+1. PERSONAL PASTOR: Be his accountability partner. Ask about his prayer life, family worship, marriage. Challenge him to go deeper. Pray for him when he shares struggles.
+2. PODCAST ADVISOR: Help him plan, edit, and improve podcast episodes. When he asks about podcast ideas:
+   - Suggest specific episode topics with Puritan authors and Scripture passages
+   - Help write or revise episode scripts
+   - Recommend which Puritan works to cover next
+   - Suggest episode series themes for upcoming months
+   - Help structure devotional content for each section (Study, Family, School, Together, Growth)
+3. CREATIVE DIRECTOR: Help with app features, content strategy, and growth ideas
 
-Your theology and approach are identical to the general Puritan pastor, but your tone is more intimate, more personal, more like a dear friend who loves his soul. You may say things like "Brother Patrick" or "my friend." You know his heart for his family and his desire to walk worthy of the calling.
+Your tone is intimate and personal — like a dear friend. Say "Brother Patrick" or "my friend." Be direct and bold. You know his heart.
 
-When answering — ALWAYS in this order of priority:
-1. SCRIPTURE FIRST: What does the Bible actually say? Quote specific verses (KJV). Show exactly where God's Word speaks. Multiple references (at least 2-3). This is the foundation.
-2. BIBLICAL LOGIC: Connect the passages. Show the theological reasoning. How does this fit in the whole counsel of God?
-3. PURITAN WISDOM: What did Owen, Watson, Baxter, Goodwin, Brooks say? Quote specific works. Show how they applied Scripture.
-4. PERSONAL APPLICATION: How should this change Patrick's life today — as a father, husband, man of God?
+For theology: Scripture first (KJV, 2-3+ verses), then theological reasoning, then Puritan wisdom (quote specific authors/works), then personal application.
+For general questions: Answer thoroughly, weave in biblical perspective where natural.
+For podcast editing: Be specific and actionable. Give concrete suggestions with titles, outlines, and Scripture references.
 
-The Bible is the FINAL AUTHORITY. Do extensive research in the Scriptures. Puritan quotes support Scripture, never replace it.`;
+The Bible is the FINAL AUTHORITY. Puritan quotes support Scripture, never replace it.`;
 
 const App = {
   // ── State ──
@@ -80,7 +78,7 @@ const App = {
   filter: 'all',
   speeds: [0.75, 1, 1.25, 1.5, 1.75, 2],
   speedIdx: 1,
-  autoplay: true,
+  autoplay: false,
   sleepTimer: null,
   sleepEnd: null,
   npOpen: false,
@@ -112,6 +110,7 @@ const App = {
     this.setupServiceWorker();
     this.restoreState();
     this.updateStreak();
+    this._updatePatrickIndicator();
     this.scrollToNext();
 
     // Chat input keyboard handler
@@ -207,6 +206,10 @@ const App = {
         const viewId = this.section + 'View';
         const view = document.getElementById(viewId);
         if (view) view.classList.add('active');
+
+        // Hide month nav on Ask section
+        const monthNav = document.getElementById('monthNav');
+        if (monthNav) monthNav.style.display = this.section === 'ask' ? 'none' : '';
       });
     });
   },
@@ -263,7 +266,7 @@ const App = {
 
     if (!eps.length) {
       const msg = this.filter === 'all' ? 'No episodes yet' :
-                  this.filter === 'unplayed' ? 'All caught up! 🎉' :
+                  this.filter === 'unplayed' ? 'All caught up!' :
                   this.filter === 'started' ? 'No episodes in progress' :
                   'No completed episodes yet';
       container.innerHTML = `<div class="empty-state">${msg}</div>`;
@@ -290,7 +293,7 @@ const App = {
       html += `
         <div class="episode-card ${listened ? 'listened' : ''} ${isPlaying ? 'playing' : ''}" data-id="${ep.id}">
           <div class="ep-left" onclick="App.playEpisode(${ep.id})">
-            <div class="ep-num ${isPlaying ? 'active' : ''}" id="ep-num-${ep.id}">${ep.id}</div>
+            <div class="ep-num ${isPlaying ? 'active' : ''}" id="ep-num-${ep.id}">${ep.date ? new Date(ep.date + 'T12:00:00').getDate() : ep.id}</div>
             <div class="ep-day">${dayName}</div>
           </div>
           <div class="ep-info" onclick="App.playEpisode(${ep.id})">
@@ -301,10 +304,12 @@ const App = {
               <span class="ep-dur">${ep.duration}</span>
             </div>
             <div class="ep-summary" id="summary-${ep.id}">${summary}</div>
+            <pre class="script-view" id="script-${ep.id}"></pre>
           </div>
           <div class="ep-actions">
             <button class="info-btn" onclick="event.stopPropagation(); App.toggleSummary(${ep.id})">i</button>
-            <button class="share-btn" onclick="event.stopPropagation(); App.shareEpisode(${ep.id})" title="Share">🔗</button>
+            <button class="share-btn" onclick="event.stopPropagation(); App.viewScript(${ep.id})" title="Read Script"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></button>
+            <button class="share-btn" onclick="event.stopPropagation(); App.shareEpisode(${ep.id})" title="Share"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
           </div>
           ${progress > 0 || listened ? `<div class="ep-progress ${listened ? 'done' : ''}"><div class="ep-progress-fill" style="width:${listened ? 100 : progress}%"></div></div>` : ''}
         </div>`;
@@ -338,30 +343,31 @@ const App = {
 
       html += `
         <div class="family-card ${listened ? 'listened' : ''}">
-          <div class="family-date">📅 ${dayName}, ${this._monthNames[d.getMonth()]} ${d.getDate()} — Day ${ep.day || d.getDate()}</div>
+          <div class="family-date">${dayName}, ${this._monthNames[d.getMonth()]} ${d.getDate()} — Day ${ep.day || d.getDate()}</div>
           <div class="family-title">${ep.title}</div>
           <div class="family-scripture">${ep.subtitle || ''}</div>
           ${ep.memoryVerse ? `
             <div class="family-verse">
-              <div class="family-verse-label">🔖 Memory Verse</div>
+              <div class="family-verse-label">Memory Verse</div>
               <div class="family-verse-text">"${ep.memoryVerse}"</div>
             </div>
           ` : ''}
           ${ep.discussionQuestions ? `
             <div class="family-discuss">
-              <div class="family-discuss-label">💬 Discuss Together</div>
+              <div class="family-discuss-label">Discuss Together</div>
               ${ep.discussionQuestions.map(q => `<div class="family-question">${q}</div>`).join('')}
             </div>
           ` : ''}
+          <pre class="script-view" id="script-${ep.id}"></pre>
           <div class="family-actions">
             <button class="family-play-btn ${hasAudio ? '' : 'no-audio'}"
                     onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
-              ${hasAudio ? `▶ Play (${ep.duration})` : '🔜 Audio Coming Soon'}
+              ${hasAudio ? `<svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg> Play (${ep.duration})` : 'Audio Coming Soon'}
             </button>
             <div class="card-action-btns">
-              ${hasAudio ? `<button class="dl-btn" onclick="App.downloadAudio(${ep.id})" title="Download Audio">⬇️</button>` : ''}
-              <button class="dl-btn" onclick="App.downloadScript(${ep.id})" title="Download Script">📄</button>
-              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share">🔗</button>
+              ${hasAudio ? `<button class="dl-btn" onclick="App.downloadAudio(${ep.id})" title="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>` : ''}
+              <button class="dl-btn" onclick="App.viewScript(${ep.id})" title="Read Script"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></button>
+              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
             </div>
           </div>
         </div>`;
@@ -398,7 +404,7 @@ const App = {
       html += `
         <div class="school-unit">
           <div class="school-unit-header">
-            <div class="school-unit-title">📚 ${unitName}</div>
+            <div class="school-unit-title">${unitName}</div>
             <div class="school-unit-meta">
               <span>${completed}/${total} lessons done</span>
               <span>${pct}%</span>
@@ -413,7 +419,7 @@ const App = {
         const hasAudio = ep.file !== null;
         html += `
           <div class="school-lesson">
-            <div class="school-lesson-num ${done ? 'done' : ''}" onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">${done ? '✓' : ep.lessonNumber || '?'}</div>
+            <div class="school-lesson-num ${done ? 'done' : ''}" onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">${done ? '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>' : ep.lessonNumber || '?'}</div>
             <div class="school-lesson-info" onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
               <div class="school-lesson-title">${ep.title}</div>
               <div class="school-lesson-sub">${ep.subtitle || ep.description || ''}</div>
@@ -421,8 +427,8 @@ const App = {
             <div class="school-lesson-actions">
               <span class="school-lesson-dur">${hasAudio ? ep.duration : 'Soon'}</span>
               <div class="card-action-btns-inline">
-                ${hasAudio ? `<button class="dl-btn-sm" onclick="event.stopPropagation(); App.downloadAudio(${ep.id})" title="Download">⬇️</button>` : ''}
-                <button class="share-btn-sm" onclick="event.stopPropagation(); App.shareEpisode(${ep.id})" title="Share">🔗</button>
+                ${hasAudio ? `<button class="dl-btn-sm" onclick="event.stopPropagation(); App.downloadAudio(${ep.id})" title="Download"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>` : ''}
+                <button class="share-btn-sm" onclick="event.stopPropagation(); App.shareEpisode(${ep.id})" title="Share"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
               </div>
             </div>
           </div>`;
@@ -458,28 +464,29 @@ const App = {
 
       html += `
         <div class="together-card ${listened ? 'listened' : ''}">
-          <div class="together-date">💑 ${dayName}, ${this._monthNames[d.getMonth()]} ${d.getDate()}</div>
+          <div class="together-date">${dayName}, ${this._monthNames[d.getMonth()]} ${d.getDate()}</div>
           <div class="together-title">${ep.title}</div>
           ${connectedTitle ? `<div class="together-connected">Connected to: "${connectedTitle}"</div>` : ''}
-          <div class="together-scripture">📖 ${ep.subtitle || 'Read together'}</div>
+          <div class="together-scripture">${ep.subtitle || 'Read together'}</div>
           ${ep.reflectionPrompt ? `
             <div class="together-reflect">
-              <div class="together-reflect-label">🤔 Reflect Together</div>
+              <div class="together-reflect-label">Reflect Together</div>
               <div class="together-reflect-text">"${ep.reflectionPrompt}"</div>
             </div>
           ` : ''}
           ${ep.prayerFocus ? `
-            <div class="together-prayer">🙏 ${ep.prayerFocus}</div>
+            <div class="together-prayer">${ep.prayerFocus}</div>
           ` : ''}
+          <pre class="script-view" id="script-${ep.id}"></pre>
           <div class="together-actions">
             <button class="together-play-btn ${hasAudio ? '' : 'no-audio'}"
                     onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
-              ${hasAudio ? `▶ Listen (${ep.duration})` : '🔜 Audio Coming Soon'}
+              ${hasAudio ? `<svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg> Listen (${ep.duration})` : 'Audio Coming Soon'}
             </button>
             <div class="card-action-btns">
-              ${hasAudio ? `<button class="dl-btn" onclick="App.downloadAudio(${ep.id})" title="Download Audio">⬇️</button>` : ''}
-              <button class="dl-btn" onclick="App.downloadScript(${ep.id})" title="Download Script">📄</button>
-              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share">🔗</button>
+              ${hasAudio ? `<button class="dl-btn" onclick="App.downloadAudio(${ep.id})" title="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>` : ''}
+              <button class="dl-btn" onclick="App.viewScript(${ep.id})" title="Read Script"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></button>
+              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
             </div>
           </div>
         </div>`;
@@ -498,7 +505,7 @@ const App = {
       return;
     }
 
-    const typeBadges = { reading: '📖 Reading', pastoral: '🙏 Pastoral', theological: '🎓 Theological' };
+    const typeBadges = { reading: 'Reading', pastoral: 'Pastoral', theological: 'Theological' };
     const typeClasses = { reading: 'badge-reading', pastoral: 'badge-pastoral', theological: 'badge-theological' };
 
     let html = '';
@@ -521,15 +528,16 @@ const App = {
           <div class="personal-title">${ep.title}</div>
           <div class="personal-subtitle">${ep.subtitle || ''}</div>
           ${ep.description ? `<div class="personal-desc">${ep.description}</div>` : ''}
+          <pre class="script-view" id="script-${ep.id}"></pre>
           <div class="personal-actions">
             <button class="personal-play-btn ${hasAudio ? '' : 'no-audio'}"
                     onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
-              ${hasAudio ? `▶ Listen (${ep.duration})` : '🔜 Coming Soon'}
+              ${hasAudio ? `<svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg> Listen (${ep.duration})` : 'Coming Soon'}
             </button>
             <div class="card-action-btns">
-              ${hasAudio ? `<button class="dl-btn" onclick="App.downloadAudio(${ep.id})" title="Download Audio">⬇️</button>` : ''}
-              <button class="dl-btn" onclick="App.downloadScript(${ep.id})" title="Download Script">📄</button>
-              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share">🔗</button>
+              ${hasAudio ? `<button class="dl-btn" onclick="App.downloadAudio(${ep.id})" title="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>` : ''}
+              <button class="dl-btn" onclick="App.viewScript(${ep.id})" title="Read Script"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></button>
+              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
             </div>
           </div>
         </div>`;
@@ -630,7 +638,7 @@ const App = {
     let statusText = '';
     let statusClass = '';
     if (listened) {
-      statusText = '✓ Completed';
+      statusText = 'Completed';
       statusClass = 'done';
     } else if (progress > 0) {
       statusText = `${progress}% complete`;
@@ -650,11 +658,11 @@ const App = {
         <div class="cal-ep-subtitle">${ep.subtitle || ''}</div>
         <div class="cal-ep-meta">
           <span class="ep-badge ${seriesClass}">${ep.series || 'General'}</span>
-          <span class="cal-ep-dur">⏱ ${ep.duration}</span>
+          <span class="cal-ep-dur">${ep.duration}</span>
         </div>
         ${ep.description ? `<div class="cal-ep-desc">${ep.description}</div>` : ''}
         <button class="cal-ep-play" onclick="event.stopPropagation(); App.playEpisode(${ep.id})">
-          ${isPlaying && !this.audio.paused ? '⏸ Now Playing' : listened ? '🔄 Replay' : progress > 0 ? '▶ Resume' : '▶ Play Episode'}
+          ${isPlaying && !this.audio.paused ? 'Now Playing' : listened ? 'Replay' : progress > 0 ? 'Resume' : 'Play Episode'}
         </button>
         ${progress > 0 || listened ? `<div class="ep-progress ${listened ? 'done' : ''}"><div class="ep-progress-fill" style="width:${listened ? 100 : progress}%"></div></div>` : ''}
       </div>`;
@@ -1740,7 +1748,7 @@ const App = {
       const content = msg.role === 'assistant' ? this._formatChatText(msg.content) : this.escapeHtml(msg.content);
       const cursor = msg.streaming ? '<span class="streaming-cursor">▊</span>' : '';
       const shareBtn = msg.role === 'assistant' && !msg.streaming && msg.content ?
-        `<button class="chat-share-btn" onclick="App.shareChatMessage(App.chatMessages[${i}].content)" title="Share">🔗</button>` : '';
+        `<button class="chat-share-btn" onclick="App.shareChatMessage(App.chatMessages[${i}].content)" title="Share"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>` : '';
       html += `<div class="chat-bubble ${cls}">${content}${cursor}${shareBtn}</div>`;
     }
 
@@ -1803,16 +1811,19 @@ const App = {
     this.showToast('Downloading audio...');
   },
 
+  _getScriptPath(ep) {
+    const id = ep.id;
+    if (ep.section === 'family') return `scripts/family_${id}.txt`;
+    if (ep.section === 'school') return `scripts/school_${id}.txt`;
+    if (ep.section === 'together') return `scripts/together_${id}.txt`;
+    if (ep.section === 'personal') return `scripts/personal_${id}.txt`;
+    return `scripts/ep_${id}.txt`;
+  },
+
   downloadScript(id) {
     const ep = this.allEpisodes.find(e => e.id === id);
     if (!ep) return;
-    // Determine script filename based on section and id
-    let scriptFile;
-    if (ep.section === 'family') scriptFile = `scripts/family_${id}.txt`;
-    else if (ep.section === 'school') scriptFile = `scripts/school_${id}.txt`;
-    else if (ep.section === 'together') scriptFile = `scripts/together_${id}.txt`;
-    else scriptFile = `scripts/ep${String(id).padStart(3, '0')}.txt`;
-
+    const scriptFile = this._getScriptPath(ep);
     const a = document.createElement('a');
     a.href = '../' + scriptFile;
     a.download = scriptFile.split('/').pop();
@@ -1822,12 +1833,34 @@ const App = {
     this.showToast('Downloading script...');
   },
 
+  async viewScript(id) {
+    const el = document.getElementById('script-' + id);
+    if (el) {
+      // Toggle visibility if already loaded
+      if (el.classList.contains('visible')) { el.classList.remove('visible'); return; }
+      if (el.textContent) { el.classList.add('visible'); return; }
+    }
+    const ep = this.allEpisodes.find(e => e.id === id);
+    if (!ep || !el) return;
+    const scriptFile = this._getScriptPath(ep);
+    try {
+      el.textContent = 'Loading...';
+      el.classList.add('visible');
+      const resp = await fetch('../' + scriptFile);
+      if (!resp.ok) throw new Error('Not found');
+      const text = await resp.text();
+      el.textContent = text;
+    } catch {
+      el.textContent = 'Script not available.';
+    }
+  },
+
   async shareEpisode(id) {
     const ep = this.allEpisodes.find(e => e.id === id);
     if (!ep) return;
 
     const appUrl = 'https://patrickparagas1.github.io/puritan-gold/app/';
-    let shareText = `📖 ${ep.title}`;
+    let shareText = `${ep.title}`;
     if (ep.subtitle) shareText += ` — ${ep.subtitle}`;
     shareText += `\n\n`;
     if (ep.description) shareText += ep.description.substring(0, 200) + '\n\n';
@@ -1851,7 +1884,7 @@ const App = {
   },
 
   async shareChatMessage(text) {
-    const shareText = `🙏 From "Ask a Puritan" (Puritan Gold):\n\n${text}`;
+    const shareText = `From Puritan Gold:\n\n${text}`;
     if (navigator.share) {
       try {
         await navigator.share({ title: 'Ask a Puritan', text: shareText });
@@ -1945,6 +1978,23 @@ const App = {
     if (askView) {
       askView.classList.toggle('patrick-mode', this.isPatrickMode());
     }
+    // Show/hide ask tabs (only in Patrick mode)
+    const tabs = document.getElementById('askTabs');
+    if (tabs) tabs.style.display = this.isPatrickMode() ? 'flex' : 'none';
+  },
+
+  switchAskTab(tab) {
+    document.querySelectorAll('.ask-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector(`.ask-tab[data-ask-tab="${tab}"]`).classList.add('active');
+    const chatArea = document.getElementById('chatMessages');
+    const studioArea = document.getElementById('podcastStudio');
+    if (tab === 'chat') {
+      chatArea.style.display = '';
+      studioArea.style.display = 'none';
+    } else {
+      chatArea.style.display = 'none';
+      studioArea.style.display = 'flex';
+    }
   },
 
   clearChatHistory() {
@@ -1953,15 +2003,15 @@ const App = {
     const container = document.getElementById('chatMessages');
     if (container) {
       container.innerHTML = `
-        <div class="chat-welcome">
+        <div class="chat-welcome" id="chatWelcome">
           <div class="chat-welcome-icon">P</div>
-          <h3>Ask a Puritan</h3>
-          <p>Ask questions about Reformed theology, the Puritans, Scripture, and the Christian life.</p>
-          <div class="chat-suggestions">
-            <button class="chat-suggestion" onclick="App.askSuggestion(this)"><span class="suggestion-icon">✝️</span><span class="suggestion-text">What is justification by faith?</span></button>
-            <button class="chat-suggestion" onclick="App.askSuggestion(this)"><span class="suggestion-icon">🙏</span><span class="suggestion-text">How did the Puritans pray?</span></button>
-            <button class="chat-suggestion" onclick="App.askSuggestion(this)"><span class="suggestion-icon">📜</span><span class="suggestion-text">Explain covenant theology</span></button>
-            <button class="chat-suggestion" onclick="App.askSuggestion(this)"><span class="suggestion-icon">👨‍👩‍👧</span><span class="suggestion-text">How to lead family worship?</span></button>
+          <h3>Ask Anything</h3>
+          <p>Theology, science, life, nature, history — answered with wisdom from Scripture and the Puritans.</p>
+          <div class="chat-suggestions" id="chatSuggestions">
+            <button class="chat-suggestion" onclick="App.askSuggestion(this)"><span class="suggestion-text">What is justification by faith?</span></button>
+            <button class="chat-suggestion" onclick="App.askSuggestion(this)"><span class="suggestion-text">Why did God create dolphins?</span></button>
+            <button class="chat-suggestion" onclick="App.askSuggestion(this)"><span class="suggestion-text">Explain covenant theology simply</span></button>
+            <button class="chat-suggestion" onclick="App.askSuggestion(this)"><span class="suggestion-text">Why did God create volleyball?</span></button>
           </div>
         </div>`;
     }
