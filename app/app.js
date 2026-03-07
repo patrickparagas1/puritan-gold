@@ -76,6 +76,36 @@ For podcast editing: Be specific and actionable. Give concrete suggestions with 
 
 The Bible is the FINAL AUTHORITY. Puritan quotes support Scripture, never replace it.`;
 
+// ── Reusable SVG Icons ──
+const ICONS = {
+  // Apple-style share (box with arrow up)
+  share: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>',
+  // Script/document icon
+  script: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
+  // Download
+  download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
+  // Info
+  info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>',
+  // Star/favorite (outline)
+  starOutline: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+  // Star filled
+  starFilled: '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+  // Three dots vertical
+  dots: '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>',
+  // Play
+  play: '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg>',
+  // Mic/record
+  mic: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>',
+  // Section category icons
+  sectionIcons: {
+    study: '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
+    family: '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
+    school: '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>',
+    together: '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+    personal: '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>'
+  }
+};
+
 const App = {
   // ── State ──
   episodes: [],
@@ -104,6 +134,8 @@ const App = {
   currentMonth: { year: 2026, month: 2 }, // 0-indexed (2 = March)
   _monthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],
   _monthAbbr: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+  _favorites: JSON.parse(localStorage.getItem('pg_favorites') || '[]'),
+  _openMenuId: null,
 
   // ── Initialize ──
   async init() {
@@ -136,6 +168,13 @@ const App = {
         }
       });
     }
+
+    // Close episode menus when tapping elsewhere
+    document.addEventListener('click', (e) => {
+      if (this._openMenuId !== null && !e.target.closest('.ep-menu-wrap')) {
+        this.closeEpMenu();
+      }
+    });
   },
 
   async loadEpisodes() {
@@ -310,8 +349,10 @@ const App = {
       const progress = this.getProgress(ep);
       const isPlaying = this.currentEp && this.currentEp.id === ep.id;
 
+      const isFav = this._favorites.includes(ep.id);
       html += `
         <div class="episode-card ${listened ? 'listened' : ''} ${isPlaying ? 'playing' : ''}" data-id="${ep.id}">
+          ${isFav ? '<div class="fav-indicator"></div>' : ''}
           <div class="ep-left" onclick="App.playEpisode(${ep.id})">
             <div class="ep-num ${isPlaying ? 'active' : ''}" id="ep-num-${ep.id}">${ep.date ? new Date(ep.date + 'T12:00:00').getDate() : ep.id}</div>
             <div class="ep-day">${dayName}</div>
@@ -327,9 +368,10 @@ const App = {
             <pre class="script-view" id="script-${ep.id}"></pre>
           </div>
           <div class="ep-actions">
-            <button class="info-btn" onclick="event.stopPropagation(); App.toggleSummary(${ep.id})">i</button>
-            <button class="share-btn" onclick="event.stopPropagation(); App.viewScript(${ep.id})" title="Read Script"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></button>
-            <button class="share-btn" onclick="event.stopPropagation(); App.shareEpisode(${ep.id})" title="Share"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
+            <div class="ep-menu-wrap">
+              <button class="ep-menu-btn" onclick="event.stopPropagation(); App.toggleEpMenu(${ep.id})" aria-label="More options">${ICONS.dots}</button>
+              ${this._openMenuId === ep.id ? this._renderEpMenu(ep.id) : ''}
+            </div>
           </div>
           ${progress > 0 || listened ? `<div class="ep-progress ${listened ? 'done' : ''}"><div class="ep-progress-fill" style="width:${listened ? 100 : progress}%"></div></div>` : ''}
         </div>`;
@@ -385,9 +427,12 @@ const App = {
               ${hasAudio ? `<svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg> Play (${ep.duration})` : 'Audio Coming Soon'}
             </button>
             <div class="card-action-btns">
-              ${hasAudio ? `<button class="dl-btn" onclick="App.downloadAudio(${ep.id})" title="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>` : ''}
-              <button class="dl-btn" onclick="App.viewScript(${ep.id})" title="Read Script"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></button>
-              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
+              <button class="dl-btn" onclick="App.viewScript(${ep.id})" title="Read Script">${ICONS.script}</button>
+              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share">${ICONS.share}</button>
+              <div class="ep-menu-wrap">
+                <button class="ep-menu-btn" onclick="event.stopPropagation(); App.toggleEpMenu(${ep.id})">${ICONS.dots}</button>
+                ${this._openMenuId === ep.id ? this._renderEpMenu(ep.id) : ''}
+              </div>
             </div>
           </div>
         </div>`;
@@ -447,8 +492,8 @@ const App = {
             <div class="school-lesson-actions">
               <span class="school-lesson-dur">${hasAudio ? ep.duration : 'Soon'}</span>
               <div class="card-action-btns-inline">
-                ${hasAudio ? `<button class="dl-btn-sm" onclick="event.stopPropagation(); App.downloadAudio(${ep.id})" title="Download"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>` : ''}
-                <button class="share-btn-sm" onclick="event.stopPropagation(); App.shareEpisode(${ep.id})" title="Share"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
+                <button class="share-btn-sm" onclick="event.stopPropagation(); App.shareEpisode(${ep.id})" title="Share">${ICONS.share}</button>
+                <button class="share-btn-sm" onclick="event.stopPropagation(); App.toggleEpMenu(${ep.id})" title="More">${ICONS.dots}</button>
               </div>
             </div>
           </div>`;
@@ -504,9 +549,12 @@ const App = {
               ${hasAudio ? `<svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg> Listen (${ep.duration})` : 'Audio Coming Soon'}
             </button>
             <div class="card-action-btns">
-              ${hasAudio ? `<button class="dl-btn" onclick="App.downloadAudio(${ep.id})" title="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>` : ''}
-              <button class="dl-btn" onclick="App.viewScript(${ep.id})" title="Read Script"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></button>
-              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
+              <button class="dl-btn" onclick="App.viewScript(${ep.id})" title="Read Script">${ICONS.script}</button>
+              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share">${ICONS.share}</button>
+              <div class="ep-menu-wrap">
+                <button class="ep-menu-btn" onclick="event.stopPropagation(); App.toggleEpMenu(${ep.id})">${ICONS.dots}</button>
+                ${this._openMenuId === ep.id ? this._renderEpMenu(ep.id) : ''}
+              </div>
             </div>
           </div>
         </div>`;
@@ -555,9 +603,12 @@ const App = {
               ${hasAudio ? `<svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg> Listen (${ep.duration})` : 'Coming Soon'}
             </button>
             <div class="card-action-btns">
-              ${hasAudio ? `<button class="dl-btn" onclick="App.downloadAudio(${ep.id})" title="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>` : ''}
-              <button class="dl-btn" onclick="App.viewScript(${ep.id})" title="Read Script"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></button>
-              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
+              <button class="dl-btn" onclick="App.viewScript(${ep.id})" title="Read Script">${ICONS.script}</button>
+              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share">${ICONS.share}</button>
+              <div class="ep-menu-wrap">
+                <button class="ep-menu-btn" onclick="event.stopPropagation(); App.toggleEpMenu(${ep.id})">${ICONS.dots}</button>
+                ${this._openMenuId === ep.id ? this._renderEpMenu(ep.id) : ''}
+              </div>
             </div>
           </div>
         </div>`;
@@ -910,6 +961,60 @@ const App = {
     }
 
     detail.innerHTML = html;
+  },
+
+  // ── Episode Menu (three-dot) ──
+  _renderEpMenu(id) {
+    const isFav = this._favorites.includes(id);
+    const ep = this.allEpisodes.find(e => e.id === id);
+    const hasAudio = ep && ep.file;
+    return `<div class="ep-menu-dropdown" onclick="event.stopPropagation()">
+      <button class="ep-menu-item" onclick="App.toggleSummary(${id}); App.closeEpMenu()">
+        ${ICONS.info} <span>Info</span>
+      </button>
+      <button class="ep-menu-item" onclick="App.viewScript(${id}); App.closeEpMenu()">
+        ${ICONS.script} <span>Read Script</span>
+      </button>
+      <button class="ep-menu-item" onclick="App.shareEpisode(${id}); App.closeEpMenu()">
+        ${ICONS.share} <span>Share</span>
+      </button>
+      <button class="ep-menu-item ${isFav ? 'fav-active' : ''}" onclick="App.toggleFavorite(${id})">
+        ${isFav ? ICONS.starFilled : ICONS.starOutline} <span>${isFav ? 'Unfavorite' : 'Favorite'}</span>
+      </button>
+      ${hasAudio ? `<button class="ep-menu-item" onclick="App.downloadAudio(${id}); App.closeEpMenu()">
+        ${ICONS.download} <span>Download</span>
+      </button>` : ''}
+    </div>`;
+  },
+
+  toggleEpMenu(id) {
+    if (this._openMenuId === id) {
+      this.closeEpMenu();
+    } else {
+      this._openMenuId = id;
+      this.reRenderAll();
+    }
+  },
+
+  closeEpMenu() {
+    if (this._openMenuId !== null) {
+      this._openMenuId = null;
+      this.reRenderAll();
+    }
+  },
+
+  toggleFavorite(id) {
+    const idx = this._favorites.indexOf(id);
+    if (idx >= 0) {
+      this._favorites.splice(idx, 1);
+      this.showToast('Removed from favorites');
+    } else {
+      this._favorites.push(id);
+      this.showToast('Added to favorites ⭐');
+    }
+    localStorage.setItem('pg_favorites', JSON.stringify(this._favorites));
+    this._openMenuId = null;
+    this.reRenderAll();
   },
 
   // ── Player Setup ──
@@ -2009,7 +2114,7 @@ const App = {
             <span>Copy</span>
           </button>
           <button class="chat-action-btn" onclick="App.shareChatMessage(App.chatMessages[${i}].content)" title="Share">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
             <span>Share</span>
           </button>
           <button class="chat-action-btn" onclick="App.speakChatMessage(${i})" title="Listen" id="speakBtn${i}">
