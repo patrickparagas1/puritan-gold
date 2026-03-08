@@ -1,4 +1,4 @@
-const CACHE_NAME = 'puritan-gold-v20';
+const CACHE_NAME = 'puritan-gold-v21';
 const SHELL_FILES = [
   'index.html',
   'style.css',
@@ -27,6 +27,14 @@ self.addEventListener('fetch', event => {
 
   // Don't cache audio files (too large), stream them directly
   if (url.pathname.endsWith('.mp3')) {
+    return;
+  }
+
+  // Don't cache Firebase SDK / Auth / Firestore requests — let them pass through
+  const host = url.hostname;
+  if (host.includes('gstatic.com') || host.includes('firebaseapp.com') ||
+      host.includes('googleapis.com') || host.includes('firestore.googleapis.com') ||
+      host.includes('identitytoolkit.googleapis.com') || host.includes('securetoken.googleapis.com')) {
     return;
   }
 

@@ -117,7 +117,7 @@ const App = {
   audio: new Audio(),
   currentEp: null,
   section: 'study',       // 'study' | 'family' | 'school' | 'together' | 'personal' | 'ask'
-  studyTab: 'episodes',   // sub-tab within study: 'episodes' | 'calendar'
+  studyTab: 'topics',     // sub-tab within study: 'topics' | 'episodes'
   filter: 'all',
   speeds: [0.75, 1, 1.25, 1.5, 1.75, 2],
   speedIdx: 1,
@@ -136,16 +136,22 @@ const App = {
   _monthAbbr: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
   _favorites: JSON.parse(localStorage.getItem('pg_favorites') || '[]'),
   _openMenuId: null,
+  _currentUser: null,
+  _db: null,
+  _firestoreUnsubscribe: null,
+  _positionSyncTimer: null,
+  _topicSlug: null,  // currently viewing topic (null = show all topics)
 
   // ── Initialize ──
   async init() {
     await this.loadEpisodes();
+    this.initFirebase(); // Auth + Firestore — shows/hides login wall
     this.setupBottomNav();
     this.setupTabs();
     this.setupFilters();
     this.updateMonthLabel();
     this.renderEpisodes();
-    this.renderCalendar();
+    this.renderStudyTopics(); // Topic library for Study section
     this.renderFamily();
     this.renderSchool();
     this.renderTogether();
@@ -228,7 +234,7 @@ const App = {
 
   nextMonth() {
     let { year, month } = this.currentMonth;
-    if (month === 3 && year === 2026) return; // April 2026 is latest for now
+    if (month === 5 && year === 2026) return; // June 2026 is latest for now
     month++;
     if (month > 11) { month = 0; year++; }
     this.currentMonth = { year, month };
@@ -239,7 +245,7 @@ const App = {
 
   reRenderAll() {
     this.renderEpisodes();
-    this.renderCalendar();
+    this.renderStudyTopics();
     this.renderFamily();
     this.renderSchool();
     this.renderTogether();
@@ -265,14 +271,14 @@ const App = {
         const view = document.getElementById(viewId);
         if (view) view.classList.add('active');
 
-        // Hide month nav on Ask section
+        // Hide month nav on Study (topic-based, no calendar) and Ask sections
         const monthNav = document.getElementById('monthNav');
-        if (monthNav) monthNav.style.display = this.section === 'ask' ? 'none' : '';
+        if (monthNav) monthNav.style.display = (this.section === 'ask' || this.section === 'study') ? 'none' : '';
       });
     });
   },
 
-  // ── Tabs (Study sub-tabs: Episodes / Calendar) ──
+  // ── Tabs (Study sub-tabs: Topics / All Episodes) ──
   setupTabs() {
     const studyView = document.getElementById('studyView');
     if (!studyView) return;
@@ -282,14 +288,17 @@ const App = {
         tab.classList.add('active');
         this.studyTab = tab.dataset.view;
 
+        document.getElementById('topicsView').classList.toggle('active', this.studyTab === 'topics');
         document.getElementById('episodesView').classList.toggle('active', this.studyTab === 'episodes');
-        document.getElementById('calendarView').classList.toggle('active', this.studyTab === 'calendar');
 
-        // Show/hide filters
+        // Show/hide filters (only for All Episodes tab)
         document.getElementById('filters').style.display = this.studyTab === 'episodes' ? '' : 'none';
 
-        // Render calendar when switching to it
-        if (this.studyTab === 'calendar') this.renderCalendar();
+        // Reset topic drill-down when switching tabs
+        if (this.studyTab === 'topics') {
+          this._topicSlug = null;
+          this.renderStudyTopics();
+        }
       });
     });
   },
@@ -1045,6 +1054,7 @@ const App = {
       this.showToast('Added to favorites ⭐');
     }
     localStorage.setItem('pg_favorites', JSON.stringify(this._favorites));
+    this._syncProgressToCloud('favorites', null, this._favorites);
     this._openMenuId = null;
     this.reRenderAll();
   },
@@ -2591,8 +2601,18 @@ const App = {
   markListened(id) {
     localStorage.setItem('listened_' + id, '1');
     localStorage.removeItem('pos_' + id);
+    this._syncProgressToCloud('listened', id.toString(), true);
   },
-  savePosition(id, time) { localStorage.setItem('pos_' + id, time.toString()); },
+  savePosition(id, time) {
+    localStorage.setItem('pos_' + id, time.toString());
+    // Debounce position syncs to Firestore (every 10s)
+    if (!this._positionSyncTimer) {
+      this._positionSyncTimer = setTimeout(() => {
+        this._syncProgressToCloud('positions', id.toString(), time);
+        this._positionSyncTimer = null;
+      }, 10000);
+    }
+  },
   getPosition(id) { return parseFloat(localStorage.getItem('pos_' + id) || '0'); },
 
   saveState() {
@@ -2628,6 +2648,332 @@ const App = {
         this.renderEpisodes(); // Re-render to show playing state
       }
     }
+  },
+
+  // ═══════════════════════════════════════════════════
+  // FIREBASE AUTH + GOOGLE SIGN-IN
+  // ═══════════════════════════════════════════════════
+
+  initFirebase() {
+    // Check if Firebase SDK loaded
+    if (typeof firebase === 'undefined' || !firebase.auth) {
+      console.warn('Firebase SDK not loaded — running in offline mode');
+      this.hideLoginWall();
+      return;
+    }
+
+    // Check if config is placeholder
+    const app = firebase.app();
+    if (app.options.apiKey === 'YOUR_API_KEY') {
+      console.warn('Firebase not configured — running in offline mode');
+      this.hideLoginWall();
+      return;
+    }
+
+    this._db = firebase.firestore();
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this._currentUser = user;
+        this.hideLoginWall();
+        this.showProfile(user);
+        this.migrateLocalStorageToFirestore(user.uid);
+        this.setupFirestoreSync(user.uid);
+      } else {
+        this._currentUser = null;
+        this.showLoginWall();
+        if (this._firestoreUnsubscribe) {
+          this._firestoreUnsubscribe();
+          this._firestoreUnsubscribe = null;
+        }
+      }
+    });
+  },
+
+  signInWithGoogle() {
+    if (typeof firebase === 'undefined') return;
+    const provider = new firebase.auth.GoogleAuthProvider();
+    // Try popup first, fall back to redirect for mobile PWA
+    firebase.auth().signInWithPopup(provider).catch(err => {
+      if (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user') {
+        firebase.auth().signInWithRedirect(provider);
+      } else {
+        console.error('Sign-in error:', err);
+        this.showToast('Sign-in failed. Try again.');
+      }
+    });
+  },
+
+  signOut() {
+    if (typeof firebase === 'undefined') return;
+    firebase.auth().signOut().then(() => {
+      this._currentUser = null;
+      document.getElementById('profileMenu').style.display = 'none';
+      document.getElementById('profileDropdown').classList.remove('visible');
+      this.showLoginWall();
+    });
+  },
+
+  showLoginWall() {
+    const wall = document.getElementById('loginWall');
+    if (wall) wall.classList.add('visible');
+  },
+
+  hideLoginWall() {
+    const wall = document.getElementById('loginWall');
+    if (wall) wall.classList.remove('visible');
+  },
+
+  showProfile(user) {
+    const menu = document.getElementById('profileMenu');
+    const photo = document.getElementById('profilePhoto');
+    const name = document.getElementById('profileName');
+    const email = document.getElementById('profileEmail');
+    if (!menu) return;
+
+    menu.style.display = '';
+    if (user.photoURL) {
+      photo.src = user.photoURL;
+      photo.referrerPolicy = 'no-referrer';
+    } else {
+      photo.src = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="20" fill="%231a3a5c"/><text x="20" y="26" font-size="18" text-anchor="middle" fill="%23e8b84a" font-weight="bold">' + (user.displayName || 'U')[0].toUpperCase() + '</text></svg>');
+    }
+    if (name) name.textContent = user.displayName || 'User';
+    if (email) email.textContent = user.email || '';
+  },
+
+  toggleProfileDropdown() {
+    const dd = document.getElementById('profileDropdown');
+    if (dd) dd.classList.toggle('visible');
+  },
+
+  // ═══════════════════════════════════════════════════
+  // FIRESTORE SYNC
+  // ═══════════════════════════════════════════════════
+
+  async migrateLocalStorageToFirestore(uid) {
+    if (!this._db) return;
+    const docRef = this._db.collection('users').doc(uid).collection('data').doc('progress');
+    try {
+      const snap = await docRef.get();
+      if (snap.exists) {
+        // Firestore has data — pull down to localStorage
+        const data = snap.data();
+        if (data.listened) Object.keys(data.listened).forEach(id => localStorage.setItem('listened_' + id, '1'));
+        if (data.positions) Object.keys(data.positions).forEach(id => localStorage.setItem('pos_' + id, data.positions[id].toString()));
+        if (data.favorites) {
+          this._favorites = data.favorites;
+          localStorage.setItem('pg_favorites', JSON.stringify(data.favorites));
+        }
+        if (data.streakDates) localStorage.setItem('pg_streakDates', JSON.stringify(data.streakDates));
+        if (data.lastEp) localStorage.setItem('lastEp', data.lastEp.toString());
+        if (data.speed !== undefined) localStorage.setItem('speed', data.speed.toString());
+        if (data.autoplay !== undefined) localStorage.setItem('autoplay', data.autoplay ? '1' : '0');
+        this.restoreState();
+        this.updateStreak();
+        this.reRenderAll();
+      } else {
+        // Firestore empty — push localStorage up
+        this._syncAllToCloud();
+      }
+    } catch (e) {
+      console.error('Migration error:', e);
+    }
+  },
+
+  setupFirestoreSync(uid) {
+    if (!this._db) return;
+    const docRef = this._db.collection('users').doc(uid).collection('data').doc('progress');
+
+    // Listen for remote changes (other devices)
+    this._firestoreUnsubscribe = docRef.onSnapshot(snap => {
+      if (!snap.exists || snap.metadata.hasPendingWrites) return;
+      const data = snap.data();
+      // Merge listened
+      if (data.listened) Object.keys(data.listened).forEach(id => localStorage.setItem('listened_' + id, '1'));
+      // Merge positions
+      if (data.positions) Object.keys(data.positions).forEach(id => {
+        const remote = data.positions[id];
+        const local = parseFloat(localStorage.getItem('pos_' + id) || '0');
+        if (remote > local) localStorage.setItem('pos_' + id, remote.toString());
+      });
+      // Merge favorites
+      if (data.favorites) {
+        this._favorites = data.favorites;
+        localStorage.setItem('pg_favorites', JSON.stringify(data.favorites));
+      }
+      if (data.streakDates) localStorage.setItem('pg_streakDates', JSON.stringify(data.streakDates));
+      this.updateStreak();
+      this.reRenderAll();
+    });
+  },
+
+  _syncAllToCloud() {
+    if (!this._db || !this._currentUser) return;
+    const uid = this._currentUser.uid;
+    const docRef = this._db.collection('users').doc(uid).collection('data').doc('progress');
+
+    // Gather all listened/positions from localStorage
+    const listened = {};
+    const positions = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key.startsWith('listened_')) listened[key.replace('listened_', '')] = true;
+      if (key.startsWith('pos_')) positions[key.replace('pos_', '')] = parseFloat(localStorage.getItem(key));
+    }
+
+    const streakDates = JSON.parse(localStorage.getItem('pg_streakDates') || '[]');
+    const lastEp = parseInt(localStorage.getItem('lastEp') || '0');
+    const speed = parseInt(localStorage.getItem('speed') || '1');
+    const autoplay = localStorage.getItem('autoplay') === '1';
+
+    docRef.set({
+      listened, positions,
+      favorites: this._favorites,
+      streakDates, lastEp, speed, autoplay
+    }, { merge: true }).catch(e => console.error('Cloud sync error:', e));
+  },
+
+  _syncProgressToCloud(field, key, value) {
+    if (!this._db || !this._currentUser) return;
+    const uid = this._currentUser.uid;
+    const docRef = this._db.collection('users').doc(uid).collection('data').doc('progress');
+    const update = {};
+    if (field === 'listened') update['listened.' + key] = value;
+    else if (field === 'positions') update['positions.' + key] = value;
+    else update[field] = value;
+    docRef.update(update).catch(e => console.error('Sync error:', e));
+  },
+
+  // ═══════════════════════════════════════════════════
+  // STUDY TOPIC RENDERING
+  // ═══════════════════════════════════════════════════
+
+  _studyTopics: [
+    {
+      slug: 'sirach',
+      title: 'The Book of Sirach',
+      author: 'Ecclesiasticus (Apocrypha)',
+      description: 'Wisdom literature from the ancient Jewish tradition — practical guidance on family, friendship, wealth, and the fear of the Lord.',
+      color: '#3574cc',
+    },
+    {
+      slug: 'female-piety',
+      title: 'Female Piety',
+      author: 'John Angell James',
+      description: 'A classic treatise on godly womanhood, motherhood, and the spiritual formation of women in Christ.',
+      color: '#9b59b6',
+    },
+    {
+      slug: 'enoch',
+      title: 'The Book of Enoch',
+      author: 'Pseudepigrapha',
+      description: 'The apocalyptic visions of Enoch — angels, prophecy, and cosmic judgment. Referenced in Jude and early church writings.',
+      color: '#2d8a4e',
+    },
+    {
+      slug: 'melchizedek',
+      title: 'The Book of Melchizedek',
+      author: 'Genesis, Hebrews, Psalms',
+      description: 'The mysterious priest-king who prefigures Christ — exploring the eternal priesthood through Scripture and Puritan commentary.',
+      color: '#d4a23c',
+    }
+  ],
+
+  renderStudyTopics() {
+    const container = document.getElementById('topicList');
+    if (!container) return;
+
+    // If viewing a specific topic, render its episodes
+    if (this._topicSlug) {
+      this._renderTopicEpisodes(this._topicSlug);
+      return;
+    }
+
+    // Render topic cards
+    let html = '<div class="topic-header">Choose a Topic to Study</div>';
+
+    this._studyTopics.forEach(topic => {
+      // Count episodes and listened for this topic
+      const topicEps = this.allEpisodes.filter(e => e.topic === topic.slug);
+      const total = topicEps.length;
+      const done = topicEps.filter(e => this.isListened(e.id)).length;
+      const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+
+      html += `
+        <div class="topic-card" onclick="App.openTopic('${topic.slug}')">
+          <div class="topic-card-title">${topic.title}</div>
+          <div class="topic-card-author">${topic.author}</div>
+          <div class="topic-card-desc">${topic.description}</div>
+          <div class="topic-card-footer">
+            <div class="topic-progress-bar">
+              <div class="topic-progress-fill" style="width:${pct}%; background:${topic.color};"></div>
+            </div>
+            <div class="topic-progress-text">${total > 0 ? `${done}/${total}` : 'Coming Soon'}</div>
+          </div>
+        </div>`;
+    });
+
+    container.innerHTML = html;
+  },
+
+  openTopic(slug) {
+    this._topicSlug = slug;
+    this.renderStudyTopics();
+  },
+
+  _renderTopicEpisodes(slug) {
+    const container = document.getElementById('topicList');
+    if (!container) return;
+
+    const topic = this._studyTopics.find(t => t.slug === slug);
+    if (!topic) return;
+
+    const eps = this.allEpisodes.filter(e => e.topic === slug).sort((a, b) => (a.topicOrder || 0) - (b.topicOrder || 0));
+
+    let html = `<button class="topic-back-btn" onclick="App._topicSlug=null; App.renderStudyTopics()">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      All Topics
+    </button>`;
+    html += `<div class="topic-header">${topic.title}</div>`;
+
+    if (!eps.length) {
+      html += '<div class="empty-state">Episodes coming soon! Check back later.</div>';
+      container.innerHTML = html;
+      return;
+    }
+
+    eps.forEach(ep => {
+      const listened = this.isListened(ep.id);
+      const isFav = this._favorites.includes(ep.id);
+      const hasAudio = ep.file !== null;
+
+      html += `
+        <div class="study-card ${listened ? 'listened' : ''}" data-id="${ep.id}">
+          ${isFav ? '<div class="fav-indicator"></div>' : ''}
+          <div class="study-date">PART ${ep.topicOrder || '?'} OF ${ep.topicTotal || eps.length}</div>
+          <div class="study-title">${ep.title}</div>
+          <div class="study-subtitle">${ep.subtitle || ''}</div>
+          <pre class="script-view" id="script-${ep.id}"></pre>
+          <div class="study-actions">
+            <button class="study-play-btn ${hasAudio ? '' : 'no-audio'}"
+                    onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
+              ${hasAudio ? `<svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg> Play (${ep.duration})` : 'Audio Coming Soon'}
+            </button>
+            <div class="card-action-btns">
+              <button class="dl-btn" onclick="App.viewScript(${ep.id})" title="Read Script">${ICONS.script}</button>
+              <button class="share-btn" onclick="App.shareEpisode(${ep.id})" title="Share">${ICONS.share}</button>
+              <div class="ep-menu-wrap">
+                <button class="ep-menu-btn" onclick="event.stopPropagation(); App.toggleEpMenu(${ep.id})">${ICONS.dots}</button>
+                ${this._openMenuId === ep.id ? this._renderEpMenu(ep.id) : ''}
+              </div>
+            </div>
+          </div>
+          ${this.getProgress(ep) > 0 || listened ? `<div class="ep-progress ${listened ? 'done' : ''}"><div class="ep-progress-fill" style="width:${listened ? 100 : this.getProgress(ep)}%"></div></div>` : ''}
+        </div>`;
+    });
+
+    container.innerHTML = html;
   },
 
   setupServiceWorker() {
