@@ -23,6 +23,7 @@
         Sign in with Google
       </button>
       <p class="login-note">Sign in to sync your progress across all devices</p>
+      <button class="login-skip" onclick="App.skipSignIn()">Continue without signing in</button>
     </div>
   </div>
 
@@ -34,6 +35,7 @@
           <div class="streak" id="streak">
             <span class="streak-fire"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 23c-4.97 0-9-3.58-9-8 0-5.5 7-13 9-15 2 2 9 9.5 9 15 0 4.42-4.03 8-9 8z"/></svg></span><span id="streakCount">0</span>
           </div>
+          <button class="header-signin-btn" id="headerSignInBtn" style="display:none;" onclick="App.signInWithGoogle()">Sign In</button>
           <div class="profile-menu" id="profileMenu" style="display:none;">
             <img class="profile-photo" id="profilePhoto" src="" alt="Profile" onclick="App.toggleProfileDropdown()">
             <div class="profile-dropdown" id="profileDropdown">

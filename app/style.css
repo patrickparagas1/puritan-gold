@@ -3654,6 +3654,30 @@ html, body {
   margin-top: 20px;
   line-height: 1.5;
 }
+.login-skip {
+  display: block;
+  margin: 24px auto 0;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 8px 16px;
+}
+.login-skip:active { color: rgba(255,255,255,0.8); }
+.header-signin-btn {
+  background: var(--gold-bright);
+  color: #1a3a5c;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
 
 /* ══════════ PROFILE MENU ══════════ */
 .header-right {

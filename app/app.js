@@ -2678,7 +2678,9 @@ const App = {
     // Check if Firebase SDK loaded
     if (typeof firebase === 'undefined' || !firebase.auth) {
       console.warn('Firebase SDK not loaded — running in offline mode');
+      this._firebaseReady = false;
       this.hideLoginWall();
+      this._showHeaderSignIn(false);
       return;
     }
 
@@ -2686,10 +2688,13 @@ const App = {
     const app = firebase.app();
     if (app.options.apiKey === 'YOUR_API_KEY') {
       console.warn('Firebase not configured — running in offline mode');
+      this._firebaseReady = false;
       this.hideLoginWall();
+      this._showHeaderSignIn(false);
       return;
     }
 
+    this._firebaseReady = true;
     this._db = firebase.firestore();
 
     firebase.auth().onAuthStateChanged(user => {
@@ -2697,11 +2702,17 @@ const App = {
         this._currentUser = user;
         this.hideLoginWall();
         this.showProfile(user);
+        this._showHeaderSignIn(false);
         this.migrateLocalStorageToFirestore(user.uid);
         this.setupFirestoreSync(user.uid);
       } else {
         this._currentUser = null;
-        this.showLoginWall();
+        // Don't block the app — just show sign-in option in header
+        if (!this._signInSkipped) {
+          this.showLoginWall();
+        }
+        this._showHeaderSignIn(true);
+        document.getElementById('profileMenu').style.display = 'none';
         if (this._firestoreUnsubscribe) {
           this._firestoreUnsubscribe();
           this._firestoreUnsubscribe = null;
@@ -2710,8 +2721,22 @@ const App = {
     });
   },
 
+  skipSignIn() {
+    this._signInSkipped = true;
+    this.hideLoginWall();
+    this._showHeaderSignIn(this._firebaseReady);
+  },
+
+  _showHeaderSignIn(show) {
+    const btn = document.getElementById('headerSignInBtn');
+    if (btn) btn.style.display = show ? '' : 'none';
+  },
+
   signInWithGoogle() {
-    if (typeof firebase === 'undefined') return;
+    if (!this._firebaseReady) {
+      this.showToast('Sign-in not available yet. Firebase needs to be configured.');
+      return;
+    }
     const provider = new firebase.auth.GoogleAuthProvider();
     // Try popup first, fall back to redirect for mobile PWA
     firebase.auth().signInWithPopup(provider).catch(err => {
@@ -2725,12 +2750,13 @@ const App = {
   },
 
   signOut() {
-    if (typeof firebase === 'undefined') return;
+    if (!this._firebaseReady) return;
     firebase.auth().signOut().then(() => {
       this._currentUser = null;
       document.getElementById('profileMenu').style.display = 'none';
       document.getElementById('profileDropdown').classList.remove('visible');
-      this.showLoginWall();
+      this._showHeaderSignIn(true);
+      this.showToast('Signed out');
     });
   },
 
