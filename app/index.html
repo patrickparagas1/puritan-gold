@@ -46,7 +46,7 @@
         </div>
       </div>
       <p class="subtitle">Theology for the Soul</p>
-      <div class="month-nav" id="monthNav" style="display:none;">
+      <div class="month-nav" id="monthNav">
         <button class="month-arrow" onclick="App.prevMonth()" aria-label="Previous month"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>
         <span class="month-label" id="monthLabel" onclick="App.openMasterCalendar()">March 2026</span>
         <button class="month-arrow" onclick="App.nextMonth()" aria-label="Next month"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg></button>
@@ -59,32 +59,32 @@
     <main class="content">
 
       <!-- ========== STUDY SECTION ========== -->
-      <section class="section-view active" id="studyView">
+      <section class="section-view active section-flex" id="studyView">
         <nav class="tabs">
-          <button class="study-tab tab active" data-view="topics">Topics</button>
-          <button class="study-tab tab" data-view="episodes">All Episodes</button>
+          <button class="study-tab tab active" data-view="episodes" onclick="App.switchSectionTab('study','episodes')">Episodes</button>
+          <button class="study-tab tab" data-view="calendar" onclick="App.switchSectionTab('study','calendar')">Calendar</button>
         </nav>
 
-        <div class="filters" id="filters" style="display:none;">
+        <div class="filters" id="filters">
           <button class="pill active" data-filter="all">All</button>
           <button class="pill" data-filter="unplayed">Unplayed</button>
           <button class="pill" data-filter="started">Started</button>
           <button class="pill" data-filter="done">Done</button>
         </div>
 
-        <!-- Topic Library View (default) -->
-        <div class="view topics-view active" id="topicsView">
-          <div id="topicList" class="topic-list"></div>
-        </div>
-
-        <!-- All Episodes View -->
-        <div class="view episodes-view" id="episodesView">
-          <div id="episodeList" class="episode-list">
-            <div class="skeleton-list" id="skeletons">
-              <div class="sk-card"><div class="sk sk-num"></div><div class="sk-body"><div class="sk sk-title"></div><div class="sk sk-sub"></div><div class="sk sk-badge"></div></div></div>
-              <div class="sk-card"><div class="sk sk-num"></div><div class="sk-body"><div class="sk sk-title"></div><div class="sk sk-sub"></div><div class="sk sk-badge"></div></div></div>
-            </div>
+        <div class="view episodes-view active" data-tab-view="episodes" id="episodeList">
+          <div class="skeleton-list" id="skeletons">
+            <div class="sk-card"><div class="sk sk-num"></div><div class="sk-body"><div class="sk sk-title"></div><div class="sk sk-sub"></div><div class="sk sk-badge"></div></div></div>
+            <div class="sk-card"><div class="sk sk-num"></div><div class="sk-body"><div class="sk sk-title"></div><div class="sk sk-sub"></div><div class="sk sk-badge"></div></div></div>
           </div>
+        </div>
+        <div class="view calendar-view" data-tab-view="calendar" id="studyCal">
+          <div class="cal-container">
+            <div class="cal-month-nav"><span class="cal-month-label" id="studyCalMonthLabel">March 2026</span></div>
+            <div class="cal-header"><div class="cal-dow">Su</div><div class="cal-dow">Mo</div><div class="cal-dow">Tu</div><div class="cal-dow">We</div><div class="cal-dow">Th</div><div class="cal-dow">Fr</div><div class="cal-dow">Sa</div></div>
+            <div class="cal-grid" id="studyCalGrid"></div>
+          </div>
+          <div class="cal-detail" id="studyCalDetail"><div class="cal-detail-empty">Tap a day to see the episode</div></div>
         </div>
       </section>
 
@@ -142,10 +142,14 @@
       <!-- ========== PERSONAL GROWTH SECTION ========== -->
       <section class="section-view section-flex" id="personalView">
         <nav class="tabs">
-          <button class="study-tab tab active" data-view="episodes" onclick="App.switchSectionTab('personal','episodes')">Episodes</button>
-          <button class="study-tab tab" data-view="calendar" onclick="App.switchSectionTab('personal','calendar')">Calendar</button>
+          <button class="study-tab tab active" data-view="topics" onclick="App.switchGrowthTab('topics')">Topics</button>
+          <button class="study-tab tab" data-view="episodes" onclick="App.switchGrowthTab('episodes')">Daily</button>
+          <button class="study-tab tab" data-view="calendar" onclick="App.switchGrowthTab('calendar')">Calendar</button>
         </nav>
-        <div class="view episodes-view active" data-tab-view="episodes" id="personalList"></div>
+        <div class="view topics-view active" data-tab-view="topics" id="personalTopicsView">
+          <div id="personalTopicList" class="topic-list"></div>
+        </div>
+        <div class="view episodes-view" data-tab-view="episodes" id="personalList"></div>
         <div class="view calendar-view" data-tab-view="calendar" id="personalCal">
           <div class="cal-container">
             <div class="cal-month-nav"><span class="cal-month-label" id="personalCalMonthLabel">March 2026</span></div>
@@ -310,6 +314,10 @@
         </button>
       </div>
       <div class="np-options">
+        <button class="np-opt" onclick="App.toggleAmbientSound()">
+          <span class="np-opt-icon" id="npAmbientIcon">🔥</span>
+          <span class="np-opt-text" id="npAmbientText">Fireplace: Off</span>
+        </button>
         <button class="np-opt" onclick="App.openSleepModal()">
           <span class="np-opt-icon">🌙</span>
           <span class="np-opt-text" id="npSleepText">Sleep Timer</span>
@@ -319,6 +327,8 @@
           <span class="np-opt-text" id="npAutoText">Auto: Off</span>
         </button>
       </div>
+      <!-- Chapter markers (for audiobooks) -->
+      <div class="np-chapters" id="npChapters" style="display:none;"></div>
       <div class="np-desc" id="npDesc"></div>
     </div>
   </div>

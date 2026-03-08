@@ -1139,6 +1139,63 @@ html, body {
   display: none;
 }
 
+/* ── Chapter Markers (YouTube-style) ── */
+.np-chapters {
+  margin-top: 20px;
+  padding: 0;
+  width: 100%;
+}
+.np-chapters-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  padding: 0 4px;
+}
+.np-chapter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-align: left;
+}
+.np-chapter:active {
+  background: rgba(255,255,255,0.1);
+}
+.np-chapter-num {
+  min-width: 26px;
+  height: 26px;
+  background: rgba(232,184,74,0.15);
+  color: var(--gold-bright);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.np-chapter-title {
+  flex: 1;
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  font-weight: 500;
+}
+.np-chapter-time {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  font-variant-numeric: tabular-nums;
+}
+
 /* ══════════ CALENDAR VIEW ══════════ */
 .calendar-view {
   display: none;
@@ -3732,6 +3789,21 @@ html, body {
   font-weight: 600;
   color: var(--text3);
   white-space: nowrap;
+}
+.topic-card-audiobook-badge {
+  font-size: 10px;
+  font-weight: 800;
+  color: #3574cc;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+}
+.topic-card-chapters {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text3);
+}
+.audiobook-card {
+  background: linear-gradient(135deg, rgba(53,116,204,0.06), rgba(53,116,204,0.02));
 }
 .topic-back-btn {
   display: inline-flex;

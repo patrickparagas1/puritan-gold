@@ -117,7 +117,7 @@ const App = {
   audio: new Audio(),
   currentEp: null,
   section: 'study',       // 'study' | 'family' | 'school' | 'together' | 'personal' | 'ask'
-  studyTab: 'topics',     // sub-tab within study: 'topics' | 'episodes'
+  growthTab: 'topics',     // sub-tab within growth: 'topics' | 'episodes' | 'calendar'
   filter: 'all',
   speeds: [0.75, 1, 1.25, 1.5, 1.75, 2],
   speedIdx: 1,
@@ -141,6 +141,8 @@ const App = {
   _firestoreUnsubscribe: null,
   _positionSyncTimer: null,
   _topicSlug: null,  // currently viewing topic (null = show all topics)
+  _ambientAudio: null,
+  _ambientEnabled: JSON.parse(localStorage.getItem('pg_ambient') || 'false'),
 
   // ── Initialize ──
   async init() {
@@ -151,7 +153,7 @@ const App = {
     this.setupFilters();
     this.updateMonthLabel();
     this.renderEpisodes();
-    this.renderStudyTopics(); // Topic library for Study section
+    this.renderGrowthTopics(); // Topic library for Growth section
     this.renderFamily();
     this.renderSchool();
     this.renderTogether();
@@ -209,7 +211,8 @@ const App = {
     this.familyEpisodes = this.filterByMonth(all.filter(e => e.section === 'family'));
     this.schoolEpisodes = this.filterByMonth(all.filter(e => e.section === 'school'));
     this.togetherEpisodes = this.filterByMonth(all.filter(e => e.section === 'together'));
-    this.personalEpisodes = this.filterByMonth(all.filter(e => e.section === 'personal'));
+    // Exclude topic-based episodes from daily list (they show in Topics tab only)
+    this.personalEpisodes = this.filterByMonth(all.filter(e => e.section === 'personal' && !e.topic));
   },
 
   updateMonthLabel() {
@@ -245,13 +248,13 @@ const App = {
 
   reRenderAll() {
     this.renderEpisodes();
-    this.renderStudyTopics();
+    this.renderGrowthTopics();
     this.renderFamily();
     this.renderSchool();
     this.renderTogether();
     this.renderPersonal();
     // Re-render any active section calendar
-    ['family','school','together','personal'].forEach(s => {
+    ['study','family','school','together','personal'].forEach(s => {
       const cal = document.getElementById(s + 'Cal');
       if (cal && cal.classList.contains('active')) this.renderSectionCalendar(s);
     });
@@ -271,36 +274,44 @@ const App = {
         const view = document.getElementById(viewId);
         if (view) view.classList.add('active');
 
-        // Hide month nav on Study (topic-based, no calendar) and Ask sections
+        // Hide month nav on Ask section and Growth Topics tab
         const monthNav = document.getElementById('monthNav');
-        if (monthNav) monthNav.style.display = (this.section === 'ask' || this.section === 'study') ? 'none' : '';
+        if (monthNav) {
+          if (this.section === 'ask') {
+            monthNav.style.display = 'none';
+          } else if (this.section === 'personal' && this.growthTab === 'topics') {
+            monthNav.style.display = 'none';
+          } else {
+            monthNav.style.display = '';
+          }
+        }
       });
     });
   },
 
-  // ── Tabs (Study sub-tabs: Topics / All Episodes) ──
+  // ── Tabs (Study uses standard switchSectionTab) ──
   setupTabs() {
-    const studyView = document.getElementById('studyView');
-    if (!studyView) return;
-    studyView.querySelectorAll('.tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        studyView.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        this.studyTab = tab.dataset.view;
+    // Study section tabs are handled via onclick="App.switchSectionTab('study',..)"
+    // Growth section tabs are handled via onclick="App.switchGrowthTab(..)"
+    // No extra JS setup needed — all wired in HTML
+  },
 
-        document.getElementById('topicsView').classList.toggle('active', this.studyTab === 'topics');
-        document.getElementById('episodesView').classList.toggle('active', this.studyTab === 'episodes');
-
-        // Show/hide filters (only for All Episodes tab)
-        document.getElementById('filters').style.display = this.studyTab === 'episodes' ? '' : 'none';
-
-        // Reset topic drill-down when switching tabs
-        if (this.studyTab === 'topics') {
-          this._topicSlug = null;
-          this.renderStudyTopics();
-        }
-      });
-    });
+  switchGrowthTab(tab) {
+    this.growthTab = tab;
+    const view = document.getElementById('personalView');
+    if (!view) return;
+    view.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.view === tab));
+    view.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.dataset.tabView === tab));
+    // Show/hide month nav
+    const monthNav = document.getElementById('monthNav');
+    if (monthNav) monthNav.style.display = (tab === 'topics') ? 'none' : '';
+    // Render as needed
+    if (tab === 'topics') {
+      this._topicSlug = null;
+      this.renderGrowthTopics();
+    } else if (tab === 'calendar') {
+      this.renderSectionCalendar('personal');
+    }
   },
 
   // ── Filters ──
@@ -794,7 +805,7 @@ const App = {
   },
 
   _getSectionEpisodes(section) {
-    const map = { family: this.familyEpisodes, school: this.schoolEpisodes, together: this.togetherEpisodes, personal: this.personalEpisodes };
+    const map = { study: this.episodes, family: this.familyEpisodes, school: this.schoolEpisodes, together: this.togetherEpisodes, personal: this.personalEpisodes };
     return map[section] || [];
   },
 
@@ -1091,6 +1102,9 @@ const App = {
     });
 
     this.audio.addEventListener('ended', () => {
+      // Stop ambient when episode ends
+      if (this._ambientAudio) this._ambientAudio.pause();
+
       if (this.currentEp) {
         this.markListened(this.currentEp.id);
         this.recordListenDate();
@@ -1143,6 +1157,10 @@ const App = {
 
     this.audio.play();
 
+    // Start ambient if enabled
+    if (this._ambientEnabled) this._startAmbient();
+    this._updateAmbientUI();
+
     // Show mini player
     document.getElementById('miniPlayer').classList.add('visible');
     document.getElementById('mpTitle').textContent = ep.title;
@@ -1168,9 +1186,11 @@ const App = {
   togglePlay() {
     if (this.audio.paused) {
       this.audio.play();
+      if (this._ambientEnabled) this._startAmbient();
       this.updatePlayBtn(true);
     } else {
       this.audio.pause();
+      if (this._ambientAudio) this._ambientAudio.pause();
       this.updatePlayBtn(false);
     }
   },
@@ -2849,7 +2869,7 @@ const App = {
   // STUDY TOPIC RENDERING
   // ═══════════════════════════════════════════════════
 
-  _studyTopics: [
+  _growthTopics: [
     {
       slug: 'sirach',
       title: 'The Book of Sirach',
@@ -2880,8 +2900,8 @@ const App = {
     }
   ],
 
-  renderStudyTopics() {
-    const container = document.getElementById('topicList');
+  renderGrowthTopics() {
+    const container = document.getElementById('personalTopicList');
     if (!container) return;
 
     // If viewing a specific topic, render its episodes
@@ -2891,9 +2911,21 @@ const App = {
     }
 
     // Render topic cards
-    let html = '<div class="topic-header">Choose a Topic to Study</div>';
+    let html = '<div class="topic-header">Choose a Topic</div>';
 
-    this._studyTopics.forEach(topic => {
+    // Sirach Audiobook card (special — full audiobook with chapter markers)
+    html += `
+      <div class="topic-card audiobook-card" onclick="App.openTopic('sirach')" style="border-left: 4px solid #3574cc;">
+        <div class="topic-card-audiobook-badge">📖 AUDIOBOOK</div>
+        <div class="topic-card-title">The Book of Sirach — Full Audiobook</div>
+        <div class="topic-card-author">Ecclesiasticus · 51 Chapters</div>
+        <div class="topic-card-desc">Listen to the entire Book of Sirach with chapter markers. Skip to any chapter like YouTube.</div>
+        <div class="topic-card-footer">
+          <div class="topic-card-chapters">51 chapters · Tap to skip</div>
+        </div>
+      </div>`;
+
+    this._growthTopics.forEach(topic => {
       // Count episodes and listened for this topic
       const topicEps = this.allEpisodes.filter(e => e.topic === topic.slug);
       const total = topicEps.length;
@@ -2919,19 +2951,19 @@ const App = {
 
   openTopic(slug) {
     this._topicSlug = slug;
-    this.renderStudyTopics();
+    this.renderGrowthTopics();
   },
 
   _renderTopicEpisodes(slug) {
-    const container = document.getElementById('topicList');
+    const container = document.getElementById('personalTopicList');
     if (!container) return;
 
-    const topic = this._studyTopics.find(t => t.slug === slug);
+    const topic = this._growthTopics.find(t => t.slug === slug);
     if (!topic) return;
 
     const eps = this.allEpisodes.filter(e => e.topic === slug).sort((a, b) => (a.topicOrder || 0) - (b.topicOrder || 0));
 
-    let html = `<button class="topic-back-btn" onclick="App._topicSlug=null; App.renderStudyTopics()">
+    let html = `<button class="topic-back-btn" onclick="App._topicSlug=null; App.renderGrowthTopics()">
       <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
       All Topics
     </button>`;
@@ -2974,6 +3006,131 @@ const App = {
     });
 
     container.innerHTML = html;
+  },
+
+  // ── Ambient Fireplace Sound ──
+  toggleAmbientSound() {
+    this._ambientEnabled = !this._ambientEnabled;
+    localStorage.setItem('pg_ambient', JSON.stringify(this._ambientEnabled));
+    this._updateAmbientUI();
+    if (this._ambientEnabled) {
+      this._startAmbient();
+    } else {
+      this._stopAmbient();
+    }
+  },
+
+  _startAmbient() {
+    if (!this._ambientAudio) {
+      this._ambientAudio = new Audio('../assets/ambient_crackling.wav');
+      this._ambientAudio.loop = true;
+      this._ambientAudio.volume = 0.08; // Soft crackling — subtle
+    }
+    if (!this.audio.paused) {
+      this._ambientAudio.play().catch(() => {});
+    }
+  },
+
+  _stopAmbient() {
+    if (this._ambientAudio) {
+      this._ambientAudio.pause();
+      this._ambientAudio.currentTime = 0;
+    }
+  },
+
+  _updateAmbientUI() {
+    const icon = document.getElementById('npAmbientIcon');
+    const text = document.getElementById('npAmbientText');
+    if (icon) icon.textContent = this._ambientEnabled ? '🔥' : '🔇';
+    if (text) text.textContent = this._ambientEnabled ? 'Fireplace: On' : 'Fireplace: Off';
+  },
+
+  // ── Sirach Audiobook Chapter Data ──
+  _sirachChapters: [
+    { ch: 1, title: 'All Wisdom Is from the Lord', startPct: 0 },
+    { ch: 2, title: 'Trust in God Under Trial', startPct: 2 },
+    { ch: 3, title: 'Duties to Parents', startPct: 4 },
+    { ch: 4, title: 'Compassion and Wisdom', startPct: 6 },
+    { ch: 5, title: 'Against Presumption', startPct: 8 },
+    { ch: 6, title: 'True Friendship', startPct: 10 },
+    { ch: 7, title: 'Duties of Daily Life', startPct: 12 },
+    { ch: 8, title: 'Prudence with Others', startPct: 14 },
+    { ch: 9, title: 'Dangers of Women and Wine', startPct: 16 },
+    { ch: 10, title: 'Pride and Authority', startPct: 18 },
+    { ch: 11, title: 'True Worth Before God', startPct: 20 },
+    { ch: 12, title: 'Discerning True Friends', startPct: 22 },
+    { ch: 13, title: 'Companions and Social Class', startPct: 24 },
+    { ch: 14, title: 'The Blessedness of Wisdom', startPct: 26 },
+    { ch: 15, title: 'Free Will and Responsibility', startPct: 28 },
+    { ch: 16, title: 'God's Justice', startPct: 30 },
+    { ch: 17, title: 'Creation and Covenant', startPct: 32 },
+    { ch: 18, title: 'The Greatness of God', startPct: 34 },
+    { ch: 19, title: 'Self-Control and Gossip', startPct: 36 },
+    { ch: 20, title: 'Wise and Foolish Speech', startPct: 38 },
+    { ch: 21, title: 'The Wise and the Foolish', startPct: 40 },
+    { ch: 22, title: 'Laziness and Folly', startPct: 42 },
+    { ch: 23, title: 'Against Profanity and Lust', startPct: 44 },
+    { ch: 24, title: 'Wisdom\'s Hymn of Self-Praise', startPct: 46 },
+    { ch: 25, title: 'Blessings and Woes', startPct: 48 },
+    { ch: 26, title: 'Good and Bad Wives', startPct: 50 },
+    { ch: 27, title: 'Sin in Business and Speech', startPct: 52 },
+    { ch: 28, title: 'Vengeance, Quarrels, the Tongue', startPct: 54 },
+    { ch: 29, title: 'Lending and Almsgiving', startPct: 56 },
+    { ch: 30, title: 'Discipline of Children', startPct: 58 },
+    { ch: 31, title: 'Riches and the Table', startPct: 60 },
+    { ch: 32, title: 'Conduct at Banquets', startPct: 62 },
+    { ch: 33, title: 'Fear of the Lord, Household', startPct: 64 },
+    { ch: 34, title: 'Dreams and True Worship', startPct: 66 },
+    { ch: 35, title: 'Sacrifices and God\'s Justice', startPct: 68 },
+    { ch: 36, title: 'Prayer for Israel', startPct: 70 },
+    { ch: 37, title: 'Counsel and Discernment', startPct: 72 },
+    { ch: 38, title: 'The Physician and Mourning', startPct: 74 },
+    { ch: 39, title: 'The Scholar\'s Praise', startPct: 76 },
+    { ch: 40, title: 'Miseries and Blessings of Life', startPct: 78 },
+    { ch: 41, title: 'Death and Shame', startPct: 80 },
+    { ch: 42, title: 'True and False Shame', startPct: 82 },
+    { ch: 43, title: 'The Wonders of Nature', startPct: 84 },
+    { ch: 44, title: 'Let Us Praise Famous Men', startPct: 86 },
+    { ch: 45, title: 'Moses, Aaron, Phinehas', startPct: 88 },
+    { ch: 46, title: 'Joshua and the Judges', startPct: 90 },
+    { ch: 47, title: 'David and Solomon', startPct: 92 },
+    { ch: 48, title: 'Elijah and Elisha', startPct: 94 },
+    { ch: 49, title: 'The Later Heroes', startPct: 96 },
+    { ch: 50, title: 'Simon the High Priest', startPct: 97.5 },
+    { ch: 51, title: 'Ben Sira\'s Farewell Prayer', startPct: 99 },
+  ],
+
+  renderChapters(ep) {
+    const container = document.getElementById('npChapters');
+    if (!container) return;
+
+    // Only show chapters for Sirach audiobook episode
+    if (!ep || !ep._isAudiobook || ep.topic !== 'sirach') {
+      container.style.display = 'none';
+      return;
+    }
+
+    container.style.display = '';
+    const duration = this.audio.duration || 0;
+
+    let html = '<div class="np-chapters-title">Chapters</div>';
+    this._sirachChapters.forEach(ch => {
+      const startTime = duration * (ch.startPct / 100);
+      html += `
+        <button class="np-chapter" onclick="App.seekToChapter(${ch.startPct})">
+          <span class="np-chapter-num">${ch.ch}</span>
+          <span class="np-chapter-title">${ch.title}</span>
+          <span class="np-chapter-time">${this.formatTime(startTime)}</span>
+        </button>`;
+    });
+
+    container.innerHTML = html;
+  },
+
+  seekToChapter(pct) {
+    if (this.audio.duration) {
+      this.audio.currentTime = (pct / 100) * this.audio.duration;
+    }
   },
 
   setupServiceWorker() {
