@@ -3088,7 +3088,7 @@ const App = {
     { ch: 13, title: 'Companions and Social Class', startPct: 24 },
     { ch: 14, title: 'The Blessedness of Wisdom', startPct: 26 },
     { ch: 15, title: 'Free Will and Responsibility', startPct: 28 },
-    { ch: 16, title: 'God's Justice', startPct: 30 },
+    { ch: 16, title: "God's Justice", startPct: 30 },
     { ch: 17, title: 'Creation and Covenant', startPct: 32 },
     { ch: 18, title: 'The Greatness of God', startPct: 34 },
     { ch: 19, title: 'Self-Control and Gossip', startPct: 36 },
