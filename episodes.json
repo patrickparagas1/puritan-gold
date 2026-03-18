@@ -9572,11 +9572,11 @@
     "topic": "reformed-pastor",
     "topicOrder": 6,
     "topicTotal": 11,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep1105.mp3",
+    "audio": "audio/ep1105.mp3",
+    "duration": "120:02",
+    "durationSecs": 7203,
+    "fileSize": 49642820
   },
   {
     "id": 1106,
@@ -11539,8 +11539,11 @@
     "topic": "keeping-the-heart",
     "topicOrder": 1,
     "topicTotal": 11,
-    "file": null,
-    "audio": null
+    "file": "audio/ep1300.mp3",
+    "audio": "audio/ep1300.mp3",
+    "duration": "2:33",
+    "durationSecs": 154,
+    "fileSize": 1110740
   },
   {
     "id": 1305,
@@ -15847,11 +15850,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 5,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2064.mp3",
+    "audio": "audio/ep2064.mp3",
+    "duration": "26:12",
+    "durationSecs": 1573,
+    "fileSize": 11074268
   },
   {
     "id": 2065,
@@ -15860,11 +15863,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 6,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2065.mp3",
+    "audio": "audio/ep2065.mp3",
+    "duration": "23:52",
+    "durationSecs": 1433,
+    "fileSize": 10094276
   },
   {
     "id": 2066,
@@ -15873,11 +15876,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 7,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2066.mp3",
+    "audio": "audio/ep2066.mp3",
+    "duration": "27:33",
+    "durationSecs": 1654,
+    "fileSize": 11605796
   },
   {
     "id": 2067,
@@ -15886,11 +15889,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 8,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2067.mp3",
+    "audio": "audio/ep2067.mp3",
+    "duration": "26:06",
+    "durationSecs": 1567,
+    "fileSize": 11021684
   },
   {
     "id": 2068,
@@ -15899,11 +15902,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 9,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2068.mp3",
+    "audio": "audio/ep2068.mp3",
+    "duration": "30:42",
+    "durationSecs": 1843,
+    "fileSize": 12909884
   },
   {
     "id": 2069,
@@ -15912,11 +15915,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 10,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2069.mp3",
+    "audio": "audio/ep2069.mp3",
+    "duration": "27:00",
+    "durationSecs": 1620,
+    "fileSize": 11433212
   },
   {
     "id": 2070,
@@ -15925,11 +15928,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 11,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2070.mp3",
+    "audio": "audio/ep2070.mp3",
+    "duration": "23:47",
+    "durationSecs": 1428,
+    "fileSize": 10073252
   },
   {
     "id": 2071,
@@ -15938,11 +15941,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 12,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2071.mp3",
+    "audio": "audio/ep2071.mp3",
+    "duration": "28:48",
+    "durationSecs": 1729,
+    "fileSize": 12218516
   },
   {
     "id": 2072,
@@ -15951,11 +15954,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 13,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2072.mp3",
+    "audio": "audio/ep2072.mp3",
+    "duration": "31:03",
+    "durationSecs": 1864,
+    "fileSize": 13183436
   },
   {
     "id": 2073,
@@ -16016,11 +16019,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 18,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2077.mp3",
+    "audio": "audio/ep2077.mp3",
+    "duration": "27:11",
+    "durationSecs": 1632,
+    "fileSize": 11582852
   },
   {
     "id": 2078,
@@ -16029,11 +16032,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 19,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2078.mp3",
+    "audio": "audio/ep2078.mp3",
+    "duration": "24:55",
+    "durationSecs": 1496,
+    "fileSize": 10589972
   },
   {
     "id": 2079,
@@ -16042,11 +16045,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 20,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2079.mp3",
+    "audio": "audio/ep2079.mp3",
+    "duration": "25:36",
+    "durationSecs": 1537,
+    "fileSize": 10853372
   },
   {
     "id": 2080,
@@ -16055,11 +16058,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 21,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2080.mp3",
+    "audio": "audio/ep2080.mp3",
+    "duration": "27:52",
+    "durationSecs": 1673,
+    "fileSize": 11765444
   },
   {
     "id": 2081,
@@ -16068,11 +16071,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 22,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2081.mp3",
+    "audio": "audio/ep2081.mp3",
+    "duration": "28:21",
+    "durationSecs": 1701,
+    "fileSize": 11935100
   },
   {
     "id": 2082,
@@ -16081,11 +16084,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 23,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2082.mp3",
+    "audio": "audio/ep2082.mp3",
+    "duration": "25:18",
+    "durationSecs": 1518,
+    "fileSize": 10648340
   },
   {
     "id": 2083,
