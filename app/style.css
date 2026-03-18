@@ -11,32 +11,34 @@
 }
 
 :root {
-  /* ── Refined Color Palette ── */
-  --bg: #eef3f9;
-  --bg2: #f6f9fc;
-  --card: #ffffff;
-  --card-hover: #f2f7fc;
-  --player-bg: #162d48;
-  --gold: #b8892a;
+  /* ── Spotify-Inspired Dark Theme ── */
+  --bg: #121212;
+  --bg2: #1a1a1a;
+  --card: #1e1e1e;
+  --card-hover: #282828;
+  --surface: #242424;
+  --player-bg: #181818;
+  --gold: #d4a23c;
   --gold-light: #e8cb7a;
   --gold-bright: #d4a23c;
-  --blue: #3574cc;
-  --blue-light: #5592e0;
-  --blue-pale: #dce8f5;
-  --blue-deep: #162d48;
-  --green: #2d8a4e;
-  --green-light: #3da863;
-  --green-pale: #e0f2e7;
-  --green-deep: #1e5e35;
-  --text: #1a2a3a;
-  --text2: #5c7490;
-  --text3: #94a5b8;
-  --white: #ffffff;
+  --blue: #4e9af5;
+  --blue-light: #6cb0ff;
+  --blue-pale: rgba(78,154,245,0.15);
+  --blue-deep: #1a1a2e;
+  --green: #1DB954;
+  --green-light: #1ed760;
+  --green-pale: rgba(29,185,84,0.15);
+  --green-deep: #158a3e;
+  --text: #FFFFFF;
+  --text2: #B3B3B3;
+  --text3: #727272;
+  --white: #FFFFFF;
+  --border: #282828;
 
-  /* ── Premium Shadows (multi-layer) ── */
-  --shadow: 0 1px 3px rgba(22,45,72,0.04), 0 4px 12px rgba(22,45,72,0.06);
-  --shadow-lg: 0 2px 6px rgba(22,45,72,0.06), 0 8px 24px rgba(22,45,72,0.10);
-  --shadow-xl: 0 4px 8px rgba(22,45,72,0.06), 0 12px 40px rgba(22,45,72,0.12);
+  /* ── Shadows (subtle on dark) ── */
+  --shadow: 0 2px 8px rgba(0,0,0,0.3);
+  --shadow-lg: 0 4px 16px rgba(0,0,0,0.4);
+  --shadow-xl: 0 8px 32px rgba(0,0,0,0.5);
 
   /* ── Layout Tokens ── */
   --r: 20px;
@@ -89,23 +91,17 @@ html, body {
 /* ══════════ HEADER ══════════ */
 .header {
   flex-shrink: 0;
-  padding: 20px 24px 18px;
-  padding-top: max(20px, calc(var(--sat) + 12px));
+  padding: 16px 24px 14px;
+  padding-top: max(16px, calc(var(--sat) + 10px));
   text-align: center;
-  background: linear-gradient(160deg, #1a3a5c 0%, #243f61 40%, #2c5a8a 100%);
-  border-radius: 0 0 28px 28px;
-  box-shadow: 0 4px 20px rgba(22,45,72,0.20), 0 1px 4px rgba(22,45,72,0.10);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
   position: relative;
   z-index: 10;
 }
 
 .header::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 0 0 28px 28px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 60%);
-  pointer-events: none;
+  display: none;
 }
 
 .header-row {
@@ -344,10 +340,8 @@ html, body {
 /* Study cards - matching Family/Together/Growth style */
 .study-card {
   background: var(--card);
-  background-image: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(246,249,252,0.4) 100%);
   border-radius: var(--r);
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(53,116,204,0.04);
+  border: 1px solid var(--border);
   border-left: 4px solid var(--blue);
   padding: 20px;
   margin-bottom: 14px;
@@ -361,7 +355,7 @@ html, body {
 
 .study-card.playing {
   border-left: 4px solid var(--gold-bright);
-  background: linear-gradient(135deg, #fdfbf3 0%, var(--card) 100%);
+  background: var(--card-hover);
 }
 
 .study-card.listened {
@@ -459,7 +453,7 @@ html, body {
   box-shadow: var(--shadow);
   cursor: pointer;
   transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), background 0.2s;
-  border: 1px solid rgba(53,116,204,0.04);
+  border: 1px solid var(--border);
   position: relative;
 }
 
@@ -471,7 +465,7 @@ html, body {
 
 .episode-card.playing {
   border-left: 4px solid var(--gold-bright);
-  background: linear-gradient(135deg, #fdfbf3 0%, var(--card) 100%);
+  background: var(--card-hover);
 }
 
 .episode-card.listened {
@@ -485,7 +479,7 @@ html, body {
   left: 0;
   right: 0;
   height: 2.5px;
-  background: rgba(53,116,204,0.06);
+  background: rgba(255,255,255,0.06);
 }
 
 .ep-progress-fill {
@@ -585,11 +579,11 @@ html, body {
   letter-spacing: 0.3px;
 }
 
-.series-spurgeon { background: #e8f5e8; color: #2d7a2d; }
-.series-pink { background: #fce8e8; color: #a04040; }
-.series-puritan { background: #e8e8fc; color: #4a4aa0; }
-.series-proverbs { background: #fcf4e0; color: #8a6a1a; }
-.series-devotional { background: #e0f4f4; color: #1a7a7a; }
+.series-spurgeon { background: rgba(45,122,45,0.15); color: #4caf50; }
+.series-pink { background: rgba(216,112,112,0.15); color: #e09090; }
+.series-puritan { background: rgba(120,70,180,0.15); color: #a88ccc; }
+.series-proverbs { background: rgba(212,162,60,0.15); color: var(--gold-light); }
+.series-devotional { background: rgba(26,122,122,0.15); color: #4dc8c8; }
 
 
 .ep-dur {
@@ -1348,11 +1342,9 @@ html, body {
 
 .cal-ep-card {
   background: var(--card);
-  background-image: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(246,249,252,0.4) 100%);
   border-radius: var(--r);
   padding: 12px 14px;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(53,116,204,0.04);
+  border: 1px solid var(--border);
   animation: fadeSlide 0.25s var(--ease-out);
 }
 
@@ -1432,7 +1424,7 @@ html, body {
 
 .cal-ep-status.unplayed { background: var(--blue-pale); color: var(--blue); }
 .cal-ep-status.in-progress { background: rgba(212,162,60,0.12); color: var(--gold); }
-.cal-ep-status.done { background: #e8f5e8; color: #2d7a2d; }
+.cal-ep-status.done { background: rgba(29,185,84,0.15); color: var(--green-light); }
 
 
 .cal-ep-progress-bar {
@@ -1585,7 +1577,7 @@ html, body {
   transition: background 0.2s;
 }
 
-.master-cal-close:active { background: rgba(0,0,0,0.06); }
+.master-cal-close:active { background: rgba(255,255,255,0.08); }
 
 .master-cal-month {
   text-align: center;
@@ -1693,7 +1685,7 @@ html, body {
   gap: 12px;
   cursor: pointer;
   transition: background 0.2s;
-  border: 1px solid rgba(0,0,0,0.04);
+  border: 1px solid var(--border);
 }
 
 .mc-detail-card:active { background: var(--card-hover); }
@@ -1741,10 +1733,10 @@ html, body {
   left: 0;
   right: 0;
   display: flex;
-  background: rgba(255,255,255,0.88);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-top: 0.5px solid rgba(53,116,204,0.08);
+  background: var(--bg);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-top: 1px solid var(--border);
   padding: 8px 0 4px;
   padding-bottom: max(8px, var(--sab));
   z-index: 50;
@@ -1770,7 +1762,7 @@ html, body {
 }
 
 .nav-item.active {
-  color: var(--blue);
+  color: var(--gold);
 }
 
 /* Active indicator dot */
@@ -1783,7 +1775,7 @@ html, body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--gold);
   opacity: 1;
   transition: opacity 0.25s var(--ease-out);
 }
@@ -1797,7 +1789,7 @@ html, body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--gold);
   opacity: 0;
   transition: opacity 0.25s var(--ease-out);
 }
@@ -1829,13 +1821,10 @@ html, body {
 /* ══════════ FAMILY DEVOTIONAL CARDS ══════════ */
 .family-card {
   background: var(--card);
-  background-image: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(246,249,252,0.4) 100%);
   border-radius: var(--r);
   padding: 20px;
   margin: 0 16px 12px;
-  box-shadow: var(--shadow);
-  border-left: 4px solid var(--gold-bright);
-  border: 1px solid rgba(53,116,204,0.04);
+  border: 1px solid var(--border);
   border-left: 4px solid var(--gold-bright);
   position: relative;
   transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
@@ -2019,12 +2008,10 @@ html, body {
 /* School cards — matches Family/Together/Growth pattern */
 .school-card {
   background: var(--card);
-  background-image: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(246,249,252,0.4) 100%);
   border-radius: var(--r);
   padding: 20px;
   margin-bottom: 14px;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(45,138,78,0.06);
+  border: 1px solid var(--border);
   border-left: 4px solid var(--green);
   position: relative;
   transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
@@ -2154,12 +2141,10 @@ html, body {
 /* ══════════ TOGETHER / COUPLES CARDS ══════════ */
 .together-card {
   background: var(--card);
-  background-image: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(252,245,248,0.5) 100%);
   border-radius: var(--r);
   padding: 20px;
   margin: 0 16px 12px;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(224,122,122,0.06);
+  border: 1px solid var(--border);
   border-left: 4px solid #d87070;
   position: relative;
   transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
@@ -2218,7 +2203,7 @@ html, body {
 .together-reflect-label {
   font-size: 10px;
   font-weight: 700;
-  color: #c06060;
+  color: #e09090;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   margin-bottom: 8px;
@@ -2270,8 +2255,8 @@ html, body {
 }
 
 .together-play-btn.no-audio {
-  background: rgba(216,112,112,0.10);
-  color: #c06060;
+  background: rgba(216,112,112,0.15);
+  color: #e09090;
   box-shadow: none;
 }
 
@@ -2414,7 +2399,7 @@ html, body {
 .key-setup-input {
   flex: 1;
   padding: 12px 14px;
-  border: 1.5px solid rgba(53,116,204,0.15);
+  border: 1.5px solid var(--border);
   border-radius: 12px;
   background: var(--bg);
   font-size: 13px;
@@ -2462,7 +2447,7 @@ html, body {
 
 .chat-suggestion {
   padding: 14px 20px;
-  border: 1.5px solid rgba(53,116,204,0.06);
+  border: 1.5px solid var(--border);
   border-radius: 14px;
   background: var(--card);
   color: var(--text);
@@ -2513,12 +2498,10 @@ html, body {
 
 .chat-assistant {
   margin-right: auto;
-  background: var(--card);
-  background-image: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(246,249,252,0.5) 100%);
+  background: var(--surface);
   color: var(--text);
   border-bottom-left-radius: 6px;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(53,116,204,0.04);
+  border: 1px solid var(--border);
 }
 
 
@@ -2538,10 +2521,10 @@ html, body {
   align-items: center;
   gap: 10px;
   padding: 12px 16px;
-  background: rgba(238,243,249,0.92);
+  background: rgba(18,18,18,0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-top: 0.5px solid rgba(53,116,204,0.08);
+  border-top: 0.5px solid var(--border);
 }
 
 
@@ -2574,7 +2557,7 @@ html, body {
 .chat-input-bar input {
   flex: 1;
   padding: 12px 18px;
-  border: 1.5px solid rgba(53,116,204,0.08);
+  border: 1.5px solid var(--border);
   border-radius: 24px;
   background: var(--card);
   color: var(--text);
@@ -2815,7 +2798,7 @@ html, body {
   height: 32px;
   min-width: 32px;
   min-height: 32px;
-  border: 1px solid rgba(53,116,204,0.1);
+  border: 1px solid var(--border);
 }
 
 .card-action-btns-inline .ep-menu-btn svg {
@@ -2827,7 +2810,7 @@ html, body {
 .share-btn {
   width: 38px;
   height: 38px;
-  border: 1.5px solid rgba(53,116,204,0.08);
+  border: 1.5px solid var(--border);
   border-radius: 12px;
   background: var(--bg2);
   font-size: 16px;
@@ -2855,7 +2838,7 @@ html, body {
 .share-btn-sm {
   width: 32px;
   height: 32px;
-  border: 1px solid rgba(53,116,204,0.1);
+  border: 1px solid var(--border);
   border-radius: 10px;
   background: var(--bg2);
   font-size: 14px;
@@ -2964,7 +2947,7 @@ html, body {
 .settings-input {
   width: 100%;
   padding: 14px 16px;
-  border: 1.5px solid rgba(53,116,204,0.12);
+  border: 1.5px solid var(--border);
   border-radius: 14px;
   background: var(--bg);
   color: var(--text);
@@ -3020,7 +3003,7 @@ html, body {
   gap: 4px;
   margin-top: 10px;
   padding-top: 10px;
-  border-top: 1px solid rgba(0,0,0,0.06);
+  border-top: 1px solid var(--border);
 }
 
 .chat-action-btn {
@@ -3028,9 +3011,9 @@ html, body {
   align-items: center;
   gap: 4px;
   padding: 6px 12px;
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid var(--border);
   border-radius: 20px;
-  background: rgba(255,255,255,0.7);
+  background: var(--surface);
   font-size: 11px;
   font-weight: 500;
   color: var(--text2);
@@ -3040,7 +3023,7 @@ html, body {
 }
 
 .chat-action-btn:hover {
-  background: rgba(255,255,255,1);
+  background: var(--card-hover);
   border-color: var(--blue);
   color: var(--blue);
 }
@@ -3217,7 +3200,7 @@ html, body {
 
 .personal-badge.badge-reading { background: rgba(53,116,204,0.12); color: var(--gold-bright); }
 .personal-badge.badge-pastoral { background: rgba(184,137,42,0.15); color: var(--gold); }
-.personal-badge.badge-theological { background: rgba(120,70,180,0.12); color: #7846b4; }
+.personal-badge.badge-theological { background: rgba(120,70,180,0.15); color: #a88ccc; }
 
 
 .personal-title {
@@ -3404,7 +3387,7 @@ html, body {
 .ep-menu-btn {
   width: 38px;
   height: 38px;
-  border: 1.5px solid rgba(53,116,204,0.12);
+  border: 1.5px solid var(--border);
   border-radius: 12px;
   background: var(--bg2);
   color: var(--text2);
@@ -3443,7 +3426,7 @@ html, body {
   background: var(--card);
   border-radius: 14px;
   box-shadow: var(--shadow-xl);
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid var(--border);
   min-width: 180px;
   padding: 6px;
   animation: fadeSlide 0.2s var(--ease-out);
@@ -3496,11 +3479,11 @@ html, body {
   text-transform: uppercase;
 }
 
-.section-badge-study { background: rgba(53,116,204,0.10); color: #2a62a8; }
-.section-badge-family { background: rgba(230,126,34,0.10); color: #c46a1a; }
-.section-badge-school { background: rgba(155,89,182,0.10); color: #7d3c98; }
-.section-badge-together { background: rgba(231,76,60,0.10); color: #c0392b; }
-.section-badge-growth { background: rgba(212,162,60,0.10); color: #a07820; }
+.section-badge-study { background: rgba(53,116,204,0.15); color: var(--blue); }
+.section-badge-family { background: rgba(230,126,34,0.15); color: #e8944a; }
+.section-badge-school { background: rgba(155,89,182,0.15); color: #b475d4; }
+.section-badge-together { background: rgba(231,76,60,0.15); color: #e88070; }
+.section-badge-growth { background: rgba(212,162,60,0.15); color: var(--gold-light); }
 
 .section-badge svg {
   width: 12px;
@@ -3551,22 +3534,22 @@ html, body {
   color: var(--text2);
 }
 
-/* Better visibility for badges on white cards */
-.series-spurgeon { background: #d9f0d9; color: #1a5a1a; }
-.series-pink { background: #f8d8d8; color: #8a2a2a; }
-.series-puritan { background: #dcdcf8; color: #3a3a8a; }
-.series-proverbs { background: #f8eed0; color: #6a5010; }
-.series-devotional { background: #d0ecec; color: #106060; }
+/* Better visibility for badges on dark cards */
+.series-spurgeon { background: rgba(45,122,45,0.15); color: #4caf50; }
+.series-pink { background: rgba(216,112,112,0.15); color: #e09090; }
+.series-puritan { background: rgba(120,70,180,0.15); color: #a88ccc; }
+.series-proverbs { background: rgba(212,162,60,0.15); color: var(--gold-light); }
+.series-devotional { background: rgba(26,122,122,0.15); color: #4dc8c8; }
 
 /* Calendar status pills need better contrast */
-.cal-ep-status.unplayed { background: rgba(53,116,204,0.12); color: #2556a0; }
-.cal-ep-status.in-progress { background: rgba(184,137,42,0.15); color: #8a6a18; }
-.cal-ep-status.done { background: #d4eed4; color: #1a5a1a; }
+.cal-ep-status.unplayed { background: rgba(78,154,245,0.15); color: var(--blue-light); }
+.cal-ep-status.in-progress { background: rgba(212,162,60,0.15); color: var(--gold-light); }
+.cal-ep-status.done { background: rgba(29,185,84,0.15); color: var(--green-light); }
 
 /* Personal badge colors */
-.personal-badge.badge-reading { background: rgba(53,116,204,0.12); color: #2a62a8; }
-.personal-badge.badge-pastoral { background: rgba(184,137,42,0.15); color: #8a6a18; }
-.personal-badge.badge-theological { background: rgba(120,70,180,0.12); color: #6038a0; }
+.personal-badge.badge-reading { background: rgba(78,154,245,0.15); color: var(--blue-light); }
+.personal-badge.badge-pastoral { background: rgba(212,162,60,0.15); color: var(--gold-light); }
+.personal-badge.badge-theological { background: rgba(120,70,180,0.15); color: #a88ccc; }
 
 /* School unit meta */
 .school-unit-meta {
@@ -3575,13 +3558,13 @@ html, body {
 
 /* Together reflect label — needs better contrast */
 .together-reflect-label {
-  color: #a84040;
+  color: #e09090;
 }
 
 /* Together play button — improve text contrast */
 .together-play-btn.no-audio {
-  background: rgba(216,112,112,0.12);
-  color: #a84040;
+  background: rgba(216,112,112,0.15);
+  color: #e09090;
 }
 
 /* Month label — better visibility */
@@ -3618,7 +3601,7 @@ html, body {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: linear-gradient(135deg, #1a3a5c 0%, #0d1f33 100%);
+  background: linear-gradient(135deg, #121212 0%, #0a0a0a 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3645,7 +3628,7 @@ html, body {
   justify-content: center;
   font-size: 48px;
   font-weight: 800;
-  color: #1a3a5c;
+  color: #121212;
   margin: 0 auto 24px;
   box-shadow: 0 4px 20px rgba(212,162,60,0.3);
 }
@@ -3666,8 +3649,8 @@ html, body {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: #fff;
-  color: #333;
+  background: var(--card);
+  color: var(--text);
   border: none;
   border-radius: 14px;
   padding: 14px 28px;
@@ -3703,7 +3686,7 @@ html, body {
 .login-skip:active { color: rgba(255,255,255,0.8); }
 .header-signin-btn {
   background: var(--gold-bright);
-  color: #1a3a5c;
+  color: #121212;
   border: none;
   border-radius: 8px;
   padding: 6px 14px;
@@ -3791,10 +3774,8 @@ html, body {
 }
 .topic-card {
   background: var(--card);
-  background-image: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(246,249,252,0.4) 100%);
   border-radius: var(--r);
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(53,116,204,0.04);
+  border: 1px solid var(--border);
   border-left: 4px solid var(--blue);
   padding: 20px;
   margin-bottom: 14px;
@@ -3921,7 +3902,7 @@ html, body {
 .topic-card-audiobook-badge {
   font-size: 10px;
   font-weight: 800;
-  color: #3574cc;
+  color: var(--blue);
   letter-spacing: 1.5px;
   margin-bottom: 6px;
 }
@@ -3931,7 +3912,7 @@ html, body {
   color: var(--text3);
 }
 .audiobook-card {
-  background: linear-gradient(135deg, rgba(53,116,204,0.06), rgba(53,116,204,0.02));
+  background: linear-gradient(135deg, rgba(78,154,245,0.08), rgba(78,154,245,0.03));
 }
 .topic-back-btn {
   display: inline-flex;
@@ -4001,7 +3982,7 @@ html, body {
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px 16px;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid var(--border);
   flex-shrink: 0;
 }
 
@@ -4066,7 +4047,7 @@ html, body {
 .transcript-source {
   flex-shrink: 0;
   padding: 14px 28px;
-  border-top: 1px solid rgba(0,0,0,0.06);
+  border-top: 1px solid var(--border);
   font-size: 12px;
   color: var(--text3);
   text-align: center;
