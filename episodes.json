@@ -9598,11 +9598,11 @@
     "topic": "reformed-pastor",
     "topicOrder": 8,
     "topicTotal": 11,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep1107.mp3",
+    "audio": "audio/ep1107.mp3",
+    "duration": "58:54",
+    "durationSecs": 3534,
+    "fileSize": 24263588
   },
   {
     "id": 1108,
@@ -9611,11 +9611,11 @@
     "topic": "reformed-pastor",
     "topicOrder": 9,
     "topicTotal": 11,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep1108.mp3",
+    "audio": "audio/ep1108.mp3",
+    "duration": "57:06",
+    "durationSecs": 3426,
+    "fileSize": 23549756
   },
   {
     "id": 1109,
@@ -9624,11 +9624,11 @@
     "topic": "reformed-pastor",
     "topicOrder": 10,
     "topicTotal": 11,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep1109.mp3",
+    "audio": "audio/ep1109.mp3",
+    "duration": "74:03",
+    "durationSecs": 4443,
+    "fileSize": 30552572
   },
   {
     "id": 1110,
@@ -9637,11 +9637,11 @@
     "topic": "reformed-pastor",
     "topicOrder": 11,
     "topicTotal": 11,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep1110.mp3",
+    "audio": "audio/ep1110.mp3",
+    "duration": "2:57",
+    "durationSecs": 177,
+    "fileSize": 1273004
   },
   {
     "id": 1120,
@@ -11529,8 +11529,11 @@
     "topic": "keeping-the-heart",
     "topicOrder": 11,
     "topicTotal": 11,
-    "file": null,
-    "audio": null
+    "file": "audio/ep1299.mp3",
+    "audio": "audio/ep1299.mp3",
+    "duration": "29:59",
+    "durationSecs": 1799,
+    "fileSize": 12313412
   },
   {
     "id": 1300,
@@ -12228,8 +12231,11 @@
     "topic": "lectures-to-students",
     "topicOrder": 17,
     "topicTotal": 29,
-    "file": null,
-    "audio": null
+    "file": "audio/ep1370.mp3",
+    "audio": "audio/ep1370.mp3",
+    "duration": "54:58",
+    "durationSecs": 3298,
+    "fileSize": 22548692
   },
   {
     "id": 1371,
@@ -15661,11 +15667,11 @@
     "topic": "dispensationalism",
     "topicOrder": 9,
     "topicTotal": 19,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2113.mp3",
+    "audio": "audio/ep2113.mp3",
+    "duration": "25:22",
+    "durationSecs": 1522,
+    "fileSize": 10625420
   },
   {
     "id": 2114,
@@ -15674,11 +15680,11 @@
     "topic": "dispensationalism",
     "topicOrder": 10,
     "topicTotal": 19,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2114.mp3",
+    "audio": "audio/ep2114.mp3",
+    "duration": "23:36",
+    "durationSecs": 1417,
+    "fileSize": 9866276
   },
   {
     "id": 2115,
@@ -15687,11 +15693,11 @@
     "topic": "dispensationalism",
     "topicOrder": 11,
     "topicTotal": 19,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2115.mp3",
+    "audio": "audio/ep2115.mp3",
+    "duration": "24:04",
+    "durationSecs": 1444,
+    "fileSize": 10024292
   },
   {
     "id": 2116,
@@ -15700,11 +15706,11 @@
     "topic": "dispensationalism",
     "topicOrder": 12,
     "topicTotal": 19,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2116.mp3",
+    "audio": "audio/ep2116.mp3",
+    "duration": "24:43",
+    "durationSecs": 1484,
+    "fileSize": 10307780
   },
   {
     "id": 2117,
@@ -15713,11 +15719,11 @@
     "topic": "dispensationalism",
     "topicOrder": 13,
     "topicTotal": 19,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2117.mp3",
+    "audio": "audio/ep2117.mp3",
+    "duration": "22:56",
+    "durationSecs": 1376,
+    "fileSize": 9532364
   },
   {
     "id": 2118,
@@ -15726,11 +15732,11 @@
     "topic": "dispensationalism",
     "topicOrder": 14,
     "topicTotal": 19,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2118.mp3",
+    "audio": "audio/ep2118.mp3",
+    "duration": "21:20",
+    "durationSecs": 1281,
+    "fileSize": 8888132
   },
   {
     "id": 2119,
@@ -15739,11 +15745,11 @@
     "topic": "dispensationalism",
     "topicOrder": 15,
     "topicTotal": 19,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2119.mp3",
+    "audio": "audio/ep2119.mp3",
+    "duration": "24:55",
+    "durationSecs": 1496,
+    "fileSize": 10375268
   },
   {
     "id": 2120,
@@ -15752,11 +15758,11 @@
     "topic": "dispensationalism",
     "topicOrder": 16,
     "topicTotal": 19,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2120.mp3",
+    "audio": "audio/ep2120.mp3",
+    "duration": "24:49",
+    "durationSecs": 1489,
+    "fileSize": 10356212
   },
   {
     "id": 2121,
@@ -16103,11 +16109,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 24,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2083.mp3",
+    "audio": "audio/ep2083.mp3",
+    "duration": "27:46",
+    "durationSecs": 1667,
+    "fileSize": 11745500
   },
   {
     "id": 2084,
@@ -16116,11 +16122,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 25,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2084.mp3",
+    "audio": "audio/ep2084.mp3",
+    "duration": "26:09",
+    "durationSecs": 1570,
+    "fileSize": 11076812
   },
   {
     "id": 2085,
@@ -16129,11 +16135,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 26,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2085.mp3",
+    "audio": "audio/ep2085.mp3",
+    "duration": "24:57",
+    "durationSecs": 1498,
+    "fileSize": 10553228
   },
   {
     "id": 2086,
@@ -16194,11 +16200,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 31,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2090.mp3",
+    "audio": "audio/ep2090.mp3",
+    "duration": "23:49",
+    "durationSecs": 1429,
+    "fileSize": 10036292
   },
   {
     "id": 2091,
