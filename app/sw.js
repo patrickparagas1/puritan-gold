@@ -1,4 +1,4 @@
-const CACHE_NAME = 'puritan-gold-v23';
+const CACHE_NAME = 'puritan-gold-v25';
 const SHELL_FILES = [
   'index.html',
   'style.css',

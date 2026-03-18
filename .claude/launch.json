@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "puritan-gold",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["-e", "const h=require('http'),f=require('fs'),p=require('path'),m={'html':'text/html','css':'text/css','js':'application/javascript','json':'application/json','mp3':'audio/mpeg','wav':'audio/wav','svg':'image/svg+xml','webmanifest':'application/manifest+json'};h.createServer((q,r)=>{let u=q.url.split('?')[0];if(u==='/'){r.writeHead(302,{Location:'/app/index.html'});r.end();return}let fp=p.join('/Users/patrickparagas/Downloads/Podcasts',u);f.stat(fp,(e,s)=>{if(e){r.writeHead(404);r.end('Not found');return}const ext=p.extname(fp).slice(1);const ct=m[ext]||'application/octet-stream';const headers={'Content-Type':ct,'Access-Control-Allow-Origin':'*'};if(ext==='mp3'){headers['Accept-Ranges']='bytes';if(q.headers.range){const parts=q.headers.range.replace(/bytes=/,'').split('-');const start=parseInt(parts[0],10);const end=parts[1]?parseInt(parts[1],10):s.size-1;headers['Content-Range']='bytes '+start+'-'+end+'/'+s.size;headers['Content-Length']=end-start+1;r.writeHead(206,headers);f.createReadStream(fp,{start,end}).pipe(r);return}}r.writeHead(200,headers);f.createReadStream(fp).pipe(r)})}).listen(8080,()=>console.log('Serving at http://localhost:8080/app/'))"],
+      "port": 8080
+    }
+  ]
+}

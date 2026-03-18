@@ -753,41 +753,24 @@ const App = {
     const listened = this.isListened(ep.id);
     const progress = this.getProgress(ep);
     const isPlaying = this.currentEp && this.currentEp.id === ep.id;
-    const seriesClass = this.getSeriesClass(ep.series);
-    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
     const d = new Date(ep.date + 'T12:00:00');
     const dayName = dayNames[d.getDay()];
-
-    let statusText = '';
-    let statusClass = '';
-    if (listened) {
-      statusText = 'Completed';
-      statusClass = 'done';
-    } else if (progress > 0) {
-      statusText = `${progress}% complete`;
-      statusClass = 'in-progress';
-    } else {
-      statusText = 'Not started';
-      statusClass = 'unplayed';
-    }
+    let statusText = listened ? 'Done' : progress > 0 ? `${progress}%` : 'New';
+    let statusClass = listened ? 'done' : progress > 0 ? 'in-progress' : 'unplayed';
 
     detail.innerHTML = `
       <div class="cal-ep-card ${isPlaying ? 'playing' : ''}" onclick="App.playEpisode(${ep.id})">
         <div class="cal-ep-header">
-          <div class="cal-ep-date">${dayName}, ${this._monthNames[this.currentMonth.month]} ${day}</div>
+          <div class="cal-ep-date">${dayName} ${this._monthNames[this.currentMonth.month]} ${day} · ${ep.duration || ''}</div>
           <span class="cal-ep-status ${statusClass}">${statusText}</span>
         </div>
         <div class="cal-ep-title">${ep.title}</div>
-        <div class="cal-ep-subtitle">${ep.subtitle || ''}</div>
-        <div class="cal-ep-meta">
-          <span class="ep-badge ${seriesClass}">${ep.series || 'General'}</span>
-          <span class="cal-ep-dur">${ep.duration}</span>
-        </div>
-        ${ep.description ? `<div class="cal-ep-desc">${ep.description}</div>` : ''}
+        ${ep.subtitle ? `<div class="cal-ep-subtitle">${ep.subtitle}</div>` : ''}
         <button class="cal-ep-play" onclick="event.stopPropagation(); App.playEpisode(${ep.id})">
-          ${isPlaying && !this.audio.paused ? 'Now Playing' : listened ? 'Replay' : progress > 0 ? 'Resume' : 'Play Episode'}
+          ${isPlaying && !this.audio.paused ? 'Now Playing' : listened ? 'Replay' : progress > 0 ? 'Resume' : 'Play'}
         </button>
-        ${progress > 0 || listened ? `<div class="ep-progress ${listened ? 'done' : ''}"><div class="ep-progress-fill" style="width:${listened ? 100 : progress}%"></div></div>` : ''}
+        ${progress > 0 && !listened ? `<div class="ep-progress" style="margin-top:4px;"><div class="ep-progress-fill" style="width:${progress}%"></div></div>` : ''}
       </div>`;
   },
 
@@ -869,23 +852,47 @@ const App = {
     const progress = this.getProgress(ep);
     const isPlaying = this.currentEp && this.currentEp.id === ep.id;
     const hasAudio = !!ep.file;
-    const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
     const d = new Date(ep.date + 'T12:00:00');
     const dayName = dayNames[d.getDay()];
-    let statusText = listened ? 'Completed' : progress > 0 ? `${progress}% complete` : 'Not started';
+    let statusText = listened ? 'Done' : progress > 0 ? `${progress}%` : 'New';
     let statusClass = listened ? 'done' : progress > 0 ? 'in-progress' : 'unplayed';
+
+    // Build section-specific extras
+    let extras = '';
+    if (ep.memoryVerse) {
+      extras += `<div class="cal-ep-verse">${ep.memoryVerse}</div>`;
+    }
+    if (ep.discussionQuestions && ep.discussionQuestions.length > 0) {
+      const qs = ep.discussionQuestions.slice(0, 2).map(q => `<li>${q}</li>`).join('');
+      extras += `<div class="cal-ep-questions"><strong>Discussion</strong><ul>${qs}</ul></div>`;
+    }
+    if (ep.reviewQuestions && ep.reviewQuestions.length > 0) {
+      const qs = ep.reviewQuestions.slice(0, 2).map(q => `<li>${q}</li>`).join('');
+      extras += `<div class="cal-ep-questions"><strong>Review</strong><ul>${qs}</ul></div>`;
+    }
+    if (ep.reflectionPrompt) {
+      const prompts = ep.reflectionPrompt.split(' | ').slice(0, 2);
+      const qs = prompts.map(q => `<li>${q}</li>`).join('');
+      extras += `<div class="cal-ep-questions"><strong>Reflect Together</strong><ul>${qs}</ul></div>`;
+    }
+    if (ep.prayerFocus) {
+      extras += `<div class="cal-ep-verse" style="background:rgba(212,162,60,0.08);color:var(--gold);">${ep.prayerFocus.substring(0, 120)}${ep.prayerFocus.length > 120 ? '...' : ''}</div>`;
+    }
+
     detail.innerHTML = `
       <div class="cal-ep-card ${isPlaying ? 'playing' : ''}" onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
         <div class="cal-ep-header">
-          <div class="cal-ep-date">${dayName}, ${this._monthNames[this.currentMonth.month]} ${day}</div>
+          <div class="cal-ep-date">${dayName} ${this._monthNames[this.currentMonth.month]} ${day} · ${ep.duration || ''}</div>
           <span class="cal-ep-status ${statusClass}">${statusText}</span>
         </div>
         <div class="cal-ep-title">${ep.title}</div>
-        <div class="cal-ep-subtitle">${ep.subtitle || ''}</div>
-        <div class="cal-ep-meta"><span class="cal-ep-dur">${ep.duration || ''}</span></div>
+        ${ep.subtitle ? `<div class="cal-ep-subtitle">${ep.subtitle}</div>` : ''}
+        ${extras ? `<div class="cal-ep-extras">${extras}</div>` : ''}
         ${hasAudio ? `<button class="cal-ep-play" onclick="event.stopPropagation(); App.playEpisode(${ep.id})">
-          ${isPlaying && !this.audio.paused ? 'Now Playing' : listened ? 'Replay' : progress > 0 ? 'Resume' : 'Play Episode'}
-        </button>` : '<div class="cal-detail-empty" style="padding:8px 0;font-size:12px;">Audio coming soon</div>'}
+          ${isPlaying && !this.audio.paused ? 'Now Playing' : listened ? 'Replay' : progress > 0 ? 'Resume' : 'Play'}
+        </button>` : '<div class="cal-detail-empty" style="padding:4px 0;font-size:11px;">Audio coming soon</div>'}
+        ${progress > 0 && !listened ? `<div class="ep-progress" style="margin-top:4px;"><div class="ep-progress-fill" style="width:${progress}%"></div></div>` : ''}
       </div>`;
   },
 
@@ -2899,32 +2906,228 @@ const App = {
     {
       slug: 'sirach',
       title: 'The Book of Sirach',
-      author: 'Ecclesiasticus (Apocrypha)',
-      description: 'Wisdom literature from the ancient Jewish tradition — practical guidance on family, friendship, wealth, and the fear of the Lord.',
+      authorName: 'Ecclesiasticus',
+      author: 'Ecclesiasticus · 51 Chapters',
+      description: 'Full audiobook — all 51 chapters of Sirach (Ecclesiasticus) read aloud, plus a 15-minute summary.',
       color: '#3574cc',
+      chapters: 51,
+      category: 'Scripture',
     },
     {
       slug: 'female-piety',
       title: 'Female Piety',
-      author: 'John Angell James',
-      description: 'A classic treatise on godly womanhood, motherhood, and the spiritual formation of women in Christ.',
+      authorName: 'John Angell James',
+      author: 'John Angell James · 13 Chapters',
+      description: 'Full unabridged audiobook — all 13 chapters of the original book read aloud, plus a 15-minute summary.',
       color: '#9b59b6',
+      chapters: 13,
+      category: 'Devotional',
     },
     {
       slug: 'enoch',
       title: 'The Book of Enoch',
-      author: 'Pseudepigrapha',
-      description: 'The apocalyptic visions of Enoch — angels, prophecy, and cosmic judgment. Referenced in Jude and early church writings.',
+      authorName: '1 Enoch',
+      author: '1 Enoch · 108 Chapters in 10 Parts',
+      description: 'Full audiobook — all 108 chapters of 1 Enoch read aloud in 10 parts, plus a 15-minute summary.',
       color: '#2d8a4e',
+      chapters: 10,
+      category: 'Scripture',
     },
     {
       slug: 'melchizedek',
-      title: 'The Book of Melchizedek',
-      author: 'Genesis, Hebrews, Psalms',
-      description: 'The mysterious priest-king who prefigures Christ — exploring the eternal priesthood through Scripture and Puritan commentary.',
+      title: 'Melchizedek: A Biblical Study',
+      authorName: 'Biblical Study',
+      author: 'Genesis, Hebrews, Psalms · 8 Parts',
+      description: 'Full audiobook study — every relevant passage read in full with Puritan exposition, plus a 15-minute summary.',
       color: '#d4a23c',
+      chapters: 8,
+      category: 'Scripture',
+    },
+    {
+      slug: 'mortification-of-sin',
+      title: 'The Mortification of Sin',
+      authorName: 'John Owen',
+      author: 'John Owen · 14 Chapters',
+      description: 'Full audiobook — Owen\'s classic treatise on putting sin to death through the power of the Holy Spirit.',
+      color: '#c0392b',
+      chapters: 14,
+      category: 'Christian Living',
+    },
+    {
+      slug: 'body-of-divinity',
+      title: 'A Body of Divinity',
+      authorName: 'Thomas Watson',
+      author: 'Thomas Watson · 13 Chapters',
+      description: 'Full audiobook — Watson\'s beloved exposition of the Westminster Shorter Catechism.',
+      color: '#2980b9',
+      chapters: 13,
+      category: 'Theology',
+    },
+    {
+      slug: 'reformed-pastor',
+      title: 'The Reformed Pastor',
+      authorName: 'Richard Baxter',
+      author: 'Richard Baxter · 10 Chapters',
+      description: 'Full audiobook — Baxter\'s searching call to faithful pastoral ministry.',
+      color: '#8e44ad',
+      chapters: 10,
+      category: 'Pastoral',
+    },
+    {
+      slug: 'pilgrims-progress',
+      title: 'The Pilgrim\'s Progress',
+      authorName: 'John Bunyan',
+      author: 'John Bunyan · 14 Chapters',
+      description: 'Full audiobook — the greatest allegory in the English language, Christian\'s journey from the City of Destruction to the Celestial City.',
+      color: '#27ae60',
+      chapters: 14,
+      category: 'Literature',
+    },
+    {
+      slug: 'fourfold-state',
+      title: 'Human Nature in Its Fourfold State',
+      authorName: 'Thomas Boston',
+      author: 'Thomas Boston · 13 Chapters',
+      description: 'Full audiobook — Boston\'s masterwork on man in innocence, sin, grace, and glory.',
+      color: '#e67e22',
+      chapters: 13,
+      category: 'Theology',
+    },
+    {
+      slug: 'religious-affections',
+      title: 'Religious Affections',
+      authorName: 'Jonathan Edwards',
+      author: 'Jonathan Edwards · 11 Chapters',
+      description: 'Full audiobook — Edwards\' profound treatise on distinguishing true religion from false.',
+      color: '#1abc9c',
+      chapters: 11,
+      category: 'Theology',
+    },
+    {
+      slug: 'all-of-grace',
+      title: 'All of Grace',
+      authorName: 'C.H. Spurgeon',
+      author: 'C.H. Spurgeon · 14 Chapters',
+      description: 'Full audiobook — Spurgeon\'s beloved presentation of the gospel of free grace.',
+      color: '#f39c12',
+      chapters: 14,
+      category: 'Christian Living',
+    },
+    {
+      slug: 'institutes-book-one',
+      title: 'Institutes of the Christian Religion — Book I',
+      authorName: 'John Calvin',
+      author: 'John Calvin · 18 Chapters',
+      description: 'Full audiobook — Book One of Calvin\'s Institutes: The Knowledge of God the Creator.',
+      color: '#34495e',
+      chapters: 18,
+      category: 'Theology',
+    },
+    {
+      slug: 'attributes-of-god',
+      title: 'The Attributes of God',
+      authorName: 'Arthur W. Pink',
+      author: 'Arthur W. Pink · 19 Chapters',
+      description: 'Full audiobook — Pink explores nineteen attributes of God, from His solitariness and sovereignty to His love and wrath.',
+      color: '#c0392b',
+      chapters: 19,
+      category: 'Theology',
+    },
+    {
+      slug: 'sovereignty-of-god',
+      title: 'The Sovereignty of God',
+      authorName: 'Arthur W. Pink',
+      author: 'Arthur W. Pink · 11 Chapters',
+      description: 'Full audiobook — Pink\'s magisterial treatment of divine sovereignty in creation, salvation, and human responsibility.',
+      color: '#e74c3c',
+      chapters: 11,
+      category: 'Theology',
+    },
+    {
+      slug: 'glory-of-christ',
+      title: 'The Glory of Christ',
+      authorName: 'John Owen',
+      author: 'John Owen · 14 Chapters',
+      description: 'Full audiobook — Owen\'s sublime meditation on beholding the glory of Christ by faith as preparation for seeing Him in heaven.',
+      color: '#d4a017',
+      chapters: 14,
+      category: 'Devotional',
+    },
+    {
+      slug: 'mystery-of-providence',
+      title: 'The Mystery of Providence',
+      authorName: 'John Flavel',
+      author: 'John Flavel · 13 Chapters',
+      description: 'Full audiobook — Flavel opens our eyes to God\'s hand in every circumstance of life, from birth and conversion to preservation and death.',
+      color: '#16a085',
+      chapters: 13,
+      category: 'Christian Living',
+    },
+    {
+      slug: 'keeping-the-heart',
+      title: 'Keeping the Heart',
+      authorName: 'John Flavel',
+      author: 'John Flavel · 10 Chapters',
+      description: 'Full audiobook — Flavel\'s classic treatise on guarding the heart in every season: prosperity, adversity, temptation, doubt, and death.',
+      color: '#2ecc71',
+      chapters: 10,
+      category: 'Christian Living',
+    },
+    {
+      slug: 'rare-jewel',
+      title: 'The Rare Jewel of Christian Contentment',
+      authorName: 'Jeremiah Burroughs',
+      author: 'Jeremiah Burroughs · 8 Chapters',
+      description: 'Full audiobook — Burroughs unfolds the mystery of contentment: what it is, how Christ teaches it, and how to attain it.',
+      color: '#3498db',
+      chapters: 8,
+      category: 'Christian Living',
+    },
+    {
+      slug: 'bruised-reed',
+      title: 'The Bruised Reed',
+      authorName: 'Richard Sibbes',
+      author: 'Richard Sibbes · 14 Chapters',
+      description: 'Full audiobook — Sibbes\'s tender exposition of Christ\'s gentleness toward weak believers: He will not break the bruised reed.',
+      color: '#9b59b6',
+      chapters: 14,
+      category: 'Devotional',
+    },
+    {
+      slug: 'precious-remedies',
+      title: 'Precious Remedies Against Satan\'s Devices',
+      authorName: 'Thomas Brooks',
+      author: 'Thomas Brooks · 12 Chapters',
+      description: 'Full audiobook — Brooks exposes Satan\'s cunning stratagems and provides powerful scriptural remedies against each one.',
+      color: '#e67e22',
+      chapters: 12,
+      category: 'Christian Living',
+    },
+    {
+      slug: 'lectures-to-students',
+      title: 'Lectures to My Students',
+      authorName: 'Charles Spurgeon',
+      author: 'Charles Spurgeon · 28 Lectures',
+      description: 'Full audiobook — Spurgeon\'s legendary lectures on preaching, prayer, the minister\'s fainting fits, and the whole art of Christian ministry.',
+      color: '#f39c12',
+      chapters: 28,
+      category: 'Pastoral',
+    },
+    {
+      slug: 'heart-of-christ',
+      title: 'The Heart of Christ',
+      authorName: 'Thomas Goodwin',
+      author: 'Thomas Goodwin · 7 Chapters',
+      description: 'Full audiobook — Goodwin opens the tender, compassionate heart of the glorified Christ toward struggling believers, showing that His affections never changed when He ascended to glory.',
+      color: '#8e44ad',
+      chapters: 7,
+      category: 'Devotional',
     }
   ],
+
+  _growthSearch: '',
+  _growthAuthorFilter: '',
+  _growthCategoryFilter: '',
 
   renderGrowthTopics() {
     const container = document.getElementById('personalTopicList');
@@ -2936,38 +3139,73 @@ const App = {
       return;
     }
 
-    // Render topic cards
-    let html = '<div class="topic-header">Choose a Topic</div>';
+    // Get unique authors and categories
+    const authors = [...new Set(this._growthTopics.map(t => t.authorName))].sort();
+    const categories = [...new Set(this._growthTopics.map(t => t.category))].sort();
 
-    // Sirach Audiobook card (special — full audiobook with chapter markers)
-    html += `
-      <div class="topic-card audiobook-card" onclick="App.openTopic('sirach')" style="border-left: 4px solid #3574cc;">
-        <div class="topic-card-audiobook-badge">📖 AUDIOBOOK</div>
-        <div class="topic-card-title">The Book of Sirach — Full Audiobook</div>
-        <div class="topic-card-author">Ecclesiasticus · 51 Chapters</div>
-        <div class="topic-card-desc">Listen to the entire Book of Sirach with chapter markers. Skip to any chapter like YouTube.</div>
-        <div class="topic-card-footer">
-          <div class="topic-card-chapters">51 chapters · Tap to skip</div>
-        </div>
-      </div>`;
+    // Build search/filter bar
+    let html = `<div class="growth-search-bar">
+      <div class="growth-search-input-wrap">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="#8e99a4"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input type="text" class="growth-search-input" placeholder="Search by title, author, or topic..."
+               value="${this._growthSearch}" oninput="App._growthSearch=this.value; App.renderGrowthTopics()">
+      </div>
+      <div class="growth-filter-row">
+        <select class="growth-filter-select" onchange="App._growthAuthorFilter=this.value; App.renderGrowthTopics()">
+          <option value="">All Authors</option>
+          ${authors.map(a => `<option value="${a}" ${this._growthAuthorFilter === a ? 'selected' : ''}>${a}</option>`).join('')}
+        </select>
+        <select class="growth-filter-select" onchange="App._growthCategoryFilter=this.value; App.renderGrowthTopics()">
+          <option value="">All Categories</option>
+          ${categories.map(c => `<option value="${c}" ${this._growthCategoryFilter === c ? 'selected' : ''}>${c}</option>`).join('')}
+        </select>
+      </div>
+    </div>`;
 
-    this._growthTopics.forEach(topic => {
-      // Count episodes and listened for this topic
+    // Filter topics
+    let filteredTopics = this._growthTopics;
+    if (this._growthSearch) {
+      const q = this._growthSearch.toLowerCase();
+      filteredTopics = filteredTopics.filter(t =>
+        t.title.toLowerCase().includes(q) ||
+        t.authorName.toLowerCase().includes(q) ||
+        t.author.toLowerCase().includes(q) ||
+        t.description.toLowerCase().includes(q) ||
+        t.category.toLowerCase().includes(q) ||
+        t.slug.includes(q)
+      );
+    }
+    if (this._growthAuthorFilter) {
+      filteredTopics = filteredTopics.filter(t => t.authorName === this._growthAuthorFilter);
+    }
+    if (this._growthCategoryFilter) {
+      filteredTopics = filteredTopics.filter(t => t.category === this._growthCategoryFilter);
+    }
+
+    html += `<div class="topic-header">Full Audiobook Library <span class="topic-count">${filteredTopics.length} books</span></div>`;
+
+    if (!filteredTopics.length) {
+      html += '<div class="empty-state">No books match your search. Try a different term.</div>';
+    }
+
+    filteredTopics.forEach(topic => {
       const topicEps = this.allEpisodes.filter(e => e.topic === topic.slug);
       const total = topicEps.length;
       const done = topicEps.filter(e => this.isListened(e.id)).length;
       const pct = total > 0 ? Math.round((done / total) * 100) : 0;
 
       html += `
-        <div class="topic-card" onclick="App.openTopic('${topic.slug}')">
+        <div class="topic-card audiobook-card" onclick="App.openTopic('${topic.slug}')" style="border-left: 4px solid ${topic.color};">
+          <div class="topic-card-audiobook-badge">📖 FULL AUDIOBOOK</div>
           <div class="topic-card-title">${topic.title}</div>
           <div class="topic-card-author">${topic.author}</div>
+          <div class="topic-card-category">${topic.category}</div>
           <div class="topic-card-desc">${topic.description}</div>
           <div class="topic-card-footer">
             <div class="topic-progress-bar">
               <div class="topic-progress-fill" style="width:${pct}%; background:${topic.color};"></div>
             </div>
-            <div class="topic-progress-text">${total > 0 ? `${done}/${total}` : 'Coming Soon'}</div>
+            <div class="topic-progress-text">${total > 0 ? `${done}/${total} parts` : 'Coming Soon'}</div>
           </div>
         </div>`;
     });
