@@ -15795,11 +15795,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 1,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2060.mp3",
+    "audio": "audio/ep2060.mp3",
+    "duration": "56:25",
+    "durationSecs": 3386,
+    "fileSize": 23854604
   },
   {
     "id": 2061,
@@ -15808,11 +15808,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 2,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2061.mp3",
+    "audio": "audio/ep2061.mp3",
+    "duration": "27:28",
+    "durationSecs": 1648,
+    "fileSize": 11565524
   },
   {
     "id": 2062,
@@ -15821,11 +15821,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 3,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2062.mp3",
+    "audio": "audio/ep2062.mp3",
+    "duration": "26:35",
+    "durationSecs": 1596,
+    "fileSize": 11261588
   },
   {
     "id": 2063,
@@ -15964,11 +15964,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 14,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2073.mp3",
+    "audio": "audio/ep2073.mp3",
+    "duration": "27:03",
+    "durationSecs": 1623,
+    "fileSize": 11399756
   },
   {
     "id": 2074,
@@ -15977,11 +15977,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 15,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2074.mp3",
+    "audio": "audio/ep2074.mp3",
+    "duration": "27:57",
+    "durationSecs": 1678,
+    "fileSize": 11826812
   },
   {
     "id": 2075,
@@ -15990,11 +15990,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 16,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2075.mp3",
+    "audio": "audio/ep2075.mp3",
+    "duration": "28:19",
+    "durationSecs": 1700,
+    "fileSize": 11959580
   },
   {
     "id": 2076,
@@ -16003,11 +16003,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 17,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2076.mp3",
+    "audio": "audio/ep2076.mp3",
+    "duration": "25:40",
+    "durationSecs": 1540,
+    "fileSize": 10866164
   },
   {
     "id": 2077,
@@ -16133,11 +16133,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 27,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2086.mp3",
+    "audio": "audio/ep2086.mp3",
+    "duration": "28:28",
+    "durationSecs": 1708,
+    "fileSize": 12085268
   },
   {
     "id": 2087,
@@ -16146,11 +16146,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 28,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2087.mp3",
+    "audio": "audio/ep2087.mp3",
+    "duration": "27:30",
+    "durationSecs": 1650,
+    "fileSize": 11617076
   },
   {
     "id": 2088,
@@ -16159,11 +16159,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 29,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2088.mp3",
+    "audio": "audio/ep2088.mp3",
+    "duration": "28:30",
+    "durationSecs": 1710,
+    "fileSize": 12071852
   },
   {
     "id": 2089,
@@ -16172,11 +16172,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 30,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2089.mp3",
+    "audio": "audio/ep2089.mp3",
+    "duration": "27:52",
+    "durationSecs": 1673,
+    "fileSize": 11773820
   },
   {
     "id": 2090,
