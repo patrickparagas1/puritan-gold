@@ -15834,11 +15834,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 4,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2063.mp3",
+    "audio": "audio/ep2063.mp3",
+    "duration": "27:02",
+    "durationSecs": 1623,
+    "fileSize": 11384036
   },
   {
     "id": 2064,
