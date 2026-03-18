@@ -11838,8 +11838,11 @@
     "topic": "bruised-reed",
     "topicOrder": 15,
     "topicTotal": 15,
-    "file": null,
-    "audio": null
+    "file": "audio/ep1328.mp3",
+    "audio": "audio/ep1328.mp3",
+    "duration": "48:15",
+    "durationSecs": 2895,
+    "fileSize": 19960148
   },
   {
     "id": 1329,
@@ -11848,8 +11851,11 @@
     "topic": "bruised-reed",
     "topicOrder": 1,
     "topicTotal": 15,
-    "file": null,
-    "audio": null
+    "file": "audio/ep1329.mp3",
+    "audio": "audio/ep1329.mp3",
+    "duration": "2:58",
+    "durationSecs": 179,
+    "fileSize": 1285604
   },
   {
     "id": 1335,
@@ -15642,11 +15648,11 @@
     "topic": "dispensationalism",
     "topicOrder": 8,
     "topicTotal": 19,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2112.mp3",
+    "audio": "audio/ep2112.mp3",
+    "duration": "28:33",
+    "durationSecs": 1714,
+    "fileSize": 11989052
   },
   {
     "id": 2113,
