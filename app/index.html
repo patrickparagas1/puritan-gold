@@ -329,9 +329,31 @@
           <span class="np-opt-text" id="npAutoText">Auto: Off</span>
         </button>
       </div>
+      <div class="np-options" style="margin-top:12px;">
+        <button class="np-opt np-opt-wide" onclick="App.openTranscript()">
+          <span class="np-opt-icon">📖</span>
+          <span class="np-opt-text">Read Along</span>
+        </button>
+      </div>
       <!-- Chapter markers (for audiobooks) -->
       <div class="np-chapters" id="npChapters" style="display:none;"></div>
       <div class="np-desc" id="npDesc"></div>
+    </div>
+  </div>
+
+  <!-- Transcript Panel -->
+  <div class="transcript-overlay" id="transcriptOverlay">
+    <div class="transcript-panel">
+      <div class="transcript-header">
+        <h3 class="transcript-title" id="transcriptTitle">Transcript</h3>
+        <button class="transcript-close" onclick="App.closeTranscript()" aria-label="Close transcript">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+      <div class="transcript-body" id="transcriptBody">
+        <p class="transcript-loading">Loading transcript...</p>
+      </div>
+      <div class="transcript-source" id="transcriptSource"></div>
     </div>
   </div>
 

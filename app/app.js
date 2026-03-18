@@ -2300,6 +2300,47 @@ const App = {
     }
   },
 
+  async openTranscript() {
+    const ep = this.currentEp;
+    if (!ep) { this.showToast('No episode playing'); return; }
+    const overlay = document.getElementById('transcriptOverlay');
+    const body = document.getElementById('transcriptBody');
+    const title = document.getElementById('transcriptTitle');
+    const source = document.getElementById('transcriptSource');
+    title.textContent = ep.title || 'Transcript';
+    body.innerHTML = '<p class="transcript-loading">Loading transcript...</p>';
+    source.innerHTML = '';
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    const scriptFile = this._getScriptPath(ep);
+    try {
+      const resp = await fetch('../' + scriptFile);
+      if (!resp.ok) throw new Error('Not found');
+      const text = await resp.text();
+      // Convert plain text to paragraphs
+      body.innerHTML = text.split(/\n\n+/).map(p => p.trim()).filter(Boolean)
+        .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+    } catch {
+      body.innerHTML = '<p class="transcript-loading">Transcript not available for this episode.</p>';
+    }
+
+    // Show source link for audiobook topics
+    if (ep.topic) {
+      const topic = this._growthTopics.find(t => t.slug === ep.topic);
+      if (topic && topic.source) {
+        source.innerHTML = topic.sourceUrl
+          ? `<a href="${topic.sourceUrl}" target="_blank" rel="noopener">Source: ${topic.source}</a>`
+          : `Source: ${topic.source}`;
+      }
+    }
+  },
+
+  closeTranscript() {
+    document.getElementById('transcriptOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  },
+
   async shareEpisode(id) {
     const ep = this.allEpisodes.find(e => e.id === id);
     if (!ep) return;
@@ -2912,6 +2953,7 @@ const App = {
       color: '#3574cc',
       chapters: 51,
       category: 'Scripture',
+      source: 'Public Domain',
     },
     {
       slug: 'female-piety',
@@ -2922,6 +2964,7 @@ const App = {
       color: '#9b59b6',
       chapters: 13,
       category: 'Devotional',
+      source: 'Chapel Library',
     },
     {
       slug: 'enoch',
@@ -2932,6 +2975,7 @@ const App = {
       color: '#2d8a4e',
       chapters: 10,
       category: 'Scripture',
+      source: 'Public Domain',
     },
     {
       slug: 'melchizedek',
@@ -2942,6 +2986,7 @@ const App = {
       color: '#d4a23c',
       chapters: 8,
       category: 'Scripture',
+      source: 'Public Domain',
     },
     {
       slug: 'mortification-of-sin',
@@ -2952,6 +2997,7 @@ const App = {
       color: '#c0392b',
       chapters: 14,
       category: 'Christian Living',
+      source: 'Chapel Library',
     },
     {
       slug: 'body-of-divinity',
@@ -2962,6 +3008,7 @@ const App = {
       color: '#2980b9',
       chapters: 13,
       category: 'Theology',
+      source: 'Chapel Library',
     },
     {
       slug: 'reformed-pastor',
@@ -2972,6 +3019,7 @@ const App = {
       color: '#8e44ad',
       chapters: 10,
       category: 'Pastoral',
+      source: 'Chapel Library',
     },
     {
       slug: 'pilgrims-progress',
@@ -2982,6 +3030,7 @@ const App = {
       color: '#27ae60',
       chapters: 14,
       category: 'Literature',
+      source: 'Chapel Library',
     },
     {
       slug: 'fourfold-state',
@@ -2992,6 +3041,7 @@ const App = {
       color: '#e67e22',
       chapters: 13,
       category: 'Theology',
+      source: 'Monergism',
     },
     {
       slug: 'religious-affections',
@@ -3002,6 +3052,7 @@ const App = {
       color: '#1abc9c',
       chapters: 11,
       category: 'Theology',
+      source: 'Monergism',
     },
     {
       slug: 'all-of-grace',
@@ -3012,6 +3063,7 @@ const App = {
       color: '#f39c12',
       chapters: 14,
       category: 'Christian Living',
+      source: 'Chapel Library',
     },
     {
       slug: 'institutes-book-one',
@@ -3022,6 +3074,7 @@ const App = {
       color: '#34495e',
       chapters: 18,
       category: 'Theology',
+      source: 'Monergism',
     },
     {
       slug: 'attributes-of-god',
@@ -3032,6 +3085,7 @@ const App = {
       color: '#c0392b',
       chapters: 19,
       category: 'Theology',
+      source: 'Monergism',
     },
     {
       slug: 'sovereignty-of-god',
@@ -3042,6 +3096,7 @@ const App = {
       color: '#e74c3c',
       chapters: 11,
       category: 'Theology',
+      source: 'Monergism',
     },
     {
       slug: 'glory-of-christ',
@@ -3052,6 +3107,7 @@ const App = {
       color: '#d4a017',
       chapters: 14,
       category: 'Devotional',
+      source: 'Chapel Library',
     },
     {
       slug: 'mystery-of-providence',
@@ -3062,6 +3118,7 @@ const App = {
       color: '#16a085',
       chapters: 13,
       category: 'Christian Living',
+      source: 'Chapel Library',
     },
     {
       slug: 'keeping-the-heart',
@@ -3072,6 +3129,7 @@ const App = {
       color: '#2ecc71',
       chapters: 10,
       category: 'Christian Living',
+      source: 'Chapel Library',
     },
     {
       slug: 'rare-jewel',
@@ -3082,6 +3140,7 @@ const App = {
       color: '#3498db',
       chapters: 8,
       category: 'Christian Living',
+      source: 'Chapel Library',
     },
     {
       slug: 'bruised-reed',
@@ -3092,6 +3151,7 @@ const App = {
       color: '#9b59b6',
       chapters: 14,
       category: 'Devotional',
+      source: 'Chapel Library',
     },
     {
       slug: 'precious-remedies',
@@ -3102,6 +3162,7 @@ const App = {
       color: '#e67e22',
       chapters: 12,
       category: 'Christian Living',
+      source: 'Chapel Library',
     },
     {
       slug: 'lectures-to-students',
@@ -3112,6 +3173,7 @@ const App = {
       color: '#f39c12',
       chapters: 28,
       category: 'Pastoral',
+      source: 'Monergism',
     },
     {
       slug: 'heart-of-christ',
@@ -3122,6 +3184,29 @@ const App = {
       color: '#8e44ad',
       chapters: 7,
       category: 'Devotional',
+      source: 'Monergism',
+    },
+    {
+      slug: 'exposition-1-john',
+      title: 'Exposition of 1 John',
+      authorName: 'Arthur W. Pink',
+      author: 'Arthur W. Pink · 39 Chapters',
+      description: 'Full audiobook — Pink\'s verse-by-verse exposition of the First Epistle of John, covering fellowship, assurance, the tests of life, and the love of the Father.',
+      color: '#2c3e50',
+      chapters: 39,
+      category: 'Exposition',
+      source: 'Monergism',
+    },
+    {
+      slug: 'dispensationalism',
+      title: 'Dispensationalism',
+      authorName: 'Arthur W. Pink',
+      author: 'Arthur W. Pink · 18 Chapters',
+      description: 'Full audiobook — Pink\'s penetrating critique of dispensational theology, defending the unity of God\'s covenant of grace across all ages.',
+      color: '#7f8c8d',
+      chapters: 18,
+      category: 'Theology',
+      source: 'Monergism',
     }
   ],
 
