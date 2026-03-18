@@ -215,22 +215,21 @@ html, body {
 .pill {
   flex-shrink: 0;
   padding: 7px 16px;
-  border-radius: 20px;
-  border: 1.5px solid var(--blue-pale);
-  background: transparent;
-  color: var(--text2);
+  border-radius: 100px;
+  border: none;
+  background: #232323;
+  color: var(--white);
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s var(--ease-out);
+  transition: all 200ms ease;
   min-height: 34px;
 }
 
 .pill.active {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: var(--white);
-  box-shadow: 0 2px 8px rgba(53,116,204,0.25);
+  background: var(--white);
+  color: #000;
+  box-shadow: none;
 }
 
 .pill:active {
@@ -337,24 +336,27 @@ html, body {
   letter-spacing: 1.5px;
 }
 
-/* Study cards - matching Family/Together/Growth style */
+/* Study cards - Spotify-inspired compact horizontal layout */
 .study-card {
   background: var(--card);
-  border-radius: var(--r);
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--blue);
-  padding: 20px;
-  margin-bottom: 14px;
+  border-radius: 8px;
+  border: none;
+  padding: 12px;
+  margin-bottom: 8px;
   position: relative;
-  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  transition: background 0.2s var(--ease-out);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
 }
 
+.study-card:hover,
 .study-card:active {
-  transform: scale(0.99) translateY(-1px);
+  background: var(--card-hover);
 }
 
 .study-card.playing {
-  border-left: 4px solid var(--gold-bright);
   background: var(--card-hover);
 }
 
@@ -362,49 +364,80 @@ html, body {
   opacity: 0.55;
 }
 
+/* Color thumbnail on left */
+.study-card::before {
+  content: '';
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--blue), #2a6dcc);
+}
+
+.study-card.playing::before {
+  background: linear-gradient(135deg, var(--gold-bright), #e8c060);
+}
+
+/* Progress bar at bottom */
+.study-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255,255,255,0.06);
+}
+
 .study-date {
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text3);
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .study-title {
-  font-size: 18px;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--text);
   line-height: 1.3;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .study-subtitle {
-  font-size: 13px;
-  color: var(--blue);
-  font-weight: 600;
-  margin-bottom: 10px;
-  line-height: 1.4;
+  font-size: 12px;
+  color: var(--text2);
+  font-weight: 400;
+  margin-bottom: 4px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .study-meta {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 4px;
 }
 
 .study-dur {
-  font-size: 12px;
-  color: var(--text2);
-  font-weight: 600;
+  font-size: 11px;
+  color: var(--text3);
+  font-weight: 500;
 }
 
 .study-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 14px;
+  gap: 8px;
+  margin-top: 8px;
 }
 
 .study-play-btn {
@@ -860,7 +893,7 @@ html, body {
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: linear-gradient(180deg, #1a3a5c 0%, #0d1b2a 50%, #08111c 100%);
+  background: #121212;
   transform: translateY(100%);
   transition: transform 0.4s var(--spring);
   display: flex;
@@ -940,16 +973,16 @@ html, body {
 }
 
 .np-art {
-  width: 200px;
-  height: 200px;
-  border-radius: 28px;
-  background: linear-gradient(135deg, #2c5a8a 0%, #1a3a5c 50%, #162d48 100%);
+  width: 260px;
+  height: 260px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--gold-bright) 0%, #b8862e 50%, #8a6520 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 24px 0 32px;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.40), 0 4px 16px rgba(0,0,0,0.20);
-  border: 1px solid rgba(255,255,255,0.04);
+  margin: 20px 0 28px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.50), 0 4px 16px rgba(0,0,0,0.30);
+  border: none;
 }
 
 .np-art span {
@@ -984,7 +1017,7 @@ html, body {
 .np-track {
   width: 100%;
   height: 4px;
-  background: rgba(255,255,255,0.12);
+  background: #535353;
   border-radius: 2px;
   cursor: pointer;
   position: relative;
@@ -992,7 +1025,7 @@ html, body {
 
 .np-track-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--gold-bright), var(--gold-light));
+  background: var(--gold-bright);
   border-radius: 2px;
   width: 0%;
   transition: width 0.2s linear;
@@ -1026,7 +1059,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 28px;
+  gap: 36px;
   margin-top: 32px;
 }
 
@@ -1055,30 +1088,32 @@ html, body {
 }
 
 .np-play-main {
-  width: 76px;
-  height: 76px;
-  background: linear-gradient(135deg, var(--gold-bright), #e8c060) !important;
-  color: var(--blue-deep) !important;
+  width: 56px;
+  height: 56px;
+  background: #fff !important;
+  color: #000 !important;
   border-radius: 50%;
-  box-shadow: 0 4px 24px rgba(212,162,60,0.35);
+  box-shadow: none;
   transition: all 0.2s var(--ease-out);
 }
 
 .np-play-main svg {
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
 }
 
 .np-play-main:active {
   transform: scale(0.92);
-  box-shadow: 0 2px 12px rgba(212,162,60,0.25);
+  background: #e0e0e0 !important;
 }
 
 /* NP Options */
 .np-options {
   display: flex;
-  gap: 12px;
-  margin-top: 36px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 28px;
   width: 100%;
 }
 
@@ -1087,30 +1122,30 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 14px;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  background: rgba(255,255,255,0.04);
-  color: rgba(255,255,255,0.65);
+  gap: 6px;
+  padding: 10px 8px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text2);
   cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
-  min-height: 44px;
+  font-size: 12px;
+  font-weight: 500;
+  min-height: 40px;
   transition: all 0.2s var(--ease-out);
 }
 
 .np-opt:active {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.06);
   transform: scale(0.97);
 }
 
 .np-opt-icon {
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .np-opt-text {
-  font-size: 12px;
+  font-size: 11px;
 }
 
 /* NP Description */
@@ -1733,7 +1768,7 @@ html, body {
   left: 0;
   right: 0;
   display: flex;
-  background: var(--bg);
+  background: #121212;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   border-top: 1px solid var(--border);
@@ -1752,7 +1787,7 @@ html, body {
   padding: 6px 0 4px;
   border: none;
   background: none;
-  color: var(--text3);
+  color: #727272;
   font-size: 10px;
   font-weight: 600;
   cursor: pointer;
@@ -1765,38 +1800,26 @@ html, body {
   color: var(--gold);
 }
 
-/* Active indicator dot */
+.nav-item.active .nav-icon {
+  color: var(--white);
+}
+
+.nav-item.active .nav-label {
+  color: var(--gold);
+}
+
+/* Remove indicator dot - use color change instead */
 .nav-item.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--gold);
-  opacity: 1;
-  transition: opacity 0.25s var(--ease-out);
+  display: none;
 }
 
 .nav-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--gold);
-  opacity: 0;
-  transition: opacity 0.25s var(--ease-out);
+  display: none;
 }
 
 .nav-icon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   line-height: 1;
   transition: transform 0.2s var(--ease-out);
   display: flex;
@@ -1805,8 +1828,8 @@ html, body {
 }
 
 .nav-icon svg {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
 }
 
 .nav-item:active .nav-icon {
@@ -1821,18 +1844,17 @@ html, body {
 /* ══════════ FAMILY DEVOTIONAL CARDS ══════════ */
 .family-card {
   background: var(--card);
-  border-radius: var(--r);
-  padding: 20px;
-  margin: 0 16px 12px;
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--gold-bright);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 0 16px 8px;
+  border: none;
   position: relative;
-  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  transition: background 0.2s var(--ease-out);
 }
 
-
+.family-card:hover,
 .family-card:active {
-  transform: scale(0.99) translateY(-1px);
+  background: var(--card-hover);
 }
 
 .family-date {
@@ -2008,17 +2030,17 @@ html, body {
 /* School cards — matches Family/Together/Growth pattern */
 .school-card {
   background: var(--card);
-  border-radius: var(--r);
-  padding: 20px;
-  margin-bottom: 14px;
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--green);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  border: none;
   position: relative;
-  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  transition: background 0.2s var(--ease-out);
 }
 
+.school-card:hover,
 .school-card:active {
-  transform: scale(0.99) translateY(-1px);
+  background: var(--card-hover);
 }
 
 .school-card.listened {
@@ -2141,18 +2163,17 @@ html, body {
 /* ══════════ TOGETHER / COUPLES CARDS ══════════ */
 .together-card {
   background: var(--card);
-  border-radius: var(--r);
-  padding: 20px;
-  margin: 0 16px 12px;
-  border: 1px solid var(--border);
-  border-left: 4px solid #d87070;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 0 16px 8px;
+  border: none;
   position: relative;
-  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  transition: background 0.2s var(--ease-out);
 }
 
-
+.together-card:hover,
 .together-card:active {
-  transform: scale(0.99) translateY(-1px);
+  background: var(--card-hover);
 }
 
 .together-date {
@@ -3360,7 +3381,7 @@ html, body {
 }
 
 /* ══════════ 6-TAB BOTTOM NAV ══════════ */
-.nav-item .nav-icon svg { width: 20px; height: 20px; }
+.nav-item .nav-icon svg { width: 24px; height: 24px; }
 .nav-item .nav-label { font-size: 10px; }
 
 /* ══════════ MASTER CALENDAR BUTTON (Header) ══════════ */
@@ -3601,7 +3622,7 @@ html, body {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: linear-gradient(135deg, #121212 0%, #0a0a0a 100%);
+  background: #121212;
   display: flex;
   align-items: center;
   justify-content: center;
