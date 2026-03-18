@@ -9585,11 +9585,11 @@
     "topic": "reformed-pastor",
     "topicOrder": 7,
     "topicTotal": 11,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep1106.mp3",
+    "audio": "audio/ep1106.mp3",
+    "duration": "58:01",
+    "durationSecs": 3482,
+    "fileSize": 24002540
   },
   {
     "id": 1107,
@@ -15629,11 +15629,11 @@
     "topic": "dispensationalism",
     "topicOrder": 7,
     "topicTotal": 19,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2111.mp3",
+    "audio": "audio/ep2111.mp3",
+    "duration": "24:08",
+    "durationSecs": 1448,
+    "fileSize": 10078388
   },
   {
     "id": 2112,
