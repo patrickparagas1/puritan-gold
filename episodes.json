@@ -16425,5 +16425,91 @@
     "duration": "15:05",
     "durationSecs": 906,
     "fileSize": 6542180
+  },
+  {
+    "id": 5331,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "study",
+    "date": "2026-03-19",
+    "heartbeat": true,
+    "file": "audio/ep5331.mp3",
+    "audio": "audio/ep5331.mp3",
+    "duration": "3:37",
+    "durationSecs": 218,
+    "fileSize": 1740909,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 5332,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "family",
+    "date": "2026-03-19",
+    "heartbeat": true,
+    "file": "audio/family_5332.mp3",
+    "audio": "audio/family_5332.mp3",
+    "duration": "3:23",
+    "durationSecs": 204,
+    "fileSize": 1630509,
+    "tags": [
+      "Family",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 5333,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "school",
+    "date": "2026-03-19",
+    "heartbeat": true,
+    "file": "audio/school_5333.mp3",
+    "audio": "audio/school_5333.mp3",
+    "duration": "3:19",
+    "durationSecs": 199,
+    "fileSize": 1595565,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 5334,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "together",
+    "date": "2026-03-19",
+    "heartbeat": true,
+    "file": "audio/together_5334.mp3",
+    "audio": "audio/together_5334.mp3",
+    "duration": "3:15",
+    "durationSecs": 196,
+    "fileSize": 1568109,
+    "tags": [
+      "Together",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 5335,
+    "title": "Daily Meditation from John Calvin",
+    "section": "personal",
+    "date": "2026-03-19",
+    "heartbeat": true,
+    "file": "audio/ep5335.mp3",
+    "audio": "audio/ep5335.mp3",
+    "duration": "4:06",
+    "durationSecs": 247,
+    "fileSize": 1974189,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Calvin"
+    ],
+    "topic": null
   }
 ]
