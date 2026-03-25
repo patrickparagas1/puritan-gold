@@ -16921,5 +16921,91 @@
       "Thomas Goodwin"
     ],
     "topic": null
+  },
+  {
+    "id": 5351,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "study",
+    "date": "2026-03-25",
+    "heartbeat": true,
+    "file": "audio/ep5351.mp3",
+    "audio": "audio/ep5351.mp3",
+    "duration": "3:31",
+    "durationSecs": 211,
+    "fileSize": 1689645,
+    "tags": [
+      "Study",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 5352,
+    "title": "Daily Meditation from John Flavel",
+    "section": "family",
+    "date": "2026-03-25",
+    "heartbeat": true,
+    "file": "audio/family_5352.mp3",
+    "audio": "audio/family_5352.mp3",
+    "duration": "3:26",
+    "durationSecs": 207,
+    "fileSize": 1655085,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 5353,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-03-25",
+    "heartbeat": true,
+    "file": "audio/school_5353.mp3",
+    "audio": "audio/school_5353.mp3",
+    "duration": "3:34",
+    "durationSecs": 215,
+    "fileSize": 1718445,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 5354,
+    "title": "Daily Meditation from John Flavel",
+    "section": "together",
+    "date": "2026-03-25",
+    "heartbeat": true,
+    "file": "audio/together_5354.mp3",
+    "audio": "audio/together_5354.mp3",
+    "duration": "3:50",
+    "durationSecs": 230,
+    "fileSize": 1842285,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 5355,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "personal",
+    "date": "2026-03-25",
+    "heartbeat": true,
+    "file": "audio/ep5355.mp3",
+    "audio": "audio/ep5355.mp3",
+    "duration": "3:53",
+    "durationSecs": 234,
+    "fileSize": 1869741,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Boston"
+    ],
+    "topic": null
   }
 ]
