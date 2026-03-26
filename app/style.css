@@ -4208,14 +4208,10 @@ html, body {
 /* --- Desktop (1025px+) --- */
 @media (min-width: 1025px) {
   .app {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    grid-template-rows: 1fr 80px;
-    grid-template-areas:
-      "sidebar main"
-      "player  player";
+    display: flex;
+    flex-direction: column;
     max-width: 100%;
-    padding-bottom: 0;
+    padding-bottom: 72px; /* mini player height */
   }
 
   /* Convert bottom nav to left sidebar */
@@ -4287,20 +4283,54 @@ html, body {
     letter-spacing: 0;
   }
 
-  /* Main content area - offset by sidebar */
-  .content-area,
-  .section-view {
-    margin-left: 260px;
-  }
-
-  /* Header offset */
+  /* Compact header on desktop - hide branding, keep month nav */
   .header {
     margin-left: 260px;
-    padding: 16px 32px;
+    padding: 12px 32px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
   }
 
-  .header .logo {
-    display: none; /* Logo shown in sidebar instead */
+  .header h1,
+  .subtitle,
+  .month-pill {
+    display: none !important;
+  }
+
+  .header-row {
+    justify-content: flex-start;
+    min-height: 0;
+  }
+
+  .header .login-btn {
+    position: absolute;
+    right: 32px;
+    top: 8px;
+  }
+
+  .month-nav {
+    margin-top: 0;
+  }
+
+  /* Main content area - offset by sidebar */
+  .content {
+    margin-left: 260px;
+  }
+
+  .section-view {
+    left: 0; /* Already offset by parent .content */
+  }
+
+  /* Section tabs offset by sidebar */
+  .section-tabs {
+    margin-left: 260px;
+    padding: 0 32px;
+  }
+
+  /* Sticky filter bars offset */
+  .filter-bar {
+    margin-left: 260px;
+    padding: 8px 32px;
   }
 
   /* Section views full width */
@@ -4312,9 +4342,78 @@ html, body {
     padding: 20px 32px;
   }
 
-  /* Episode cards in multi-column grid */
-  .view.episodes-view .episode-card {
-    max-width: none;
+  /* Episode list with proper max width */
+  .view.episodes-view {
+    max-width: 900px;
+  }
+
+  .episode-card {
+    padding: 18px 20px;
+  }
+
+  /* Study card: grid layout on desktop for proper text display */
+  .study-card {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    gap: 0 16px;
+    align-items: start;
+    padding: 16px 20px;
+  }
+
+  .study-card::before {
+    grid-column: 1;
+    grid-row: 1 / 6;
+    align-self: center;
+  }
+
+  .study-date {
+    grid-column: 2;
+  }
+
+  .study-title {
+    grid-column: 2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+  }
+
+  .study-subtitle {
+    grid-column: 2;
+  }
+
+  .study-meta {
+    grid-column: 2;
+  }
+
+  .ep-summary {
+    grid-column: 2;
+  }
+
+  .script-view {
+    grid-column: 2;
+  }
+
+  .study-actions {
+    grid-column: 3;
+    grid-row: 1 / 6;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Episode cards (non-study) */
+  .episode-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+
+  .episode-card .ep-body {
+    flex: 1;
+    min-width: 0;
   }
 
   /* Topic cards grid - multiple columns */
@@ -4329,19 +4428,19 @@ html, body {
     margin-bottom: 0 !important;
   }
 
-  /* Now playing as right side panel on desktop */
+  /* Now playing - centered overlay on desktop */
   .now-playing {
-    max-width: 480px;
-    left: auto;
-    right: 0;
-    transform: translateX(100%);
-    border-radius: 0;
-    border-left: 1px solid var(--border);
-    margin-left: 260px;
+    max-width: 520px;
+    left: calc(260px + 50%);
+    right: auto;
+    transform: translateX(-50%) translateY(100%);
+    border-radius: 24px 24px 0 0;
+    border-left: none;
+    margin-left: 0;
   }
 
   .now-playing.open {
-    transform: translateX(0);
+    transform: translateX(-50%) translateY(0);
   }
 
   /* Mini player at bottom, offset by sidebar */
@@ -4353,15 +4452,25 @@ html, body {
     transform: none;
     border-radius: 0;
     border-top: 1px solid var(--border);
-    padding: 8px 32px;
+    padding: 12px 32px;
     background: rgba(18,18,18,0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    height: 72px;
   }
 
   /* Mini player layout - spread controls */
   .mini-player .mp-info {
     flex: 1;
+    min-width: 0;
+  }
+
+  .mini-player .mp-title {
+    font-size: 15px;
+  }
+
+  .mini-player .mp-sub {
+    font-size: 13px;
   }
 
   /* Transcript panel wider on desktop */
