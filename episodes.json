@@ -15415,11 +15415,11 @@
     "topic": "sirach",
     "topicOrder": 30,
     "topicTotal": 52,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2030.mp3",
+    "audio": "audio/ep2030.mp3",
+    "duration": "4:31",
+    "durationSecs": 271,
+    "fileSize": 1862228
   },
   {
     "id": 2031,
@@ -15428,11 +15428,11 @@
     "topic": "sirach",
     "topicOrder": 31,
     "topicTotal": 52,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2031.mp3",
+    "audio": "audio/ep2031.mp3",
+    "duration": "0:35",
+    "durationSecs": 35,
+    "fileSize": 262144
   },
   {
     "id": 2032,
