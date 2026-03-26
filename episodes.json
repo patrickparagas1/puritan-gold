@@ -9291,10 +9291,10 @@
     "title": "Female Piety: Chapter 11",
     "subtitle": "The Characters of Martha and Mary of Bethany",
     "description": "Martha and Mary as two portraits of female discipleship \u2014 activity and contemplation united.",
-    "file": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null,
+    "file": "audio/ep1050.mp3",
+    "duration": "55:00",
+    "durationSecs": 3301,
+    "fileSize": 22701428,
     "date": "2026-03-01",
     "series": "Female Piety",
     "section": "personal",
@@ -9306,7 +9306,7 @@
       "john-angell-james",
       "godly-womanhood"
     ],
-    "audio": null
+    "audio": "audio/ep1050.mp3"
   },
   {
     "id": 1051,
@@ -11010,11 +11010,11 @@
     "topic": "attributes-of-god",
     "topicOrder": 14,
     "topicTotal": 20,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep1232.mp3",
+    "audio": "audio/ep1232.mp3",
+    "duration": "14:26",
+    "durationSecs": 867,
+    "fileSize": 5980148
   },
   {
     "id": 1233,
@@ -11023,11 +11023,11 @@
     "topic": "attributes-of-god",
     "topicOrder": 15,
     "topicTotal": 20,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep1233.mp3",
+    "audio": "audio/ep1233.mp3",
+    "duration": "13:34",
+    "durationSecs": 814,
+    "fileSize": 5572556
   },
   {
     "id": 1234,
@@ -11036,11 +11036,11 @@
     "topic": "attributes-of-god",
     "topicOrder": 16,
     "topicTotal": 20,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep1234.mp3",
+    "audio": "audio/ep1234.mp3",
+    "duration": "10:05",
+    "durationSecs": 606,
+    "fileSize": 4130684
   },
   {
     "id": 1235,
@@ -12167,11 +12167,11 @@
     "topic": "precious-remedies",
     "topicOrder": 7,
     "topicTotal": 13,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep1340.mp3",
+    "audio": "audio/ep1340.mp3",
+    "duration": "53:00",
+    "durationSecs": 3181,
+    "fileSize": 21776924
   },
   {
     "id": 1341,
@@ -16299,11 +16299,11 @@
     "topic": "exposition-1-john",
     "topicOrder": 19,
     "topicTotal": 40,
-    "file": null,
-    "audio": null,
-    "duration": null,
-    "durationSecs": null,
-    "fileSize": null
+    "file": "audio/ep2078.mp3",
+    "audio": "audio/ep2078.mp3",
+    "duration": "24:56",
+    "durationSecs": 1496,
+    "fileSize": 10205396
   },
   {
     "id": 2079,
