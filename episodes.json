@@ -17007,5 +17007,91 @@
       "Thomas Boston"
     ],
     "topic": null
+  },
+  {
+    "id": 5356,
+    "title": "Daily Meditation from John Owen",
+    "section": "study",
+    "date": "2026-03-26",
+    "heartbeat": true,
+    "file": "audio/ep5356.mp3",
+    "audio": "audio/ep5356.mp3",
+    "duration": "3:28",
+    "durationSecs": 209,
+    "fileSize": 1668333,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 5357,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "family",
+    "date": "2026-03-26",
+    "heartbeat": true,
+    "file": "audio/family_5357.mp3",
+    "audio": "audio/family_5357.mp3",
+    "duration": "3:51",
+    "durationSecs": 232,
+    "fileSize": 1856109,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 5358,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-03-26",
+    "heartbeat": true,
+    "file": "audio/school_5358.mp3",
+    "audio": "audio/school_5358.mp3",
+    "duration": "4:03",
+    "durationSecs": 244,
+    "fileSize": 1950381,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 5359,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "together",
+    "date": "2026-03-26",
+    "heartbeat": true,
+    "file": "audio/together_5359.mp3",
+    "audio": "audio/together_5359.mp3",
+    "duration": "3:28",
+    "durationSecs": 208,
+    "fileSize": 1665645,
+    "tags": [
+      "Together",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 5360,
+    "title": "Daily Meditation from John Flavel",
+    "section": "personal",
+    "date": "2026-03-26",
+    "heartbeat": true,
+    "file": "audio/ep5360.mp3",
+    "audio": "audio/ep5360.mp3",
+    "duration": "3:38",
+    "durationSecs": 219,
+    "fileSize": 1749549,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Flavel"
+    ],
+    "topic": null
   }
 ]
