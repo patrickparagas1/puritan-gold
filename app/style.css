@@ -88,6 +88,13 @@ html, body {
   padding-bottom: calc(68px + var(--sab));
 }
 
+/* Desktop: expand app to fill screen */
+@media (min-width: 769px) {
+  .app {
+    max-width: 100%;
+  }
+}
+
 /* ══════════ HEADER ══════════ */
 .header {
   flex-shrink: 0;
@@ -4092,5 +4099,353 @@ html, body {
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   .transcript-panel {
     padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DESKTOP & TABLET RESPONSIVE STYLES
+   ══════════════════════════════════════════════════════════════ */
+
+/* --- Tablet (769px–1024px) --- */
+@media (min-width: 769px) {
+  html, body {
+    position: static;
+    overflow: auto;
+  }
+
+  .app {
+    max-width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    padding-bottom: 80px;
+  }
+
+  /* Bottom nav becomes wider and more spacious */
+  .bottom-nav {
+    max-width: 800px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px 20px 0 0;
+    padding: 10px 0 6px;
+    background: rgba(18,18,18,0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .nav-item {
+    gap: 4px;
+    padding: 8px 0 6px;
+  }
+
+  .nav-label {
+    font-size: 11px;
+  }
+
+  /* Section views - wider with centered content */
+  .section-view {
+    padding: 0 24px;
+  }
+
+  /* Episode cards as grid on tablet */
+  .view.episodes-view {
+    padding: 16px 24px;
+  }
+
+  .episode-card {
+    margin-bottom: 8px;
+  }
+
+  /* Now playing - centered panel instead of full screen */
+  .now-playing {
+    max-width: 640px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%) translateY(100%);
+    border-radius: 24px 24px 0 0;
+  }
+  .now-playing.open {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Mini player wider */
+  .mini-player {
+    max-width: 800px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 68px;
+    border-radius: 16px;
+    margin: 0 auto;
+  }
+
+  /* Topic cards in a grid */
+  .topics-view {
+    padding: 16px 24px !important;
+  }
+
+  /* Transcript panel centered and wider */
+  .transcript-panel {
+    max-width: 700px;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .transcript-body {
+    font-size: 18px;
+    line-height: 1.9;
+    padding: 32px 36px 24px;
+  }
+
+  /* Tabs - more spacious */
+  .section-tabs {
+    padding: 0 24px;
+  }
+
+  /* Header */
+  .header {
+    padding: 12px 24px;
+  }
+}
+
+/* --- Desktop (1025px+) --- */
+@media (min-width: 1025px) {
+  .app {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: 1fr 80px;
+    grid-template-areas:
+      "sidebar main"
+      "player  player";
+    max-width: 100%;
+    padding-bottom: 0;
+  }
+
+  /* Convert bottom nav to left sidebar */
+  .bottom-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: 0;
+    width: 260px;
+    max-width: none;
+    transform: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 24px 0 0;
+    border-top: none;
+    border-right: 1px solid var(--border);
+    border-radius: 0;
+    background: var(--bg2);
+    z-index: 50;
+    gap: 4px;
+  }
+
+  /* Sidebar branding at top */
+  .bottom-nav::before {
+    content: 'Puritan Gold';
+    display: block;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--gold);
+    padding: 0 24px 24px;
+    letter-spacing: -0.02em;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+  }
+
+  .nav-item {
+    flex: none;
+    flex-direction: row;
+    gap: 14px;
+    padding: 12px 24px;
+    border-radius: 0;
+    justify-content: flex-start;
+    transition: background 0.15s, color 0.25s var(--ease-out);
+  }
+
+  .nav-item:hover {
+    background: rgba(255,255,255,0.04);
+  }
+
+  .nav-item.active {
+    background: rgba(255,255,255,0.06);
+    border-right: 3px solid var(--gold);
+  }
+
+  .nav-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .nav-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .nav-label {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  /* Main content area - offset by sidebar */
+  .content-area,
+  .section-view {
+    margin-left: 260px;
+  }
+
+  /* Header offset */
+  .header {
+    margin-left: 260px;
+    padding: 16px 32px;
+  }
+
+  .header .logo {
+    display: none; /* Logo shown in sidebar instead */
+  }
+
+  /* Section views full width */
+  .section-view {
+    padding: 0 32px;
+  }
+
+  .view.episodes-view {
+    padding: 20px 32px;
+  }
+
+  /* Episode cards in multi-column grid */
+  .view.episodes-view .episode-card {
+    max-width: none;
+  }
+
+  /* Topic cards grid - multiple columns */
+  .topics-view {
+    padding: 20px 32px !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+
+  .topic-card {
+    margin-bottom: 0 !important;
+  }
+
+  /* Now playing as right side panel on desktop */
+  .now-playing {
+    max-width: 480px;
+    left: auto;
+    right: 0;
+    transform: translateX(100%);
+    border-radius: 0;
+    border-left: 1px solid var(--border);
+    margin-left: 260px;
+  }
+
+  .now-playing.open {
+    transform: translateX(0);
+  }
+
+  /* Mini player at bottom, offset by sidebar */
+  .mini-player {
+    left: 260px;
+    right: 0;
+    bottom: 0;
+    max-width: none;
+    transform: none;
+    border-radius: 0;
+    border-top: 1px solid var(--border);
+    padding: 8px 32px;
+    background: rgba(18,18,18,0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Mini player layout - spread controls */
+  .mini-player .mp-info {
+    flex: 1;
+  }
+
+  /* Transcript panel wider on desktop */
+  .transcript-panel {
+    max-width: 800px;
+  }
+
+  .transcript-body {
+    font-size: 19px;
+    line-height: 1.95;
+    padding: 36px 48px 28px;
+  }
+
+  /* Calendar grid wider */
+  .calendar-view {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Study cards in grid */
+  .study-card {
+    max-width: none;
+  }
+
+  /* Family cards in grid */
+  .family-card {
+    max-width: none;
+  }
+}
+
+/* --- Wide Desktop (1400px+) --- */
+@media (min-width: 1400px) {
+  .topics-view {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)) !important;
+    gap: 20px;
+  }
+
+  .transcript-body {
+    font-size: 20px;
+    padding: 40px 56px 32px;
+  }
+}
+
+/* --- Hover states (desktop only) --- */
+@media (hover: hover) {
+  .episode-card:hover {
+    background: var(--card-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .topic-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .study-card:hover {
+    background: var(--card-hover);
+  }
+
+  .family-card:hover {
+    background: var(--card-hover);
+  }
+
+  .nav-item:active .nav-icon {
+    transform: none; /* Don't shrink on desktop click */
+  }
+}
+
+/* --- Touch devices: larger tap targets --- */
+@media (pointer: coarse) {
+  .nav-item {
+    min-height: 48px;
+  }
+
+  .episode-card {
+    padding: 14px;
+  }
+}
+
+/* User-select for transcript reading on desktop */
+@media (min-width: 769px) {
+  .transcript-body {
+    -webkit-user-select: text;
+    user-select: text;
   }
 }

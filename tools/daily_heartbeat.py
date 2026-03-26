@@ -294,7 +294,7 @@ async def generate_tts(text, output_path):
                 "-i", speech_path,
                 "-i", AMBIENT_FILE,
                 "-filter_complex",
-                "[1:a]aloop=loop=-1:size=2e+09[bg];[bg]volume=0.08[bgq];[0:a][bgq]amix=inputs=2:duration=first:dropout_transition=3[out]",
+                "[1:a]aloop=loop=-1:size=2e+09[bg];[bg]volume=0.02[bgq];[0:a][bgq]amix=inputs=2:duration=first:dropout_transition=3[out]",
                 "-map", "[out]",
                 "-codec:a", "libmp3lame", "-b:a", "64k",
                 output_path

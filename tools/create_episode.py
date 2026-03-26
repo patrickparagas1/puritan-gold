@@ -71,7 +71,7 @@ def create_episode(script_path, title, subtitle="", description="",
             "-i", speech_path,
             "-stream_loop", "-1", "-i", AMBIENT_FILE,
             "-filter_complex",
-            f"[1:a]atrim=0:{duration_secs},volume=0.06[amb];[0:a][amb]amix=inputs=2:duration=first:dropout_transition=3",
+            f"[1:a]atrim=0:{duration_secs},volume=0.02[amb];[0:a][amb]amix=inputs=2:duration=first:dropout_transition=3",
             "-codec:a", "libmp3lame", "-q:a", "4",
             final_path
         ], capture_output=True)

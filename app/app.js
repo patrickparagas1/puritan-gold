@@ -2261,7 +2261,7 @@ const App = {
     if (ep.section === 'family') return `scripts/family_${id}.txt`;
     if (ep.section === 'school') return `scripts/school_${id}.txt`;
     if (ep.section === 'together') return `scripts/together_${id}.txt`;
-    if (ep.section === 'personal') return `scripts/personal_${id}.txt`;
+    if (ep.section === 'personal' && !ep.topic) return `scripts/personal_${id}.txt`;
     return `scripts/ep_${id}.txt`;
   },
 
