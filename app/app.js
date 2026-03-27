@@ -165,6 +165,7 @@ const App = {
     this.updateStreak();
     this._updatePatrickIndicator();
     this._updateKeySetupVisibility();
+    this.renderTodayBanner();
     this.scrollToNext();
 
     // Chat input keyboard handler
@@ -253,6 +254,7 @@ const App = {
     this.renderSchool();
     this.renderTogether();
     this.renderPersonal();
+    this.renderTodayBanner();
     // Re-render any active section calendar
     ['study','family','school','together','personal'].forEach(s => {
       const cal = document.getElementById(s + 'Cal');
@@ -1453,14 +1455,75 @@ const App = {
   // ── Scroll to next unplayed ──
   scrollToNext() {
     setTimeout(() => {
-      const next = this.episodes.find(ep => !this.isListened(ep.id));
-      if (next) {
-        const card = document.querySelector(`.episode-card[data-id="${next.id}"]`);
+      // Find today's episode or next unplayed
+      const today = new Date().toISOString().slice(0, 10);
+      let target = this.episodes.find(ep => ep.date === today);
+      if (!target) target = this.episodes.find(ep => !this.isListened(ep.id));
+      if (target) {
+        const card = document.querySelector(`.study-card[data-id="${target.id}"]`) ||
+                     document.querySelector(`.episode-card[data-id="${target.id}"]`);
         if (card) {
           card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Brief highlight
+          card.classList.add('today-highlight');
+          setTimeout(() => card.classList.remove('today-highlight'), 2000);
         }
       }
     }, 400);
+  },
+
+  // ── Today's Listening Banner ──
+  renderTodayBanner() {
+    let banner = document.getElementById('todayBanner');
+    if (!banner) return;
+
+    const today = new Date().toISOString().slice(0, 10);
+    const sections = [
+      { name: 'Study', eps: this.episodes, icon: '📖' },
+      { name: 'Family', eps: this.familyEpisodes, icon: '👨‍👩‍👧‍👦' },
+      { name: 'School', eps: this.schoolEpisodes, icon: '🎓' },
+      { name: 'Together', eps: this.togetherEpisodes, icon: '🤝' },
+      { name: 'Personal', eps: this.personalEpisodes, icon: '🙏' },
+    ];
+
+    let todayEps = [];
+    sections.forEach(s => {
+      const ep = s.eps.find(e => e.date === today);
+      if (ep && !this.isListened(ep.id)) {
+        todayEps.push({ ...ep, sectionName: s.name, sectionIcon: s.icon });
+      }
+    });
+
+    if (!todayEps.length) {
+      // Check if all done
+      const allToday = sections.flatMap(s => s.eps.filter(e => e.date === today));
+      if (allToday.length && allToday.every(e => this.isListened(e.id))) {
+        banner.innerHTML = `<div class="today-done"><span>✅</span> All caught up for today!</div>`;
+        banner.style.display = 'block';
+      } else {
+        banner.style.display = 'none';
+      }
+      return;
+    }
+
+    banner.style.display = 'block';
+    banner.innerHTML = `
+      <div class="today-header">
+        <div class="today-label">Today's Listening</div>
+        <div class="today-count">${todayEps.length} episode${todayEps.length > 1 ? 's' : ''}</div>
+      </div>
+      <div class="today-list">
+        ${todayEps.map(ep => `
+          <button class="today-item" onclick="App.playEpisode(${ep.id})">
+            <span class="today-icon">${ep.sectionIcon}</span>
+            <div class="today-info">
+              <div class="today-title">${ep.title}</div>
+              <div class="today-section">${ep.sectionName} · ${ep.duration || ''}</div>
+            </div>
+            <svg class="today-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg>
+          </button>
+        `).join('')}
+      </div>`;
   },
 
   // ── Chat ──
@@ -2670,6 +2733,7 @@ const App = {
     localStorage.setItem('listened_' + id, '1');
     localStorage.removeItem('pos_' + id);
     this._syncProgressToCloud('listened', id.toString(), true);
+    this.renderTodayBanner();
   },
   savePosition(id, time) {
     localStorage.setItem('pos_' + id, time.toString());
