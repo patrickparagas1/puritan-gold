@@ -17613,5 +17613,91 @@
       "John Flavel"
     ],
     "topic": null
+  },
+  {
+    "id": 5366,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "study",
+    "date": "2026-03-28",
+    "heartbeat": true,
+    "file": "audio/ep5366.mp3",
+    "audio": "audio/ep5366.mp3",
+    "duration": "3:24",
+    "durationSecs": 204,
+    "fileSize": 1634541,
+    "tags": [
+      "Study",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 5367,
+    "title": "Daily Meditation from John Flavel",
+    "section": "family",
+    "date": "2026-03-28",
+    "heartbeat": true,
+    "file": "audio/family_5367.mp3",
+    "audio": "audio/family_5367.mp3",
+    "duration": "3:39",
+    "durationSecs": 220,
+    "fileSize": 1756653,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 5368,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "school",
+    "date": "2026-03-28",
+    "heartbeat": true,
+    "file": "audio/school_5368.mp3",
+    "audio": "audio/school_5368.mp3",
+    "duration": "3:19",
+    "durationSecs": 199,
+    "fileSize": 1595181,
+    "tags": [
+      "School",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 5369,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-03-28",
+    "heartbeat": true,
+    "file": "audio/together_5369.mp3",
+    "audio": "audio/together_5369.mp3",
+    "duration": "3:45",
+    "durationSecs": 225,
+    "fileSize": 1800813,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 5370,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-03-28",
+    "heartbeat": true,
+    "file": "audio/ep5370.mp3",
+    "audio": "audio/ep5370.mp3",
+    "duration": "3:53",
+    "durationSecs": 234,
+    "fileSize": 1869165,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
