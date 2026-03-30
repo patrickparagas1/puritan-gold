@@ -131,7 +131,7 @@ const App = {
   _recentResponseIds: [],
   _aiConversation: [],  // conversation history for Claude AI
   _streaming: false,     // whether AI is currently streaming
-  currentMonth: { year: 2026, month: 2 }, // 0-indexed (2 = March)
+  currentMonth: { year: new Date().getFullYear(), month: new Date().getMonth() }, // auto-detect current month
   _monthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],
   _monthAbbr: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
   _favorites: JSON.parse(localStorage.getItem('pg_favorites') || '[]'),
@@ -1128,14 +1128,39 @@ const App = {
         return;
       }
 
-      // Autoplay next — find next episode in the same section
+      // Autoplay next
       if (this.autoplay && this.currentEp) {
-        const lists = [this.episodes, this.familyEpisodes, this.schoolEpisodes, this.togetherEpisodes, this.personalEpisodes];
-        for (const list of lists) {
-          const idx = list.findIndex(e => e.id === this.currentEp.id);
-          if (idx >= 0 && idx < list.length - 1) {
-            this.playEpisode(list[idx + 1].id);
-            break;
+        if (this.autoplayContext === 'today') {
+          // Today mode: play next section for the same day
+          const todaySections = [
+            { eps: this.episodes },
+            { eps: this.togetherEpisodes },
+            { eps: this.familyEpisodes },
+            { eps: this.schoolEpisodes },
+            { eps: this.personalEpisodes },
+          ];
+          const epDate = this.currentEp.date;
+          // Find which section the current ep belongs to
+          let curSectionIdx = todaySections.findIndex(s => s.eps.some(e => e.id === this.currentEp.id));
+          if (curSectionIdx >= 0) {
+            // Look for next section that has an episode on the same date
+            for (let i = curSectionIdx + 1; i < todaySections.length; i++) {
+              const nextEp = todaySections[i].eps.find(e => e.date === epDate);
+              if (nextEp) {
+                this.playEpisode(nextEp.id, 'today');
+                break;
+              }
+            }
+          }
+        } else {
+          // Section mode (default): play next episode in the same section
+          const lists = [this.episodes, this.togetherEpisodes, this.familyEpisodes, this.schoolEpisodes, this.personalEpisodes];
+          for (const list of lists) {
+            const idx = list.findIndex(e => e.id === this.currentEp.id);
+            if (idx >= 0 && idx < list.length - 1) {
+              this.playEpisode(list[idx + 1].id, 'section');
+              break;
+            }
           }
         }
       }
@@ -1151,10 +1176,12 @@ const App = {
   },
 
   // ── Play Episode ──
-  playEpisode(id) {
+  playEpisode(id, autoplayContext) {
     const ep = this.allEpisodes.find(e => e.id === id);
     if (!ep || !ep.file) return;  // Don't play if no audio file
 
+    // Track autoplay context: 'today' = next section same day, default = next day same section
+    this.autoplayContext = autoplayContext || 'section';
     this.currentEp = ep;
     this.audio.src = '../' + ep.file;
     this.audio.playbackRate = this.speeds[this.speedIdx];
@@ -1455,7 +1482,6 @@ const App = {
   // ── Scroll to next unplayed ──
   scrollToNext() {
     setTimeout(() => {
-      // Find today's episode or next unplayed
       const today = new Date().toISOString().slice(0, 10);
       let target = this.episodes.find(ep => ep.date === today);
       if (!target) target = this.episodes.find(ep => !this.isListened(ep.id));
@@ -1463,13 +1489,23 @@ const App = {
         const card = document.querySelector(`.study-card[data-id="${target.id}"]`) ||
                      document.querySelector(`.episode-card[data-id="${target.id}"]`);
         if (card) {
-          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          // Brief highlight
+          // Scroll the .view container to today's card
+          const view = card.closest('.view');
+          if (view) {
+            const cardRect = card.getBoundingClientRect();
+            const viewRect = view.getBoundingClientRect();
+            const scrollTarget = cardRect.top - viewRect.top + view.scrollTop - 100;
+            // Temporarily disable smooth scroll (prevents scrollTop from being ignored)
+            view.style.scrollBehavior = 'auto';
+            view.scrollTop = Math.max(0, scrollTarget);
+            // Re-enable smooth scroll after positioning
+            requestAnimationFrame(() => { view.style.scrollBehavior = ''; });
+          }
           card.classList.add('today-highlight');
-          setTimeout(() => card.classList.remove('today-highlight'), 2000);
+          setTimeout(() => card.classList.remove('today-highlight'), 3000);
         }
       }
-    }, 400);
+    }, 1200);
   },
 
   // ── Today's Listening Banner ──
@@ -1478,11 +1514,19 @@ const App = {
     if (!banner) return;
 
     const today = new Date().toISOString().slice(0, 10);
+
+    // Check if dismissed for today
+    const dismissed = localStorage.getItem('todayDismissed');
+    if (dismissed === today) {
+      banner.style.display = 'none';
+      return;
+    }
+
     const sections = [
       { name: 'Study', eps: this.episodes, icon: '📖' },
+      { name: 'Together', eps: this.togetherEpisodes, icon: '🤝' },
       { name: 'Family', eps: this.familyEpisodes, icon: '👨‍👩‍👧‍👦' },
       { name: 'School', eps: this.schoolEpisodes, icon: '🎓' },
-      { name: 'Together', eps: this.togetherEpisodes, icon: '🤝' },
       { name: 'Personal', eps: this.personalEpisodes, icon: '🙏' },
     ];
 
@@ -1506,15 +1550,24 @@ const App = {
       return;
     }
 
+    const minimized = localStorage.getItem('todayMinimized') === '1';
     banner.style.display = 'block';
     banner.innerHTML = `
       <div class="today-header">
         <div class="today-label">Today's Listening</div>
-        <div class="today-count">${todayEps.length} episode${todayEps.length > 1 ? 's' : ''}</div>
+        <div class="today-actions">
+          <div class="today-count">${todayEps.length} episode${todayEps.length > 1 ? 's' : ''}</div>
+          <button class="today-minimize" onclick="App.toggleTodayBanner()" title="${minimized ? 'Expand' : 'Minimize'}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="${minimized ? '6 15 12 9 18 15' : '6 9 12 15 18 9'}"/></svg>
+          </button>
+          <button class="today-dismiss" onclick="App.dismissTodayBanner()" title="Dismiss for today">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
       </div>
-      <div class="today-list">
+      <div class="today-list" style="${minimized ? 'display:none' : ''}">
         ${todayEps.map(ep => `
-          <button class="today-item" onclick="App.playEpisode(${ep.id})">
+          <button class="today-item" onclick="App.playEpisode(${ep.id}, 'today')">
             <span class="today-icon">${ep.sectionIcon}</span>
             <div class="today-info">
               <div class="today-title">${ep.title}</div>
@@ -1524,6 +1577,19 @@ const App = {
           </button>
         `).join('')}
       </div>`;
+  },
+
+  toggleTodayBanner() {
+    const minimized = localStorage.getItem('todayMinimized') === '1';
+    localStorage.setItem('todayMinimized', minimized ? '0' : '1');
+    this.renderTodayBanner();
+  },
+
+  dismissTodayBanner() {
+    const today = new Date().toISOString().slice(0, 10);
+    localStorage.setItem('todayDismissed', today);
+    const banner = document.getElementById('todayBanner');
+    if (banner) banner.style.display = 'none';
   },
 
   // ── Chat ──
@@ -2837,6 +2903,8 @@ const App = {
     this._signInSkipped = true;
     this.hideLoginWall();
     this._showHeaderSignIn(this._firebaseReady);
+    // Scroll to today's content after login wall dismissed (longer delay for layout settle)
+    setTimeout(() => this.scrollToNext(), 300);
   },
 
   _showHeaderSignIn(show) {
