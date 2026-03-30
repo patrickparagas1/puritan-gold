@@ -17785,5 +17785,91 @@
       "John Bunyan"
     ],
     "topic": null
+  },
+  {
+    "id": 5376,
+    "title": "Daily Meditation from John Owen",
+    "section": "study",
+    "date": "2026-03-30",
+    "heartbeat": true,
+    "file": "audio/ep5376.mp3",
+    "audio": "audio/ep5376.mp3",
+    "duration": "3:22",
+    "durationSecs": 203,
+    "fileSize": 1623213,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 5377,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "family",
+    "date": "2026-03-30",
+    "heartbeat": true,
+    "file": "audio/family_5377.mp3",
+    "audio": "audio/family_5377.mp3",
+    "duration": "3:41",
+    "durationSecs": 221,
+    "fileSize": 1768941,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 5378,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "school",
+    "date": "2026-03-30",
+    "heartbeat": true,
+    "file": "audio/school_5378.mp3",
+    "audio": "audio/school_5378.mp3",
+    "duration": "3:33",
+    "durationSecs": 214,
+    "fileSize": 1709805,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 5379,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "together",
+    "date": "2026-03-30",
+    "heartbeat": true,
+    "file": "audio/together_5379.mp3",
+    "audio": "audio/together_5379.mp3",
+    "duration": "3:18",
+    "durationSecs": 198,
+    "fileSize": 1585005,
+    "tags": [
+      "Together",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 5380,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "personal",
+    "date": "2026-03-30",
+    "heartbeat": true,
+    "file": "audio/ep5380.mp3",
+    "audio": "audio/ep5380.mp3",
+    "duration": "3:08",
+    "durationSecs": 188,
+    "fileSize": 1507053,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Goodwin"
+    ],
+    "topic": null
   }
 ]
