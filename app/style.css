@@ -343,6 +343,41 @@ html, body {
   letter-spacing: 1.5px;
 }
 
+/* Past Episodes toggle */
+.past-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 12px;
+  margin-top: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text2);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.past-toggle:hover {
+  background: var(--card);
+  color: var(--text);
+}
+
+.past-episodes {
+  display: none;
+  margin-top: 8px;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+  opacity: 0.85;
+}
+
+.past-episodes.expanded {
+  display: block;
+}
+
 /* Study cards - Spotify-inspired compact horizontal layout */
 .study-card {
   background: var(--card);

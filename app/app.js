@@ -355,16 +355,9 @@ const App = {
       return;
     }
 
-    let currentWeek = null;
-    let html = '';
+    const { recent, past } = this.filter === 'all' ? this._splitRecentPast(eps) : { recent: eps, past: [] };
 
-    eps.forEach(ep => {
-      const week = this.getWeekNumber(ep.id);
-      if (week !== currentWeek && this.filter === 'all') {
-        currentWeek = week;
-        html += `<div class="week-header">Week ${week}</div>`;
-      }
-
+    const renderStudyCard = (ep) => {
       const listened = this.isListened(ep.id);
       const seriesClass = this.getSeriesClass(ep.series);
       const d = new Date(ep.date + 'T12:00:00');
@@ -373,11 +366,10 @@ const App = {
       const summary = ep.description || ep.subtitle || '';
       const progress = this.getProgress(ep);
       const isPlaying = this.currentEp && this.currentEp.id === ep.id;
-
       const isFav = this._favorites.includes(ep.id);
       const hasAudio = ep.file !== null;
       const dayNum = ep.date ? d.getDate() : ep.id;
-      html += `
+      return `
         <div class="study-card ${listened ? 'listened' : ''} ${isPlaying ? 'playing' : ''}" data-id="${ep.id}">
           ${isFav ? '<div class="fav-indicator"></div>' : ''}
           <div class="study-date">${dayName}, ${this._monthNames[d.getMonth()].toUpperCase()} ${dayNum} — DAY ${dayNum}</div>
@@ -405,7 +397,30 @@ const App = {
           </div>
           ${progress > 0 || listened ? `<div class="ep-progress ${listened ? 'done' : ''}"><div class="ep-progress-fill" style="width:${listened ? 100 : progress}%"></div></div>` : ''}
         </div>`;
+    };
+
+    let html = '';
+    let currentWeek = null;
+    recent.forEach(ep => {
+      const week = this.getWeekNumber(ep.id);
+      if (week !== currentWeek && this.filter === 'all') {
+        currentWeek = week;
+        html += `<div class="week-header">Week ${week}</div>`;
+      }
+      html += renderStudyCard(ep);
     });
+
+    if (past.length) {
+      const expanded = this._pastExpanded?.study;
+      html += `
+        <button class="past-toggle" onclick="App.togglePastEpisodes('study')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;transition:transform .2s;${expanded ? 'transform:rotate(90deg)' : ''}"><polyline points="9 6 15 12 9 18"/></svg>
+          Past Episodes (${past.length})
+        </button>
+        <div class="past-episodes ${expanded ? 'expanded' : ''}">
+          ${past.map(ep => renderStudyCard(ep)).join('')}
+        </div>`;
+    }
 
     container.innerHTML = html;
   },
@@ -425,35 +440,22 @@ const App = {
       return;
     }
 
-    let html = '';
-    this.familyEpisodes.forEach(ep => {
+    const renderFamilyCard = (ep) => {
       const d = new Date(ep.date + 'T12:00:00');
       const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
       const dayName = dayNames[d.getDay()];
       const hasAudio = ep.file !== null;
       const listened = this.isListened(ep.id);
-
-      html += `
+      return `
         <div class="family-card ${listened ? 'listened' : ''}">
           <div class="family-date">${dayName}, ${this._monthNames[d.getMonth()]} ${d.getDate()} — Day ${ep.day || d.getDate()}</div>
           <div class="family-title">${ep.title}</div>
           <div class="family-scripture">${ep.subtitle || ''}</div>
-          ${ep.memoryVerse ? `
-            <div class="family-verse">
-              <div class="family-verse-label">Memory Verse</div>
-              <div class="family-verse-text">"${ep.memoryVerse}"</div>
-            </div>
-          ` : ''}
-          ${ep.discussionQuestions ? `
-            <div class="family-discuss">
-              <div class="family-discuss-label">Discuss Together</div>
-              ${ep.discussionQuestions.map(q => `<div class="family-question">${q}</div>`).join('')}
-            </div>
-          ` : ''}
+          ${ep.memoryVerse ? `<div class="family-verse"><div class="family-verse-label">Memory Verse</div><div class="family-verse-text">"${ep.memoryVerse}"</div></div>` : ''}
+          ${ep.discussionQuestions ? `<div class="family-discuss"><div class="family-discuss-label">Discuss Together</div>${ep.discussionQuestions.map(q => `<div class="family-question">${q}</div>`).join('')}</div>` : ''}
           <pre class="script-view" id="script-${ep.id}"></pre>
           <div class="family-actions">
-            <button class="family-play-btn ${hasAudio ? '' : 'no-audio'}"
-                    onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
+            <button class="family-play-btn ${hasAudio ? '' : 'no-audio'}" onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
               ${hasAudio ? `<svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg> Play (${ep.duration})` : 'Audio Coming Soon'}
             </button>
             <div class="card-action-btns">
@@ -466,8 +468,19 @@ const App = {
             </div>
           </div>
         </div>`;
-    });
+    };
 
+    const { recent, past } = this._splitRecentPast(this.familyEpisodes);
+    let html = recent.map(ep => renderFamilyCard(ep)).join('');
+    if (past.length) {
+      const expanded = this._pastExpanded?.family;
+      html += `
+        <button class="past-toggle" onclick="App.togglePastEpisodes('family')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;transition:transform .2s;${expanded ? 'transform:rotate(90deg)' : ''}"><polyline points="9 6 15 12 9 18"/></svg>
+          Past Episodes (${past.length})
+        </button>
+        <div class="past-episodes ${expanded ? 'expanded' : ''}">${past.map(ep => renderFamilyCard(ep)).join('')}</div>`;
+    }
     container.innerHTML = html;
   },
 
@@ -481,9 +494,12 @@ const App = {
       return;
     }
 
+    const { recent: recentSchool, past: pastSchool } = this._splitRecentPast(this.schoolEpisodes);
+    const displayEps = recentSchool;
+
     // Group by unit
     const units = {};
-    this.schoolEpisodes.forEach(ep => {
+    displayEps.forEach(ep => {
       const unit = ep.unit || 'General';
       if (!units[unit]) units[unit] = [];
       units[unit].push(ep);
@@ -556,6 +572,32 @@ const App = {
       html += '</div>';
     });
 
+    if (pastSchool.length) {
+      const expanded = this._pastExpanded?.school;
+      html += `
+        <button class="past-toggle" onclick="App.togglePastEpisodes('school')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;transition:transform .2s;${expanded ? 'transform:rotate(90deg)' : ''}"><polyline points="9 6 15 12 9 18"/></svg>
+          Past Lessons (${pastSchool.length})
+        </button>
+        <div class="past-episodes ${expanded ? 'expanded' : ''}">
+          ${pastSchool.map(ep => {
+            const d = new Date(ep.date + 'T12:00:00');
+            const dayNames = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
+            const hasAudio = ep.file !== null;
+            const listened = this.isListened(ep.id);
+            return `<div class="school-card ${listened ? 'listened' : ''}">
+              <div class="school-card-date">${dayNames[d.getDay()]}, ${this._monthNames[d.getMonth()].toUpperCase()} ${d.getDate()}</div>
+              <div class="school-card-title">${ep.title}</div>
+              <div class="school-card-actions">
+                <button class="school-play-btn ${hasAudio ? '' : 'no-audio'}" onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
+                  ${hasAudio ? `<svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg> Play (${ep.duration})` : 'Audio Coming Soon'}
+                </button>
+              </div>
+            </div>`;
+          }).join('')}
+        </div>`;
+    }
+
     container.innerHTML = html;
   },
 
@@ -569,37 +611,25 @@ const App = {
       return;
     }
 
-    let html = '';
-    this.togetherEpisodes.forEach(ep => {
+    const renderTogetherCard = (ep) => {
       const d = new Date(ep.date + 'T12:00:00');
       const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
       const dayName = dayNames[d.getDay()];
       const hasAudio = ep.file !== null;
       const listened = this.isListened(ep.id);
-
-      // Find the connected study episode
       const studyEp = this.episodes.find(e => e.date === ep.date);
       const connectedTitle = studyEp ? studyEp.title : '';
-
-      html += `
+      return `
         <div class="together-card ${listened ? 'listened' : ''}">
           <div class="together-date">${dayName}, ${this._monthNames[d.getMonth()]} ${d.getDate()}</div>
           <div class="together-title">${ep.title}</div>
           ${connectedTitle ? `<div class="together-connected">Connected to: "${connectedTitle}"</div>` : ''}
           <div class="together-scripture">${ep.subtitle || 'Read together'}</div>
-          ${ep.reflectionPrompt ? `
-            <div class="together-reflect">
-              <div class="together-reflect-label">Reflect Together</div>
-              <div class="together-reflect-text">"${ep.reflectionPrompt}"</div>
-            </div>
-          ` : ''}
-          ${ep.prayerFocus ? `
-            <div class="together-prayer">${ep.prayerFocus}</div>
-          ` : ''}
+          ${ep.reflectionPrompt ? `<div class="together-reflect"><div class="together-reflect-label">Reflect Together</div><div class="together-reflect-text">"${ep.reflectionPrompt}"</div></div>` : ''}
+          ${ep.prayerFocus ? `<div class="together-prayer">${ep.prayerFocus}</div>` : ''}
           <pre class="script-view" id="script-${ep.id}"></pre>
           <div class="together-actions">
-            <button class="together-play-btn ${hasAudio ? '' : 'no-audio'}"
-                    onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
+            <button class="together-play-btn ${hasAudio ? '' : 'no-audio'}" onclick="${hasAudio ? `App.playEpisode(${ep.id})` : ''}">
               ${hasAudio ? `<svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg> Listen (${ep.duration})` : 'Audio Coming Soon'}
             </button>
             <div class="card-action-btns">
@@ -612,8 +642,19 @@ const App = {
             </div>
           </div>
         </div>`;
-    });
+    };
 
+    const { recent, past } = this._splitRecentPast(this.togetherEpisodes);
+    let html = recent.map(ep => renderTogetherCard(ep)).join('');
+    if (past.length) {
+      const expanded = this._pastExpanded?.together;
+      html += `
+        <button class="past-toggle" onclick="App.togglePastEpisodes('together')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;transition:transform .2s;${expanded ? 'transform:rotate(90deg)' : ''}"><polyline points="9 6 15 12 9 18"/></svg>
+          Past Episodes (${past.length})
+        </button>
+        <div class="past-episodes ${expanded ? 'expanded' : ''}">${past.map(ep => renderTogetherCard(ep)).join('')}</div>`;
+    }
     container.innerHTML = html;
   },
 
@@ -1577,6 +1618,18 @@ const App = {
           </button>
         `).join('')}
       </div>`;
+  },
+
+  _pastExpanded: {},
+
+  togglePastEpisodes(section) {
+    this._pastExpanded[section] = !this._pastExpanded[section];
+    // Re-render the relevant section
+    if (section === 'study') this.renderEpisodes();
+    else if (section === 'family') this.renderFamily();
+    else if (section === 'school') this.renderSchool();
+    else if (section === 'together') this.renderTogether();
+    else if (section === 'personal') this.renderPersonal();
   },
 
   toggleTodayBanner() {
@@ -2740,6 +2793,26 @@ const App = {
   },
 
   // ── Helpers ──
+  // Split episodes into recent (today + past 7 days + future) vs past (older than 7 days)
+  _splitRecentPast(episodes) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const cutoff = new Date(today);
+    cutoff.setDate(cutoff.getDate() - 7);
+    const recent = [];
+    const past = [];
+    for (const ep of episodes) {
+      if (!ep.date) { recent.push(ep); continue; }
+      const epDate = new Date(ep.date + 'T12:00:00');
+      if (epDate >= cutoff) {
+        recent.push(ep);
+      } else {
+        past.push(ep);
+      }
+    }
+    return { recent, past };
+  },
+
   getWeekNumber(id) {
     // Normalize to day-within-month for week calculation
     let day = id;
