@@ -18351,5 +18351,91 @@
       "study",
       "psalms"
     ]
+  },
+  {
+    "id": 6031,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "study",
+    "date": "2026-03-31",
+    "heartbeat": true,
+    "file": "audio/ep6031.mp3",
+    "audio": "audio/ep6031.mp3",
+    "duration": "3:23",
+    "durationSecs": 203,
+    "fileSize": 1627437,
+    "tags": [
+      "Study",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 6032,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "family",
+    "date": "2026-03-31",
+    "heartbeat": true,
+    "file": "audio/family_6032.mp3",
+    "audio": "audio/family_6032.mp3",
+    "duration": "3:41",
+    "durationSecs": 222,
+    "fileSize": 1774701,
+    "tags": [
+      "Family",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 6033,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "school",
+    "date": "2026-03-31",
+    "heartbeat": true,
+    "file": "audio/school_6033.mp3",
+    "audio": "audio/school_6033.mp3",
+    "duration": "3:47",
+    "durationSecs": 227,
+    "fileSize": 1816749,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 6034,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "together",
+    "date": "2026-03-31",
+    "heartbeat": true,
+    "file": "audio/together_6034.mp3",
+    "audio": "audio/together_6034.mp3",
+    "duration": "3:12",
+    "durationSecs": 193,
+    "fileSize": 1541229,
+    "tags": [
+      "Together",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 6035,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "personal",
+    "date": "2026-03-31",
+    "heartbeat": true,
+    "file": "audio/ep6035.mp3",
+    "audio": "audio/ep6035.mp3",
+    "duration": "3:16",
+    "durationSecs": 197,
+    "fileSize": 1573101,
+    "tags": [
+      "Growth",
+      "Daily",
+      "C.H. Spurgeon"
+    ],
+    "topic": null
   }
 ]
