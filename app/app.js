@@ -3840,6 +3840,9 @@ const App = {
 
   initBible() {
     this._bibleReadChapters = JSON.parse(localStorage.getItem('pg_bible_read') || '{}');
+    this._bibleHighlights = JSON.parse(localStorage.getItem('pg_bible_hl') || '{}');
+    this._bibleNotes = JSON.parse(localStorage.getItem('pg_bible_notes') || '{}');
+    this._bibleActiveVerseIdx = null;
     this.renderBibleBooks();
   },
 
@@ -3930,6 +3933,7 @@ const App = {
 
   bibleBack(to) {
     this.bibleStopListen();
+    this.bibleCloseToolbar();
     if (to === 'books') {
       document.getElementById('biblePanelChapters').style.display = 'none';
       document.getElementById('biblePanelReader').style.display = 'none';
@@ -3961,6 +3965,16 @@ const App = {
     const verses = await this.bibleFetchChapter(book, chapter);
     this._bibleState.verses = verses;
     this.renderBibleVerses(verses, book, chapter);
+
+    // Close toolbar and reset selection
+    this.bibleCloseToolbar();
+
+    // Load saved notes for this chapter
+    const notesTA = document.getElementById('bibleNotesTA');
+    if (notesTA) {
+      notesTA.value = this._bibleNotes[`${book.id}-${chapter}`] || '';
+      notesTA.placeholder = `Notes for ${book.name} ${chapter}…`;
+    }
 
     // Mark as read
     this._bibleReadChapters[`${book.id}-${chapter}`] = true;
@@ -4032,18 +4046,96 @@ const App = {
       noteHtml = `<div class="bible-note"><strong>Deuterocanonical:</strong> This book is part of the Ethiopian Orthodox Canon. Text is fetched from a public KJV-compatible Bible API.</div>`;
     }
 
-    let verseHtml = '<p style="margin:20px 0 0;">';
+    let verseHtml = '<p style="margin:20px 0 16px;">';
     verses.forEach((v, i) => {
+      const hKey = `${book.id}-${chapter}-${i}`;
+      const hColor = this._bibleHighlights[hKey];
+      const hlClass = hColor ? ` hl-${hColor}` : '';
       if (v.isNote) {
-        verseHtml += `<span class="bible-verse" id="bv-${i}" style="color:var(--text2);font-family:-apple-system,sans-serif;font-size:15px;font-style:italic;">${v.text}</span>`;
+        verseHtml += `<span class="bible-verse${hlClass}" id="bv-${i}" onclick="App.bibleVerseAction(${i},${v.verse||1})" style="color:var(--text2);font-family:-apple-system,sans-serif;font-size:15px;font-style:italic;">${v.text}</span>`;
       } else {
-        verseHtml += `<span class="bible-verse" id="bv-${i}"><sup class="bible-verse-num">${v.verse}</sup>${v.text} </span>`;
+        verseHtml += `<span class="bible-verse${hlClass}" id="bv-${i}" onclick="App.bibleVerseAction(${i},${v.verse})"><sup class="bible-verse-num">${v.verse}</sup>${v.text} </span>`;
       }
     });
     verseHtml += '</p>';
 
     el.innerHTML = noteHtml + verseHtml;
     el.scrollTop = 0;
+  },
+
+  bibleVerseAction(idx, verseNum) {
+    // If same verse tapped twice, close toolbar
+    if (this._bibleActiveVerseIdx === idx) {
+      this.bibleCloseToolbar();
+      return;
+    }
+    // Deselect previous
+    if (this._bibleActiveVerseIdx !== null) {
+      const prev = document.getElementById(`bv-${this._bibleActiveVerseIdx}`);
+      if (prev) prev.classList.remove('bv-selected');
+    }
+    this._bibleActiveVerseIdx = idx;
+    const el = document.getElementById(`bv-${idx}`);
+    if (el) el.classList.add('bv-selected');
+
+    // Show toolbar
+    const toolbar = document.getElementById('bibleVerseToolbar');
+    if (toolbar) {
+      toolbar.classList.add('visible');
+      const lbl = document.getElementById('bvtLabel');
+      if (lbl) lbl.textContent = `v. ${verseNum}`;
+    }
+  },
+
+  bibleHighlight(color) {
+    const idx = this._bibleActiveVerseIdx;
+    if (idx === null) return;
+    const { book, chapter } = this._bibleState;
+    if (!book) return;
+    const hKey = `${book.id}-${chapter}-${idx}`;
+    const el = document.getElementById(`bv-${idx}`);
+    if (!el) return;
+
+    // Remove existing highlight class
+    el.classList.remove('hl-gold','hl-green','hl-pink','hl-blue');
+
+    if (color) {
+      el.classList.add(`hl-${color}`);
+      this._bibleHighlights[hKey] = color;
+    } else {
+      delete this._bibleHighlights[hKey];
+    }
+    localStorage.setItem('pg_bible_hl', JSON.stringify(this._bibleHighlights));
+    this.bibleCloseToolbar();
+  },
+
+  bibleCloseToolbar() {
+    this._bibleActiveVerseIdx = null;
+    const toolbar = document.getElementById('bibleVerseToolbar');
+    if (toolbar) toolbar.classList.remove('visible');
+    document.querySelectorAll('.bible-verse.bv-selected').forEach(el => el.classList.remove('bv-selected'));
+  },
+
+  bibleFocusNote() {
+    this.bibleCloseToolbar();
+    const ta = document.getElementById('bibleNotesTA');
+    if (!ta) return;
+    ta.focus();
+    // Scroll notes area into view
+    const notesArea = document.getElementById('bibleNotesArea');
+    if (notesArea) notesArea.scrollIntoView({behavior:'smooth', block:'end'});
+  },
+
+  bibleSaveNote(val) {
+    const { book, chapter } = this._bibleState;
+    if (!book) return;
+    const key = `${book.id}-${chapter}`;
+    if (val.trim()) {
+      this._bibleNotes[key] = val;
+    } else {
+      delete this._bibleNotes[key];
+    }
+    localStorage.setItem('pg_bible_notes', JSON.stringify(this._bibleNotes));
   },
 
   bibleToggleListen() {
