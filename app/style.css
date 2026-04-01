@@ -5465,19 +5465,125 @@ html, body {
 .bvt-play-btn {
   display: flex;
   align-items: center;
-  gap: 4px;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   background: none;
-  border: 1px solid var(--green);
-  border-radius: 14px;
+  border: 1.5px solid var(--green);
   color: var(--green);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px 10px;
   cursor: pointer;
   flex-shrink: 0;
   -webkit-tap-highlight-color: transparent;
 }
 .bvt-play-btn:active { background: rgba(29,185,84,0.15); }
+
+.bvt-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: none;
+  border: 1.5px solid var(--border);
+  color: var(--text2);
+  cursor: pointer;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.12s;
+}
+.bvt-action-btn:active { background: var(--card-hover); }
+.bvt-action-btn.bookmarked { border-color: var(--gold); color: var(--gold); }
+.bvt-action-btn.bookmarked svg { fill: var(--gold); }
+
+/* ── Cross-reference panel ── */
+.bible-xref-panel {
+  flex-shrink: 0;
+  max-height: 180px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.bible-xref-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px 4px;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 1;
+}
+
+.bible-xref-title {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text3);
+}
+
+.bible-xref-body { padding: 0 16px 10px; }
+
+.bible-xref-item {
+  display: block;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.bible-xref-item:last-child { border-bottom: none; }
+
+.bible-xref-ref {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+
+.bible-xref-text {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.5;
+  font-family: Georgia, serif;
+}
+
+/* ── Bookmarked verse indicator ── */
+.bible-verse.bookmarked::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-right: 3px;
+  vertical-align: middle;
+}
+
+/* ── Copied toast ── */
+.bible-toast {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 100;
+  box-shadow: var(--shadow-lg);
+  animation: toast-in 0.3s ease-out;
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
 
 /* ── Reading History Items ── */
 .bible-history-item {

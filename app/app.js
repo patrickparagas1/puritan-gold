@@ -3945,11 +3945,9 @@ const App = {
     const el = document.getElementById('bibleBookList');
     if (!el) return;
 
-    // History view
-    if (filter === 'history') {
-      this._renderBibleHistory(el);
-      return;
-    }
+    // Special views
+    if (filter === 'history') { this._renderBibleHistory(el); return; }
+    if (filter === 'bookmarks') { this._renderBibleBookmarks(el); return; }
 
     let books = this._bibleBooks;
     if (filter === 'OT') books = books.filter(b => b.testament === 'OT');
@@ -4236,7 +4234,17 @@ const App = {
       toolbar.classList.add('visible');
       const lbl = document.getElementById('bvtLabel');
       if (lbl) lbl.textContent = `v. ${verseNum}`;
+      // Update bookmark button state
+      const { book, chapter, verses } = this._bibleState;
+      if (book && verses[idx]) {
+        const bmKey = `${book.id}-${chapter}-${verses[idx].verse}`;
+        const bookmarks = JSON.parse(localStorage.getItem('pg_bible_bookmarks') || '{}');
+        const bmBtn = document.getElementById('bvtBookmark');
+        if (bmBtn) bmBtn.classList.toggle('bookmarked', !!bookmarks[bmKey]);
+      }
     }
+    // Close cross-ref panel
+    this.bibleCloseXref();
   },
 
   bibleHighlight(color) {
@@ -4355,6 +4363,187 @@ const App = {
       this._bibleState._origVerses = null;
       this.renderBibleVerses(verses, book, chapter);
     }
+  },
+
+  // ── Bookmarks ──
+
+  bibleBookmarkVerse() {
+    const idx = this._bibleActiveVerseIdx;
+    if (idx === null) return;
+    const { book, chapter, verses } = this._bibleState;
+    if (!book || !verses[idx]) return;
+    const key = `${book.id}-${chapter}-${verses[idx].verse}`;
+    const bookmarks = JSON.parse(localStorage.getItem('pg_bible_bookmarks') || '{}');
+
+    if (bookmarks[key]) {
+      delete bookmarks[key];
+      this._bibleShowToast('Bookmark removed');
+    } else {
+      bookmarks[key] = {
+        bookId: book.id, bookName: book.name, chapter,
+        verse: verses[idx].verse, text: verses[idx].text.substring(0, 120),
+        time: Date.now()
+      };
+      this._bibleShowToast('Verse bookmarked');
+    }
+    localStorage.setItem('pg_bible_bookmarks', JSON.stringify(bookmarks));
+    // Update bookmark button state
+    const btn = document.getElementById('bvtBookmark');
+    if (btn) btn.classList.toggle('bookmarked', !!bookmarks[key]);
+    // Update verse indicator
+    const el = document.getElementById(`bv-${idx}`);
+    if (el) el.classList.toggle('bookmarked', !!bookmarks[key]);
+    this.bibleCloseToolbar();
+  },
+
+  _renderBibleBookmarks(el) {
+    const bookmarks = JSON.parse(localStorage.getItem('pg_bible_bookmarks') || '{}');
+    const entries = Object.values(bookmarks).sort((a, b) => b.time - a.time);
+    if (!entries.length) {
+      el.innerHTML = '<div class="bible-history-empty">No bookmarks yet.<br>Tap a verse and press the bookmark icon to save it.</div>';
+      return;
+    }
+    let html = '<div class="bible-group-header">Saved Verses</div>';
+    entries.forEach(bm => {
+      const book = this._bibleBooks.find(b => b.id === bm.bookId);
+      if (!book) return;
+      html += `
+        <div class="bible-history-item" onclick="App.bibleOpenFromHistory('${bm.bookId}',${bm.chapter})">
+          <div class="bible-history-icon" style="background:${book.color}">${book.abbrev}</div>
+          <div class="bible-history-info">
+            <div class="bible-history-title">${bm.bookName} ${bm.chapter}:${bm.verse}</div>
+            <div class="bible-history-time" style="color:var(--text2);font-family:Georgia,serif;font-size:12px;line-height:1.4;">${bm.text}…</div>
+          </div>
+        </div>`;
+    });
+    el.innerHTML = html;
+  },
+
+  // ── Copy Verse ──
+
+  bibleCopyVerse() {
+    const idx = this._bibleActiveVerseIdx;
+    if (idx === null) return;
+    const { book, chapter, verses } = this._bibleState;
+    if (!book || !verses[idx]) return;
+    const ref = `${book.name} ${chapter}:${verses[idx].verse}`;
+    const text = `"${verses[idx].text.trim()}" — ${ref} (KJV)`;
+    navigator.clipboard.writeText(text).then(() => {
+      this._bibleShowToast('Copied to clipboard');
+    }).catch(() => {
+      this._bibleShowToast('Could not copy');
+    });
+    this.bibleCloseToolbar();
+  },
+
+  _bibleShowToast(msg) {
+    const existing = document.querySelector('.bible-toast');
+    if (existing) existing.remove();
+    const toast = document.createElement('div');
+    toast.className = 'bible-toast';
+    toast.textContent = msg;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 2000);
+  },
+
+  // ── Cross-References ──
+
+  async bibleShowCrossRefs() {
+    const idx = this._bibleActiveVerseIdx;
+    if (idx === null) return;
+    const { book, chapter, verses } = this._bibleState;
+    if (!book || !verses[idx]) return;
+    this.bibleCloseToolbar();
+
+    const verseNum = verses[idx].verse;
+    const ref = `${book.apiName || book.id} ${chapter}:${verseNum}`;
+    const panel = document.getElementById('bibleXrefPanel');
+    const body = document.getElementById('bibleXrefBody');
+    const title = document.getElementById('bibleXrefTitle');
+    if (!panel || !body) return;
+
+    title.textContent = `${book.name} ${chapter}:${verseNum} — Cross-References`;
+    body.innerHTML = '<div class="prov-loading"><div class="bible-loading-ring"></div>Finding references…</div>';
+    panel.style.display = 'block';
+
+    // Use bible-api.com to look up well-known cross-references
+    // Map common cross-reference pairs
+    const xrefs = this._getCrossRefs(book.id, chapter, verseNum);
+    if (xrefs.length) {
+      let html = '';
+      for (const xr of xrefs.slice(0, 6)) {
+        try {
+          const res = await fetch(`https://bible-api.com/${encodeURIComponent(xr)}?translation=kjv`);
+          const data = await res.json();
+          if (data.text) {
+            html += `<div class="bible-xref-item" onclick="App.bibleJumpToRef('${xr}')">
+              <div class="bible-xref-ref">${data.reference}</div>
+              <div class="bible-xref-text">${data.text.substring(0, 200).trim()}${data.text.length > 200 ? '…' : ''}</div>
+            </div>`;
+          }
+        } catch(e) {}
+      }
+      body.innerHTML = html || '<div style="color:var(--text3);font-size:13px;padding:10px 0;">No cross-references found.</div>';
+    } else {
+      body.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:10px 0;">Cross-references for this verse are being added.</div>';
+    }
+  },
+
+  bibleCloseXref() {
+    const panel = document.getElementById('bibleXrefPanel');
+    if (panel) panel.style.display = 'none';
+  },
+
+  async bibleJumpToRef(ref) {
+    // Parse reference like "john 3:16" → book john, chapter 3
+    const parts = ref.match(/^(.+?)\s+(\d+)/);
+    if (!parts) return;
+    const bookName = parts[1].toLowerCase();
+    const chapter = parseInt(parts[2]);
+    const book = this._bibleBooks.find(b => (b.apiName || b.id).toLowerCase() === bookName);
+    if (book) {
+      this.bibleCloseXref();
+      this._bibleState.book = book;
+      this.bibleOpenChapter(chapter);
+    }
+  },
+
+  // Curated cross-reference data for key verses
+  _getCrossRefs(bookId, chapter, verse) {
+    const key = `${bookId}-${chapter}-${verse}`;
+    const refs = {
+      'genesis-1-1': ['john 1:1', 'hebrews 11:3', 'psalms 33:6', 'colossians 1:16'],
+      'genesis-1-26': ['genesis 3:22', 'john 1:3', 'colossians 1:15-16'],
+      'genesis-1-27': ['genesis 5:1-2', 'matthew 19:4', 'colossians 3:10'],
+      'genesis-3-15': ['romans 16:20', 'galatians 4:4', 'revelation 12:9'],
+      'psalms-23-1': ['john 10:11', 'hebrews 13:20', 'isaiah 40:11', '1 peter 2:25'],
+      'psalms-119-105': ['proverbs 6:23', '2 peter 1:19', 'psalms 19:8'],
+      'proverbs-3-5': ['proverbs 3:6', 'jeremiah 17:7', 'psalms 37:5', 'isaiah 26:4'],
+      'proverbs-3-6': ['proverbs 3:5', 'psalms 37:23', 'isaiah 30:21'],
+      'isaiah-53-5': ['1 peter 2:24', 'romans 4:25', 'matthew 8:17', 'hebrews 9:28'],
+      'isaiah-40-31': ['psalms 27:14', 'psalms 103:5', 'hebrews 12:1'],
+      'jeremiah-29-11': ['proverbs 23:18', 'romans 8:28', 'jeremiah 31:17'],
+      'matthew-28-19': ['mark 16:15', 'acts 1:8', 'luke 24:47'],
+      'john-1-1': ['genesis 1:1', '1 john 1:1', 'revelation 19:13', 'hebrews 1:2'],
+      'john-1-14': ['1 timothy 3:16', 'colossians 2:9', 'hebrews 2:14'],
+      'john-3-16': ['romans 5:8', '1 john 4:9', 'john 3:36', 'romans 6:23'],
+      'john-14-6': ['acts 4:12', '1 timothy 2:5', 'hebrews 10:20'],
+      'romans-1-16': ['1 corinthians 1:18', 'romans 10:17', 'mark 8:38'],
+      'romans-3-23': ['romans 3:10', 'galatians 3:22', 'ecclesiastes 7:20'],
+      'romans-5-8': ['john 3:16', '1 john 4:10', 'ephesians 2:4-5'],
+      'romans-6-23': ['james 1:15', 'john 3:16', 'romans 5:12'],
+      'romans-8-1': ['john 3:18', 'john 5:24', 'galatians 5:16'],
+      'romans-8-28': ['genesis 50:20', 'jeremiah 29:11', 'ephesians 1:11'],
+      'romans-10-9': ['acts 16:31', 'romans 10:10', '1 john 4:15'],
+      'romans-12-1': ['1 peter 2:5', '1 corinthians 6:20', 'hebrews 13:15'],
+      '2corinthians-5-17': ['galatians 6:15', 'ephesians 4:24', 'colossians 3:10'],
+      'galatians-2-20': ['romans 6:6', 'philippians 1:21', 'colossians 3:3'],
+      'ephesians-2-8': ['ephesians 2:9', 'romans 3:24', 'titus 3:5'],
+      'philippians-4-13': ['2 corinthians 12:9', 'john 15:5', 'colossians 1:11'],
+      'hebrews-11-1': ['hebrews 11:6', 'romans 8:24', '2 corinthians 5:7'],
+      'revelation-21-4': ['isaiah 25:8', 'isaiah 65:19', 'revelation 7:17'],
+    };
+    return refs[key] || [];
   },
 
   // ── Bible TTS Engine ──
