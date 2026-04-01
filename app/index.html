@@ -239,6 +239,7 @@
               <button class="bible-tab" onclick="App.bibleFilterTestament('OT',this)">Old Testament</button>
               <button class="bible-tab" onclick="App.bibleFilterTestament('NT',this)">New Testament</button>
               <button class="bible-tab" onclick="App.bibleFilterTestament('Ethiopian',this)">Ethiopian</button>
+              <button class="bible-tab" onclick="App.bibleFilterTestament('history',this)">History</button>
             </div>
             <div class="bible-book-list" id="bibleBookList"></div>
           </div>
@@ -260,9 +261,13 @@
             <div class="bible-reader-header">
               <button class="bible-back-btn" onclick="App.bibleBack('chapters')">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-                Chapters
               </button>
               <div class="bible-reader-ref" id="bibleReaderRef">Genesis 1</div>
+              <button class="bible-speed-btn" id="bibleSpeedBtn" onclick="App.bibleCycleSpeed()" title="Reading speed">1x</button>
+              <button class="bible-hl-play-btn" id="bibleHlPlayBtn" onclick="App.biblePlayHighlights()" title="Read highlighted verses only">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg>
+                <span class="bible-hl-dot"></span>
+              </button>
               <button class="bible-listen-btn" id="bibleListenBtn" onclick="App.bibleToggleListen()" title="Listen aloud">
                 <svg id="bibleListenIcon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg>
               </button>
@@ -272,12 +277,16 @@
             <div class="bible-verse-toolbar" id="bibleVerseToolbar">
               <span class="bvt-label" id="bvtLabel">Verse 1</span>
               <div class="bvt-swatches">
-                <button class="bvt-swatch bvt-gold" onclick="App.bibleHighlight('gold')" title="Yellow highlight"></button>
-                <button class="bvt-swatch bvt-green" onclick="App.bibleHighlight('green')" title="Green highlight"></button>
-                <button class="bvt-swatch bvt-pink" onclick="App.bibleHighlight('pink')" title="Pink highlight"></button>
-                <button class="bvt-swatch bvt-blue" onclick="App.bibleHighlight('blue')" title="Blue highlight"></button>
-                <button class="bvt-swatch bvt-remove" onclick="App.bibleHighlight(null)" title="Remove highlight">✕</button>
+                <button class="bvt-swatch bvt-gold" onclick="App.bibleHighlight('gold')" title="Yellow"></button>
+                <button class="bvt-swatch bvt-green" onclick="App.bibleHighlight('green')" title="Green"></button>
+                <button class="bvt-swatch bvt-pink" onclick="App.bibleHighlight('pink')" title="Pink"></button>
+                <button class="bvt-swatch bvt-blue" onclick="App.bibleHighlight('blue')" title="Blue"></button>
+                <button class="bvt-swatch bvt-remove" onclick="App.bibleHighlight(null)" title="Remove">✕</button>
               </div>
+              <button class="bvt-play-btn" onclick="App.biblePlayFromVerse()" title="Read from here">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg>
+                Play
+              </button>
               <button class="bvt-note-btn" onclick="App.bibleFocusNote()">
                 <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                 Note

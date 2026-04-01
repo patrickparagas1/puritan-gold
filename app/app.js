@@ -3696,15 +3696,19 @@ const App = {
   // ══════════════════════════════════════════════════════
 
   _bibleState: {
-    filter: 'all',   // 'all' | 'OT' | 'NT' | 'Ethiopian'
+    filter: 'all',       // 'all' | 'OT' | 'NT' | 'Ethiopian' | 'history'
     search: '',
-    panel: 'books',  // 'books' | 'chapters' | 'reader'
-    book: null,      // current book object
-    chapter: 1,      // current chapter number
-    verses: [],      // currently displayed verses
-    speaking: false, // TTS active
-    speakIdx: 0,     // verse index being spoken
+    panel: 'books',
+    book: null,
+    chapter: 1,
+    verses: [],
+    speaking: false,
+    speakIdx: 0,
+    speakMode: 'all',    // 'all' | 'highlights'
+    speakQueue: null,    // indices to read (null=all, array=specific)
   },
+  _bibleSpeechRate: 1.0,
+  _bibleSpeechRates: [0.5, 0.75, 1, 1.25, 1.5, 2],
 
   _bibleBooks: [
     // ── Old Testament: Law ──
@@ -3842,7 +3846,11 @@ const App = {
     this._bibleReadChapters = JSON.parse(localStorage.getItem('pg_bible_read') || '{}');
     this._bibleHighlights = JSON.parse(localStorage.getItem('pg_bible_hl') || '{}');
     this._bibleNotes = JSON.parse(localStorage.getItem('pg_bible_notes') || '{}');
+    this._bibleHistory = JSON.parse(localStorage.getItem('pg_bible_history') || '[]');
+    this._bibleSpeechRate = parseFloat(localStorage.getItem('pg_bible_rate') || '1');
     this._bibleActiveVerseIdx = null;
+    const speedBtn = document.getElementById('bibleSpeedBtn');
+    if (speedBtn) speedBtn.textContent = this._bibleSpeechRate + 'x';
     this.renderBibleBooks();
   },
 
@@ -3860,22 +3868,25 @@ const App = {
 
   renderBibleBooks() {
     const { filter, search } = this._bibleState;
-    let books = this._bibleBooks;
+    const el = document.getElementById('bibleBookList');
+    if (!el) return;
 
-    // Apply testament filter
+    // History view
+    if (filter === 'history') {
+      this._renderBibleHistory(el);
+      return;
+    }
+
+    let books = this._bibleBooks;
     if (filter === 'OT') books = books.filter(b => b.testament === 'OT');
     else if (filter === 'NT') books = books.filter(b => b.testament === 'NT');
     else if (filter === 'Ethiopian') books = books.filter(b => b.ethiopian);
 
-    // Apply search
     if (search) books = books.filter(b =>
       b.name.toLowerCase().includes(search) ||
       b.abbrev.toLowerCase().includes(search) ||
       b.group.toLowerCase().includes(search)
     );
-
-    const el = document.getElementById('bibleBookList');
-    if (!el) return;
 
     if (!books.length) {
       el.innerHTML = '<div class="bible-empty">No books found</div>';
@@ -3904,6 +3915,61 @@ const App = {
         </div>`;
     });
     el.innerHTML = html;
+  },
+
+  _renderBibleHistory(el) {
+    const history = this._bibleHistory;
+    if (!history.length) {
+      el.innerHTML = '<div class="bible-history-empty">No reading history yet.<br>Open any chapter to start building your history.</div>';
+      return;
+    }
+    const now = Date.now();
+    let html = '<div class="bible-group-header">Recently Read</div>';
+    history.forEach(h => {
+      const book = this._bibleBooks.find(b => b.id === h.bookId);
+      if (!book) return;
+      const ago = this._bibleTimeAgo(h.time, now);
+      html += `
+        <div class="bible-history-item" onclick="App.bibleOpenFromHistory('${h.bookId}',${h.chapter})">
+          <div class="bible-history-icon" style="background:${book.color}">${book.abbrev}</div>
+          <div class="bible-history-info">
+            <div class="bible-history-title">${book.name} ${h.chapter}</div>
+            <div class="bible-history-time">${ago}</div>
+          </div>
+          <svg class="bible-book-arrow" viewBox="0 0 24 24" width="16" height="16" fill="var(--text3)"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+        </div>`;
+    });
+    el.innerHTML = html;
+  },
+
+  _bibleTimeAgo(ts, now) {
+    const diff = now - ts;
+    const mins = Math.floor(diff / 60000);
+    if (mins < 1) return 'Just now';
+    if (mins < 60) return `${mins}m ago`;
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24) return `${hrs}h ago`;
+    const days = Math.floor(hrs / 24);
+    if (days === 1) return 'Yesterday';
+    if (days < 7) return `${days}d ago`;
+    return new Date(ts).toLocaleDateString('en-US', {month:'short', day:'numeric'});
+  },
+
+  bibleOpenFromHistory(bookId, chapter) {
+    const book = this._bibleBooks.find(b => b.id === bookId);
+    if (!book) return;
+    this._bibleState.book = book;
+    this.bibleOpenChapter(chapter);
+  },
+
+  _bibleAddHistory(book, chapter) {
+    // Remove duplicate if exists
+    this._bibleHistory = this._bibleHistory.filter(h => !(h.bookId === book.id && h.chapter === chapter));
+    // Add to front
+    this._bibleHistory.unshift({bookId: book.id, chapter, time: Date.now()});
+    // Keep max 50
+    if (this._bibleHistory.length > 50) this._bibleHistory.length = 50;
+    localStorage.setItem('pg_bible_history', JSON.stringify(this._bibleHistory));
   },
 
   bibleOpenBook(bookId) {
@@ -3976,9 +4042,10 @@ const App = {
       notesTA.placeholder = `Notes for ${book.name} ${chapter}…`;
     }
 
-    // Mark as read
+    // Mark as read + add to history
     this._bibleReadChapters[`${book.id}-${chapter}`] = true;
     localStorage.setItem('pg_bible_read', JSON.stringify(this._bibleReadChapters));
+    this._bibleAddHistory(book, chapter);
   },
 
   async bibleFetchChapter(book, chapter) {
@@ -4138,72 +4205,171 @@ const App = {
     localStorage.setItem('pg_bible_notes', JSON.stringify(this._bibleNotes));
   },
 
+  // ── Bible TTS Engine ──
+
   bibleToggleListen() {
     if (this._bibleState.speaking) {
       this.bibleStopListen();
     } else {
-      this.bibleStartListen();
+      this.bibleStartListen(0, 'all');
     }
   },
 
-  bibleStartListen() {
+  // Start reading from a specific verse index
+  bibleStartListen(fromIdx, mode) {
     if (!window.speechSynthesis) {
       alert('Text-to-speech is not supported on this browser.');
       return;
     }
     const verses = this._bibleState.verses;
     if (!verses || !verses.length) return;
+    this.bibleStopListen();
+
+    // Build queue based on mode
+    let queue;
+    if (mode === 'highlights') {
+      const { book, chapter } = this._bibleState;
+      queue = [];
+      verses.forEach((v, i) => {
+        if (this._bibleHighlights[`${book.id}-${chapter}-${i}`]) queue.push(i);
+      });
+      if (!queue.length) return; // nothing highlighted
+    } else {
+      // All verses from fromIdx onward
+      queue = [];
+      for (let i = fromIdx; i < verses.length; i++) queue.push(i);
+    }
 
     this._bibleState.speaking = true;
+    this._bibleState.speakMode = mode || 'all';
+    this._bibleState.speakQueue = queue;
     this._bibleState.speakIdx = 0;
-    const btn = document.getElementById('bibleListenBtn');
-    if (btn) {
-      btn.classList.add('playing');
-      btn.title = 'Stop listening';
-      btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>';
-    }
-    this._bibleReadVerse(0);
+
+    this._bibleUpdateListenUI(true);
+    this._bibleUpdateMiniPlayer(true);
+    this._bibleReadNext();
   },
 
-  _bibleReadVerse(idx) {
-    const verses = this._bibleState.verses;
-    if (!this._bibleState.speaking || idx >= verses.length) {
+  _bibleReadNext() {
+    const { speaking, speakQueue, speakIdx } = this._bibleState;
+    if (!speaking || !speakQueue || speakIdx >= speakQueue.length) {
       this.bibleStopListen();
       return;
     }
-    this._bibleState.speakIdx = idx;
+
+    const verseArrayIdx = speakQueue[speakIdx];
+    const verses = this._bibleState.verses;
+    if (verseArrayIdx >= verses.length) { this.bibleStopListen(); return; }
 
     // Highlight active verse
     document.querySelectorAll('.bible-verse').forEach(el => el.classList.remove('active'));
-    const verseEl = document.getElementById(`bv-${idx}`);
+    const verseEl = document.getElementById(`bv-${verseArrayIdx}`);
     if (verseEl) {
       verseEl.classList.add('active');
       verseEl.scrollIntoView({behavior:'smooth', block:'center'});
     }
 
-    const utt = new SpeechSynthesisUtterance(verses[idx].text);
-    utt.rate = 0.88;
+    // Update mini player progress
+    this._bibleUpdateMiniPlayerProgress();
+
+    const utt = new SpeechSynthesisUtterance(verses[verseArrayIdx].text);
+    utt.rate = this._bibleSpeechRate;
     utt.pitch = 1.0;
     utt.volume = 1.0;
     utt.onend = () => {
-      if (this._bibleState.speaking) this._bibleReadVerse(idx + 1);
+      if (this._bibleState.speaking) {
+        this._bibleState.speakIdx++;
+        this._bibleReadNext();
+      }
     };
     utt.onerror = () => {
-      if (this._bibleState.speaking) this._bibleReadVerse(idx + 1);
+      if (this._bibleState.speaking) {
+        this._bibleState.speakIdx++;
+        this._bibleReadNext();
+      }
     };
     window.speechSynthesis.speak(utt);
   },
 
   bibleStopListen() {
     this._bibleState.speaking = false;
+    this._bibleState.speakQueue = null;
     if (window.speechSynthesis) window.speechSynthesis.cancel();
     document.querySelectorAll('.bible-verse').forEach(el => el.classList.remove('active'));
+    this._bibleUpdateListenUI(false);
+    this._bibleUpdateMiniPlayer(false);
+  },
+
+  _bibleUpdateListenUI(playing) {
     const btn = document.getElementById('bibleListenBtn');
-    if (btn) {
+    if (!btn) return;
+    if (playing) {
+      btn.classList.add('playing');
+      btn.title = 'Stop listening';
+      btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>';
+    } else {
       btn.classList.remove('playing');
       btn.title = 'Listen aloud';
       btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg>';
     }
+  },
+
+  // Play from the currently selected verse in the toolbar
+  biblePlayFromVerse() {
+    const idx = this._bibleActiveVerseIdx;
+    if (idx === null) return;
+    this.bibleCloseToolbar();
+    this.bibleStartListen(idx, 'all');
+  },
+
+  // Play only highlighted verses
+  biblePlayHighlights() {
+    if (this._bibleState.speaking && this._bibleState.speakMode === 'highlights') {
+      this.bibleStopListen();
+      return;
+    }
+    this.bibleStartListen(0, 'highlights');
+  },
+
+  // Cycle speech speed
+  bibleCycleSpeed() {
+    const rates = this._bibleSpeechRates;
+    let idx = rates.indexOf(this._bibleSpeechRate);
+    idx = (idx + 1) % rates.length;
+    this._bibleSpeechRate = rates[idx];
+    localStorage.setItem('pg_bible_rate', String(this._bibleSpeechRate));
+    const btn = document.getElementById('bibleSpeedBtn');
+    if (btn) btn.textContent = this._bibleSpeechRate + 'x';
+  },
+
+  // Show Bible info in the mini player bar
+  _bibleUpdateMiniPlayer(playing) {
+    const mp = document.getElementById('miniPlayer');
+    const mpTitle = document.getElementById('mpTitle');
+    const mpSub = document.getElementById('mpSub');
+    if (!mp || !mpTitle || !mpSub) return;
+
+    if (playing) {
+      const { book, chapter, speakMode } = this._bibleState;
+      if (!book) return;
+      mp.classList.add('visible');
+      mpTitle.innerHTML = `<span class="bible-mp-indicator"><span class="bible-mp-dot"></span></span>${book.name} ${chapter}`;
+      mpSub.textContent = speakMode === 'highlights' ? 'Reading highlights' : 'Reading aloud';
+    } else {
+      // Only clear if it was showing Bible content (has the dot indicator)
+      if (mpTitle && mpTitle.querySelector('.bible-mp-dot')) {
+        mpTitle.textContent = 'Select an episode';
+        mpSub.textContent = 'Tap to begin';
+      }
+    }
+  },
+
+  _bibleUpdateMiniPlayerProgress() {
+    const { speakIdx, speakQueue } = this._bibleState;
+    if (!speakQueue) return;
+    const pct = ((speakIdx + 1) / speakQueue.length) * 100;
+    const fill = document.getElementById('mpFill');
+    if (fill) fill.style.width = pct + '%';
   },
 
   bibleNavChapter(dir) {
