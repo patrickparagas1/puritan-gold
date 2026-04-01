@@ -4603,29 +4603,31 @@ const App = {
     this._bibleReadNext();
   },
 
-  _bibleTryMP3(url) {
-    const audio = new Audio(url);
-    audio.playbackRate = this._bibleSpeechRate;
-    audio.oncanplaythrough = () => {
+  async _bibleTryMP3(url) {
+    try {
+      // Check if MP3 exists via HEAD request first
+      const check = await fetch(url, {method:'HEAD'});
+      if (!check.ok) throw new Error('not found');
+
+      const audio = new Audio(url);
+      audio.playbackRate = this._bibleSpeechRate;
+      audio.preservesPitch = true;
       this._bibleAudioEl = audio;
-      audio.play();
-      this._bibleShowToast('Playing with studio voice');
-    };
-    audio.onerror = () => {
-      // No MP3 available, fall back to speech synthesis
-      this._bibleAudioEl = null;
-      if (window.speechSynthesis) {
-        this._bibleReadNext();
-      } else {
+
+      audio.onended = () => {
+        this._bibleAudioEl = null;
         this.bibleStopListen();
-      }
-    };
-    audio.onended = () => {
+      };
+
+      await audio.play();
+      this._bibleShowToast('Studio voice');
+    } catch(e) {
+      // No MP3 available — fall back to speech synthesis
       this._bibleAudioEl = null;
-      this.bibleStopListen();
-    };
-    // Allow speed changes to apply
-    audio.preservesPitch = true;
+      if (this._bibleState.speaking) {
+        this._bibleReadNext();
+      }
+    }
   },
 
   _bibleReadNext() {
