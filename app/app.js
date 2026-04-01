@@ -4547,6 +4547,10 @@ const App = {
   },
 
   // ── Bible TTS Engine ──
+  // Uses pre-generated MP3 (en-GB-RyanNeural) when available,
+  // falls back to Web Speech API otherwise.
+
+  _bibleAudioEl: null, // HTML Audio element for MP3 playback
 
   bibleToggleListen() {
     if (this._bibleState.speaking) {
@@ -4558,10 +4562,6 @@ const App = {
 
   // Start reading from a specific verse index
   bibleStartListen(fromIdx, mode) {
-    if (!window.speechSynthesis) {
-      alert('Text-to-speech is not supported on this browser.');
-      return;
-    }
     const verses = this._bibleState.verses;
     if (!verses || !verses.length) return;
     this.bibleStopListen();
@@ -4588,7 +4588,44 @@ const App = {
 
     this._bibleUpdateListenUI(true);
     this._bibleUpdateMiniPlayer(true);
+
+    // Try pre-generated MP3 first (full chapter, natural RyanNeural voice)
+    if (mode === 'all' && fromIdx === 0) {
+      const { book, chapter } = this._bibleState;
+      if (book && !book.ethiopianOnly) {
+        const bookId = (book.apiName || book.id).replace(/\s/g, '').toLowerCase();
+        const mp3Url = `../audio/bible/${bookId}_${chapter}.mp3`;
+        this._bibleTryMP3(mp3Url);
+        return;
+      }
+    }
+    // Fallback to TTS
     this._bibleReadNext();
+  },
+
+  _bibleTryMP3(url) {
+    const audio = new Audio(url);
+    audio.playbackRate = this._bibleSpeechRate;
+    audio.oncanplaythrough = () => {
+      this._bibleAudioEl = audio;
+      audio.play();
+      this._bibleShowToast('Playing with studio voice');
+    };
+    audio.onerror = () => {
+      // No MP3 available, fall back to speech synthesis
+      this._bibleAudioEl = null;
+      if (window.speechSynthesis) {
+        this._bibleReadNext();
+      } else {
+        this.bibleStopListen();
+      }
+    };
+    audio.onended = () => {
+      this._bibleAudioEl = null;
+      this.bibleStopListen();
+    };
+    // Allow speed changes to apply
+    audio.preservesPitch = true;
   },
 
   _bibleReadNext() {
@@ -4640,6 +4677,11 @@ const App = {
     this._bibleState.speaking = false;
     this._bibleState.speakQueue = null;
     if (window.speechSynthesis) window.speechSynthesis.cancel();
+    if (this._bibleAudioEl) {
+      this._bibleAudioEl.pause();
+      this._bibleAudioEl.src = '';
+      this._bibleAudioEl = null;
+    }
     document.querySelectorAll('.bible-verse').forEach(el => el.classList.remove('active'));
     this._bibleUpdateListenUI(false);
     this._bibleUpdateMiniPlayer(false);
@@ -4685,6 +4727,8 @@ const App = {
     localStorage.setItem('pg_bible_rate', String(this._bibleSpeechRate));
     const btn = document.getElementById('bibleSpeedBtn');
     if (btn) btn.textContent = this._bibleSpeechRate + 'x';
+    // Apply to active MP3 if playing
+    if (this._bibleAudioEl) this._bibleAudioEl.playbackRate = this._bibleSpeechRate;
   },
 
   // Show Bible info in the mini player bar
