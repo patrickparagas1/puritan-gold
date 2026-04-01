@@ -3848,10 +3848,40 @@ const App = {
     this._bibleNotes = JSON.parse(localStorage.getItem('pg_bible_notes') || '{}');
     this._bibleHistory = JSON.parse(localStorage.getItem('pg_bible_history') || '[]');
     this._bibleSpeechRate = parseFloat(localStorage.getItem('pg_bible_rate') || '1');
+    this._bibleVoice = null;
     this._bibleActiveVerseIdx = null;
     const speedBtn = document.getElementById('bibleSpeedBtn');
     if (speedBtn) speedBtn.textContent = this._bibleSpeechRate + 'x';
+    // Select best available male voice
+    this._bibleSelectVoice();
+    if (window.speechSynthesis) {
+      window.speechSynthesis.onvoiceschanged = () => this._bibleSelectVoice();
+    }
     this.renderBibleBooks();
+  },
+
+  _bibleSelectVoice() {
+    if (!window.speechSynthesis) return;
+    const voices = window.speechSynthesis.getVoices();
+    if (!voices.length) return;
+    // Priority: best male English voices (natural-sounding)
+    const preferred = [
+      'Daniel',                    // Apple UK male — very natural, deep
+      'Aaron',                     // Apple US male — warm, clear
+      'Google UK English Male',    // Chrome — decent quality
+      'Microsoft David',           // Windows — good
+      'Microsoft Mark',            // Windows
+      'Alex',                      // Apple US male (classic)
+      'Tom',                       // Apple
+      'Rishi',                     // Apple Indian English male
+    ];
+    for (const name of preferred) {
+      const voice = voices.find(v => v.name.includes(name) && v.lang.startsWith('en'));
+      if (voice) { this._bibleVoice = voice; return; }
+    }
+    // Fallback: any English voice
+    const eng = voices.find(v => v.lang.startsWith('en'));
+    if (eng) this._bibleVoice = eng;
   },
 
   bibleFilterTestament(filter, btn) {
@@ -4273,8 +4303,9 @@ const App = {
     this._bibleUpdateMiniPlayerProgress();
 
     const utt = new SpeechSynthesisUtterance(verses[verseArrayIdx].text);
+    if (this._bibleVoice) utt.voice = this._bibleVoice;
     utt.rate = this._bibleSpeechRate;
-    utt.pitch = 1.0;
+    utt.pitch = 0.95;  // slightly lower pitch for authoritative reading
     utt.volume = 1.0;
     utt.onend = () => {
       if (this._bibleState.speaking) {
