@@ -5497,3 +5497,311 @@ html, body {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
 }
+
+/* ── Daily Proverb Card ── */
+.bible-proverb-card {
+  margin: 12px 16px 0;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, rgba(212,162,60,0.15) 0%, rgba(212,162,60,0.05) 100%);
+  border: 1px solid rgba(212,162,60,0.3);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+.bible-proverb-card:active { background: rgba(212,162,60,0.20); }
+
+.bible-proverb-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.bible-proverb-badge {
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.bible-proverb-badge svg { flex-shrink: 0; }
+
+.bible-proverb-date {
+  font-size: 11px;
+  color: var(--text3);
+  font-weight: 500;
+}
+
+.bible-proverb-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.bible-proverb-theme {
+  font-size: 12px;
+  color: var(--text2);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.bible-proverb-review {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #000;
+  background: var(--gold);
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+
+/* ═══════════════════════════════════════
+   NAV "MORE" DROPDOWN
+   ═══════════════════════════════════════ */
+
+.nav-more-menu {
+  display: none;
+  position: fixed;
+  bottom: calc(60px + var(--sab));
+  right: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 6px;
+  z-index: 60;
+  box-shadow: var(--shadow-xl);
+  min-width: 140px;
+}
+.nav-more-menu.open { display: flex; flex-direction: column; }
+
+.nav-more-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: none;
+  background: none;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.12s;
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+}
+.nav-more-item:active { background: var(--surface); }
+.nav-more-item svg { color: var(--text2); flex-shrink: 0; }
+
+.nav-more-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 59;
+}
+
+/* ═══════════════════════════════════════
+   DAILY PROVERB SECTION
+   ═══════════════════════════════════════ */
+
+#proverbView {
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+#proverbView.active { display: flex; }
+
+.prov-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Theme bar */
+.prov-theme-bar {
+  padding: 16px 18px 10px;
+  flex-shrink: 0;
+}
+
+.prov-theme-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.prov-theme-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.prov-theme-desc {
+  font-size: 13px;
+  color: var(--text2);
+  font-style: italic;
+}
+
+/* Day strip (horizontal scroll) */
+.prov-day-strip {
+  display: flex;
+  gap: 5px;
+  padding: 6px 18px 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex-shrink: 0;
+}
+.prov-day-strip::-webkit-scrollbar { display: none; }
+
+.prov-day-chip {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text2);
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.prov-day-chip:active { transform: scale(0.9); }
+.prov-day-chip.active {
+  background: var(--gold);
+  color: #000;
+  border-color: var(--gold);
+  font-weight: 800;
+}
+.prov-day-chip.today {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.prov-day-chip.review {
+  background: rgba(212,162,60,0.12);
+  border-color: var(--gold);
+  font-size: 9px;
+  font-weight: 800;
+  color: var(--gold);
+}
+
+/* Verses */
+.prov-verses {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: 8px 20px 16px;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.prov-chapter-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.prov-verse {
+  display: inline;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.9;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.prov-verse.active {
+  background: rgba(212,162,60,0.15);
+  border-radius: 4px;
+  padding: 1px 3px;
+}
+
+.prov-verse-num {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--gold);
+  vertical-align: super;
+  margin-right: 3px;
+  font-family: -apple-system, sans-serif;
+  line-height: 1;
+}
+
+.prov-review-divider {
+  display: block;
+  margin: 20px 0 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* Controls */
+.prov-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  padding-bottom: max(10px, env(safe-area-inset-bottom));
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.prov-ctrl-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text2);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: all 0.12s;
+  -webkit-tap-highlight-color: transparent;
+}
+.prov-ctrl-btn:active { background: var(--card-hover); }
+.prov-ctrl-btn.playing {
+  background: var(--green);
+  border-color: var(--green);
+  color: #000;
+}
+
+.prov-day-label {
+  font-size: 12px;
+  color: var(--text3);
+  font-weight: 600;
+}
+
+.prov-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: var(--text3);
+  gap: 14px;
+  font-size: 14px;
+}

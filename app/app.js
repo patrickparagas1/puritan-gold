@@ -162,6 +162,7 @@ const App = {
     this.setupNowPlaying();
     this.setupServiceWorker();
     this.initBible();
+    this.initProverb();
     this.restoreState();
     this.updateStreak();
     this._updatePatrickIndicator();
@@ -280,7 +281,7 @@ const App = {
         // Hide month nav on Ask section and Growth Topics tab
         const monthNav = document.getElementById('monthNav');
         if (monthNav) {
-          if (this.section === 'ask' || this.section === 'bible') {
+          if (this.section === 'ask' || this.section === 'bible' || this.section === 'proverb') {
             monthNav.style.display = 'none';
           } else if (this.section === 'personal' && this.growthTab === 'topics') {
             monthNav.style.display = 'none';
@@ -4408,6 +4409,251 @@ const App = {
     const next = chapter + dir;
     if (!book || next < 1 || next > book.chapters) return;
     this.bibleOpenChapter(next);
+  },
+
+  // ══════════════════════════════════════════════════════
+  // DAILY PROVERB SECTION
+  // Proverbs 1-31 mapped to days; monthly themes
+  // Short months: last day reviews remaining chapters
+  // ══════════════════════════════════════════════════════
+
+  _proverbThemes: [
+    {name:'Wisdom & Knowledge',      desc:'The foundation of wisdom begins with knowing God'},
+    {name:'Family & Love',           desc:'Proverbs on relationships, marriage, and family bonds'},
+    {name:'Work & Diligence',        desc:'Wisdom for effort, perseverance, and stewardship'},
+    {name:'Speech & Words',          desc:'The power of the tongue and gentle answers'},
+    {name:'Justice & Righteousness', desc:'Walking uprightly with moral courage'},
+    {name:'Humility & Fear of the Lord', desc:'The beginning of wisdom and a humble heart'},
+    {name:'Wealth & Generosity',     desc:'Stewardship, contentment, and giving to others'},
+    {name:'Character & Integrity',   desc:'A life of honor, truth, and faithfulness'},
+    {name:'Discipline & Growth',     desc:'Correction, training, and spiritual maturity'},
+    {name:'Leadership & Counsel',    desc:'Wise leadership and seeking godly advice'},
+    {name:'Trust & Providence',      desc:'Trusting in the Lord and His sovereign care'},
+    {name:'Gratitude & Reflection',  desc:'Year-end review of wisdom gained'},
+  ],
+
+  _provState: { day: 1, chapters: [1], verses: [], speaking: false, speakIdx: 0, speakQueue: null },
+
+  initProverb() {
+    const today = new Date();
+    const day = today.getDate();
+    const chapters = this._proverbChaptersForDay(today, day);
+    this._provState.day = day;
+    this._provState.chapters = chapters;
+    this.renderProverbTheme(today);
+    this.renderProverbDayStrip(today);
+    this.proverbLoadDay(day);
+  },
+
+  _proverbChaptersForDay(date, day) {
+    const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    if (day >= daysInMonth && daysInMonth < 31) {
+      // Last day of short month: compact remaining chapters
+      const chs = [];
+      for (let c = day; c <= 31; c++) chs.push(c);
+      return chs;
+    }
+    return [day];
+  },
+
+  renderProverbTheme(date) {
+    const theme = this._proverbThemes[date.getMonth()];
+    const el = document.getElementById('provThemeBar');
+    if (!el) return;
+    const monthName = date.toLocaleString('en-US', {month:'long', year:'numeric'});
+    el.innerHTML = `
+      <div class="prov-theme-label">${monthName} · Daily Proverb</div>
+      <div class="prov-theme-name">${theme.name}</div>
+      <div class="prov-theme-desc">${theme.desc}</div>`;
+  },
+
+  renderProverbDayStrip(date) {
+    const el = document.getElementById('provDayStrip');
+    if (!el) return;
+    const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    const today = new Date().getDate();
+    let html = '';
+    for (let d = 1; d <= daysInMonth; d++) {
+      const isToday = d === today;
+      const isLast = d === daysInMonth && daysInMonth < 31;
+      const isActive = d === this._provState.day;
+      let cls = 'prov-day-chip';
+      if (isActive) cls += ' active';
+      else if (isToday) cls += ' today';
+      if (isLast) cls += ' review';
+      const label = isLast ? `${d}+` : d;
+      html += `<button class="${cls}" onclick="App.proverbSelectDay(${d})">${label}</button>`;
+    }
+    el.innerHTML = html;
+    // Scroll active chip into view
+    requestAnimationFrame(() => {
+      const active = el.querySelector('.active') || el.querySelector('.today');
+      if (active) active.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+    });
+  },
+
+  proverbSelectDay(day) {
+    this.proverbStopListen();
+    const today = new Date();
+    this._provState.day = day;
+    this._provState.chapters = this._proverbChaptersForDay(today, day);
+    // Update chip states
+    document.querySelectorAll('.prov-day-chip').forEach((chip, i) => {
+      chip.classList.toggle('active', (i + 1) === day);
+    });
+    this.proverbLoadDay(day);
+  },
+
+  async proverbLoadDay(day) {
+    const el = document.getElementById('provVerses');
+    const labelEl = document.getElementById('provDayLabel');
+    const chapters = this._provState.chapters;
+    if (labelEl) {
+      labelEl.textContent = chapters.length > 1
+        ? `Ch. ${chapters[0]}–${chapters[chapters.length-1]}`
+        : `Chapter ${chapters[0]}`;
+    }
+    el.innerHTML = '<div class="prov-loading"><div class="bible-loading-ring"></div>Loading…</div>';
+
+    let allVerses = [];
+    let html = '';
+    for (let ci = 0; ci < chapters.length; ci++) {
+      const ch = chapters[ci];
+      if (chapters.length > 1) {
+        html += `<span class="prov-review-divider">${ci === 0 ? '' : ''}Proverbs ${ch}</span>`;
+      } else {
+        html += `<div class="prov-chapter-title">Proverbs ${ch}</div>`;
+      }
+      try {
+        const res = await fetch(`https://bible-api.com/proverbs+${ch}?translation=kjv`);
+        const data = await res.json();
+        const verses = (data.verses || []).map(v => ({verse:v.verse, text:v.text.replace(/\n/g,' ').trim(), chapter:ch}));
+        html += '<p style="margin:0 0 12px;">';
+        verses.forEach(v => {
+          const idx = allVerses.length;
+          html += `<span class="prov-verse" id="pv-${idx}"><sup class="prov-verse-num">${v.verse}</sup>${v.text} </span>`;
+          allVerses.push(v);
+        });
+        html += '</p>';
+      } catch(e) {
+        html += '<p style="color:var(--text3);font-size:14px;">Could not load chapter. Check your connection.</p>';
+      }
+    }
+    this._provState.verses = allVerses;
+    el.innerHTML = html;
+    el.scrollTop = 0;
+  },
+
+  proverbPrevDay() {
+    const d = this._provState.day;
+    if (d > 1) this.proverbSelectDay(d - 1);
+  },
+
+  proverbNextDay() {
+    const d = this._provState.day;
+    const daysInMonth = new Date().getDate();
+    const max = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
+    if (d < max) this.proverbSelectDay(d + 1);
+  },
+
+  proverbListen() {
+    if (this._provState.speaking) { this.proverbStopListen(); return; }
+    if (!window.speechSynthesis) return;
+    const verses = this._provState.verses;
+    if (!verses.length) return;
+    const queue = verses.map((_, i) => i);
+    this._provState.speaking = true;
+    this._provState.speakIdx = 0;
+    this._provState.speakQueue = queue;
+    const btn = document.getElementById('provListenBtn');
+    if (btn) {
+      btn.classList.add('playing');
+      btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg> Stop';
+    }
+    this._proverbReadNext();
+  },
+
+  _proverbReadNext() {
+    const { speaking, speakQueue, speakIdx, verses } = this._provState;
+    if (!speaking || !speakQueue || speakIdx >= speakQueue.length) {
+      this.proverbStopListen(); return;
+    }
+    const vi = speakQueue[speakIdx];
+    document.querySelectorAll('.prov-verse').forEach(el => el.classList.remove('active'));
+    const verseEl = document.getElementById(`pv-${vi}`);
+    if (verseEl) {
+      verseEl.classList.add('active');
+      verseEl.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+    const utt = new SpeechSynthesisUtterance(verses[vi].text);
+    if (this._bibleVoice) utt.voice = this._bibleVoice;
+    utt.rate = this._bibleSpeechRate;
+    utt.pitch = 0.95;
+    utt.onend = () => { if (this._provState.speaking) { this._provState.speakIdx++; this._proverbReadNext(); } };
+    utt.onerror = () => { if (this._provState.speaking) { this._provState.speakIdx++; this._proverbReadNext(); } };
+    window.speechSynthesis.speak(utt);
+  },
+
+  proverbStopListen() {
+    this._provState.speaking = false;
+    this._provState.speakQueue = null;
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    document.querySelectorAll('.prov-verse').forEach(el => el.classList.remove('active'));
+    const btn = document.getElementById('provListenBtn');
+    if (btn) {
+      btn.classList.remove('playing');
+      btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg> Listen';
+    }
+  },
+
+  // ── Nav More Dropdown ──
+
+  toggleNavMore(e) {
+    e.stopPropagation();
+    const menu = document.getElementById('navMoreMenu');
+    if (!menu) return;
+    const isOpen = menu.classList.contains('open');
+    if (isOpen) {
+      menu.classList.remove('open');
+      const bd = document.getElementById('navMoreBackdrop');
+      if (bd) bd.remove();
+    } else {
+      menu.classList.add('open');
+      const bd = document.createElement('div');
+      bd.className = 'nav-more-backdrop';
+      bd.id = 'navMoreBackdrop';
+      bd.onclick = () => this.toggleNavMore({stopPropagation:()=>{}});
+      document.body.appendChild(bd);
+    }
+  },
+
+  navMoreSelect(section) {
+    // Close menu
+    const menu = document.getElementById('navMoreMenu');
+    if (menu) menu.classList.remove('open');
+    const bd = document.getElementById('navMoreBackdrop');
+    if (bd) bd.remove();
+
+    // Deactivate all nav items
+    document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+    this.section = section;
+
+    // Toggle views
+    document.querySelectorAll('.section-view').forEach(v => v.classList.remove('active'));
+    const view = document.getElementById(section + 'View');
+    if (view) view.classList.add('active');
+
+    // Month nav visibility
+    const monthNav = document.getElementById('monthNav');
+    if (monthNav) {
+      if (section === 'ask' || section === 'bible' || section === 'proverb') {
+        monthNav.style.display = 'none';
+      } else if (section === 'personal' && this.growthTab === 'topics') {
+        monthNav.style.display = 'none';
+      } else {
+        monthNav.style.display = '';
+      }
+    }
   },
 
   setupServiceWorker() {
