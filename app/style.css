@@ -5144,6 +5144,8 @@ html, body {
   color: var(--text);
   line-height: 1.9;
   font-family: Georgia, 'Times New Roman', serif;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(212,162,60,0.15);
 }
 
 .bible-verse.active {
@@ -5372,6 +5374,50 @@ html, body {
 .bible-notes-ta::placeholder { color: var(--text3); }
 
 /* ── Speed & Highlight-Play Buttons ── */
+.bible-lang-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--text2);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  min-width: 30px;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+.bible-lang-btn:active { background: var(--card-hover); }
+.bible-lang-btn.active-lang {
+  background: rgba(105,163,245,0.2);
+  border-color: #69a3f5;
+  color: #69a3f5;
+}
+
+/* Original language text */
+.bible-orig-text {
+  display: block;
+  font-size: 15px;
+  color: var(--text3);
+  line-height: 1.7;
+  margin: 2px 0 6px;
+  direction: ltr;
+}
+.bible-orig-text.rtl {
+  direction: rtl;
+  text-align: right;
+  font-family: 'SBL Hebrew', 'Ezra SIL', 'Times New Roman', serif;
+  font-size: 17px;
+  color: var(--text2);
+}
+.bible-orig-text.greek {
+  font-family: 'SBL Greek', 'GFS Didot', 'Times New Roman', serif;
+  font-size: 15px;
+  color: var(--text2);
+}
+
 .bible-speed-btn {
   background: var(--surface);
   border: 1px solid var(--border);

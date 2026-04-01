@@ -3710,6 +3710,22 @@ const App = {
   },
   _bibleSpeechRate: 1.0,
   _bibleSpeechRates: [0.5, 0.75, 1, 1.25, 1.5, 2],
+  _bibleLang: 'en', // 'en' | 'greek' | 'hebrew'
+
+  // Book ID → standard Bible book number for getbible.net API
+  _bibleBookNums: {
+    genesis:1,exodus:2,leviticus:3,numbers:4,deuteronomy:5,joshua:6,judges:7,ruth:8,
+    '1samuel':9,'2samuel':10,'1kings':11,'2kings':12,'1chronicles':13,'2chronicles':14,
+    ezra:15,nehemiah:16,esther:17,job:18,psalms:19,proverbs:20,ecclesiastes:21,
+    songofsolomon:22,isaiah:23,jeremiah:24,lamentations:25,ezekiel:26,daniel:27,
+    hosea:28,joel:29,amos:30,obadiah:31,jonah:32,micah:33,nahum:34,habakkuk:35,
+    zephaniah:36,haggai:37,zechariah:38,malachi:39,
+    matthew:40,mark:41,luke:42,john:43,acts:44,romans:45,'1corinthians':46,
+    '2corinthians':47,galatians:48,ephesians:49,philippians:50,colossians:51,
+    '1thessalonians':52,'2thessalonians':53,'1timothy':54,'2timothy':55,
+    titus:56,philemon:57,hebrews:58,james:59,'1peter':60,'2peter':61,
+    '1john':62,'2john':63,'3john':64,jude:65,revelation:66,
+  },
 
   _bibleBooks: [
     // ── Old Testament: Law ──
@@ -3858,6 +3874,16 @@ const App = {
     if (window.speechSynthesis) {
       window.speechSynthesis.onvoiceschanged = () => this._bibleSelectVoice();
     }
+    // Event delegation for verse taps (more reliable on mobile than inline onclick)
+    const bv = document.getElementById('bibleVerses');
+    if (bv) bv.addEventListener('click', (e) => {
+      const span = e.target.closest('.bible-verse');
+      if (!span) return;
+      const idx = parseInt(span.id.replace('bv-',''));
+      const numEl = span.querySelector('.bible-verse-num');
+      const verseNum = numEl ? parseInt(numEl.textContent) : 1;
+      if (!isNaN(idx)) this.bibleVerseAction(idx, verseNum);
+    });
     this.renderBibleBooks();
   },
 
@@ -3865,24 +3891,41 @@ const App = {
     if (!window.speechSynthesis) return;
     const voices = window.speechSynthesis.getVoices();
     if (!voices.length) return;
-    // Priority: best male English voices (natural-sounding)
+
+    // Known female voices to avoid
+    const femaleNames = ['samantha','victoria','kate','karen','moira','tessa','fiona','veena','serena','allison','ava','zoe','nicky','joana','catherine','paulina','monica','luciana'];
+
+    // Priority: best male English voices
     const preferred = [
-      'Daniel',                    // Apple UK male — very natural, deep
-      'Aaron',                     // Apple US male — warm, clear
-      'Google UK English Male',    // Chrome — decent quality
-      'Microsoft David',           // Windows — good
+      'Daniel',                    // Apple UK male — excellent
+      'Aaron',                     // Apple US male
+      'James',                     // Apple male
+      'Oliver',                    // Apple male
+      'Google UK English Male',    // Chrome
+      'Microsoft David',           // Windows
       'Microsoft Mark',            // Windows
-      'Alex',                      // Apple US male (classic)
+      'Microsoft Guy',             // Edge
+      'Alex',                      // Apple classic male
       'Tom',                       // Apple
+      'Fred',                      // Apple classic
       'Rishi',                     // Apple Indian English male
+      'Ralph',                     // Apple
+      'Junior',                    // Apple
     ];
+
+    // Try preferred voices first
     for (const name of preferred) {
       const voice = voices.find(v => v.name.includes(name) && v.lang.startsWith('en'));
-      if (voice) { this._bibleVoice = voice; return; }
+      if (voice) { this._bibleVoice = voice; console.log('[Bible] Voice:', voice.name); return; }
     }
-    // Fallback: any English voice
-    const eng = voices.find(v => v.lang.startsWith('en'));
-    if (eng) this._bibleVoice = eng;
+
+    // Fallback: any English voice that's NOT a known female name
+    const english = voices.filter(v => v.lang.startsWith('en'));
+    const nonFemale = english.find(v => !femaleNames.some(f => v.name.toLowerCase().includes(f)));
+    if (nonFemale) { this._bibleVoice = nonFemale; console.log('[Bible] Voice (non-female):', nonFemale.name); return; }
+
+    // Last resort: any English voice
+    if (english.length) { this._bibleVoice = english[0]; console.log('[Bible] Voice (fallback):', english[0].name); }
   },
 
   bibleFilterTestament(filter, btn) {
@@ -4065,6 +4108,10 @@ const App = {
 
     // Close toolbar and reset selection
     this.bibleCloseToolbar();
+    this._bibleLang = 'en';
+    this._bibleState._origVerses = null;
+    const langBtn = document.getElementById('bibleLangBtn');
+    if (langBtn) { langBtn.textContent = 'EN'; langBtn.classList.remove('active-lang'); }
 
     // Load saved notes for this chapter
     const notesTA = document.getElementById('bibleNotesTA');
@@ -4144,18 +4191,25 @@ const App = {
       noteHtml = `<div class="bible-note"><strong>Deuterocanonical:</strong> This book is part of the Ethiopian Orthodox Canon. Text is fetched from a public KJV-compatible Bible API.</div>`;
     }
 
-    let verseHtml = '<p style="margin:20px 0 16px;">';
+    const origVerses = this._bibleState._origVerses;
+    const showOrig = this._bibleLang !== 'en' && origVerses;
+    const isHebrew = this._bibleLang === 'hebrew';
+
+    let verseHtml = '<div style="margin:20px 0 16px;">';
     verses.forEach((v, i) => {
       const hKey = `${book.id}-${chapter}-${i}`;
       const hColor = this._bibleHighlights[hKey];
       const hlClass = hColor ? ` hl-${hColor}` : '';
       if (v.isNote) {
-        verseHtml += `<span class="bible-verse${hlClass}" id="bv-${i}" onclick="App.bibleVerseAction(${i},${v.verse||1})" style="color:var(--text2);font-family:-apple-system,sans-serif;font-size:15px;font-style:italic;">${v.text}</span>`;
+        verseHtml += `<span class="bible-verse${hlClass}" id="bv-${i}" style="color:var(--text2);font-family:-apple-system,sans-serif;font-size:15px;font-style:italic;">${v.text}</span>`;
       } else {
-        verseHtml += `<span class="bible-verse${hlClass}" id="bv-${i}" onclick="App.bibleVerseAction(${i},${v.verse})"><sup class="bible-verse-num">${v.verse}</sup>${v.text} </span>`;
+        verseHtml += `<span class="bible-verse${hlClass}" id="bv-${i}"><sup class="bible-verse-num">${v.verse}</sup>${v.text} </span>`;
+        if (showOrig && origVerses[v.verse]) {
+          verseHtml += `<span class="bible-orig-text${isHebrew ? ' rtl' : ' greek'}">${origVerses[v.verse]}</span>`;
+        }
       }
     });
-    verseHtml += '</p>';
+    verseHtml += '</div>';
 
     el.innerHTML = noteHtml + verseHtml;
     el.scrollTop = 0;
@@ -4236,6 +4290,73 @@ const App = {
     localStorage.setItem('pg_bible_notes', JSON.stringify(this._bibleNotes));
   },
 
+  // ── Greek / Hebrew Toggle ──
+
+  bibleCycleLang() {
+    const book = this._bibleState.book;
+    if (!book) return;
+    const bookNum = this._bibleBookNums[book.id];
+    if (!bookNum) {
+      // Ethiopian-only books don't have original language APIs
+      this._bibleLang = 'en';
+      return;
+    }
+
+    const isNT = bookNum >= 40;
+    if (this._bibleLang === 'en') {
+      this._bibleLang = isNT ? 'greek' : 'hebrew';
+    } else {
+      this._bibleLang = 'en';
+    }
+
+    const btn = document.getElementById('bibleLangBtn');
+    if (btn) {
+      if (this._bibleLang === 'greek') {
+        btn.textContent = 'GR';
+        btn.classList.add('active-lang');
+      } else if (this._bibleLang === 'hebrew') {
+        btn.textContent = 'HE';
+        btn.classList.add('active-lang');
+      } else {
+        btn.textContent = 'EN';
+        btn.classList.remove('active-lang');
+      }
+    }
+
+    // Re-render with original text
+    this._bibleLoadOriginalText();
+  },
+
+  async _bibleLoadOriginalText() {
+    const { book, chapter, verses } = this._bibleState;
+    if (!book || !verses.length) return;
+    const bookNum = this._bibleBookNums[book.id];
+    if (!bookNum) return;
+
+    if (this._bibleLang === 'en') {
+      // Re-render without original text
+      this.renderBibleVerses(verses, book, chapter);
+      return;
+    }
+
+    const translation = this._bibleLang === 'greek' ? 'textusreceptus' : 'aleppo';
+    try {
+      const res = await fetch(`https://api.getbible.net/v2/${translation}/${bookNum}/${chapter}.json`);
+      if (!res.ok) throw new Error('not found');
+      const data = await res.json();
+      // getbible.net returns { verses: [ { verse, text }, ... ] }
+      const origVerses = {};
+      if (data.verses) {
+        data.verses.forEach(v => { origVerses[v.verse] = v.text; });
+      }
+      this._bibleState._origVerses = origVerses;
+      this.renderBibleVerses(verses, book, chapter);
+    } catch(e) {
+      this._bibleState._origVerses = null;
+      this.renderBibleVerses(verses, book, chapter);
+    }
+  },
+
   // ── Bible TTS Engine ──
 
   bibleToggleListen() {
@@ -4303,10 +4424,13 @@ const App = {
     // Update mini player progress
     this._bibleUpdateMiniPlayerProgress();
 
+    // Retry voice selection if none set yet
+    if (!this._bibleVoice) this._bibleSelectVoice();
+
     const utt = new SpeechSynthesisUtterance(verses[verseArrayIdx].text);
     if (this._bibleVoice) utt.voice = this._bibleVoice;
     utt.rate = this._bibleSpeechRate;
-    utt.pitch = 0.95;  // slightly lower pitch for authoritative reading
+    utt.pitch = 0.9;  // lower pitch for deep, authoritative reading
     utt.volume = 1.0;
     utt.onend = () => {
       if (this._bibleState.speaking) {
@@ -4585,10 +4709,11 @@ const App = {
       verseEl.classList.add('active');
       verseEl.scrollIntoView({behavior:'smooth', block:'center'});
     }
+    if (!this._bibleVoice) this._bibleSelectVoice();
     const utt = new SpeechSynthesisUtterance(verses[vi].text);
     if (this._bibleVoice) utt.voice = this._bibleVoice;
     utt.rate = this._bibleSpeechRate;
-    utt.pitch = 0.95;
+    utt.pitch = 0.9;
     utt.onend = () => { if (this._provState.speaking) { this._provState.speakIdx++; this._proverbReadNext(); } };
     utt.onerror = () => { if (this._provState.speaking) { this._provState.speakIdx++; this._proverbReadNext(); } };
     window.speechSynthesis.speak(utt);
