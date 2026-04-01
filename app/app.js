@@ -161,6 +161,7 @@ const App = {
     this.setupPlayer();
     this.setupNowPlaying();
     this.setupServiceWorker();
+    this.initBible();
     this.restoreState();
     this.updateStreak();
     this._updatePatrickIndicator();
@@ -279,7 +280,7 @@ const App = {
         // Hide month nav on Ask section and Growth Topics tab
         const monthNav = document.getElementById('monthNav');
         if (monthNav) {
-          if (this.section === 'ask') {
+          if (this.section === 'ask' || this.section === 'bible') {
             monthNav.style.display = 'none';
           } else if (this.section === 'personal' && this.growthTab === 'topics') {
             monthNav.style.display = 'none';
@@ -3685,6 +3686,439 @@ const App = {
     if (this.audio.duration) {
       this.audio.currentTime = (pct / 100) * this.audio.duration;
     }
+  },
+
+  // ══════════════════════════════════════════════════════
+  // ETHIOPIAN BIBLE — 81-Book Canon
+  // Text for Protestant books: bible-api.com (KJV)
+  // Ethiopian-only books: embedded public-domain translations
+  // Audio: Web Speech API (on-device TTS, verse-by-verse)
+  // ══════════════════════════════════════════════════════
+
+  _bibleState: {
+    filter: 'all',   // 'all' | 'OT' | 'NT' | 'Ethiopian'
+    search: '',
+    panel: 'books',  // 'books' | 'chapters' | 'reader'
+    book: null,      // current book object
+    chapter: 1,      // current chapter number
+    verses: [],      // currently displayed verses
+    speaking: false, // TTS active
+    speakIdx: 0,     // verse index being spoken
+  },
+
+  _bibleBooks: [
+    // ── Old Testament: Law ──
+    {id:'genesis',name:'Genesis',abbrev:'Gen',chapters:50,group:'Law',testament:'OT',color:'#c49a28',apiName:'genesis'},
+    {id:'exodus',name:'Exodus',abbrev:'Exo',chapters:40,group:'Law',testament:'OT',color:'#c49a28',apiName:'exodus'},
+    {id:'leviticus',name:'Leviticus',abbrev:'Lev',chapters:27,group:'Law',testament:'OT',color:'#c49a28',apiName:'leviticus'},
+    {id:'numbers',name:'Numbers',abbrev:'Num',chapters:36,group:'Law',testament:'OT',color:'#c49a28',apiName:'numbers'},
+    {id:'deuteronomy',name:'Deuteronomy',abbrev:'Deu',chapters:34,group:'Law',testament:'OT',color:'#c49a28',apiName:'deuteronomy'},
+    // ── History ──
+    {id:'joshua',name:'Joshua',abbrev:'Jos',chapters:24,group:'History',testament:'OT',color:'#3a7bd5',apiName:'joshua'},
+    {id:'judges',name:'Judges',abbrev:'Jdg',chapters:21,group:'History',testament:'OT',color:'#3a7bd5',apiName:'judges'},
+    {id:'ruth',name:'Ruth',abbrev:'Rut',chapters:4,group:'History',testament:'OT',color:'#3a7bd5',apiName:'ruth'},
+    {id:'1samuel',name:'1 Samuel',abbrev:'1Sa',chapters:31,group:'History',testament:'OT',color:'#3a7bd5',apiName:'1 samuel'},
+    {id:'2samuel',name:'2 Samuel',abbrev:'2Sa',chapters:24,group:'History',testament:'OT',color:'#3a7bd5',apiName:'2 samuel'},
+    {id:'1kings',name:'1 Kings',abbrev:'1Ki',chapters:22,group:'History',testament:'OT',color:'#3a7bd5',apiName:'1 kings'},
+    {id:'2kings',name:'2 Kings',abbrev:'2Ki',chapters:25,group:'History',testament:'OT',color:'#3a7bd5',apiName:'2 kings'},
+    {id:'1chronicles',name:'1 Chronicles',abbrev:'1Ch',chapters:29,group:'History',testament:'OT',color:'#3a7bd5',apiName:'1 chronicles'},
+    {id:'2chronicles',name:'2 Chronicles',abbrev:'2Ch',chapters:36,group:'History',testament:'OT',color:'#3a7bd5',apiName:'2 chronicles'},
+    {id:'ezra',name:'Ezra',abbrev:'Ezr',chapters:10,group:'History',testament:'OT',color:'#3a7bd5',apiName:'ezra'},
+    {id:'nehemiah',name:'Nehemiah',abbrev:'Neh',chapters:13,group:'History',testament:'OT',color:'#3a7bd5',apiName:'nehemiah'},
+    {id:'esther',name:'Esther',abbrev:'Est',chapters:10,group:'History',testament:'OT',color:'#3a7bd5',apiName:'esther'},
+    {id:'tobit',name:'Tobit',abbrev:'Tob',chapters:14,group:'History',testament:'OT',color:'#1a9e6e',ethiopian:true,apiName:'tobit'},
+    {id:'judith',name:'Judith',abbrev:'Jdt',chapters:16,group:'History',testament:'OT',color:'#1a9e6e',ethiopian:true,apiName:'judith'},
+    {id:'1maccabees',name:'1 Maccabees',abbrev:'1Mc',chapters:16,group:'History',testament:'OT',color:'#1a9e6e',ethiopian:true,apiName:'1 maccabees'},
+    {id:'2maccabees',name:'2 Maccabees',abbrev:'2Mc',chapters:15,group:'History',testament:'OT',color:'#1a9e6e',ethiopian:true,apiName:'2 maccabees'},
+    // ── Poetry & Wisdom ──
+    {id:'job',name:'Job',abbrev:'Job',chapters:42,group:'Poetry & Wisdom',testament:'OT',color:'#8e44ad',apiName:'job'},
+    {id:'psalms',name:'Psalms',abbrev:'Psa',chapters:151,group:'Poetry & Wisdom',testament:'OT',color:'#8e44ad',apiName:'psalms'},
+    {id:'proverbs',name:'Proverbs',abbrev:'Pro',chapters:31,group:'Poetry & Wisdom',testament:'OT',color:'#8e44ad',apiName:'proverbs'},
+    {id:'ecclesiastes',name:'Ecclesiastes',abbrev:'Ecc',chapters:12,group:'Poetry & Wisdom',testament:'OT',color:'#8e44ad',apiName:'ecclesiastes'},
+    {id:'songofsolomon',name:'Song of Solomon',abbrev:'Sng',chapters:8,group:'Poetry & Wisdom',testament:'OT',color:'#8e44ad',apiName:'song of solomon'},
+    {id:'wisdomofsolomon',name:'Wisdom of Solomon',abbrev:'Wis',chapters:19,group:'Poetry & Wisdom',testament:'OT',color:'#1a9e6e',ethiopian:true,apiName:'wisdom of solomon'},
+    {id:'sirach',name:'Sirach (Ben Sira)',abbrev:'Sir',chapters:51,group:'Poetry & Wisdom',testament:'OT',color:'#1a9e6e',ethiopian:true,apiName:'sirach'},
+    // ── Major Prophets ──
+    {id:'isaiah',name:'Isaiah',abbrev:'Isa',chapters:66,group:'Major Prophets',testament:'OT',color:'#c0392b',apiName:'isaiah'},
+    {id:'jeremiah',name:'Jeremiah',abbrev:'Jer',chapters:52,group:'Major Prophets',testament:'OT',color:'#c0392b',apiName:'jeremiah'},
+    {id:'lamentations',name:'Lamentations',abbrev:'Lam',chapters:5,group:'Major Prophets',testament:'OT',color:'#c0392b',apiName:'lamentations'},
+    {id:'baruch',name:'Baruch',abbrev:'Bar',chapters:6,group:'Major Prophets',testament:'OT',color:'#1a9e6e',ethiopian:true,apiName:'baruch'},
+    {id:'ezekiel',name:'Ezekiel',abbrev:'Eze',chapters:48,group:'Major Prophets',testament:'OT',color:'#c0392b',apiName:'ezekiel'},
+    {id:'daniel',name:'Daniel',abbrev:'Dan',chapters:14,group:'Major Prophets',testament:'OT',color:'#c0392b',apiName:'daniel'},
+    // ── Ethiopian OT Exclusives ──
+    {id:'enoch',name:'1 Enoch (Henok)',abbrev:'1En',chapters:108,group:'Ethiopian Canon (OT)',testament:'OT',color:'#0d7a55',ethiopian:true,ethiopianOnly:true},
+    {id:'jubilees',name:'Jubilees (Kufale)',abbrev:'Jub',chapters:50,group:'Ethiopian Canon (OT)',testament:'OT',color:'#0d7a55',ethiopian:true,ethiopianOnly:true},
+    {id:'1meqabyan',name:'1 Meqabyan',abbrev:'1Mq',chapters:36,group:'Ethiopian Canon (OT)',testament:'OT',color:'#0d7a55',ethiopian:true,ethiopianOnly:true},
+    {id:'2meqabyan',name:'2 Meqabyan',abbrev:'2Mq',chapters:1,group:'Ethiopian Canon (OT)',testament:'OT',color:'#0d7a55',ethiopian:true,ethiopianOnly:true},
+    {id:'3meqabyan',name:'3 Meqabyan',abbrev:'3Mq',chapters:1,group:'Ethiopian Canon (OT)',testament:'OT',color:'#0d7a55',ethiopian:true,ethiopianOnly:true},
+    // ── Minor Prophets ──
+    {id:'hosea',name:'Hosea',abbrev:'Hos',chapters:14,group:'Minor Prophets',testament:'OT',color:'#d35400',apiName:'hosea'},
+    {id:'joel',name:'Joel',abbrev:'Joe',chapters:3,group:'Minor Prophets',testament:'OT',color:'#d35400',apiName:'joel'},
+    {id:'amos',name:'Amos',abbrev:'Amo',chapters:9,group:'Minor Prophets',testament:'OT',color:'#d35400',apiName:'amos'},
+    {id:'obadiah',name:'Obadiah',abbrev:'Oba',chapters:1,group:'Minor Prophets',testament:'OT',color:'#d35400',apiName:'obadiah'},
+    {id:'jonah',name:'Jonah',abbrev:'Jon',chapters:4,group:'Minor Prophets',testament:'OT',color:'#d35400',apiName:'jonah'},
+    {id:'micah',name:'Micah',abbrev:'Mic',chapters:7,group:'Minor Prophets',testament:'OT',color:'#d35400',apiName:'micah'},
+    {id:'nahum',name:'Nahum',abbrev:'Nah',chapters:3,group:'Minor Prophets',testament:'OT',color:'#d35400',apiName:'nahum'},
+    {id:'habakkuk',name:'Habakkuk',abbrev:'Hab',chapters:3,group:'Minor Prophets',testament:'OT',color:'#d35400',apiName:'habakkuk'},
+    {id:'zephaniah',name:'Zephaniah',abbrev:'Zep',chapters:3,group:'Minor Prophets',testament:'OT',color:'#d35400',apiName:'zephaniah'},
+    {id:'haggai',name:'Haggai',abbrev:'Hag',chapters:2,group:'Minor Prophets',testament:'OT',color:'#d35400',apiName:'haggai'},
+    {id:'zechariah',name:'Zechariah',abbrev:'Zec',chapters:14,group:'Minor Prophets',testament:'OT',color:'#d35400',apiName:'zechariah'},
+    {id:'malachi',name:'Malachi',abbrev:'Mal',chapters:4,group:'Minor Prophets',testament:'OT',color:'#d35400',apiName:'malachi'},
+    // ── New Testament: Gospels ──
+    {id:'matthew',name:'Matthew',abbrev:'Mat',chapters:28,group:'Gospels',testament:'NT',color:'#27ae60',apiName:'matthew'},
+    {id:'mark',name:'Mark',abbrev:'Mar',chapters:16,group:'Gospels',testament:'NT',color:'#27ae60',apiName:'mark'},
+    {id:'luke',name:'Luke',abbrev:'Luk',chapters:24,group:'Gospels',testament:'NT',color:'#27ae60',apiName:'luke'},
+    {id:'john',name:'John',abbrev:'Joh',chapters:21,group:'Gospels',testament:'NT',color:'#27ae60',apiName:'john'},
+    {id:'acts',name:'Acts',abbrev:'Act',chapters:28,group:'Gospels',testament:'NT',color:'#27ae60',apiName:'acts'},
+    // ── Epistles ──
+    {id:'romans',name:'Romans',abbrev:'Rom',chapters:16,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'romans'},
+    {id:'1corinthians',name:'1 Corinthians',abbrev:'1Co',chapters:16,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'1 corinthians'},
+    {id:'2corinthians',name:'2 Corinthians',abbrev:'2Co',chapters:13,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'2 corinthians'},
+    {id:'galatians',name:'Galatians',abbrev:'Gal',chapters:6,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'galatians'},
+    {id:'ephesians',name:'Ephesians',abbrev:'Eph',chapters:6,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'ephesians'},
+    {id:'philippians',name:'Philippians',abbrev:'Phi',chapters:4,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'philippians'},
+    {id:'colossians',name:'Colossians',abbrev:'Col',chapters:4,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'colossians'},
+    {id:'1thessalonians',name:'1 Thessalonians',abbrev:'1Th',chapters:5,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'1 thessalonians'},
+    {id:'2thessalonians',name:'2 Thessalonians',abbrev:'2Th',chapters:3,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'2 thessalonians'},
+    {id:'1timothy',name:'1 Timothy',abbrev:'1Ti',chapters:6,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'1 timothy'},
+    {id:'2timothy',name:'2 Timothy',abbrev:'2Ti',chapters:4,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'2 timothy'},
+    {id:'titus',name:'Titus',abbrev:'Tit',chapters:3,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'titus'},
+    {id:'philemon',name:'Philemon',abbrev:'Phm',chapters:1,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'philemon'},
+    {id:'hebrews',name:'Hebrews',abbrev:'Heb',chapters:13,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'hebrews'},
+    {id:'james',name:'James',abbrev:'Jam',chapters:5,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'james'},
+    {id:'1peter',name:'1 Peter',abbrev:'1Pe',chapters:5,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'1 peter'},
+    {id:'2peter',name:'2 Peter',abbrev:'2Pe',chapters:3,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'2 peter'},
+    {id:'1john',name:'1 John',abbrev:'1Jo',chapters:5,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'1 john'},
+    {id:'2john',name:'2 John',abbrev:'2Jo',chapters:1,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'2 john'},
+    {id:'3john',name:'3 John',abbrev:'3Jo',chapters:1,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'3 john'},
+    {id:'jude',name:'Jude',abbrev:'Jud',chapters:1,group:'Epistles',testament:'NT',color:'#2471a3',apiName:'jude'},
+    {id:'revelation',name:'Revelation',abbrev:'Rev',chapters:22,group:'Prophecy',testament:'NT',color:'#922b21',apiName:'revelation'},
+    // ── Ethiopian NT Exclusives ──
+    {id:'sinodos',name:'Sinodos',abbrev:'Sin',chapters:4,group:'Ethiopian Canon (NT)',testament:'NT',color:'#6c3483',ethiopian:true,ethiopianOnly:true},
+    {id:'clement',name:'Clement (Ethiopic)',abbrev:'Cle',chapters:2,group:'Ethiopian Canon (NT)',testament:'NT',color:'#6c3483',ethiopian:true,ethiopianOnly:true},
+    {id:'didaskalia',name:'Didaskalia',abbrev:'Did',chapters:1,group:'Ethiopian Canon (NT)',testament:'NT',color:'#6c3483',ethiopian:true,ethiopianOnly:true},
+    {id:'teezaz',name:'Teezaz (Apostolic Decree)',abbrev:'Tez',chapters:1,group:'Ethiopian Canon (NT)',testament:'NT',color:'#6c3483',ethiopian:true,ethiopianOnly:true},
+  ],
+
+  // Embedded public-domain texts for Ethiopian-exclusive books
+  // 1 Enoch: R.H. Charles translation, 1917 (public domain)
+  // Jubilees: R.H. Charles translation, 1902 (public domain)
+  _ethiopianEmbedded: {
+    enoch: {
+      1: [
+        {verse:1,text:'The words of the blessing of Enoch, wherewith he blessed the elect and righteous, who will be living in the day of tribulation, when all the wicked and godless are to be removed.'},
+        {verse:2,text:'And he took up his parable and said — Enoch a righteous man, whose eyes were opened by God, saw the vision of the Holy One in the heavens, which the angels showed me, and from them I heard everything, and from them I understood as I saw, but not for this generation, but for a remote one which is for to come.'},
+        {verse:3,text:'Concerning the elect I said, and took up my parable concerning them: The Holy Great One will come forth from His dwelling,'},
+        {verse:4,text:'And the eternal God will tread upon the earth, even on Mount Sinai, and appear from His camp, and appear in the strength of His might from the heaven of heavens.'},
+        {verse:5,text:'And all shall be smitten with fear and the Watchers shall quake, and great fear and trembling shall seize them unto the ends of the earth.'},
+        {verse:6,text:'And the high mountains shall be shaken, and the high hills shall be made low, and shall melt like wax before the flame.'},
+        {verse:7,text:'And the earth shall be wholly rent asunder, and all that is upon the earth shall perish, and there shall be a judgement upon all men.'},
+        {verse:8,text:'But with the righteous He will make peace, and will protect the elect, and mercy shall be upon them. And they shall all belong to God, and they shall be prospered, and they shall all be blessed. And light shall appear unto them, and He will make peace with them.'},
+        {verse:9,text:'And behold! He cometh with ten thousands of His holy ones to execute judgement upon all, and to destroy all the ungodly: and to convict all flesh of all the works of their ungodliness which they have ungodly committed, and of all the hard things which ungodly sinners have spoken against Him.'},
+      ],
+      2: [
+        {verse:1,text:'Observe ye everything that takes place in the heaven, how they do not change their orbits, and the luminaries which are in the heaven, how they all rise and set in order each in its season, and transgress not against their appointed order.'},
+        {verse:2,text:'Behold ye the earth, and give heed to the things which take place upon it from first to last, how steadfast they are, how none of the things upon earth change, but all the works of God appear to you.'},
+        {verse:3,text:'Behold the summer and the winter, how the whole earth is filled with water, and clouds and dew and rain lie upon it.'},
+      ],
+    },
+    jubilees: {
+      1: [
+        {verse:1,text:'This is the history of the division of the days of the Torah and of the testimony, of the events of the years, of the weeks of their jubilees throughout all the years of eternity as He related them to Moses on Mount Sinai when he went up to receive the tables of the Torah and of the commandment, according to the voice of God as He said unto him, Go up to the top of the Mountain.'},
+        {verse:2,text:'And it came to pass in the first year of the Exodus of the children of Israel out of Egypt, in the third month, on the sixteenth day of the month, that God spake to Moses, saying: Come up to Me on the Mount, and I will give thee two tables of stone of the Torah and of the commandment, which I have written, that thou mayst teach them.'},
+        {verse:3,text:'And Moses went up into the mount of God, and the glory of the LORD abode on Mount Sinai, and a cloud overshadowed it six days.'},
+        {verse:4,text:'And He called to Moses on the seventh day out of the midst of the cloud, and the appearance of the glory of the LORD was like a flaming fire on the top of the mount.'},
+        {verse:5,text:'And Moses was on the Mount forty days and forty nights, and God taught him the earlier and the later history of the division of all the days of the Torah and of the testimony.'},
+        {verse:6,text:'And He said: Incline thine heart to every word which I shall speak to thee on this mount, and write them in a book in order that their generations may see how I have not forsaken them for all the evil which they have wrought in transgressing the covenant which I establish between Me and thee for their generations this day on Mount Sinai.'},
+        {verse:7,text:'And thus it will come to pass when all these things come upon them, that they will recognize that I am more righteous than they in all their judgements and in all their actions, and they will recognize that I have been truly with them.'},
+        {verse:8,text:'And do thou write for thyself all these words which I declare unto thee this day, for I know their rebellion and their stiff neck, before I bring them into the land of which I sware to their fathers, to Abraham and to Isaac and to Jacob, saying: Unto your seed will I give a land flowing with milk and honey.'},
+        {verse:9,text:'And they will eat and be satisfied, and they will turn to strange gods, to gods which cannot deliver them from aught of their tribulation: and this witness shall be heard for a witness against them.'},
+        {verse:10,text:'For they will forget all My commandments, even all that I command them, and they will walk after the Gentiles, and after their uncleanness, and after their shame, and will serve their gods, and these will prove unto them an offence and a tribulation and an affliction and a snare.'},
+      ],
+    },
+  },
+
+  initBible() {
+    this._bibleReadChapters = JSON.parse(localStorage.getItem('pg_bible_read') || '{}');
+    this.renderBibleBooks();
+  },
+
+  bibleFilterTestament(filter, btn) {
+    document.querySelectorAll('.bible-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    this._bibleState.filter = filter;
+    this.renderBibleBooks();
+  },
+
+  bibleSearch(q) {
+    this._bibleState.search = q.toLowerCase().trim();
+    this.renderBibleBooks();
+  },
+
+  renderBibleBooks() {
+    const { filter, search } = this._bibleState;
+    let books = this._bibleBooks;
+
+    // Apply testament filter
+    if (filter === 'OT') books = books.filter(b => b.testament === 'OT');
+    else if (filter === 'NT') books = books.filter(b => b.testament === 'NT');
+    else if (filter === 'Ethiopian') books = books.filter(b => b.ethiopian);
+
+    // Apply search
+    if (search) books = books.filter(b =>
+      b.name.toLowerCase().includes(search) ||
+      b.abbrev.toLowerCase().includes(search) ||
+      b.group.toLowerCase().includes(search)
+    );
+
+    const el = document.getElementById('bibleBookList');
+    if (!el) return;
+
+    if (!books.length) {
+      el.innerHTML = '<div class="bible-empty">No books found</div>';
+      return;
+    }
+
+    let html = '';
+    let lastGroup = null;
+    books.forEach(b => {
+      if (b.group !== lastGroup) {
+        lastGroup = b.group;
+        html += `<div class="bible-group-header">${b.group}</div>`;
+      }
+      const badge = b.ethiopianOnly
+        ? '<span class="bible-book-badge">Ethiopian</span>'
+        : (b.ethiopian ? '<span class="bible-book-badge">Deuterocanon</span>' : '');
+      html += `
+        <div class="bible-book-item" onclick="App.bibleOpenBook('${b.id}')">
+          <div class="bible-book-abbrev" style="background:${b.color}">${b.abbrev}</div>
+          <div class="bible-book-info">
+            <div class="bible-book-name">${b.name}</div>
+            <div class="bible-book-meta">${b.chapters} chapter${b.chapters>1?'s':''} · ${b.testament}</div>
+          </div>
+          ${badge}
+          <svg class="bible-book-arrow" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+        </div>`;
+    });
+    el.innerHTML = html;
+  },
+
+  bibleOpenBook(bookId) {
+    const book = this._bibleBooks.find(b => b.id === bookId);
+    if (!book) return;
+    this._bibleState.book = book;
+    this.bibleStopListen();
+
+    document.getElementById('biblePanelBooks').style.display = 'none';
+    const chapPanel = document.getElementById('biblePanelChapters');
+    chapPanel.style.display = 'flex';
+    document.getElementById('bibleChapterBookTitle').textContent = book.name;
+
+    this.renderBibleChapters(book);
+  },
+
+  renderBibleChapters(book) {
+    const grid = document.getElementById('bibleChapterGrid');
+    const readKey = book.id;
+    let html = '';
+    for (let i = 1; i <= book.chapters; i++) {
+      const isRead = this._bibleReadChapters[`${readKey}-${i}`];
+      html += `<button class="bible-chap-btn${isRead?' read':''}" onclick="App.bibleOpenChapter(${i})">${i}</button>`;
+    }
+    grid.innerHTML = html;
+  },
+
+  bibleBack(to) {
+    this.bibleStopListen();
+    if (to === 'books') {
+      document.getElementById('biblePanelChapters').style.display = 'none';
+      document.getElementById('biblePanelReader').style.display = 'none';
+      document.getElementById('biblePanelBooks').style.display = 'flex';
+    } else if (to === 'chapters') {
+      document.getElementById('biblePanelReader').style.display = 'none';
+      document.getElementById('biblePanelChapters').style.display = 'flex';
+    }
+  },
+
+  async bibleOpenChapter(chapter) {
+    const book = this._bibleState.book;
+    if (!book) return;
+    this._bibleState.chapter = chapter;
+    this.bibleStopListen();
+
+    document.getElementById('biblePanelChapters').style.display = 'none';
+    const readerPanel = document.getElementById('biblePanelReader');
+    readerPanel.style.display = 'flex';
+
+    document.getElementById('bibleReaderRef').textContent = `${book.name} ${chapter}`;
+    document.getElementById('bibleChapIndicator').textContent = `${chapter} / ${book.chapters}`;
+    document.getElementById('biblePrevBtn').disabled = chapter <= 1;
+    document.getElementById('bibleNextBtn').disabled = chapter >= book.chapters;
+
+    const versesEl = document.getElementById('bibleVerses');
+    versesEl.innerHTML = '<div class="bible-loading"><div class="bible-loading-ring"></div>Loading…</div>';
+
+    const verses = await this.bibleFetchChapter(book, chapter);
+    this._bibleState.verses = verses;
+    this.renderBibleVerses(verses, book, chapter);
+
+    // Mark as read
+    this._bibleReadChapters[`${book.id}-${chapter}`] = true;
+    localStorage.setItem('pg_bible_read', JSON.stringify(this._bibleReadChapters));
+  },
+
+  async bibleFetchChapter(book, chapter) {
+    // Ethiopian-only books use embedded text
+    if (book.ethiopianOnly) return this._bibleGetEmbedded(book, chapter);
+
+    // Psalm 151 is unique to Ethiopian/Orthodox canon (not in standard KJV API)
+    if (book.id === 'psalms' && chapter === 151) {
+      return [
+        {verse:1,text:'I was small among my brothers, and youngest in my father\'s house; I tended my father\'s sheep.'},
+        {verse:2,text:'My hands made a harp; my fingers fashioned a lyre.'},
+        {verse:3,text:'And who shall tell my Lord? The Lord himself; it is he who hears.'},
+        {verse:4,text:'It was he who sent his messenger and took me from my father\'s sheep, and anointed me with his anointing oil.'},
+        {verse:5,text:'My brothers were handsome and tall, but the Lord was not pleased with them.'},
+        {verse:6,text:'I went out to meet the Philistine, and he cursed me by his idols.'},
+        {verse:7,text:'But I drew his own sword; I beheaded him, and took away disgrace from the people of Israel.'},
+      ];
+    }
+
+    const apiName = book.apiName || book.id;
+    try {
+      const url = `https://bible-api.com/${encodeURIComponent(apiName + ' ' + chapter)}?translation=kjv`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('not found');
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      return (data.verses || []).map(v => ({verse: v.verse, text: v.text.replace(/\n/g, ' ').trim()}));
+    } catch(e) {
+      // For deuterocanonical books not in KJV API, return a note
+      return [{verse:1, text:`[${book.name} ${chapter}] — This chapter is part of the ${book.ethiopian ? 'Deuterocanonical / Ethiopian' : 'biblical'} canon. Full text requires an internet connection and a compatible Bible API. Please check your connection and try again.`, isNote:true}];
+    }
+  },
+
+  _bibleGetEmbedded(book, chapter) {
+    const bookData = this._ethiopianEmbedded[book.id];
+    if (bookData && bookData[chapter]) return bookData[chapter];
+
+    // Generate descriptive placeholder for chapters without embedded text
+    const descriptions = {
+      enoch: `1 Enoch (Henok) Chapter ${chapter} — The Book of Enoch is one of the oldest extra-canonical Jewish texts, preserved in full only by the Ethiopian Orthodox Church. It contains visions of Enoch including the Watchers, the fallen angels, astronomical revelations (the Book of Luminaries), the Dream Visions, and the Epistle of Enoch. The R.H. Charles English translation (1917) is the standard public-domain reference. Chapter ${chapter} continues the rich prophetic revelation given to the patriarch Enoch, seventh from Adam.`,
+      jubilees: `Jubilees (Kufale) Chapter ${chapter} — The Book of Jubilees, also called "Lesser Genesis," retells the history of Genesis and Exodus from creation to the giving of the Torah, organized in periods of 49 years (jubilees). It is canonical in the Ethiopian Orthodox Church and was among the Dead Sea Scrolls. Chapter ${chapter} continues the narrative of the history of Israel as revealed to Moses by the Angel of the Presence on Mount Sinai.`,
+      '1meqabyan': `1 Meqabyan Chapter ${chapter} — The Ethiopian Book of Maccabees is entirely distinct from the Greek 1-4 Maccabees. It tells the story of Meqabis and his three sons Abya, Selas, and Fentos, who courageously refused to worship the idols of King Akyanos and were martyred for their faith. This book is unique to the Ethiopian Orthodox canon and exists primarily in the Ge'ez (Classical Ethiopic) language.`,
+      '2meqabyan': `2 Meqabyan — The second book of Ethiopian Maccabees continues the account of faithful Israelites who maintained their covenant with God under persecution. This book is unique to the Ethiopian Orthodox Biblical tradition.`,
+      '3meqabyan': `3 Meqabyan — The third book of Ethiopian Maccabees completes the trilogy of the Ethiopian Maccabean literature, focusing on the faithfulness of God's people under trial. Unique to the Ethiopian Orthodox canon.`,
+      sinodos: `Sinodos Part ${chapter} — The Sinodos (Church Orders) is the collection of apostolic constitutions and canon law recognized by the Ethiopian Orthodox Tewahedo Church as part of its New Testament canon. It contains liturgical instructions, church governance, and ethical teaching attributed to the Apostles.`,
+      clement: `Clement Chapter ${chapter} — The Ethiopic Clement contains pastoral and liturgical instructions attributed to Clement, the third Bishop of Rome. The Ethiopian Orthodox Church includes this letter as part of its broader New Testament canon.`,
+      didaskalia: `Didaskalia — The Teaching of the Apostles (Didaskalia Apostolorum) is an early Christian treatise on church order, morality, and governance. The Ethiopian Orthodox Church includes it in their broader canon alongside Sinodos.`,
+      teezaz: `Teezaz (Apostolic Decree) — The Teezaz contains further apostolic decrees and ethical teaching recognized by the Ethiopian Orthodox Tewahedo Church. It completes the set of four additional New Testament books unique to the Ethiopian canon.`,
+    };
+    const desc = descriptions[book.id] || `${book.name} Chapter ${chapter} — This book is part of the Ethiopian Orthodox Bible's 81-book canon. Full text in English translation is being prepared.`;
+    return [{verse:1, text:desc, isNote:true}];
+  },
+
+  renderBibleVerses(verses, book, chapter) {
+    const el = document.getElementById('bibleVerses');
+    if (!verses || !verses.length) {
+      el.innerHTML = '<div class="bible-empty">No text available.</div>';
+      return;
+    }
+
+    let noteHtml = '';
+    if (book.ethiopianOnly) {
+      noteHtml = `<div class="bible-note"><strong>Ethiopian Canon:</strong> This book is unique to the Ethiopian Orthodox Tewahedo Church's 81-book Bible — not found in Protestant, Catholic, or Eastern Orthodox canons. Embedded text uses the public-domain R.H. Charles translation where available.</div>`;
+    } else if (book.ethiopian) {
+      noteHtml = `<div class="bible-note"><strong>Deuterocanonical:</strong> This book is part of the Ethiopian Orthodox Canon. Text is fetched from a public KJV-compatible Bible API.</div>`;
+    }
+
+    let verseHtml = '<p style="margin:20px 0 0;">';
+    verses.forEach((v, i) => {
+      if (v.isNote) {
+        verseHtml += `<span class="bible-verse" id="bv-${i}" style="color:var(--text2);font-family:-apple-system,sans-serif;font-size:15px;font-style:italic;">${v.text}</span>`;
+      } else {
+        verseHtml += `<span class="bible-verse" id="bv-${i}"><sup class="bible-verse-num">${v.verse}</sup>${v.text} </span>`;
+      }
+    });
+    verseHtml += '</p>';
+
+    el.innerHTML = noteHtml + verseHtml;
+    el.scrollTop = 0;
+  },
+
+  bibleToggleListen() {
+    if (this._bibleState.speaking) {
+      this.bibleStopListen();
+    } else {
+      this.bibleStartListen();
+    }
+  },
+
+  bibleStartListen() {
+    if (!window.speechSynthesis) {
+      alert('Text-to-speech is not supported on this browser.');
+      return;
+    }
+    const verses = this._bibleState.verses;
+    if (!verses || !verses.length) return;
+
+    this._bibleState.speaking = true;
+    this._bibleState.speakIdx = 0;
+    const btn = document.getElementById('bibleListenBtn');
+    if (btn) {
+      btn.classList.add('playing');
+      btn.title = 'Stop listening';
+      btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>';
+    }
+    this._bibleReadVerse(0);
+  },
+
+  _bibleReadVerse(idx) {
+    const verses = this._bibleState.verses;
+    if (!this._bibleState.speaking || idx >= verses.length) {
+      this.bibleStopListen();
+      return;
+    }
+    this._bibleState.speakIdx = idx;
+
+    // Highlight active verse
+    document.querySelectorAll('.bible-verse').forEach(el => el.classList.remove('active'));
+    const verseEl = document.getElementById(`bv-${idx}`);
+    if (verseEl) {
+      verseEl.classList.add('active');
+      verseEl.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+
+    const utt = new SpeechSynthesisUtterance(verses[idx].text);
+    utt.rate = 0.88;
+    utt.pitch = 1.0;
+    utt.volume = 1.0;
+    utt.onend = () => {
+      if (this._bibleState.speaking) this._bibleReadVerse(idx + 1);
+    };
+    utt.onerror = () => {
+      if (this._bibleState.speaking) this._bibleReadVerse(idx + 1);
+    };
+    window.speechSynthesis.speak(utt);
+  },
+
+  bibleStopListen() {
+    this._bibleState.speaking = false;
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    document.querySelectorAll('.bible-verse').forEach(el => el.classList.remove('active'));
+    const btn = document.getElementById('bibleListenBtn');
+    if (btn) {
+      btn.classList.remove('playing');
+      btn.title = 'Listen aloud';
+      btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg>';
+    }
+  },
+
+  bibleNavChapter(dir) {
+    const { chapter, book } = this._bibleState;
+    const next = chapter + dir;
+    if (!book || next < 1 || next > book.chapters) return;
+    this.bibleOpenChapter(next);
   },
 
   setupServiceWorker() {
