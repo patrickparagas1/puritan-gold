@@ -5084,11 +5084,7 @@ html, body {
   border-color: var(--gold);
   transform: scale(0.93);
 }
-.bible-chap-btn.read {
-  background: rgba(29,185,84,0.12);
-  border-color: var(--green);
-  color: var(--green);
-}
+/* Read chapters stay neutral — no green */
 
 /* ── Reader ── */
 .bible-reader-header {
