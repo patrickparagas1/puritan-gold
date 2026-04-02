@@ -4588,44 +4588,42 @@ const App = {
     this._bibleUpdateMiniPlayer(true);
 
     // Try pre-generated MP3 first (full chapter, natural RyanNeural voice)
+    // IMPORTANT: Must create Audio and call play() synchronously within user gesture
+    // to satisfy iOS Safari autoplay policy
     if (mode === 'all' && fromIdx === 0) {
       const { book, chapter } = this._bibleState;
       if (book && !book.ethiopianOnly) {
         const bookId = (book.apiName || book.id).replace(/\s/g, '').toLowerCase();
         const mp3Url = `../audio/bible/${bookId}_${chapter}.mp3`;
-        this._bibleTryMP3(mp3Url);
+
+        // Create audio element immediately (within user gesture)
+        const audio = new Audio(mp3Url);
+        audio.playbackRate = this._bibleSpeechRate;
+        audio.preservesPitch = true;
+        this._bibleAudioEl = audio;
+
+        audio.onended = () => {
+          this._bibleAudioEl = null;
+          this.bibleStopListen();
+        };
+
+        // Start playing immediately — iOS requires this in the gesture handler
+        const playPromise = audio.play();
+        if (playPromise) {
+          playPromise.then(() => {
+            this._bibleShowToast('Studio voice');
+          }).catch(() => {
+            // MP3 not found or play failed — fall back to TTS
+            this._bibleAudioEl = null;
+            audio.src = '';
+            if (this._bibleState.speaking) this._bibleReadNext();
+          });
+        }
         return;
       }
     }
     // Fallback to TTS
     this._bibleReadNext();
-  },
-
-  async _bibleTryMP3(url) {
-    try {
-      // Check if MP3 exists via HEAD request first
-      const check = await fetch(url, {method:'HEAD'});
-      if (!check.ok) throw new Error('not found');
-
-      const audio = new Audio(url);
-      audio.playbackRate = this._bibleSpeechRate;
-      audio.preservesPitch = true;
-      this._bibleAudioEl = audio;
-
-      audio.onended = () => {
-        this._bibleAudioEl = null;
-        this.bibleStopListen();
-      };
-
-      await audio.play();
-      this._bibleShowToast('Studio voice');
-    } catch(e) {
-      // No MP3 available — fall back to speech synthesis
-      this._bibleAudioEl = null;
-      if (this._bibleState.speaking) {
-        this._bibleReadNext();
-      }
-    }
   },
 
   _bibleReadNext() {
