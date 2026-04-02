@@ -34,6 +34,7 @@
   --text3: #727272;
   --white: #FFFFFF;
   --border: #282828;
+  --text-reading: #e8e6e3;
 
   /* ── Shadows (subtle on dark) ── */
   --shadow: 0 2px 8px rgba(0,0,0,0.3);
@@ -224,9 +225,9 @@ html, body {
   padding: 7px 16px;
   border-radius: 100px;
   border: none;
-  background: #232323;
-  color: var(--white);
-  font-size: 12px;
+  background: rgba(255,255,255,0.07);
+  color: var(--text2);
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   transition: all 200ms ease;
@@ -335,10 +336,10 @@ html, body {
 }
 
 .week-header {
-  padding: 16px 8px 8px;
-  font-size: 11px;
+  padding: 20px 8px 8px;
+  font-size: 12px;
   font-weight: 700;
-  color: var(--blue);
+  color: var(--text2);
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -381,21 +382,28 @@ html, body {
 /* Study cards - Spotify-inspired compact horizontal layout */
 .study-card {
   background: var(--card);
-  border-radius: 8px;
+  border-radius: 12px;
   border: none;
-  padding: 12px;
+  padding: 14px 16px;
   margin-bottom: 8px;
   position: relative;
-  transition: background 0.2s var(--ease-out);
+  transition: background 0.2s var(--ease-out), transform 0.15s;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   overflow: hidden;
+  animation: cardFadeIn 0.3s ease both;
 }
 
-.study-card:hover,
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.study-card:hover { background: var(--card-hover); }
 .study-card:active {
   background: var(--card-hover);
+  transform: scale(0.985);
 }
 
 .study-card.playing {
@@ -410,10 +418,11 @@ html, body {
 .study-card::before {
   content: '';
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 6px;
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
   background: linear-gradient(135deg, var(--blue), #2a6dcc);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
 .study-card.playing::before {
@@ -441,8 +450,8 @@ html, body {
 }
 
 .study-title {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
   color: var(--text);
   line-height: 1.3;
   margin-bottom: 2px;
@@ -453,7 +462,7 @@ html, body {
 
 .study-subtitle {
   font-size: 12px;
-  color: var(--text2);
+  color: var(--text3);
   font-weight: 400;
   margin-bottom: 4px;
   line-height: 1.3;
@@ -486,9 +495,9 @@ html, body {
   flex: 1;
   padding: 12px;
   border: none;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
-  color: white;
+  border-radius: 100px;
+  background: var(--green);
+  color: #000;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
@@ -497,7 +506,6 @@ html, body {
   justify-content: center;
   gap: 6px;
   transition: all 0.2s var(--ease-out);
-  box-shadow: 0 2px 10px rgba(53,116,204,0.2);
 }
 
 .study-play-btn svg.btn-icon {
@@ -559,7 +567,7 @@ html, body {
 
 .ep-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--gold-bright), var(--gold-light));
+  background: var(--green);
   border-radius: 0 2px 2px 0;
   transition: width 0.3s ease;
 }
@@ -755,15 +763,15 @@ html, body {
   bottom: calc(68px + var(--sab));
   left: 0;
   right: 0;
-  background: rgba(22,45,72,0.92);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: rgba(18,18,18,0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   z-index: 50;
   transform: translateY(100%);
   transition: transform 0.35s var(--spring);
-  border-radius: 22px 22px 0 0;
-  box-shadow: 0 -2px 12px rgba(0,0,0,0.12), 0 -8px 32px rgba(0,0,0,0.08);
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-radius: 0;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.06);
+  border-top: none;
 }
 
 .mini-player.visible {
@@ -1015,15 +1023,15 @@ html, body {
 }
 
 .np-art {
-  width: 260px;
-  height: 260px;
-  border-radius: 12px;
+  width: min(280px, 70vw);
+  aspect-ratio: 1;
+  border-radius: 8px;
   background: linear-gradient(135deg, var(--gold-bright) 0%, #b8862e 50%, #8a6520 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 20px 0 28px;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.50), 0 4px 16px rgba(0,0,0,0.30);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.55);
   border: none;
 }
 
@@ -1035,12 +1043,13 @@ html, body {
 }
 
 .np-title {
-  font-size: 21px;
+  font-size: 22px;
   font-weight: 800;
   color: var(--white);
   text-align: center;
   line-height: 1.3;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  max-width: 85%;
 }
 
 .np-series {
@@ -1810,10 +1819,10 @@ html, body {
   left: 0;
   right: 0;
   display: flex;
-  background: #121212;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-top: 1px solid var(--border);
+  background: rgba(18,18,18,0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255,255,255,0.06);
   padding: 8px 0 4px;
   padding-bottom: max(8px, var(--sab));
   z-index: 50;
@@ -4944,12 +4953,13 @@ html, body {
 }
 
 .bible-group-header {
-  padding: 14px 16px 5px;
-  font-size: 10px;
+  padding: 18px 16px 6px;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text3);
+  color: var(--gold);
+  border-bottom: 1px solid rgba(212,162,60,0.1);
   background: var(--bg);
   position: sticky;
   top: 0;
@@ -4960,7 +4970,7 @@ html, body {
   display: flex;
   align-items: center;
   padding: 11px 16px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
   cursor: pointer;
   gap: 12px;
   transition: background 0.12s;
@@ -4986,7 +4996,7 @@ html, body {
 
 .bible-book-name {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text);
   white-space: nowrap;
   overflow: hidden;
@@ -5065,9 +5075,9 @@ html, body {
 
 .bible-chap-btn {
   aspect-ratio: 1;
-  border-radius: 10px;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
   color: var(--text);
   font-size: 14px;
   font-weight: 600;
@@ -5087,20 +5097,25 @@ html, body {
 /* Read chapters stay neutral — no green */
 
 /* ── Reader ── */
+@keyframes panelSlideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
 .bible-reader-header {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   flex-shrink: 0;
 }
 
 .bible-reader-ref {
   flex: 1;
   text-align: center;
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 800;
   color: var(--text);
   white-space: nowrap;
   overflow: hidden;
@@ -5128,18 +5143,22 @@ html, body {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
-  padding: 20px 20px 12px;
+  padding: 24px 24px 16px;
   -webkit-user-select: text;
   user-select: text;
+  max-width: 680px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .bible-verse {
   display: inline;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 400;
-  color: var(--text);
-  line-height: 1.9;
-  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--text-reading);
+  line-height: 2.0;
+  font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+  letter-spacing: 0.01em;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(212,162,60,0.15);
 }
@@ -5151,8 +5170,9 @@ html, body {
 }
 
 .bible-verse-num {
-  font-size: 10px;
-  font-weight: 800;
+  font-size: 9px;
+  font-weight: 700;
+  opacity: 0.7;
   color: var(--gold);
   vertical-align: super;
   margin-right: 3px;

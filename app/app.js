@@ -4072,6 +4072,7 @@ const App = {
     document.getElementById('biblePanelBooks').style.display = 'none';
     const chapPanel = document.getElementById('biblePanelChapters');
     chapPanel.style.display = 'flex';
+    chapPanel.style.animation = 'panelSlideIn 0.25s ease';
     document.getElementById('bibleChapterBookTitle').textContent = book.name;
 
     this.renderBibleChapters(book);
@@ -4110,6 +4111,7 @@ const App = {
     document.getElementById('biblePanelChapters').style.display = 'none';
     const readerPanel = document.getElementById('biblePanelReader');
     readerPanel.style.display = 'flex';
+    readerPanel.style.animation = 'panelSlideIn 0.25s ease';
 
     document.getElementById('bibleReaderRef').textContent = `${book.name} ${chapter}`;
     document.getElementById('bibleChapIndicator').textContent = `${chapter} / ${book.chapters}`;
