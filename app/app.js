@@ -2529,24 +2529,22 @@ const App = {
     const ep = this.allEpisodes.find(e => e.id === id);
     if (!ep) return;
 
-    const appUrl = 'https://patrickparagas1.github.io/puritan-gold/app/';
+    const shareUrl = `https://patrickparagas1.github.io/puritan-gold/app/share.html?ep=${id}`;
     let shareText = `${ep.title}`;
     if (ep.subtitle) shareText += ` — ${ep.subtitle}`;
-    shareText += `\n\n`;
-    if (ep.description) shareText += ep.description.substring(0, 200) + '\n\n';
-    shareText += `Listen on Puritan Gold: ${appUrl}`;
+    shareText += `\n\nListen on Puritan Gold:`;
 
     if (navigator.share) {
       try {
-        await navigator.share({ title: ep.title, text: shareText, url: appUrl });
+        await navigator.share({ title: ep.title, text: shareText, url: shareUrl });
       } catch (e) {
         // User cancelled or error
       }
     } else {
       // Desktop fallback: copy to clipboard
       try {
-        await navigator.clipboard.writeText(shareText);
-        this.showToast('Copied to clipboard!');
+        await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
+        this.showToast('Link copied!');
       } catch (e) {
         this.showToast('Could not share');
       }
