@@ -165,6 +165,7 @@ const App = {
     this.initProverb();
     this.restoreState();
     this.updateStreak();
+    this._checkShareLink();
     this._updatePatrickIndicator();
     this._updateKeySetupVisibility();
     this.renderTodayBanner();
@@ -2525,11 +2526,31 @@ const App = {
     document.body.style.overflow = '';
   },
 
+  _checkShareLink() {
+    const params = new URLSearchParams(window.location.search);
+    const epId = parseInt(params.get('ep'));
+    if (!epId) return;
+
+    // Auto-skip login wall
+    const wall = document.getElementById('loginWall');
+    if (wall) wall.classList.remove('visible');
+
+    // Play the shared episode after a brief delay
+    setTimeout(() => {
+      const ep = this.allEpisodes.find(e => e.id === epId);
+      if (ep) {
+        this.playEpisode(epId);
+        // Show a toast
+        this._bibleShowToast ? this._bibleShowToast('Playing shared episode') : null;
+      }
+    }, 500);
+  },
+
   async shareEpisode(id) {
     const ep = this.allEpisodes.find(e => e.id === id);
     if (!ep) return;
 
-    const shareUrl = `https://patrickparagas1.github.io/puritan-gold/app/share.html?ep=${id}`;
+    const shareUrl = `https://patrickparagas1.github.io/puritan-gold/app/index.html?ep=${id}`;
     let shareText = `${ep.title}`;
     if (ep.subtitle) shareText += ` — ${ep.subtitle}`;
     shareText += `\n\nListen on Puritan Gold:`;
