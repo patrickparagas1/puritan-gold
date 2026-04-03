@@ -20247,5 +20247,91 @@
       "daily",
       "humility & fear of the lord"
     ]
+  },
+  {
+    "id": 7093,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "study",
+    "date": "2026-04-03",
+    "heartbeat": true,
+    "file": "audio/ep7093.mp3",
+    "audio": "audio/ep7093.mp3",
+    "duration": "3:23",
+    "durationSecs": 203,
+    "fileSize": 1628205,
+    "tags": [
+      "Study",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 7094,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "family",
+    "date": "2026-04-03",
+    "heartbeat": true,
+    "file": "audio/family_7094.mp3",
+    "audio": "audio/family_7094.mp3",
+    "duration": "3:42",
+    "durationSecs": 222,
+    "fileSize": 1777773,
+    "tags": [
+      "Family",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 7095,
+    "title": "Daily Meditation from John Flavel",
+    "section": "school",
+    "date": "2026-04-03",
+    "heartbeat": true,
+    "file": "audio/school_7095.mp3",
+    "audio": "audio/school_7095.mp3",
+    "duration": "3:44",
+    "durationSecs": 225,
+    "fileSize": 1799277,
+    "tags": [
+      "School",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7096,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "together",
+    "date": "2026-04-03",
+    "heartbeat": true,
+    "file": "audio/together_7096.mp3",
+    "audio": "audio/together_7096.mp3",
+    "duration": "3:26",
+    "durationSecs": 206,
+    "fileSize": 1650669,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7097,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-04-03",
+    "heartbeat": true,
+    "file": "audio/ep7097.mp3",
+    "audio": "audio/ep7097.mp3",
+    "duration": "3:32",
+    "durationSecs": 212,
+    "fileSize": 1697901,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
