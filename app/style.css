@@ -5143,7 +5143,7 @@ html, body {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
-  padding: 24px 24px 16px;
+  padding: 16px 18px 12px;
   -webkit-user-select: text;
   user-select: text;
   max-width: 680px;
@@ -5153,10 +5153,10 @@ html, body {
 
 .bible-verse {
   display: inline;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: var(--text-reading);
-  line-height: 2.0;
+  line-height: 1.75;
   font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
   letter-spacing: 0.01em;
   cursor: pointer;
@@ -5732,6 +5732,103 @@ html, body {
   border-radius: 10px;
   padding: 2px 8px;
 }
+
+/* ═══════════════════════════════════════
+   PODCAST HUB — Spotify-like category tiles
+   ═══════════════════════════════════════ */
+
+#podcastHub {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 16px 120px;
+}
+
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding-top: 12px;
+}
+
+.hub-tile {
+  border-radius: 12px;
+  padding: 18px 16px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+.hub-tile:active { transform: scale(0.97); }
+
+.hub-tile-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.hub-tile-count {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  margin-top: 8px;
+}
+
+.hub-tile-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  opacity: 0.15;
+  font-size: 40px;
+}
+
+/* Proverb theme banner */
+.prov-theme-banner {
+  padding: 14px 18px 10px;
+  flex-shrink: 0;
+}
+.prov-theme-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 3px;
+}
+.prov-theme-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+}
+.prov-theme-desc {
+  font-size: 12px;
+  color: var(--text3);
+  font-style: italic;
+}
+
+/* Subsection back button (shown in sections accessed from hub) */
+.hub-back-btn {
+  display: none;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 16px 6px;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+.hub-back-btn.visible { display: flex; }
+.hub-back-btn svg { flex-shrink: 0; }
 
 /* ═══════════════════════════════════════
    NAV "MORE" DROPDOWN

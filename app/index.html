@@ -63,8 +63,13 @@
 
     <main class="content">
 
+      <!-- ========== PODCAST HUB ========== -->
+      <section class="section-view active" id="podcastHub">
+        <div class="hub-grid" id="hubGrid"></div>
+      </section>
+
       <!-- ========== STUDY SECTION ========== -->
-      <section class="section-view active section-flex" id="studyView">
+      <section class="section-view section-flex" id="studyView">
         <nav class="tabs">
           <button class="study-tab tab active" data-view="episodes" onclick="App.switchSectionTab('study','episodes')">Episodes</button>
           <button class="study-tab tab" data-view="calendar" onclick="App.switchSectionTab('study','calendar')">Calendar</button>
@@ -226,26 +231,20 @@
       </section>
 
       <!-- ========== DAILY PROVERB SECTION ========== -->
-      <section class="section-view" id="proverbView">
-        <div class="prov-container">
-          <div class="prov-theme-bar" id="provThemeBar"></div>
-          <div class="prov-day-strip" id="provDayStrip"></div>
-          <div class="prov-verses" id="provVerses"></div>
-          <div class="prov-controls">
-            <button class="prov-ctrl-btn" id="provListenBtn" onclick="App.proverbListen()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg>
-              Listen
-            </button>
-            <button class="prov-ctrl-btn" onclick="App.proverbPrevDay()">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-              Prev
-            </button>
-            <span class="prov-day-label" id="provDayLabel"></span>
-            <button class="prov-ctrl-btn" onclick="App.proverbNextDay()">
-              Next
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
-            </button>
+      <section class="section-view section-flex" id="proverbView">
+        <div class="prov-theme-banner" id="provThemeBanner"></div>
+        <nav class="tabs">
+          <button class="study-tab tab active" data-view="episodes" onclick="App.switchSectionTab('proverb','episodes')">Episodes</button>
+          <button class="study-tab tab" data-view="calendar" onclick="App.switchSectionTab('proverb','calendar')">Calendar</button>
+        </nav>
+        <div class="view episodes-view active" data-tab-view="episodes" id="proverbList"></div>
+        <div class="view calendar-view" data-tab-view="calendar" id="proverbCal">
+          <div class="cal-container">
+            <div class="cal-month-nav"><span class="cal-month-label" id="proverbCalMonthLabel">April 2026</span></div>
+            <div class="cal-header"><div class="cal-dow">Su</div><div class="cal-dow">Mo</div><div class="cal-dow">Tu</div><div class="cal-dow">We</div><div class="cal-dow">Th</div><div class="cal-dow">Fr</div><div class="cal-dow">Sa</div></div>
+            <div class="cal-grid" id="proverbCalGrid"></div>
           </div>
+          <div class="cal-detail" id="proverbCalDetail"><div class="cal-detail-empty">Tap a day to see the episode</div></div>
         </div>
       </section>
 
@@ -397,48 +396,17 @@
       </div><!-- end mp-content -->
     </div>
 
-    <!-- Bottom Navigation -->
+    <!-- Bottom Navigation — Two Main Tabs -->
     <nav class="bottom-nav" id="bottomNav">
-      <button class="nav-item active" data-section="study">
-        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
-        <span class="nav-label">Study</span>
+      <button class="nav-item active" data-section="podcast">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+        <span class="nav-label">Podcast</span>
       </button>
-      <button class="nav-item" data-section="together">
-        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
-        <span class="nav-label">Together</span>
-      </button>
-      <button class="nav-item" data-section="family">
-        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
-        <span class="nav-label">Family</span>
-      </button>
-      <button class="nav-item" data-section="proverb">
-        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="4"/><path d="M10 10v8l2-2 2 2v-8"/></svg></span>
-        <span class="nav-label">Proverb</span>
-      </button>
-      <button class="nav-item nav-more-btn" onclick="App.toggleNavMore(event)">
-        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="5" cy="12" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="19" cy="12" r="1.5" fill="currentColor"/></svg></span>
-        <span class="nav-label">More</span>
+      <button class="nav-item" data-section="bible">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="10" y1="8" x2="16" y2="8"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>
+        <span class="nav-label">Bible</span>
       </button>
     </nav>
-    <!-- More dropdown menu -->
-    <div class="nav-more-menu" id="navMoreMenu">
-      <button class="nav-more-item" onclick="App.navMoreSelect('school')">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
-        School
-      </button>
-      <button class="nav-more-item" onclick="App.navMoreSelect('personal')">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-        Growth
-      </button>
-      <button class="nav-more-item" onclick="App.navMoreSelect('ask')">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        Ask
-      </button>
-      <button class="nav-more-item" onclick="App.navMoreSelect('bible')">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        Bible
-      </button>
-    </div>
   </div>
 
   <!-- Now Playing Fullscreen -->

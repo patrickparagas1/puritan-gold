@@ -162,7 +162,8 @@ const App = {
     this.setupNowPlaying();
     this.setupServiceWorker();
     this.initBible();
-    this.initProverb();
+    this.renderPodcastHub();
+    this.renderProverb();
     this.restoreState();
     this.updateStreak();
     this._checkShareLink();
@@ -217,6 +218,7 @@ const App = {
     this.togetherEpisodes = this.filterByMonth(all.filter(e => e.section === 'together'));
     // Exclude topic-based episodes from daily list (they show in Topics tab only)
     this.personalEpisodes = this.filterByMonth(all.filter(e => e.section === 'personal' && !e.topic));
+    this.proverbEpisodes = this.filterByMonth(all.filter(e => e.section === 'proverb'));
   },
 
   updateMonthLabel() {
@@ -257,41 +259,101 @@ const App = {
     this.renderSchool();
     this.renderTogether();
     this.renderPersonal();
+    this.renderProverb();
     this.renderTodayBanner();
     // Re-render any active section calendar
-    ['study','family','school','together','personal'].forEach(s => {
+    ['study','family','school','together','personal','proverb'].forEach(s => {
       const cal = document.getElementById(s + 'Cal');
       if (cal && cal.classList.contains('active')) this.renderSectionCalendar(s);
     });
   },
 
-  // ── Bottom Navigation ──
+  // ── Bottom Navigation (2 tabs: Podcast / Bible) ──
+  _podcastSubsection: null, // null = show hub, or 'study','family','together', etc.
+
   setupBottomNav() {
     document.querySelectorAll('.nav-item').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        this.section = btn.dataset.section;
+        const tab = btn.dataset.section; // 'podcast' or 'bible'
 
-        // Toggle section views
         document.querySelectorAll('.section-view').forEach(v => v.classList.remove('active'));
-        const viewId = this.section + 'View';
-        const view = document.getElementById(viewId);
-        if (view) view.classList.add('active');
-
-        // Hide month nav on Ask section and Growth Topics tab
         const monthNav = document.getElementById('monthNav');
-        if (monthNav) {
-          if (this.section === 'ask' || this.section === 'bible' || this.section === 'proverb') {
-            monthNav.style.display = 'none';
-          } else if (this.section === 'personal' && this.growthTab === 'topics') {
-            monthNav.style.display = 'none';
-          } else {
-            monthNav.style.display = '';
-          }
+
+        if (tab === 'podcast') {
+          // Return to podcast hub
+          this._podcastSubsection = null;
+          document.getElementById('podcastHub').classList.add('active');
+          if (monthNav) monthNav.style.display = 'none';
+          this.section = 'podcast';
+          this.renderPodcastHub();
+        } else if (tab === 'bible') {
+          document.getElementById('bibleView').classList.add('active');
+          if (monthNav) monthNav.style.display = 'none';
+          this.section = 'bible';
         }
       });
     });
+  },
+
+  // ── Podcast Hub — Spotify-like category tiles ──
+  _hubTiles: [
+    {id:'study', name:'Study', color:'linear-gradient(135deg,#1a3a5c,#2a6dcc)', icon:'📖', desc:'Daily Bible study'},
+    {id:'together', name:'Together', color:'linear-gradient(135deg,#8e2442,#c0392b)', icon:'❤️', desc:'Couple devotionals'},
+    {id:'family', name:'Family', color:'linear-gradient(135deg,#1a5a3a,#27ae60)', icon:'🏠', desc:'Family devotionals'},
+    {id:'proverb', name:'Proverbs', color:'linear-gradient(135deg,#6a3a1a,#d4a23c)', icon:'💡', desc:'Daily Proverbs'},
+    {id:'personal', name:'Growth', color:'linear-gradient(135deg,#2c1a5e,#8e44ad)', icon:'📈', desc:'Personal growth'},
+    {id:'school', name:'School', color:'linear-gradient(135deg,#1a4a5c,#2980b9)', icon:'🎓', desc:'Theological education'},
+    {id:'ask', name:'Ask Pastor', color:'linear-gradient(135deg,#3a3a3a,#555)', icon:'💬', desc:'AI-powered counsel'},
+  ],
+
+  renderPodcastHub() {
+    const el = document.getElementById('hubGrid');
+    if (!el) return;
+    let html = '';
+    this._hubTiles.forEach(t => {
+      const eps = this.allEpisodes.filter(e => {
+        if (t.id === 'study') return e.section === 'study' || !e.section;
+        return e.section === t.id;
+      });
+      const count = eps.length;
+      html += `
+        <div class="hub-tile" style="background:${t.color}" onclick="App.openPodcastSection('${t.id}')">
+          <div>
+            <div class="hub-tile-name">${t.name}</div>
+            <div class="hub-tile-count">${count ? count + ' episodes' : t.desc}</div>
+          </div>
+          <span class="hub-tile-icon">${t.icon}</span>
+        </div>`;
+    });
+    el.innerHTML = html;
+  },
+
+  openPodcastSection(sectionId) {
+    this._podcastSubsection = sectionId;
+    this.section = sectionId;
+
+    // Hide all section views, show the target
+    document.querySelectorAll('.section-view').forEach(v => v.classList.remove('active'));
+    const viewId = sectionId + 'View';
+    const view = document.getElementById(viewId);
+    if (view) view.classList.add('active');
+
+    // Show month nav for podcast sections (hide for ask)
+    const monthNav = document.getElementById('monthNav');
+    if (monthNav) {
+      monthNav.style.display = (sectionId === 'ask' || sectionId === 'proverb') ? 'none' : '';
+    }
+  },
+
+  backToHub() {
+    this._podcastSubsection = null;
+    this.section = 'podcast';
+    document.querySelectorAll('.section-view').forEach(v => v.classList.remove('active'));
+    document.getElementById('podcastHub').classList.add('active');
+    const monthNav = document.getElementById('monthNav');
+    if (monthNav) monthNav.style.display = 'none';
   },
 
   // ── Tabs (Study uses standard switchSectionTab) ──
@@ -662,6 +724,47 @@ const App = {
   },
 
   // ── Render Personal Growth ──
+  renderProverb() {
+    const container = document.getElementById('proverbList');
+    if (!container) return;
+
+    // Render theme banner
+    const banner = document.getElementById('provThemeBanner');
+    if (banner) {
+      const today = new Date();
+      const themes = this._proverbThemes;
+      const theme = themes[today.getMonth()];
+      const monthName = today.toLocaleString('en-US', {month:'long', year:'numeric'});
+      banner.innerHTML = `
+        <div class="prov-theme-label">${monthName} · Daily Proverb</div>
+        <div class="prov-theme-name">${theme.name}</div>
+        <div class="prov-theme-desc">${theme.desc}</div>`;
+    }
+
+    if (!this.proverbEpisodes || !this.proverbEpisodes.length) {
+      container.innerHTML = '<div class="empty-state">No proverb episodes for this month yet.<br>Generating soon!</div>';
+      return;
+    }
+
+    const { recent, past } = this._splitRecentPast(this.proverbEpisodes);
+    let html = '<div class="episode-list" style="padding:8px 16px 120px;">';
+    recent.forEach((ep, idx) => {
+      html += this.renderStudyCard(ep, idx);
+    });
+    if (past.length) {
+      const expanded = this._pastExpanded['proverb'];
+      html += `<button class="past-toggle" onclick="App.togglePastEpisodes('proverb')">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="transform:rotate(${expanded?180:0}deg);transition:transform 0.2s"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+        Past Episodes (${past.length})
+      </button>`;
+      html += `<div class="past-episodes${expanded?' expanded':''}">`;
+      past.forEach((ep, idx) => { html += this.renderStudyCard(ep, recent.length + idx); });
+      html += '</div>';
+    }
+    html += '</div>';
+    container.innerHTML = html;
+  },
+
   renderPersonal() {
     const container = document.getElementById('personalList');
     if (!container) return;
