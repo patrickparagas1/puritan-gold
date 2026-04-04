@@ -20333,5 +20333,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 7098,
+    "title": "Daily Meditation from John Flavel",
+    "section": "study",
+    "date": "2026-04-04",
+    "heartbeat": true,
+    "file": "audio/ep7098.mp3",
+    "audio": "audio/ep7098.mp3",
+    "duration": "3:34",
+    "durationSecs": 215,
+    "fileSize": 1716333,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7099,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "family",
+    "date": "2026-04-04",
+    "heartbeat": true,
+    "file": "audio/family_7099.mp3",
+    "audio": "audio/family_7099.mp3",
+    "duration": "3:26",
+    "durationSecs": 207,
+    "fileSize": 1655085,
+    "tags": [
+      "Family",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 7100,
+    "title": "Daily Meditation from John Flavel",
+    "section": "school",
+    "date": "2026-04-04",
+    "heartbeat": true,
+    "file": "audio/school_7100.mp3",
+    "audio": "audio/school_7100.mp3",
+    "duration": "3:32",
+    "durationSecs": 213,
+    "fileSize": 1703853,
+    "tags": [
+      "School",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7101,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "together",
+    "date": "2026-04-04",
+    "heartbeat": true,
+    "file": "audio/together_7101.mp3",
+    "audio": "audio/together_7101.mp3",
+    "duration": "3:19",
+    "durationSecs": 200,
+    "fileSize": 1598829,
+    "tags": [
+      "Together",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 7102,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "personal",
+    "date": "2026-04-04",
+    "heartbeat": true,
+    "file": "audio/ep7102.mp3",
+    "audio": "audio/ep7102.mp3",
+    "duration": "3:16",
+    "durationSecs": 196,
+    "fileSize": 1569453,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Richard Baxter"
+    ],
+    "topic": null
   }
 ]
