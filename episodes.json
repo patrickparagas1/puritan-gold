@@ -20505,5 +20505,91 @@
       "John Owen"
     ],
     "topic": null
+  },
+  {
+    "id": 7108,
+    "title": "Daily Meditation from John Flavel",
+    "section": "study",
+    "date": "2026-04-06",
+    "heartbeat": true,
+    "file": "audio/ep7108.mp3",
+    "audio": "audio/ep7108.mp3",
+    "duration": "3:34",
+    "durationSecs": 214,
+    "fileSize": 1713069,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7109,
+    "title": "Daily Meditation from John Flavel",
+    "section": "family",
+    "date": "2026-04-06",
+    "heartbeat": true,
+    "file": "audio/family_7109.mp3",
+    "audio": "audio/family_7109.mp3",
+    "duration": "3:31",
+    "durationSecs": 212,
+    "fileSize": 1692525,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7110,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "school",
+    "date": "2026-04-06",
+    "heartbeat": true,
+    "file": "audio/school_7110.mp3",
+    "audio": "audio/school_7110.mp3",
+    "duration": "3:14",
+    "durationSecs": 195,
+    "fileSize": 1556781,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7111,
+    "title": "Daily Meditation from John Owen",
+    "section": "together",
+    "date": "2026-04-06",
+    "heartbeat": true,
+    "file": "audio/together_7111.mp3",
+    "audio": "audio/together_7111.mp3",
+    "duration": "3:46",
+    "durationSecs": 227,
+    "fileSize": 1813293,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7112,
+    "title": "Daily Meditation from John Flavel",
+    "section": "personal",
+    "date": "2026-04-06",
+    "heartbeat": true,
+    "file": "audio/ep7112.mp3",
+    "audio": "audio/ep7112.mp3",
+    "duration": "3:38",
+    "durationSecs": 218,
+    "fileSize": 1744749,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Flavel"
+    ],
+    "topic": null
   }
 ]
