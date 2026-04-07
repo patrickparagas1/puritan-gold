@@ -20591,5 +20591,91 @@
       "John Flavel"
     ],
     "topic": null
+  },
+  {
+    "id": 7113,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "study",
+    "date": "2026-04-07",
+    "heartbeat": true,
+    "file": "audio/ep7113.mp3",
+    "audio": "audio/ep7113.mp3",
+    "duration": "2:55",
+    "durationSecs": 176,
+    "fileSize": 1406253,
+    "tags": [
+      "Study",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 7114,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "family",
+    "date": "2026-04-07",
+    "heartbeat": true,
+    "file": "audio/family_7114.mp3",
+    "audio": "audio/family_7114.mp3",
+    "duration": "2:55",
+    "durationSecs": 176,
+    "fileSize": 1405869,
+    "tags": [
+      "Family",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 7115,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-04-07",
+    "heartbeat": true,
+    "file": "audio/school_7115.mp3",
+    "audio": "audio/school_7115.mp3",
+    "duration": "3:29",
+    "durationSecs": 209,
+    "fileSize": 1674861,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7116,
+    "title": "Daily Meditation from John Flavel",
+    "section": "together",
+    "date": "2026-04-07",
+    "heartbeat": true,
+    "file": "audio/together_7116.mp3",
+    "audio": "audio/together_7116.mp3",
+    "duration": "3:43",
+    "durationSecs": 223,
+    "fileSize": 1785261,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7117,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "personal",
+    "date": "2026-04-07",
+    "heartbeat": true,
+    "file": "audio/ep7117.mp3",
+    "audio": "audio/ep7117.mp3",
+    "duration": "3:14",
+    "durationSecs": 195,
+    "fileSize": 1556973,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Jeremiah Burroughs"
+    ],
+    "topic": null
   }
 ]
