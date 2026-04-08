@@ -164,6 +164,9 @@ const App = {
     this.initBible();
     this.renderPodcastHub();
     this.renderProverb();
+    // Hide month nav on hub (default view)
+    const mn = document.getElementById('monthNav');
+    if (mn) mn.style.display = 'none';
     this.restoreState();
     this.updateStreak();
     this._checkShareLink();
@@ -282,7 +285,6 @@ const App = {
         const monthNav = document.getElementById('monthNav');
 
         if (tab === 'podcast') {
-          // Return to podcast hub
           this._podcastSubsection = null;
           document.getElementById('podcastHub').classList.add('active');
           if (monthNav) monthNav.style.display = 'none';
@@ -334,16 +336,29 @@ const App = {
     this._podcastSubsection = sectionId;
     this.section = sectionId;
 
-    // Hide all section views, show the target
     document.querySelectorAll('.section-view').forEach(v => v.classList.remove('active'));
     const viewId = sectionId + 'View';
     const view = document.getElementById(viewId);
     if (view) view.classList.add('active');
 
-    // Show month nav for podcast sections (hide for ask)
+    // Show/hide month nav
     const monthNav = document.getElementById('monthNav');
     if (monthNav) {
       monthNav.style.display = (sectionId === 'ask' || sectionId === 'proverb') ? 'none' : '';
+    }
+
+    // Show back bar at the top of the section
+    const view = document.getElementById(sectionId + 'View');
+    if (view) {
+      // Remove existing back bar if any
+      view.querySelector('.hub-back-bar')?.remove();
+      const tile = this._hubTiles.find(t => t.id === sectionId);
+      const label = tile ? tile.name : sectionId;
+      const bar = document.createElement('div');
+      bar.className = 'hub-back-bar';
+      bar.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>${label}`;
+      bar.onclick = () => App.backToHub();
+      view.insertBefore(bar, view.firstChild);
     }
   },
 
@@ -354,6 +369,12 @@ const App = {
     document.getElementById('podcastHub').classList.add('active');
     const monthNav = document.getElementById('monthNav');
     if (monthNav) monthNav.style.display = 'none';
+    // Remove any back bars from subsections
+    document.querySelectorAll('.hub-back-bar').forEach(b => b.remove());
+    // Re-activate Podcast nav item
+    document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+    const podBtn = document.querySelector('[data-section="podcast"]');
+    if (podBtn) podBtn.classList.add('active');
   },
 
   // ── Tabs (Study uses standard switchSectionTab) ──
@@ -4408,6 +4429,18 @@ const App = {
     // Scroll notes area into view
     const notesArea = document.getElementById('bibleNotesArea');
     if (notesArea) notesArea.scrollIntoView({behavior:'smooth', block:'end'});
+  },
+
+  toggleBibleNotes() {
+    const area = document.getElementById('bibleNotesArea');
+    const chevron = document.getElementById('notesChevron');
+    if (!area) return;
+    area.classList.toggle('expanded');
+    if (chevron) chevron.style.transform = area.classList.contains('expanded') ? 'rotate(180deg)' : '';
+    if (area.classList.contains('expanded')) {
+      const ta = document.getElementById('bibleNotesTA');
+      if (ta) ta.focus();
+    }
   },
 
   bibleSaveNote(val) {

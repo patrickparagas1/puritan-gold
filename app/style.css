@@ -5354,7 +5354,12 @@ html, body {
   display: flex;
   flex-direction: column;
   background: var(--bg);
-  min-height: 44px;
+  min-height: 32px;
+  max-height: 32px;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+.bible-notes-area.expanded {
   max-height: 130px;
 }
 
@@ -5369,6 +5374,8 @@ html, body {
   letter-spacing: 0.09em;
   color: var(--text3);
   flex-shrink: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .bible-notes-ta {
@@ -5812,23 +5819,21 @@ html, body {
   font-style: italic;
 }
 
-/* Subsection back button (shown in sections accessed from hub) */
-.hub-back-btn {
-  display: none;
+/* Back bar (injected at top of subsections when opened from hub) */
+.hub-back-bar {
+  display: flex;
   align-items: center;
-  gap: 5px;
-  background: none;
-  border: none;
+  gap: 6px;
+  padding: 8px 16px 4px;
   color: var(--gold);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  padding: 10px 16px 6px;
   -webkit-tap-highlight-color: transparent;
   flex-shrink: 0;
 }
-.hub-back-btn.visible { display: flex; }
-.hub-back-btn svg { flex-shrink: 0; }
+.hub-back-bar:active { opacity: 0.7; }
+.hub-back-bar svg { flex-shrink: 0; }
 
 /* ═══════════════════════════════════════
    NAV "MORE" DROPDOWN
