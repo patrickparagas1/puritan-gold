@@ -348,7 +348,6 @@ const App = {
     }
 
     // Show back bar at the top of the section
-    const view = document.getElementById(sectionId + 'View');
     if (view) {
       // Remove existing back bar if any
       view.querySelector('.hub-back-bar')?.remove();
