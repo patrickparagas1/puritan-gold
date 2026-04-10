@@ -20849,5 +20849,91 @@
       "Jeremiah Burroughs"
     ],
     "topic": null
+  },
+  {
+    "id": 7128,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "study",
+    "date": "2026-04-10",
+    "heartbeat": true,
+    "file": "audio/ep7128.mp3",
+    "audio": "audio/ep7128.mp3",
+    "duration": "3:33",
+    "durationSecs": 213,
+    "fileSize": 1704621,
+    "tags": [
+      "Study",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7129,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-04-10",
+    "heartbeat": true,
+    "file": "audio/family_7129.mp3",
+    "audio": "audio/family_7129.mp3",
+    "duration": "3:55",
+    "durationSecs": 235,
+    "fileSize": 1884141,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7130,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "school",
+    "date": "2026-04-10",
+    "heartbeat": true,
+    "file": "audio/school_7130.mp3",
+    "audio": "audio/school_7130.mp3",
+    "duration": "3:10",
+    "durationSecs": 190,
+    "fileSize": 1523757,
+    "tags": [
+      "School",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 7131,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "together",
+    "date": "2026-04-10",
+    "heartbeat": true,
+    "file": "audio/together_7131.mp3",
+    "audio": "audio/together_7131.mp3",
+    "duration": "3:20",
+    "durationSecs": 201,
+    "fileSize": 1605933,
+    "tags": [
+      "Together",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7132,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "personal",
+    "date": "2026-04-10",
+    "heartbeat": true,
+    "file": "audio/ep7132.mp3",
+    "audio": "audio/ep7132.mp3",
+    "duration": "3:52",
+    "durationSecs": 233,
+    "fileSize": 1860909,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Bunyan"
+    ],
+    "topic": null
   }
 ]
