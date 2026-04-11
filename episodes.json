@@ -20935,5 +20935,91 @@
       "John Bunyan"
     ],
     "topic": null
+  },
+  {
+    "id": 7133,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-04-11",
+    "heartbeat": true,
+    "file": "audio/ep7133.mp3",
+    "audio": "audio/ep7133.mp3",
+    "duration": "3:24",
+    "durationSecs": 204,
+    "fileSize": 1636077,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7134,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "family",
+    "date": "2026-04-11",
+    "heartbeat": true,
+    "file": "audio/family_7134.mp3",
+    "audio": "audio/family_7134.mp3",
+    "duration": "3:44",
+    "durationSecs": 225,
+    "fileSize": 1799469,
+    "tags": [
+      "Family",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 7135,
+    "title": "Daily Meditation from John Calvin",
+    "section": "school",
+    "date": "2026-04-11",
+    "heartbeat": true,
+    "file": "audio/school_7135.mp3",
+    "audio": "audio/school_7135.mp3",
+    "duration": "3:33",
+    "durationSecs": 213,
+    "fileSize": 1707309,
+    "tags": [
+      "School",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7136,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "together",
+    "date": "2026-04-11",
+    "heartbeat": true,
+    "file": "audio/together_7136.mp3",
+    "audio": "audio/together_7136.mp3",
+    "duration": "4:14",
+    "durationSecs": 255,
+    "fileSize": 2039469,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7137,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "personal",
+    "date": "2026-04-11",
+    "heartbeat": true,
+    "file": "audio/ep7137.mp3",
+    "audio": "audio/ep7137.mp3",
+    "duration": "3:18",
+    "durationSecs": 199,
+    "fileSize": 1589037,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Richard Baxter"
+    ],
+    "topic": null
   }
 ]
