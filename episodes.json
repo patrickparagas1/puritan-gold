@@ -21021,5 +21021,91 @@
       "Richard Baxter"
     ],
     "topic": null
+  },
+  {
+    "id": 7138,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-04-12",
+    "heartbeat": true,
+    "file": "audio/ep7138.mp3",
+    "audio": "audio/ep7138.mp3",
+    "duration": "4:02",
+    "durationSecs": 243,
+    "fileSize": 1941933,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7139,
+    "title": "Daily Meditation from John Flavel",
+    "section": "family",
+    "date": "2026-04-12",
+    "heartbeat": true,
+    "file": "audio/family_7139.mp3",
+    "audio": "audio/family_7139.mp3",
+    "duration": "3:26",
+    "durationSecs": 207,
+    "fileSize": 1655661,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7140,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "school",
+    "date": "2026-04-12",
+    "heartbeat": true,
+    "file": "audio/school_7140.mp3",
+    "audio": "audio/school_7140.mp3",
+    "duration": "3:40",
+    "durationSecs": 221,
+    "fileSize": 1764525,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 7141,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "together",
+    "date": "2026-04-12",
+    "heartbeat": true,
+    "file": "audio/together_7141.mp3",
+    "audio": "audio/together_7141.mp3",
+    "duration": "3:26",
+    "durationSecs": 206,
+    "fileSize": 1649709,
+    "tags": [
+      "Together",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7142,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "personal",
+    "date": "2026-04-12",
+    "heartbeat": true,
+    "file": "audio/ep7142.mp3",
+    "audio": "audio/ep7142.mp3",
+    "duration": "3:21",
+    "durationSecs": 201,
+    "fileSize": 1609773,
+    "tags": [
+      "Growth",
+      "Daily",
+      "C.H. Spurgeon"
+    ],
+    "topic": null
   }
 ]
