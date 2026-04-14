@@ -21193,5 +21193,91 @@
       "Thomas Brooks"
     ],
     "topic": null
+  },
+  {
+    "id": 7148,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "study",
+    "date": "2026-04-14",
+    "heartbeat": true,
+    "file": "audio/ep7148.mp3",
+    "audio": "audio/ep7148.mp3",
+    "duration": "3:56",
+    "durationSecs": 237,
+    "fileSize": 1894893,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7149,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-04-14",
+    "heartbeat": true,
+    "file": "audio/family_7149.mp3",
+    "audio": "audio/family_7149.mp3",
+    "duration": "3:51",
+    "durationSecs": 232,
+    "fileSize": 1852269,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7150,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "school",
+    "date": "2026-04-14",
+    "heartbeat": true,
+    "file": "audio/school_7150.mp3",
+    "audio": "audio/school_7150.mp3",
+    "duration": "3:12",
+    "durationSecs": 193,
+    "fileSize": 1543149,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 7151,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "together",
+    "date": "2026-04-14",
+    "heartbeat": true,
+    "file": "audio/together_7151.mp3",
+    "audio": "audio/together_7151.mp3",
+    "duration": "3:06",
+    "durationSecs": 187,
+    "fileSize": 1495341,
+    "tags": [
+      "Together",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7152,
+    "title": "Daily Meditation from John Owen",
+    "section": "personal",
+    "date": "2026-04-14",
+    "heartbeat": true,
+    "file": "audio/ep7152.mp3",
+    "audio": "audio/ep7152.mp3",
+    "duration": "3:40",
+    "durationSecs": 221,
+    "fileSize": 1766253,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Owen"
+    ],
+    "topic": null
   }
 ]
