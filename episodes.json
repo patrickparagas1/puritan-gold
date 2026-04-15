@@ -20679,691 +20679,592 @@
     "topic": null
   },
   {
-    "id": 7118,
-    "title": "Daily Meditation from Arthur Pink",
+    "id": 8001,
+    "title": "Blessed with All Spiritual Blessings",
+    "subtitle": "Ephesians 1:1-3",
+    "description": "Beloved, the apostle Paul opens this majestic epistle with a cascade of praise that ought to take our breath away. 'Blessed be the God and Father of our Lord Jesus Christ, who hath blessed us with all...",
+    "file": "audio/ep8001.mp3",
+    "duration": "1:00",
+    "durationSecs": 60,
+    "fileSize": 967248,
+    "date": "2026-07-01",
+    "series": "Ephesians",
     "section": "study",
-    "date": "2026-04-08",
-    "heartbeat": true,
-    "file": "audio/ep7118.mp3",
-    "audio": "audio/ep7118.mp3",
-    "duration": "3:40",
-    "durationSecs": 221,
-    "fileSize": 1766637,
     "tags": [
-      "Study",
-      "Daily",
-      "Arthur Pink"
-    ]
-  },
-  {
-    "id": 7119,
-    "title": "Daily Meditation from John Flavel",
-    "section": "family",
-    "date": "2026-04-08",
-    "heartbeat": true,
-    "file": "audio/family_7119.mp3",
-    "audio": "audio/family_7119.mp3",
-    "duration": "3:42",
-    "durationSecs": 223,
-    "fileSize": 1782765,
-    "tags": [
-      "Family",
-      "Daily",
-      "John Flavel"
-    ]
-  },
-  {
-    "id": 7120,
-    "title": "Daily Meditation from John Owen",
-    "section": "school",
-    "date": "2026-04-08",
-    "heartbeat": true,
-    "file": "audio/school_7120.mp3",
-    "audio": "audio/school_7120.mp3",
-    "duration": "3:31",
-    "durationSecs": 212,
-    "fileSize": 1694829,
-    "tags": [
-      "School",
-      "Daily",
-      "John Owen"
-    ]
-  },
-  {
-    "id": 7121,
-    "title": "Daily Meditation from John Flavel",
-    "section": "together",
-    "date": "2026-04-08",
-    "heartbeat": true,
-    "file": "audio/together_7121.mp3",
-    "audio": "audio/together_7121.mp3",
-    "duration": "3:42",
-    "durationSecs": 223,
-    "fileSize": 1784109,
-    "tags": [
-      "Together",
-      "Daily",
-      "John Flavel"
-    ]
-  },
-  {
-    "id": 7122,
-    "title": "Daily Meditation from Arthur Pink",
-    "section": "personal",
-    "date": "2026-04-08",
-    "heartbeat": true,
-    "file": "audio/ep7122.mp3",
-    "audio": "audio/ep7122.mp3",
-    "duration": "3:32",
-    "durationSecs": 212,
-    "fileSize": 1698861,
-    "tags": [
-      "Growth",
-      "Daily",
-      "Arthur Pink"
+      "study",
+      "ephesians",
+      "puritan"
     ],
-    "topic": null
+    "day": 1
   },
   {
-    "id": 7123,
-    "title": "Daily Meditation from Arthur Pink",
+    "id": 8002,
+    "title": "Chosen Before the Foundation of the World",
+    "subtitle": "Ephesians 1:4-6",
+    "description": "Here is the fountain from which every stream of blessing flows: the eternal election of God. 'He hath chosen us in him before the foundation of the world.' Before the stars were flung into their cours...",
+    "file": "audio/ep8002.mp3",
+    "duration": "0:56",
+    "durationSecs": 56,
+    "fileSize": 899568,
+    "date": "2026-07-02",
+    "series": "Ephesians",
     "section": "study",
-    "date": "2026-04-09",
-    "heartbeat": true,
-    "file": "audio/ep7123.mp3",
-    "audio": "audio/ep7123.mp3",
-    "duration": "3:39",
-    "durationSecs": 219,
-    "fileSize": 1753197,
     "tags": [
-      "Study",
-      "Daily",
-      "Arthur Pink"
-    ]
-  },
-  {
-    "id": 7124,
-    "title": "Daily Meditation from Thomas Boston",
-    "section": "family",
-    "date": "2026-04-09",
-    "heartbeat": true,
-    "file": "audio/family_7124.mp3",
-    "audio": "audio/family_7124.mp3",
-    "duration": "3:31",
-    "durationSecs": 211,
-    "fileSize": 1689837,
-    "tags": [
-      "Family",
-      "Daily",
-      "Thomas Boston"
-    ]
-  },
-  {
-    "id": 7125,
-    "title": "Daily Meditation from John Owen",
-    "section": "school",
-    "date": "2026-04-09",
-    "heartbeat": true,
-    "file": "audio/school_7125.mp3",
-    "audio": "audio/school_7125.mp3",
-    "duration": "3:39",
-    "durationSecs": 219,
-    "fileSize": 1753965,
-    "tags": [
-      "School",
-      "Daily",
-      "John Owen"
-    ]
-  },
-  {
-    "id": 7126,
-    "title": "Daily Meditation from Arthur Pink",
-    "section": "together",
-    "date": "2026-04-09",
-    "heartbeat": true,
-    "file": "audio/together_7126.mp3",
-    "audio": "audio/together_7126.mp3",
-    "duration": "3:59",
-    "durationSecs": 240,
-    "fileSize": 1919277,
-    "tags": [
-      "Together",
-      "Daily",
-      "Arthur Pink"
-    ]
-  },
-  {
-    "id": 7127,
-    "title": "Daily Meditation from Jeremiah Burroughs",
-    "section": "personal",
-    "date": "2026-04-09",
-    "heartbeat": true,
-    "file": "audio/ep7127.mp3",
-    "audio": "audio/ep7127.mp3",
-    "duration": "3:33",
-    "durationSecs": 213,
-    "fileSize": 1707309,
-    "tags": [
-      "Growth",
-      "Daily",
-      "Jeremiah Burroughs"
+      "study",
+      "ephesians",
+      "puritan"
     ],
-    "topic": null
+    "day": 2
   },
   {
-    "id": 7128,
-    "title": "Daily Meditation from C.H. Spurgeon",
+    "id": 8003,
+    "title": "Redemption Through His Blood",
+    "subtitle": "Ephesians 1:7-10",
+    "description": "'In whom we have redemption through his blood.' These words take us from the councils of eternity to the cross of Calvary, from the decree of election to the execution of redemption. For what God purp...",
+    "file": "audio/ep8003.mp3",
+    "duration": "1:02",
+    "durationSecs": 62,
+    "fileSize": 994320,
+    "date": "2026-07-03",
+    "series": "Ephesians",
     "section": "study",
-    "date": "2026-04-10",
-    "heartbeat": true,
-    "file": "audio/ep7128.mp3",
-    "audio": "audio/ep7128.mp3",
-    "duration": "3:33",
-    "durationSecs": 213,
-    "fileSize": 1704621,
     "tags": [
-      "Study",
-      "Daily",
-      "C.H. Spurgeon"
-    ]
-  },
-  {
-    "id": 7129,
-    "title": "Daily Meditation from Arthur Pink",
-    "section": "family",
-    "date": "2026-04-10",
-    "heartbeat": true,
-    "file": "audio/family_7129.mp3",
-    "audio": "audio/family_7129.mp3",
-    "duration": "3:55",
-    "durationSecs": 235,
-    "fileSize": 1884141,
-    "tags": [
-      "Family",
-      "Daily",
-      "Arthur Pink"
-    ]
-  },
-  {
-    "id": 7130,
-    "title": "Daily Meditation from Jeremiah Burroughs",
-    "section": "school",
-    "date": "2026-04-10",
-    "heartbeat": true,
-    "file": "audio/school_7130.mp3",
-    "audio": "audio/school_7130.mp3",
-    "duration": "3:10",
-    "durationSecs": 190,
-    "fileSize": 1523757,
-    "tags": [
-      "School",
-      "Daily",
-      "Jeremiah Burroughs"
-    ]
-  },
-  {
-    "id": 7131,
-    "title": "Daily Meditation from C.H. Spurgeon",
-    "section": "together",
-    "date": "2026-04-10",
-    "heartbeat": true,
-    "file": "audio/together_7131.mp3",
-    "audio": "audio/together_7131.mp3",
-    "duration": "3:20",
-    "durationSecs": 201,
-    "fileSize": 1605933,
-    "tags": [
-      "Together",
-      "Daily",
-      "C.H. Spurgeon"
-    ]
-  },
-  {
-    "id": 7132,
-    "title": "Daily Meditation from John Bunyan",
-    "section": "personal",
-    "date": "2026-04-10",
-    "heartbeat": true,
-    "file": "audio/ep7132.mp3",
-    "audio": "audio/ep7132.mp3",
-    "duration": "3:52",
-    "durationSecs": 233,
-    "fileSize": 1860909,
-    "tags": [
-      "Growth",
-      "Daily",
-      "John Bunyan"
+      "study",
+      "ephesians",
+      "puritan"
     ],
-    "topic": null
+    "day": 3
   },
   {
-    "id": 7133,
-    "title": "Daily Meditation from Arthur Pink",
+    "id": 8004,
+    "title": "Sealed with the Holy Spirit of Promise",
+    "subtitle": "Ephesians 1:11-14",
+    "description": "The apostle now brings before us three glorious realities that belong to every true believer: an inheritance, a seal, and an earnest. Each one is a cause for unbounded joy and unshakeable confidence.\n...",
+    "file": "audio/ep8004.mp3",
+    "duration": "1:06",
+    "durationSecs": 66,
+    "fileSize": 1061280,
+    "date": "2026-07-04",
+    "series": "Ephesians",
     "section": "study",
-    "date": "2026-04-11",
-    "heartbeat": true,
-    "file": "audio/ep7133.mp3",
-    "audio": "audio/ep7133.mp3",
-    "duration": "3:24",
-    "durationSecs": 204,
-    "fileSize": 1636077,
     "tags": [
-      "Study",
-      "Daily",
-      "Arthur Pink"
-    ]
-  },
-  {
-    "id": 7134,
-    "title": "Daily Meditation from Richard Sibbes",
-    "section": "family",
-    "date": "2026-04-11",
-    "heartbeat": true,
-    "file": "audio/family_7134.mp3",
-    "audio": "audio/family_7134.mp3",
-    "duration": "3:44",
-    "durationSecs": 225,
-    "fileSize": 1799469,
-    "tags": [
-      "Family",
-      "Daily",
-      "Richard Sibbes"
-    ]
-  },
-  {
-    "id": 7135,
-    "title": "Daily Meditation from John Calvin",
-    "section": "school",
-    "date": "2026-04-11",
-    "heartbeat": true,
-    "file": "audio/school_7135.mp3",
-    "audio": "audio/school_7135.mp3",
-    "duration": "3:33",
-    "durationSecs": 213,
-    "fileSize": 1707309,
-    "tags": [
-      "School",
-      "Daily",
-      "John Calvin"
-    ]
-  },
-  {
-    "id": 7136,
-    "title": "Daily Meditation from Thomas Watson",
-    "section": "together",
-    "date": "2026-04-11",
-    "heartbeat": true,
-    "file": "audio/together_7136.mp3",
-    "audio": "audio/together_7136.mp3",
-    "duration": "4:14",
-    "durationSecs": 255,
-    "fileSize": 2039469,
-    "tags": [
-      "Together",
-      "Daily",
-      "Thomas Watson"
-    ]
-  },
-  {
-    "id": 7137,
-    "title": "Daily Meditation from Richard Baxter",
-    "section": "personal",
-    "date": "2026-04-11",
-    "heartbeat": true,
-    "file": "audio/ep7137.mp3",
-    "audio": "audio/ep7137.mp3",
-    "duration": "3:18",
-    "durationSecs": 199,
-    "fileSize": 1589037,
-    "tags": [
-      "Growth",
-      "Daily",
-      "Richard Baxter"
+      "study",
+      "ephesians",
+      "puritan"
     ],
-    "topic": null
+    "day": 4
   },
   {
-    "id": 7138,
-    "title": "Daily Meditation from Arthur Pink",
+    "id": 8005,
+    "title": "The Spirit of Wisdom and Revelation",
+    "subtitle": "Ephesians 1:15-19",
+    "description": "Having scaled the heights of doctrine in the first fourteen verses, Paul now falls upon his knees in prayer. And what a prayer it is! He does not pray for health, wealth, or earthly prosperity. He pra...",
+    "file": "audio/ep8005.mp3",
+    "duration": "1:04",
+    "durationSecs": 64,
+    "fileSize": 1039968,
+    "date": "2026-07-05",
+    "series": "Ephesians",
     "section": "study",
-    "date": "2026-04-12",
-    "heartbeat": true,
-    "file": "audio/ep7138.mp3",
-    "audio": "audio/ep7138.mp3",
-    "duration": "4:02",
-    "durationSecs": 243,
-    "fileSize": 1941933,
     "tags": [
-      "Study",
-      "Daily",
-      "Arthur Pink"
-    ]
-  },
-  {
-    "id": 7139,
-    "title": "Daily Meditation from John Flavel",
-    "section": "family",
-    "date": "2026-04-12",
-    "heartbeat": true,
-    "file": "audio/family_7139.mp3",
-    "audio": "audio/family_7139.mp3",
-    "duration": "3:26",
-    "durationSecs": 207,
-    "fileSize": 1655661,
-    "tags": [
-      "Family",
-      "Daily",
-      "John Flavel"
-    ]
-  },
-  {
-    "id": 7140,
-    "title": "Daily Meditation from Richard Sibbes",
-    "section": "school",
-    "date": "2026-04-12",
-    "heartbeat": true,
-    "file": "audio/school_7140.mp3",
-    "audio": "audio/school_7140.mp3",
-    "duration": "3:40",
-    "durationSecs": 221,
-    "fileSize": 1764525,
-    "tags": [
-      "School",
-      "Daily",
-      "Richard Sibbes"
-    ]
-  },
-  {
-    "id": 7141,
-    "title": "Daily Meditation from C.H. Spurgeon",
-    "section": "together",
-    "date": "2026-04-12",
-    "heartbeat": true,
-    "file": "audio/together_7141.mp3",
-    "audio": "audio/together_7141.mp3",
-    "duration": "3:26",
-    "durationSecs": 206,
-    "fileSize": 1649709,
-    "tags": [
-      "Together",
-      "Daily",
-      "C.H. Spurgeon"
-    ]
-  },
-  {
-    "id": 7142,
-    "title": "Daily Meditation from C.H. Spurgeon",
-    "section": "personal",
-    "date": "2026-04-12",
-    "heartbeat": true,
-    "file": "audio/ep7142.mp3",
-    "audio": "audio/ep7142.mp3",
-    "duration": "3:21",
-    "durationSecs": 201,
-    "fileSize": 1609773,
-    "tags": [
-      "Growth",
-      "Daily",
-      "C.H. Spurgeon"
+      "study",
+      "ephesians",
+      "puritan"
     ],
-    "topic": null
+    "day": 5
   },
   {
-    "id": 7143,
-    "title": "Daily Meditation from C.H. Spurgeon",
+    "id": 8006,
+    "title": "Far Above All Principality and Power",
+    "subtitle": "Ephesians 1:19-23",
+    "description": "The first chapter of Ephesians ends with one of the most exalted descriptions of Christ's glory in all of Scripture. Paul tells us that God raised Christ from the dead and seated Him at His right hand...",
+    "file": "audio/ep8006.mp3",
+    "duration": "1:02",
+    "durationSecs": 62,
+    "fileSize": 995904,
+    "date": "2026-07-06",
+    "series": "Ephesians",
     "section": "study",
-    "date": "2026-04-13",
-    "heartbeat": true,
-    "file": "audio/ep7143.mp3",
-    "audio": "audio/ep7143.mp3",
-    "duration": "3:26",
-    "durationSecs": 207,
-    "fileSize": 1655853,
     "tags": [
-      "Study",
-      "Daily",
-      "C.H. Spurgeon"
-    ]
-  },
-  {
-    "id": 7144,
-    "title": "Daily Meditation from Thomas Goodwin",
-    "section": "family",
-    "date": "2026-04-13",
-    "heartbeat": true,
-    "file": "audio/family_7144.mp3",
-    "audio": "audio/family_7144.mp3",
-    "duration": "3:14",
-    "durationSecs": 194,
-    "fileSize": 1552749,
-    "tags": [
-      "Family",
-      "Daily",
-      "Thomas Goodwin"
-    ]
-  },
-  {
-    "id": 7145,
-    "title": "Daily Meditation from Arthur Pink",
-    "section": "school",
-    "date": "2026-04-13",
-    "heartbeat": true,
-    "file": "audio/school_7145.mp3",
-    "audio": "audio/school_7145.mp3",
-    "duration": "3:50",
-    "durationSecs": 230,
-    "fileSize": 1841133,
-    "tags": [
-      "School",
-      "Daily",
-      "Arthur Pink"
-    ]
-  },
-  {
-    "id": 7146,
-    "title": "Daily Meditation from Richard Sibbes",
-    "section": "together",
-    "date": "2026-04-13",
-    "heartbeat": true,
-    "file": "audio/together_7146.mp3",
-    "audio": "audio/together_7146.mp3",
-    "duration": "3:40",
-    "durationSecs": 220,
-    "fileSize": 1760877,
-    "tags": [
-      "Together",
-      "Daily",
-      "Richard Sibbes"
-    ]
-  },
-  {
-    "id": 7147,
-    "title": "Daily Meditation from Thomas Brooks",
-    "section": "personal",
-    "date": "2026-04-13",
-    "heartbeat": true,
-    "file": "audio/ep7147.mp3",
-    "audio": "audio/ep7147.mp3",
-    "duration": "3:43",
-    "durationSecs": 223,
-    "fileSize": 1785837,
-    "tags": [
-      "Growth",
-      "Daily",
-      "Thomas Brooks"
+      "study",
+      "ephesians",
+      "puritan"
     ],
-    "topic": null
+    "day": 6
   },
   {
-    "id": 7148,
-    "title": "Daily Meditation from Thomas Goodwin",
+    "id": 8007,
+    "title": "Dead in Trespasses and Sins",
+    "subtitle": "Ephesians 2:1-3",
+    "description": "After the glorious heights of chapter one, Paul now takes us into the depths -- the dark valley of our natural condition apart from grace. 'You were dead in trespasses and sins.' Not sick, not weak, n...",
+    "file": "audio/ep8007.mp3",
+    "duration": "1:02",
+    "durationSecs": 62,
+    "fileSize": 1007424,
+    "date": "2026-07-07",
+    "series": "Ephesians",
     "section": "study",
-    "date": "2026-04-14",
-    "heartbeat": true,
-    "file": "audio/ep7148.mp3",
-    "audio": "audio/ep7148.mp3",
-    "duration": "3:56",
-    "durationSecs": 237,
-    "fileSize": 1894893,
     "tags": [
-      "Study",
-      "Daily",
-      "Thomas Goodwin"
-    ]
-  },
-  {
-    "id": 7149,
-    "title": "Daily Meditation from Arthur Pink",
-    "section": "family",
-    "date": "2026-04-14",
-    "heartbeat": true,
-    "file": "audio/family_7149.mp3",
-    "audio": "audio/family_7149.mp3",
-    "duration": "3:51",
-    "durationSecs": 232,
-    "fileSize": 1852269,
-    "tags": [
-      "Family",
-      "Daily",
-      "Arthur Pink"
-    ]
-  },
-  {
-    "id": 7150,
-    "title": "Daily Meditation from Richard Sibbes",
-    "section": "school",
-    "date": "2026-04-14",
-    "heartbeat": true,
-    "file": "audio/school_7150.mp3",
-    "audio": "audio/school_7150.mp3",
-    "duration": "3:12",
-    "durationSecs": 193,
-    "fileSize": 1543149,
-    "tags": [
-      "School",
-      "Daily",
-      "Richard Sibbes"
-    ]
-  },
-  {
-    "id": 7151,
-    "title": "Daily Meditation from C.H. Spurgeon",
-    "section": "together",
-    "date": "2026-04-14",
-    "heartbeat": true,
-    "file": "audio/together_7151.mp3",
-    "audio": "audio/together_7151.mp3",
-    "duration": "3:06",
-    "durationSecs": 187,
-    "fileSize": 1495341,
-    "tags": [
-      "Together",
-      "Daily",
-      "C.H. Spurgeon"
-    ]
-  },
-  {
-    "id": 7152,
-    "title": "Daily Meditation from John Owen",
-    "section": "personal",
-    "date": "2026-04-14",
-    "heartbeat": true,
-    "file": "audio/ep7152.mp3",
-    "audio": "audio/ep7152.mp3",
-    "duration": "3:40",
-    "durationSecs": 221,
-    "fileSize": 1766253,
-    "tags": [
-      "Growth",
-      "Daily",
-      "John Owen"
+      "study",
+      "ephesians",
+      "puritan"
     ],
-    "topic": null
+    "day": 7
   },
   {
-    "id": 7153,
-    "title": "Daily Meditation from Arthur Pink",
+    "id": 8008,
+    "title": "But God, Who Is Rich in Mercy",
+    "subtitle": "Ephesians 2:4-7",
+    "description": "'But God.' These are perhaps the two greatest words in all the Bible. We were dead -- but God. We were enslaved -- but God. We were under wrath -- but God. The entire gospel is contained in this bless...",
+    "file": "audio/ep8008.mp3",
+    "duration": "1:15",
+    "durationSecs": 75,
+    "fileSize": 1202256,
+    "date": "2026-07-08",
+    "series": "Ephesians",
     "section": "study",
-    "date": "2026-04-15",
-    "heartbeat": true,
-    "file": "audio/ep7153.mp3",
-    "audio": "audio/ep7153.mp3",
-    "duration": "3:27",
-    "durationSecs": 208,
-    "fileSize": 1662573,
     "tags": [
-      "Study",
-      "Daily",
-      "Arthur Pink"
-    ]
-  },
-  {
-    "id": 7154,
-    "title": "Daily Meditation from Thomas Goodwin",
-    "section": "family",
-    "date": "2026-04-15",
-    "heartbeat": true,
-    "file": "audio/family_7154.mp3",
-    "audio": "audio/family_7154.mp3",
-    "duration": "3:15",
-    "durationSecs": 196,
-    "fileSize": 1564845,
-    "tags": [
-      "Family",
-      "Daily",
-      "Thomas Goodwin"
-    ]
-  },
-  {
-    "id": 7155,
-    "title": "Daily Meditation from Jeremiah Burroughs",
-    "section": "school",
-    "date": "2026-04-15",
-    "heartbeat": true,
-    "file": "audio/school_7155.mp3",
-    "audio": "audio/school_7155.mp3",
-    "duration": "2:56",
-    "durationSecs": 176,
-    "fileSize": 1409709,
-    "tags": [
-      "School",
-      "Daily",
-      "Jeremiah Burroughs"
-    ]
-  },
-  {
-    "id": 7156,
-    "title": "Daily Meditation from Jeremiah Burroughs",
-    "section": "together",
-    "date": "2026-04-15",
-    "heartbeat": true,
-    "file": "audio/together_7156.mp3",
-    "audio": "audio/together_7156.mp3",
-    "duration": "3:09",
-    "durationSecs": 189,
-    "fileSize": 1512429,
-    "tags": [
-      "Together",
-      "Daily",
-      "Jeremiah Burroughs"
-    ]
-  },
-  {
-    "id": 7157,
-    "title": "Daily Meditation from John Bunyan",
-    "section": "personal",
-    "date": "2026-04-15",
-    "heartbeat": true,
-    "file": "audio/ep7157.mp3",
-    "audio": "audio/ep7157.mp3",
-    "duration": "3:38",
-    "durationSecs": 218,
-    "fileSize": 1747053,
-    "tags": [
-      "Growth",
-      "Daily",
-      "John Bunyan"
+      "study",
+      "ephesians",
+      "puritan"
     ],
-    "topic": null
+    "day": 8
+  },
+  {
+    "id": 8009,
+    "title": "By Grace Through Faith",
+    "subtitle": "Ephesians 2:8-10",
+    "description": "Here is the clearest, most concise statement of the Protestant gospel in all of Scripture. Three verses that shook the world when Martin Luther and the Reformers rediscovered them, and that continue t...",
+    "file": "audio/ep8009.mp3",
+    "duration": "1:09",
+    "durationSecs": 69,
+    "fileSize": 1119888,
+    "date": "2026-07-09",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 9
+  },
+  {
+    "id": 8010,
+    "title": "Made Nigh by the Blood of Christ",
+    "subtitle": "Ephesians 2:11-16",
+    "description": "Paul now turns from the individual experience of salvation to its corporate dimensions. The Gentiles who were once strangers and aliens, far off from God and His covenant people, have been brought nea...",
+    "file": "audio/ep8010.mp3",
+    "duration": "0:59",
+    "durationSecs": 59,
+    "fileSize": 955008,
+    "date": "2026-07-10",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 10
+  },
+  {
+    "id": 8011,
+    "title": "Built Upon the Foundation of the Apostles",
+    "subtitle": "Ephesians 2:17-22",
+    "description": "Paul now reveals the glorious architecture of the church. We are no longer strangers but fellow citizens, no longer foreigners but members of God's household. And this household is built upon the foun...",
+    "file": "audio/ep8011.mp3",
+    "duration": "0:40",
+    "durationSecs": 40,
+    "fileSize": 651744,
+    "date": "2026-07-11",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 11
+  },
+  {
+    "id": 8012,
+    "title": "The Mystery of Christ Revealed",
+    "subtitle": "Ephesians 3:1-7",
+    "description": "Paul calls himself 'the prisoner of Jesus Christ,' not the prisoner of Rome. Though chains bound his wrists, his spirit was free, for he understood that even his imprisonment was part of God's soverei...",
+    "file": "audio/ep8012.mp3",
+    "duration": "0:34",
+    "durationSecs": 34,
+    "fileSize": 544608,
+    "date": "2026-07-12",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 12
+  },
+  {
+    "id": 8013,
+    "title": "The Unsearchable Riches of Christ",
+    "subtitle": "Ephesians 3:8-13",
+    "description": "'Unsearchable riches' -- what a phrase! The Greek word means 'untraceable,' like a path through a forest so vast that no one can map its boundaries. The riches of Christ are inexhaustible. You may spe...",
+    "file": "audio/ep8013.mp3",
+    "duration": "0:32",
+    "durationSecs": 32,
+    "fileSize": 527328,
+    "date": "2026-07-13",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 13
+  },
+  {
+    "id": 8014,
+    "title": "Strengthened with Might in the Inner Man",
+    "subtitle": "Ephesians 3:14-19",
+    "description": "Here is the second great prayer of Ephesians, and it is even more staggering than the first. Paul prays that we might know the love of Christ 'which passeth knowledge' -- a love so vast that it surpas...",
+    "file": "audio/ep8014.mp3",
+    "duration": "0:41",
+    "durationSecs": 41,
+    "fileSize": 670032,
+    "date": "2026-07-14",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 14
+  },
+  {
+    "id": 8015,
+    "title": "Exceeding Abundantly Above All We Ask",
+    "subtitle": "Ephesians 3:20-21",
+    "description": "Paul concludes the doctrinal portion of Ephesians with this magnificent doxology. God is able to do what we ask. He is able to do above what we ask. He is able to do abundantly above what we ask. He i...",
+    "file": "audio/ep8015.mp3",
+    "duration": "0:40",
+    "durationSecs": 40,
+    "fileSize": 654048,
+    "date": "2026-07-15",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 15
+  },
+  {
+    "id": 8016,
+    "title": "Walk Worthy of the Calling",
+    "subtitle": "Ephesians 4:1-6",
+    "description": "With chapter four, Paul transitions from doctrine to duty, from creed to conduct, from what God has done to how we should live. The word 'therefore' is the hinge upon which the whole epistle turns. Be...",
+    "file": "audio/ep8016.mp3",
+    "duration": "0:37",
+    "durationSecs": 37,
+    "fileSize": 603072,
+    "date": "2026-07-16",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 16
+  },
+  {
+    "id": 8017,
+    "title": "Gifts for the Building Up of the Body",
+    "subtitle": "Ephesians 4:7-16",
+    "description": "Christ ascended to heaven not to leave His church helpless, but to equip her with everything she needs. He gave gifts -- not primarily miraculous gifts for individual display, but ministry gifts for c...",
+    "file": "audio/ep8017.mp3",
+    "duration": "0:37",
+    "durationSecs": 37,
+    "fileSize": 592848,
+    "date": "2026-07-17",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 17
+  },
+  {
+    "id": 8018,
+    "title": "Put Off the Old Man, Put On the New",
+    "subtitle": "Ephesians 4:17-24",
+    "description": "The Christian life is a daily exchange -- putting off the old man with his corrupt practices and putting on the new man, created in righteousness and true holiness. This is not a once-for-all transact...",
+    "file": "audio/ep8018.mp3",
+    "duration": "0:39",
+    "durationSecs": 39,
+    "fileSize": 639648,
+    "date": "2026-07-18",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 18
+  },
+  {
+    "id": 8019,
+    "title": "Grieve Not the Holy Spirit",
+    "subtitle": "Ephesians 4:25-32",
+    "description": "'Grieve not the Holy Spirit.' What a tender expression! The Spirit is not an impersonal force but a divine Person who can be grieved. And what grieves Him? Not primarily the great sins that shock the ...",
+    "file": "audio/ep8019.mp3",
+    "duration": "0:36",
+    "durationSecs": 36,
+    "fileSize": 587232,
+    "date": "2026-07-19",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 19
+  },
+  {
+    "id": 8020,
+    "title": "Walk in Love as Christ Loved Us",
+    "subtitle": "Ephesians 5:1-7",
+    "description": "'Followers of God' -- the word is literally 'imitators.' We are to imitate God as children imitate a beloved father. And what is the chief attribute we are to imitate? Love. Not sentimental emotion, b...",
+    "file": "audio/ep8020.mp3",
+    "duration": "0:35",
+    "durationSecs": 35,
+    "fileSize": 564048,
+    "date": "2026-07-20",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 20
+  },
+  {
+    "id": 8021,
+    "title": "Walk as Children of Light",
+    "subtitle": "Ephesians 5:8-14",
+    "description": "Note the radical language: Paul does not say we were in darkness but we were darkness itself. Our very nature was dark. But now, through the regenerating work of the Spirit, we are light in the Lord. ...",
+    "file": "audio/ep8021.mp3",
+    "duration": "0:35",
+    "durationSecs": 35,
+    "fileSize": 575424,
+    "date": "2026-07-21",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 21
+  },
+  {
+    "id": 8022,
+    "title": "Be Filled with the Spirit",
+    "subtitle": "Ephesians 5:15-21",
+    "description": "'Be filled with the Spirit.' This is not a suggestion but a command, and it is in the present tense, meaning we are to be continually, habitually filled. Just as a drunkard is controlled by wine, so t...",
+    "file": "audio/ep8022.mp3",
+    "duration": "0:33",
+    "durationSecs": 33,
+    "fileSize": 534816,
+    "date": "2026-07-22",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 22
+  },
+  {
+    "id": 8023,
+    "title": "Wives and Husbands, Christ and the Church",
+    "subtitle": "Ephesians 5:22-33",
+    "description": "Paul takes the most intimate of human relationships and sets it against the backdrop of the most glorious of divine realities: the love of Christ for His church. Marriage, he tells us, is not merely a...",
+    "file": "audio/ep8023.mp3",
+    "duration": "0:35",
+    "durationSecs": 35,
+    "fileSize": 574992,
+    "date": "2026-07-23",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 23
+  },
+  {
+    "id": 8024,
+    "title": "Children and Parents in the Lord",
+    "subtitle": "Ephesians 6:1-4",
+    "description": "The Christian household is a school of godliness, and the parent-child relationship is one of its primary classrooms. Children are commanded to obey -- not because parents are always right, but becaus...",
+    "file": "audio/ep8024.mp3",
+    "duration": "0:39",
+    "durationSecs": 39,
+    "fileSize": 626976,
+    "date": "2026-07-24",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 24
+  },
+  {
+    "id": 8025,
+    "title": "The Whole Armour of God",
+    "subtitle": "Ephesians 6:10-13",
+    "description": "Paul's final exhortation is a call to arms. The Christian life is not a leisurely stroll through a garden; it is a fierce battle against unseen enemies of terrifying power. William Gurnall's magisteri...",
+    "file": "audio/ep8025.mp3",
+    "duration": "0:39",
+    "durationSecs": 39,
+    "fileSize": 625824,
+    "date": "2026-07-25",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 25
+  },
+  {
+    "id": 8026,
+    "title": "The Belt of Truth and the Breastplate of Righteousness",
+    "subtitle": "Ephesians 6:14",
+    "description": "The first piece of armor is truth. A Roman soldier's belt held everything together; without it, his tunic would flap loose and his sword would have nothing to hang from. So truth is the foundation of ...",
+    "file": "audio/ep8026.mp3",
+    "duration": "0:30",
+    "durationSecs": 30,
+    "fileSize": 486144,
+    "date": "2026-07-26",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 26
+  },
+  {
+    "id": 8027,
+    "title": "The Shield of Faith",
+    "subtitle": "Ephesians 6:15-17",
+    "description": "'Above all, taking the shield of faith.' The Roman shield was large enough to cover the whole body, and it was soaked in water before battle to extinguish the flaming arrows of the enemy. So faith cov...",
+    "file": "audio/ep8027.mp3",
+    "duration": "0:35",
+    "durationSecs": 35,
+    "fileSize": 561600,
+    "date": "2026-07-27",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 27
+  },
+  {
+    "id": 8028,
+    "title": "Praying Always with All Prayer",
+    "subtitle": "Ephesians 6:18-20",
+    "description": "Prayer is the atmosphere in which the whole armor of God functions. Without prayer, the armor is merely a museum exhibit -- impressive to look at but useless in battle. The Puritans were, above all el...",
+    "file": "audio/ep8028.mp3",
+    "duration": "0:35",
+    "durationSecs": 35,
+    "fileSize": 566352,
+    "date": "2026-07-28",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 28
+  },
+  {
+    "id": 8029,
+    "title": "Grace Be with All Them That Love Our Lord",
+    "subtitle": "Ephesians 6:21-24",
+    "description": "Paul closes this sublime epistle with a blessing of peace, love, faith, and grace. Four words that summarize the entire Christian life. Peace with God through the blood of the cross. Love poured into ...",
+    "file": "audio/ep8029.mp3",
+    "duration": "0:42",
+    "durationSecs": 42,
+    "fileSize": 672048,
+    "date": "2026-07-29",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 29
+  },
+  {
+    "id": 8030,
+    "title": "The Puritan Vision of the Christian Life",
+    "subtitle": "Selected Texts",
+    "description": "As we near the end of our July journey, let us pause to reflect on what the Puritans have taught us through their writings and their lives. The Puritan vision of the Christian life was intensely pract...",
+    "file": "audio/ep8030.mp3",
+    "duration": "0:40",
+    "durationSecs": 40,
+    "fileSize": 650880,
+    "date": "2026-07-30",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 30
+  },
+  {
+    "id": 8031,
+    "title": "The God of All Grace",
+    "subtitle": "1 Peter 5:10-11",
+    "description": "We close this month with Peter's benediction, which gathers up all the themes we have explored in Ephesians and applies them to the suffering, struggling believer. The God of all grace -- not some gra...",
+    "file": "audio/ep8031.mp3",
+    "duration": "0:40",
+    "durationSecs": 40,
+    "fileSize": 641520,
+    "date": "2026-07-31",
+    "series": "Ephesians",
+    "section": "study",
+    "tags": [
+      "study",
+      "ephesians",
+      "puritan"
+    ],
+    "day": 31
   }
 ]
