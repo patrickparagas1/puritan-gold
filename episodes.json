@@ -21235,5 +21235,91 @@
       "daily",
       "wealth & generosity"
     ]
+  },
+  {
+    "id": 7125,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-04-16",
+    "heartbeat": true,
+    "file": "audio/ep7125.mp3",
+    "audio": "audio/ep7125.mp3",
+    "duration": "3:48",
+    "durationSecs": 228,
+    "fileSize": 1827117,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7126,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "family",
+    "date": "2026-04-16",
+    "heartbeat": true,
+    "file": "audio/family_7126.mp3",
+    "audio": "audio/family_7126.mp3",
+    "duration": "3:17",
+    "durationSecs": 198,
+    "fileSize": 1581357,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7127,
+    "title": "Daily Meditation from John Owen",
+    "section": "school",
+    "date": "2026-04-16",
+    "heartbeat": true,
+    "file": "audio/school_7127.mp3",
+    "audio": "audio/school_7127.mp3",
+    "duration": "3:35",
+    "durationSecs": 215,
+    "fileSize": 1720941,
+    "tags": [
+      "School",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7128,
+    "title": "Daily Meditation from John Owen",
+    "section": "together",
+    "date": "2026-04-16",
+    "heartbeat": true,
+    "file": "audio/together_7128.mp3",
+    "audio": "audio/together_7128.mp3",
+    "duration": "3:37",
+    "durationSecs": 218,
+    "fileSize": 1740333,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7129,
+    "title": "Daily Meditation from John Flavel",
+    "section": "personal",
+    "date": "2026-04-16",
+    "heartbeat": true,
+    "file": "audio/ep7129.mp3",
+    "audio": "audio/ep7129.mp3",
+    "duration": "3:30",
+    "durationSecs": 211,
+    "fileSize": 1686189,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Flavel"
+    ],
+    "topic": null
   }
 ]
