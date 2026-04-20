@@ -21579,5 +21579,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 7145,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "study",
+    "date": "2026-04-20",
+    "heartbeat": true,
+    "file": "audio/ep7145.mp3",
+    "audio": "audio/ep7145.mp3",
+    "duration": "3:57",
+    "durationSecs": 238,
+    "fileSize": 1903341,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7146,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "family",
+    "date": "2026-04-20",
+    "heartbeat": true,
+    "file": "audio/family_7146.mp3",
+    "audio": "audio/family_7146.mp3",
+    "duration": "3:27",
+    "durationSecs": 207,
+    "fileSize": 1658925,
+    "tags": [
+      "Family",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7147,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "school",
+    "date": "2026-04-20",
+    "heartbeat": true,
+    "file": "audio/school_7147.mp3",
+    "audio": "audio/school_7147.mp3",
+    "duration": "3:21",
+    "durationSecs": 201,
+    "fileSize": 1611309,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7148,
+    "title": "Daily Meditation from John Owen",
+    "section": "together",
+    "date": "2026-04-20",
+    "heartbeat": true,
+    "file": "audio/together_7148.mp3",
+    "audio": "audio/together_7148.mp3",
+    "duration": "3:40",
+    "durationSecs": 220,
+    "fileSize": 1761453,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7149,
+    "title": "Daily Meditation from John Calvin",
+    "section": "personal",
+    "date": "2026-04-20",
+    "heartbeat": true,
+    "file": "audio/ep7149.mp3",
+    "audio": "audio/ep7149.mp3",
+    "duration": "3:39",
+    "durationSecs": 219,
+    "fileSize": 1753389,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Calvin"
+    ],
+    "topic": null
   }
 ]
