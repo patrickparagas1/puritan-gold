@@ -22095,5 +22095,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 7175,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-04-26",
+    "heartbeat": true,
+    "file": "audio/ep7175.mp3",
+    "audio": "audio/ep7175.mp3",
+    "duration": "3:49",
+    "durationSecs": 229,
+    "fileSize": 1835949,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7176,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "family",
+    "date": "2026-04-26",
+    "heartbeat": true,
+    "file": "audio/family_7176.mp3",
+    "audio": "audio/family_7176.mp3",
+    "duration": "3:28",
+    "durationSecs": 209,
+    "fileSize": 1671213,
+    "tags": [
+      "Family",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7177,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "school",
+    "date": "2026-04-26",
+    "heartbeat": true,
+    "file": "audio/school_7177.mp3",
+    "audio": "audio/school_7177.mp3",
+    "duration": "3:16",
+    "durationSecs": 196,
+    "fileSize": 1571181,
+    "tags": [
+      "School",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 7178,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "together",
+    "date": "2026-04-26",
+    "heartbeat": true,
+    "file": "audio/together_7178.mp3",
+    "audio": "audio/together_7178.mp3",
+    "duration": "3:38",
+    "durationSecs": 219,
+    "fileSize": 1751853,
+    "tags": [
+      "Together",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 7179,
+    "title": "Daily Meditation from John Calvin",
+    "section": "personal",
+    "date": "2026-04-26",
+    "heartbeat": true,
+    "file": "audio/ep7179.mp3",
+    "audio": "audio/ep7179.mp3",
+    "duration": "3:41",
+    "durationSecs": 222,
+    "fileSize": 1774893,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Calvin"
+    ],
+    "topic": null
   }
 ]
