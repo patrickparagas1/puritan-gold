@@ -22181,5 +22181,91 @@
       "John Calvin"
     ],
     "topic": null
+  },
+  {
+    "id": 7180,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "study",
+    "date": "2026-04-27",
+    "heartbeat": true,
+    "file": "audio/ep7180.mp3",
+    "audio": "audio/ep7180.mp3",
+    "duration": "3:50",
+    "durationSecs": 230,
+    "fileSize": 1843629,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7181,
+    "title": "Daily Meditation from John Flavel",
+    "section": "family",
+    "date": "2026-04-27",
+    "heartbeat": true,
+    "file": "audio/family_7181.mp3",
+    "audio": "audio/family_7181.mp3",
+    "duration": "3:34",
+    "durationSecs": 215,
+    "fileSize": 1717869,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7182,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "school",
+    "date": "2026-04-27",
+    "heartbeat": true,
+    "file": "audio/school_7182.mp3",
+    "audio": "audio/school_7182.mp3",
+    "duration": "3:57",
+    "durationSecs": 237,
+    "fileSize": 1897773,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7183,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-04-27",
+    "heartbeat": true,
+    "file": "audio/together_7183.mp3",
+    "audio": "audio/together_7183.mp3",
+    "duration": "3:44",
+    "durationSecs": 224,
+    "fileSize": 1792365,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7184,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "personal",
+    "date": "2026-04-27",
+    "heartbeat": true,
+    "file": "audio/ep7184.mp3",
+    "audio": "audio/ep7184.mp3",
+    "duration": "3:50",
+    "durationSecs": 230,
+    "fileSize": 1840941,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Bunyan"
+    ],
+    "topic": null
   }
 ]
