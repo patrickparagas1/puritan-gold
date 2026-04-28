@@ -22267,5 +22267,91 @@
       "John Bunyan"
     ],
     "topic": null
+  },
+  {
+    "id": 7185,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-04-28",
+    "heartbeat": true,
+    "file": "audio/ep7185.mp3",
+    "audio": "audio/ep7185.mp3",
+    "duration": "3:54",
+    "durationSecs": 234,
+    "fileSize": 1874925,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7186,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-04-28",
+    "heartbeat": true,
+    "file": "audio/family_7186.mp3",
+    "audio": "audio/family_7186.mp3",
+    "duration": "3:36",
+    "durationSecs": 216,
+    "fileSize": 1729581,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7187,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "school",
+    "date": "2026-04-28",
+    "heartbeat": true,
+    "file": "audio/school_7187.mp3",
+    "audio": "audio/school_7187.mp3",
+    "duration": "3:31",
+    "durationSecs": 211,
+    "fileSize": 1688877,
+    "tags": [
+      "School",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7188,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "together",
+    "date": "2026-04-28",
+    "heartbeat": true,
+    "file": "audio/together_7188.mp3",
+    "audio": "audio/together_7188.mp3",
+    "duration": "3:18",
+    "durationSecs": 198,
+    "fileSize": 1587501,
+    "tags": [
+      "Together",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7189,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "personal",
+    "date": "2026-04-28",
+    "heartbeat": true,
+    "file": "audio/ep7189.mp3",
+    "audio": "audio/ep7189.mp3",
+    "duration": "3:26",
+    "durationSecs": 207,
+    "fileSize": 1653741,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Jonathan Edwards"
+    ],
+    "topic": null
   }
 ]
