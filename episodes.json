@@ -22353,5 +22353,91 @@
       "Jonathan Edwards"
     ],
     "topic": null
+  },
+  {
+    "id": 7190,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "study",
+    "date": "2026-04-29",
+    "heartbeat": true,
+    "file": "audio/ep7190.mp3",
+    "audio": "audio/ep7190.mp3",
+    "duration": "3:52",
+    "durationSecs": 233,
+    "fileSize": 1860525,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7191,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "family",
+    "date": "2026-04-29",
+    "heartbeat": true,
+    "file": "audio/family_7191.mp3",
+    "audio": "audio/family_7191.mp3",
+    "duration": "3:53",
+    "durationSecs": 234,
+    "fileSize": 1868589,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7192,
+    "title": "Daily Meditation from John Flavel",
+    "section": "school",
+    "date": "2026-04-29",
+    "heartbeat": true,
+    "file": "audio/school_7192.mp3",
+    "audio": "audio/school_7192.mp3",
+    "duration": "3:33",
+    "durationSecs": 213,
+    "fileSize": 1707501,
+    "tags": [
+      "School",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7193,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "together",
+    "date": "2026-04-29",
+    "heartbeat": true,
+    "file": "audio/together_7193.mp3",
+    "audio": "audio/together_7193.mp3",
+    "duration": "3:22",
+    "durationSecs": 203,
+    "fileSize": 1623597,
+    "tags": [
+      "Together",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 7194,
+    "title": "Daily Meditation from John Calvin",
+    "section": "personal",
+    "date": "2026-04-29",
+    "heartbeat": true,
+    "file": "audio/ep7194.mp3",
+    "audio": "audio/ep7194.mp3",
+    "duration": "3:48",
+    "durationSecs": 229,
+    "fileSize": 1829421,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Calvin"
+    ],
+    "topic": null
   }
 ]
