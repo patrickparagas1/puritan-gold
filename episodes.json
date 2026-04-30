@@ -22439,5 +22439,91 @@
       "John Calvin"
     ],
     "topic": null
+  },
+  {
+    "id": 7195,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "study",
+    "date": "2026-04-30",
+    "heartbeat": true,
+    "file": "audio/ep7195.mp3",
+    "audio": "audio/ep7195.mp3",
+    "duration": "3:38",
+    "durationSecs": 218,
+    "fileSize": 1747245,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 7196,
+    "title": "Daily Meditation from John Owen",
+    "section": "family",
+    "date": "2026-04-30",
+    "heartbeat": true,
+    "file": "audio/family_7196.mp3",
+    "audio": "audio/family_7196.mp3",
+    "duration": "3:38",
+    "durationSecs": 219,
+    "fileSize": 1749165,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7197,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "school",
+    "date": "2026-04-30",
+    "heartbeat": true,
+    "file": "audio/school_7197.mp3",
+    "audio": "audio/school_7197.mp3",
+    "duration": "3:39",
+    "durationSecs": 219,
+    "fileSize": 1754541,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7198,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "together",
+    "date": "2026-04-30",
+    "heartbeat": true,
+    "file": "audio/together_7198.mp3",
+    "audio": "audio/together_7198.mp3",
+    "duration": "3:39",
+    "durationSecs": 219,
+    "fileSize": 1753581,
+    "tags": [
+      "Together",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 7199,
+    "title": "Daily Meditation from John Owen",
+    "section": "personal",
+    "date": "2026-04-30",
+    "heartbeat": true,
+    "file": "audio/ep7199.mp3",
+    "audio": "audio/ep7199.mp3",
+    "duration": "3:28",
+    "durationSecs": 209,
+    "fileSize": 1671405,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Owen"
+    ],
+    "topic": null
   }
 ]
