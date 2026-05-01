@@ -22525,5 +22525,91 @@
       "John Owen"
     ],
     "topic": null
+  },
+  {
+    "id": 7200,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "study",
+    "date": "2026-05-01",
+    "heartbeat": true,
+    "file": "audio/ep7200.mp3",
+    "audio": "audio/ep7200.mp3",
+    "duration": "3:26",
+    "durationSecs": 207,
+    "fileSize": 1654317,
+    "tags": [
+      "Study",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7201,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "family",
+    "date": "2026-05-01",
+    "heartbeat": true,
+    "file": "audio/family_7201.mp3",
+    "audio": "audio/family_7201.mp3",
+    "duration": "3:31",
+    "durationSecs": 211,
+    "fileSize": 1692141,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7202,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-05-01",
+    "heartbeat": true,
+    "file": "audio/school_7202.mp3",
+    "audio": "audio/school_7202.mp3",
+    "duration": "3:40",
+    "durationSecs": 221,
+    "fileSize": 1764333,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7203,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-05-01",
+    "heartbeat": true,
+    "file": "audio/together_7203.mp3",
+    "audio": "audio/together_7203.mp3",
+    "duration": "3:31",
+    "durationSecs": 211,
+    "fileSize": 1689645,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7204,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-05-01",
+    "heartbeat": true,
+    "file": "audio/ep7204.mp3",
+    "audio": "audio/ep7204.mp3",
+    "duration": "3:56",
+    "durationSecs": 237,
+    "fileSize": 1894125,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
