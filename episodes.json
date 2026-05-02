@@ -22611,5 +22611,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 7205,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "study",
+    "date": "2026-05-02",
+    "heartbeat": true,
+    "file": null,
+    "audio": null,
+    "duration": "0:00",
+    "durationSecs": 0,
+    "fileSize": 0,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7206,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "family",
+    "date": "2026-05-02",
+    "heartbeat": true,
+    "file": "audio/family_7206.mp3",
+    "audio": "audio/family_7206.mp3",
+    "duration": "3:32",
+    "durationSecs": 213,
+    "fileSize": 1701549,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7207,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "school",
+    "date": "2026-05-02",
+    "heartbeat": true,
+    "file": "audio/school_7207.mp3",
+    "audio": "audio/school_7207.mp3",
+    "duration": "3:17",
+    "durationSecs": 198,
+    "fileSize": 1580589,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7208,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "together",
+    "date": "2026-05-02",
+    "heartbeat": true,
+    "file": "audio/together_7208.mp3",
+    "audio": "audio/together_7208.mp3",
+    "duration": "3:47",
+    "durationSecs": 228,
+    "fileSize": 1821357,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7209,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-05-02",
+    "heartbeat": true,
+    "file": "audio/ep7209.mp3",
+    "audio": "audio/ep7209.mp3",
+    "duration": "3:22",
+    "durationSecs": 202,
+    "fileSize": 1619373,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
