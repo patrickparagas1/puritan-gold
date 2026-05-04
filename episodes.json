@@ -22783,5 +22783,91 @@
       "John Flavel"
     ],
     "topic": null
+  },
+  {
+    "id": 7215,
+    "title": "Daily Meditation from John Calvin",
+    "section": "study",
+    "date": "2026-05-04",
+    "heartbeat": true,
+    "file": "audio/ep7215.mp3",
+    "audio": "audio/ep7215.mp3",
+    "duration": "3:38",
+    "durationSecs": 219,
+    "fileSize": 1751277,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7216,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "family",
+    "date": "2026-05-04",
+    "heartbeat": true,
+    "file": "audio/family_7216.mp3",
+    "audio": "audio/family_7216.mp3",
+    "duration": "3:21",
+    "durationSecs": 202,
+    "fileSize": 1613805,
+    "tags": [
+      "Family",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7217,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "school",
+    "date": "2026-05-04",
+    "heartbeat": true,
+    "file": "audio/school_7217.mp3",
+    "audio": "audio/school_7217.mp3",
+    "duration": "3:20",
+    "durationSecs": 201,
+    "fileSize": 1606509,
+    "tags": [
+      "School",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 7218,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-05-04",
+    "heartbeat": true,
+    "file": "audio/together_7218.mp3",
+    "audio": "audio/together_7218.mp3",
+    "duration": "3:34",
+    "durationSecs": 214,
+    "fileSize": 1714221,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7219,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-05-04",
+    "heartbeat": true,
+    "file": "audio/ep7219.mp3",
+    "audio": "audio/ep7219.mp3",
+    "duration": "3:36",
+    "durationSecs": 216,
+    "fileSize": 1730157,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
