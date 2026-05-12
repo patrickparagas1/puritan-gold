@@ -23471,5 +23471,91 @@
       "Thomas Brooks"
     ],
     "topic": null
+  },
+  {
+    "id": 7255,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "study",
+    "date": "2026-05-12",
+    "heartbeat": true,
+    "file": "audio/ep7255.mp3",
+    "audio": "audio/ep7255.mp3",
+    "duration": "3:28",
+    "durationSecs": 208,
+    "fileSize": 1667181,
+    "tags": [
+      "Study",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7256,
+    "title": "Daily Meditation from John Flavel",
+    "section": "family",
+    "date": "2026-05-12",
+    "heartbeat": true,
+    "file": "audio/family_7256.mp3",
+    "audio": "audio/family_7256.mp3",
+    "duration": "3:34",
+    "durationSecs": 215,
+    "fileSize": 1718061,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7257,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-05-12",
+    "heartbeat": true,
+    "file": "audio/school_7257.mp3",
+    "audio": "audio/school_7257.mp3",
+    "duration": "3:43",
+    "durationSecs": 224,
+    "fileSize": 1790637,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7258,
+    "title": "Daily Meditation from John Calvin",
+    "section": "together",
+    "date": "2026-05-12",
+    "heartbeat": true,
+    "file": "audio/together_7258.mp3",
+    "audio": "audio/together_7258.mp3",
+    "duration": "3:32",
+    "durationSecs": 212,
+    "fileSize": 1697517,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7259,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-05-12",
+    "heartbeat": true,
+    "file": "audio/ep7259.mp3",
+    "audio": "audio/ep7259.mp3",
+    "duration": "3:37",
+    "durationSecs": 217,
+    "fileSize": 1736301,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
