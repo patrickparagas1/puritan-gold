@@ -23643,5 +23643,91 @@
       "Thomas Boston"
     ],
     "topic": null
+  },
+  {
+    "id": 7265,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-05-14",
+    "heartbeat": true,
+    "file": "audio/ep7265.mp3",
+    "audio": "audio/ep7265.mp3",
+    "duration": "3:43",
+    "durationSecs": 223,
+    "fileSize": 1786413,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7266,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "family",
+    "date": "2026-05-14",
+    "heartbeat": true,
+    "file": "audio/family_7266.mp3",
+    "audio": "audio/family_7266.mp3",
+    "duration": "3:24",
+    "durationSecs": 205,
+    "fileSize": 1637421,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7267,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-05-14",
+    "heartbeat": true,
+    "file": "audio/school_7267.mp3",
+    "audio": "audio/school_7267.mp3",
+    "duration": "3:40",
+    "durationSecs": 220,
+    "fileSize": 1761837,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7268,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-05-14",
+    "heartbeat": true,
+    "file": "audio/together_7268.mp3",
+    "audio": "audio/together_7268.mp3",
+    "duration": "3:25",
+    "durationSecs": 206,
+    "fileSize": 1647021,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7269,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "personal",
+    "date": "2026-05-14",
+    "heartbeat": true,
+    "file": "audio/ep7269.mp3",
+    "audio": "audio/ep7269.mp3",
+    "duration": "3:25",
+    "durationSecs": 206,
+    "fileSize": 1646253,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Richard Baxter"
+    ],
+    "topic": null
   }
 ]
