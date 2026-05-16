@@ -23729,5 +23729,91 @@
       "Richard Baxter"
     ],
     "topic": null
+  },
+  {
+    "id": 7270,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "study",
+    "date": "2026-05-16",
+    "heartbeat": true,
+    "file": "audio/ep7270.mp3",
+    "audio": "audio/ep7270.mp3",
+    "duration": "3:50",
+    "durationSecs": 230,
+    "fileSize": 1841517,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7271,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-05-16",
+    "heartbeat": true,
+    "file": "audio/family_7271.mp3",
+    "audio": "audio/family_7271.mp3",
+    "duration": "3:39",
+    "durationSecs": 219,
+    "fileSize": 1752429,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7272,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "school",
+    "date": "2026-05-16",
+    "heartbeat": true,
+    "file": "audio/school_7272.mp3",
+    "audio": "audio/school_7272.mp3",
+    "duration": "3:28",
+    "durationSecs": 208,
+    "fileSize": 1667565,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 7273,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "together",
+    "date": "2026-05-16",
+    "heartbeat": true,
+    "file": "audio/together_7273.mp3",
+    "audio": "audio/together_7273.mp3",
+    "duration": "3:27",
+    "durationSecs": 208,
+    "fileSize": 1661421,
+    "tags": [
+      "Together",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7274,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "personal",
+    "date": "2026-05-16",
+    "heartbeat": true,
+    "file": "audio/ep7274.mp3",
+    "audio": "audio/ep7274.mp3",
+    "duration": "3:32",
+    "durationSecs": 213,
+    "fileSize": 1700973,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Boston"
+    ],
+    "topic": null
   }
 ]
