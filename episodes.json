@@ -23815,5 +23815,91 @@
       "Thomas Boston"
     ],
     "topic": null
+  },
+  {
+    "id": 7275,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "study",
+    "date": "2026-05-17",
+    "heartbeat": true,
+    "file": "audio/ep7275.mp3",
+    "audio": "audio/ep7275.mp3",
+    "duration": "3:38",
+    "durationSecs": 219,
+    "fileSize": 1748589,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 7276,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-05-17",
+    "heartbeat": true,
+    "file": "audio/family_7276.mp3",
+    "audio": "audio/family_7276.mp3",
+    "duration": "3:54",
+    "durationSecs": 235,
+    "fileSize": 1878957,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7277,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "school",
+    "date": "2026-05-17",
+    "heartbeat": true,
+    "file": "audio/school_7277.mp3",
+    "audio": "audio/school_7277.mp3",
+    "duration": "3:18",
+    "durationSecs": 198,
+    "fileSize": 1585581,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7278,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "together",
+    "date": "2026-05-17",
+    "heartbeat": true,
+    "file": "audio/together_7278.mp3",
+    "audio": "audio/together_7278.mp3",
+    "duration": "3:25",
+    "durationSecs": 206,
+    "fileSize": 1646829,
+    "tags": [
+      "Together",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 7279,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "personal",
+    "date": "2026-05-17",
+    "heartbeat": true,
+    "file": "audio/ep7279.mp3",
+    "audio": "audio/ep7279.mp3",
+    "duration": "3:27",
+    "durationSecs": 208,
+    "fileSize": 1662765,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Jeremiah Burroughs"
+    ],
+    "topic": null
   }
 ]
