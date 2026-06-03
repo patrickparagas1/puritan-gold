@@ -25191,5 +25191,91 @@
       "C.H. Spurgeon"
     ],
     "topic": null
+  },
+  {
+    "id": 7355,
+    "title": "Daily Meditation from John Calvin",
+    "section": "study",
+    "date": "2026-06-03",
+    "heartbeat": true,
+    "file": "audio/ep7355.mp3",
+    "audio": "audio/ep7355.mp3",
+    "duration": "3:39",
+    "durationSecs": 220,
+    "fileSize": 1757037,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7356,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-06-03",
+    "heartbeat": true,
+    "file": "audio/family_7356.mp3",
+    "audio": "audio/family_7356.mp3",
+    "duration": "3:37",
+    "durationSecs": 218,
+    "fileSize": 1741485,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7357,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "school",
+    "date": "2026-06-03",
+    "heartbeat": true,
+    "file": "audio/school_7357.mp3",
+    "audio": "audio/school_7357.mp3",
+    "duration": "3:53",
+    "durationSecs": 234,
+    "fileSize": 1870509,
+    "tags": [
+      "School",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7358,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "together",
+    "date": "2026-06-03",
+    "heartbeat": true,
+    "file": "audio/together_7358.mp3",
+    "audio": "audio/together_7358.mp3",
+    "duration": "3:43",
+    "durationSecs": 224,
+    "fileSize": 1789293,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7359,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-06-03",
+    "heartbeat": true,
+    "file": "audio/ep7359.mp3",
+    "audio": "audio/ep7359.mp3",
+    "duration": "3:52",
+    "durationSecs": 233,
+    "fileSize": 1862829,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
