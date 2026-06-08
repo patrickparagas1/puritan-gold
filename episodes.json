@@ -25621,5 +25621,91 @@
       "John Calvin"
     ],
     "topic": null
+  },
+  {
+    "id": 7380,
+    "title": "Daily Meditation from John Calvin",
+    "section": "study",
+    "date": "2026-06-08",
+    "heartbeat": true,
+    "file": "audio/ep7380.mp3",
+    "audio": "audio/ep7380.mp3",
+    "duration": "3:24",
+    "durationSecs": 204,
+    "fileSize": 1634157,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7381,
+    "title": "Daily Meditation from John Flavel",
+    "section": "family",
+    "date": "2026-06-08",
+    "heartbeat": true,
+    "file": "audio/family_7381.mp3",
+    "audio": "audio/family_7381.mp3",
+    "duration": "3:50",
+    "durationSecs": 231,
+    "fileSize": 1848045,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7382,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "school",
+    "date": "2026-06-08",
+    "heartbeat": true,
+    "file": "audio/school_7382.mp3",
+    "audio": "audio/school_7382.mp3",
+    "duration": "3:55",
+    "durationSecs": 236,
+    "fileSize": 1887405,
+    "tags": [
+      "School",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7383,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-06-08",
+    "heartbeat": true,
+    "file": "audio/together_7383.mp3",
+    "audio": "audio/together_7383.mp3",
+    "duration": "3:39",
+    "durationSecs": 220,
+    "fileSize": 1757037,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7384,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-06-08",
+    "heartbeat": true,
+    "file": "audio/ep7384.mp3",
+    "audio": "audio/ep7384.mp3",
+    "duration": "3:53",
+    "durationSecs": 233,
+    "fileSize": 1865325,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
