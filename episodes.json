@@ -25707,5 +25707,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 7385,
+    "title": "Daily Meditation from John Flavel",
+    "section": "study",
+    "date": "2026-06-09",
+    "heartbeat": true,
+    "file": "audio/ep7385.mp3",
+    "audio": "audio/ep7385.mp3",
+    "duration": "3:43",
+    "durationSecs": 224,
+    "fileSize": 1788525,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7386,
+    "title": "Daily Meditation from John Calvin",
+    "section": "family",
+    "date": "2026-06-09",
+    "heartbeat": true,
+    "file": "audio/family_7386.mp3",
+    "audio": "audio/family_7386.mp3",
+    "duration": "3:36",
+    "durationSecs": 217,
+    "fileSize": 1735725,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7387,
+    "title": "Daily Meditation from John Flavel",
+    "section": "school",
+    "date": "2026-06-09",
+    "heartbeat": true,
+    "file": "audio/school_7387.mp3",
+    "audio": "audio/school_7387.mp3",
+    "duration": "3:51",
+    "durationSecs": 231,
+    "fileSize": 1849581,
+    "tags": [
+      "School",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7388,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-06-09",
+    "heartbeat": true,
+    "file": "audio/together_7388.mp3",
+    "audio": "audio/together_7388.mp3",
+    "duration": "3:36",
+    "durationSecs": 217,
+    "fileSize": 1733805,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7389,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-06-09",
+    "heartbeat": true,
+    "file": "audio/ep7389.mp3",
+    "audio": "audio/ep7389.mp3",
+    "duration": "3:42",
+    "durationSecs": 223,
+    "fileSize": 1782573,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
