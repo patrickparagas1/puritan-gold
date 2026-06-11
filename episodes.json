@@ -25879,5 +25879,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 7395,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "study",
+    "date": "2026-06-11",
+    "heartbeat": true,
+    "file": "audio/ep7395.mp3",
+    "audio": "audio/ep7395.mp3",
+    "duration": "3:36",
+    "durationSecs": 217,
+    "fileSize": 1736109,
+    "tags": [
+      "Study",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 7396,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-06-11",
+    "heartbeat": true,
+    "file": "audio/family_7396.mp3",
+    "audio": "audio/family_7396.mp3",
+    "duration": "3:41",
+    "durationSecs": 222,
+    "fileSize": 1774317,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7397,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "school",
+    "date": "2026-06-11",
+    "heartbeat": true,
+    "file": "audio/school_7397.mp3",
+    "audio": "audio/school_7397.mp3",
+    "duration": "3:54",
+    "durationSecs": 234,
+    "fileSize": 1873389,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7398,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-06-11",
+    "heartbeat": true,
+    "file": "audio/together_7398.mp3",
+    "audio": "audio/together_7398.mp3",
+    "duration": "3:30",
+    "durationSecs": 211,
+    "fileSize": 1684461,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7399,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "personal",
+    "date": "2026-06-11",
+    "heartbeat": true,
+    "file": "audio/ep7399.mp3",
+    "audio": "audio/ep7399.mp3",
+    "duration": "3:44",
+    "durationSecs": 225,
+    "fileSize": 1796589,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Brooks"
+    ],
+    "topic": null
   }
 ]
