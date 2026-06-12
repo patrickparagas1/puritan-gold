@@ -25965,5 +25965,91 @@
       "Thomas Brooks"
     ],
     "topic": null
+  },
+  {
+    "id": 7400,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "study",
+    "date": "2026-06-12",
+    "heartbeat": true,
+    "file": "audio/ep7400.mp3",
+    "audio": "audio/ep7400.mp3",
+    "duration": "3:31",
+    "durationSecs": 211,
+    "fileSize": 1691181,
+    "tags": [
+      "Study",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7401,
+    "title": "Daily Meditation from John Flavel",
+    "section": "family",
+    "date": "2026-06-12",
+    "heartbeat": true,
+    "file": "audio/family_7401.mp3",
+    "audio": "audio/family_7401.mp3",
+    "duration": "3:19",
+    "durationSecs": 200,
+    "fileSize": 1598829,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7402,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "school",
+    "date": "2026-06-12",
+    "heartbeat": true,
+    "file": "audio/school_7402.mp3",
+    "audio": "audio/school_7402.mp3",
+    "duration": "3:50",
+    "durationSecs": 230,
+    "fileSize": 1843821,
+    "tags": [
+      "School",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7403,
+    "title": "Daily Meditation from John Owen",
+    "section": "together",
+    "date": "2026-06-12",
+    "heartbeat": true,
+    "file": "audio/together_7403.mp3",
+    "audio": "audio/together_7403.mp3",
+    "duration": "3:32",
+    "durationSecs": 213,
+    "fileSize": 1703853,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7404,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-06-12",
+    "heartbeat": true,
+    "file": "audio/ep7404.mp3",
+    "audio": "audio/ep7404.mp3",
+    "duration": "3:36",
+    "durationSecs": 217,
+    "fileSize": 1735533,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
