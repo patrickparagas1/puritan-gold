@@ -26137,5 +26137,91 @@
       "John Bunyan"
     ],
     "topic": null
+  },
+  {
+    "id": 7410,
+    "title": "Daily Meditation from John Owen",
+    "section": "study",
+    "date": "2026-06-14",
+    "heartbeat": true,
+    "file": "audio/ep7410.mp3",
+    "audio": "audio/ep7410.mp3",
+    "duration": "3:32",
+    "durationSecs": 213,
+    "fileSize": 1703277,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7411,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "family",
+    "date": "2026-06-14",
+    "heartbeat": true,
+    "file": "audio/family_7411.mp3",
+    "audio": "audio/family_7411.mp3",
+    "duration": "3:31",
+    "durationSecs": 211,
+    "fileSize": 1689453,
+    "tags": [
+      "Family",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 7412,
+    "title": "Daily Meditation from John Owen",
+    "section": "school",
+    "date": "2026-06-14",
+    "heartbeat": true,
+    "file": "audio/school_7412.mp3",
+    "audio": "audio/school_7412.mp3",
+    "duration": "3:38",
+    "durationSecs": 219,
+    "fileSize": 1749357,
+    "tags": [
+      "School",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7413,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-06-14",
+    "heartbeat": true,
+    "file": "audio/together_7413.mp3",
+    "audio": "audio/together_7413.mp3",
+    "duration": "3:24",
+    "durationSecs": 204,
+    "fileSize": 1635309,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7414,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "personal",
+    "date": "2026-06-14",
+    "heartbeat": true,
+    "file": "audio/ep7414.mp3",
+    "audio": "audio/ep7414.mp3",
+    "duration": "3:31",
+    "durationSecs": 211,
+    "fileSize": 1689645,
+    "tags": [
+      "Growth",
+      "Daily",
+      "C.H. Spurgeon"
+    ],
+    "topic": null
   }
 ]
