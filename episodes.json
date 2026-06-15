@@ -26223,5 +26223,91 @@
       "C.H. Spurgeon"
     ],
     "topic": null
+  },
+  {
+    "id": 7415,
+    "title": "Daily Meditation from John Owen",
+    "section": "study",
+    "date": "2026-06-15",
+    "heartbeat": true,
+    "file": "audio/ep7415.mp3",
+    "audio": "audio/ep7415.mp3",
+    "duration": "3:28",
+    "durationSecs": 209,
+    "fileSize": 1670637,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7416,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-06-15",
+    "heartbeat": true,
+    "file": "audio/family_7416.mp3",
+    "audio": "audio/family_7416.mp3",
+    "duration": "3:56",
+    "durationSecs": 237,
+    "fileSize": 1895085,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7417,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "school",
+    "date": "2026-06-15",
+    "heartbeat": true,
+    "file": "audio/school_7417.mp3",
+    "audio": "audio/school_7417.mp3",
+    "duration": "3:57",
+    "durationSecs": 238,
+    "fileSize": 1901805,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7418,
+    "title": "Daily Meditation from John Flavel",
+    "section": "together",
+    "date": "2026-06-15",
+    "heartbeat": true,
+    "file": "audio/together_7418.mp3",
+    "audio": "audio/together_7418.mp3",
+    "duration": "2:53",
+    "durationSecs": 173,
+    "fileSize": 1386285,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7419,
+    "title": "Daily Meditation from John Owen",
+    "section": "personal",
+    "date": "2026-06-15",
+    "heartbeat": true,
+    "file": "audio/ep7419.mp3",
+    "audio": "audio/ep7419.mp3",
+    "duration": "3:20",
+    "durationSecs": 200,
+    "fileSize": 1602669,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Owen"
+    ],
+    "topic": null
   }
 ]
