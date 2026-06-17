@@ -26395,5 +26395,91 @@
       "Richard Baxter"
     ],
     "topic": null
+  },
+  {
+    "id": 7425,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "study",
+    "date": "2026-06-17",
+    "heartbeat": true,
+    "file": "audio/ep7425.mp3",
+    "audio": "audio/ep7425.mp3",
+    "duration": "3:31",
+    "durationSecs": 212,
+    "fileSize": 1693677,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7426,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-06-17",
+    "heartbeat": true,
+    "file": "audio/family_7426.mp3",
+    "audio": "audio/family_7426.mp3",
+    "duration": "3:29",
+    "durationSecs": 210,
+    "fileSize": 1677357,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7427,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "school",
+    "date": "2026-06-17",
+    "heartbeat": true,
+    "file": "audio/school_7427.mp3",
+    "audio": "audio/school_7427.mp3",
+    "duration": "3:40",
+    "durationSecs": 220,
+    "fileSize": 1761069,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7428,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "together",
+    "date": "2026-06-17",
+    "heartbeat": true,
+    "file": "audio/together_7428.mp3",
+    "audio": "audio/together_7428.mp3",
+    "duration": "3:27",
+    "durationSecs": 207,
+    "fileSize": 1658349,
+    "tags": [
+      "Together",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 7429,
+    "title": "Daily Meditation from John Owen",
+    "section": "personal",
+    "date": "2026-06-17",
+    "heartbeat": true,
+    "file": "audio/ep7429.mp3",
+    "audio": "audio/ep7429.mp3",
+    "duration": "3:40",
+    "durationSecs": 221,
+    "fileSize": 1764525,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Owen"
+    ],
+    "topic": null
   }
 ]
