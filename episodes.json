@@ -26481,5 +26481,91 @@
       "John Owen"
     ],
     "topic": null
+  },
+  {
+    "id": 7430,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "study",
+    "date": "2026-06-18",
+    "heartbeat": true,
+    "file": "audio/ep7430.mp3",
+    "audio": "audio/ep7430.mp3",
+    "duration": "3:27",
+    "durationSecs": 208,
+    "fileSize": 1661229,
+    "tags": [
+      "Study",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7431,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "family",
+    "date": "2026-06-18",
+    "heartbeat": true,
+    "file": "audio/family_7431.mp3",
+    "audio": "audio/family_7431.mp3",
+    "duration": "3:52",
+    "durationSecs": 232,
+    "fileSize": 1859565,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7432,
+    "title": "Daily Meditation from John Owen",
+    "section": "school",
+    "date": "2026-06-18",
+    "heartbeat": true,
+    "file": "audio/school_7432.mp3",
+    "audio": "audio/school_7432.mp3",
+    "duration": "3:29",
+    "durationSecs": 210,
+    "fileSize": 1678317,
+    "tags": [
+      "School",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7433,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-06-18",
+    "heartbeat": true,
+    "file": "audio/together_7433.mp3",
+    "audio": "audio/together_7433.mp3",
+    "duration": "3:38",
+    "durationSecs": 218,
+    "fileSize": 1744365,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7434,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "personal",
+    "date": "2026-06-18",
+    "heartbeat": true,
+    "file": "audio/ep7434.mp3",
+    "audio": "audio/ep7434.mp3",
+    "duration": "3:23",
+    "durationSecs": 204,
+    "fileSize": 1631853,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Richard Baxter"
+    ],
+    "topic": null
   }
 ]
