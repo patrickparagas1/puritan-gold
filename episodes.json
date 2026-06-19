@@ -26567,5 +26567,91 @@
       "Richard Baxter"
     ],
     "topic": null
+  },
+  {
+    "id": 7435,
+    "title": "Daily Meditation from John Flavel",
+    "section": "study",
+    "date": "2026-06-19",
+    "heartbeat": true,
+    "file": "audio/ep7435.mp3",
+    "audio": "audio/ep7435.mp3",
+    "duration": "3:31",
+    "durationSecs": 211,
+    "fileSize": 1690989,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7436,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "family",
+    "date": "2026-06-19",
+    "heartbeat": true,
+    "file": "audio/family_7436.mp3",
+    "audio": "audio/family_7436.mp3",
+    "duration": "3:32",
+    "durationSecs": 212,
+    "fileSize": 1699629,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7437,
+    "title": "Daily Meditation from John Flavel",
+    "section": "school",
+    "date": "2026-06-19",
+    "heartbeat": true,
+    "file": "audio/school_7437.mp3",
+    "audio": "audio/school_7437.mp3",
+    "duration": "2:53",
+    "durationSecs": 173,
+    "fileSize": 1384941,
+    "tags": [
+      "School",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7438,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-06-19",
+    "heartbeat": true,
+    "file": "audio/together_7438.mp3",
+    "audio": "audio/together_7438.mp3",
+    "duration": "3:40",
+    "durationSecs": 221,
+    "fileSize": 1764909,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7439,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "personal",
+    "date": "2026-06-19",
+    "heartbeat": true,
+    "file": "audio/ep7439.mp3",
+    "audio": "audio/ep7439.mp3",
+    "duration": "3:38",
+    "durationSecs": 218,
+    "fileSize": 1744557,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Brooks"
+    ],
+    "topic": null
   }
 ]
