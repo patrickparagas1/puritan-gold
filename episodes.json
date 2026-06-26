@@ -27083,5 +27083,91 @@
       "John Owen"
     ],
     "topic": null
+  },
+  {
+    "id": 7465,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "study",
+    "date": "2026-06-26",
+    "heartbeat": true,
+    "file": "audio/ep7465.mp3",
+    "audio": "audio/ep7465.mp3",
+    "duration": "3:39",
+    "durationSecs": 220,
+    "fileSize": 1756269,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7466,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "family",
+    "date": "2026-06-26",
+    "heartbeat": true,
+    "file": "audio/family_7466.mp3",
+    "audio": "audio/family_7466.mp3",
+    "duration": "3:32",
+    "durationSecs": 212,
+    "fileSize": 1698285,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7467,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "school",
+    "date": "2026-06-26",
+    "heartbeat": true,
+    "file": "audio/school_7467.mp3",
+    "audio": "audio/school_7467.mp3",
+    "duration": "3:39",
+    "durationSecs": 220,
+    "fileSize": 1757805,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 7468,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "together",
+    "date": "2026-06-26",
+    "heartbeat": true,
+    "file": "audio/together_7468.mp3",
+    "audio": "audio/together_7468.mp3",
+    "duration": "4:10",
+    "durationSecs": 250,
+    "fileSize": 2003757,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7469,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "personal",
+    "date": "2026-06-26",
+    "heartbeat": true,
+    "file": "audio/ep7469.mp3",
+    "audio": "audio/ep7469.mp3",
+    "duration": "3:27",
+    "durationSecs": 207,
+    "fileSize": 1656237,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Bunyan"
+    ],
+    "topic": null
   }
 ]
