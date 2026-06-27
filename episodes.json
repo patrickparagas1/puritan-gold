@@ -27169,5 +27169,91 @@
       "John Bunyan"
     ],
     "topic": null
+  },
+  {
+    "id": 7470,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "study",
+    "date": "2026-06-27",
+    "heartbeat": true,
+    "file": "audio/ep7470.mp3",
+    "audio": "audio/ep7470.mp3",
+    "duration": "3:25",
+    "durationSecs": 205,
+    "fileSize": 1643565,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7471,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "family",
+    "date": "2026-06-27",
+    "heartbeat": true,
+    "file": "audio/family_7471.mp3",
+    "audio": "audio/family_7471.mp3",
+    "duration": "3:48",
+    "durationSecs": 228,
+    "fileSize": 1825773,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7472,
+    "title": "Daily Meditation from John Flavel",
+    "section": "school",
+    "date": "2026-06-27",
+    "heartbeat": true,
+    "file": "audio/school_7472.mp3",
+    "audio": "audio/school_7472.mp3",
+    "duration": "3:30",
+    "durationSecs": 211,
+    "fileSize": 1685229,
+    "tags": [
+      "School",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7473,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-06-27",
+    "heartbeat": true,
+    "file": "audio/together_7473.mp3",
+    "audio": "audio/together_7473.mp3",
+    "duration": "3:39",
+    "durationSecs": 219,
+    "fileSize": 1754733,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7474,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "personal",
+    "date": "2026-06-27",
+    "heartbeat": true,
+    "file": "audio/ep7474.mp3",
+    "audio": "audio/ep7474.mp3",
+    "duration": "3:23",
+    "durationSecs": 204,
+    "fileSize": 1632045,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Jonathan Edwards"
+    ],
+    "topic": null
   }
 ]
