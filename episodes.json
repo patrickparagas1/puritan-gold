@@ -27255,5 +27255,91 @@
       "Jonathan Edwards"
     ],
     "topic": null
+  },
+  {
+    "id": 7475,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-06-28",
+    "heartbeat": true,
+    "file": "audio/ep7475.mp3",
+    "audio": "audio/ep7475.mp3",
+    "duration": "3:37",
+    "durationSecs": 217,
+    "fileSize": 1738989,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7476,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "family",
+    "date": "2026-06-28",
+    "heartbeat": true,
+    "file": "audio/family_7476.mp3",
+    "audio": "audio/family_7476.mp3",
+    "duration": "3:27",
+    "durationSecs": 207,
+    "fileSize": 1657965,
+    "tags": [
+      "Family",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7477,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-06-28",
+    "heartbeat": true,
+    "file": "audio/school_7477.mp3",
+    "audio": "audio/school_7477.mp3",
+    "duration": "3:37",
+    "durationSecs": 217,
+    "fileSize": 1736685,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7478,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-06-28",
+    "heartbeat": true,
+    "file": "audio/together_7478.mp3",
+    "audio": "audio/together_7478.mp3",
+    "duration": "3:49",
+    "durationSecs": 229,
+    "fileSize": 1832301,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7479,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "personal",
+    "date": "2026-06-28",
+    "heartbeat": true,
+    "file": "audio/ep7479.mp3",
+    "audio": "audio/ep7479.mp3",
+    "duration": "3:14",
+    "durationSecs": 195,
+    "fileSize": 1557741,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Jeremiah Burroughs"
+    ],
+    "topic": null
   }
 ]
