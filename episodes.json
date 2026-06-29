@@ -27341,5 +27341,91 @@
       "Jeremiah Burroughs"
     ],
     "topic": null
+  },
+  {
+    "id": 7480,
+    "title": "Daily Meditation from John Flavel",
+    "section": "study",
+    "date": "2026-06-29",
+    "heartbeat": true,
+    "file": "audio/ep7480.mp3",
+    "audio": "audio/ep7480.mp3",
+    "duration": "3:26",
+    "durationSecs": 206,
+    "fileSize": 1651245,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7481,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "family",
+    "date": "2026-06-29",
+    "heartbeat": true,
+    "file": "audio/family_7481.mp3",
+    "audio": "audio/family_7481.mp3",
+    "duration": "3:57",
+    "durationSecs": 238,
+    "fileSize": 1904109,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7482,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "school",
+    "date": "2026-06-29",
+    "heartbeat": true,
+    "file": "audio/school_7482.mp3",
+    "audio": "audio/school_7482.mp3",
+    "duration": "3:27",
+    "durationSecs": 207,
+    "fileSize": 1658157,
+    "tags": [
+      "School",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7483,
+    "title": "Daily Meditation from John Flavel",
+    "section": "together",
+    "date": "2026-06-29",
+    "heartbeat": true,
+    "file": "audio/together_7483.mp3",
+    "audio": "audio/together_7483.mp3",
+    "duration": "3:15",
+    "durationSecs": 196,
+    "fileSize": 1567533,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7484,
+    "title": "Daily Meditation from John Owen",
+    "section": "personal",
+    "date": "2026-06-29",
+    "heartbeat": true,
+    "file": "audio/ep7484.mp3",
+    "audio": "audio/ep7484.mp3",
+    "duration": "3:54",
+    "durationSecs": 235,
+    "fileSize": 1877997,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Owen"
+    ],
+    "topic": null
   }
 ]
