@@ -27685,5 +27685,91 @@
       "Thomas Boston"
     ],
     "topic": null
+  },
+  {
+    "id": 7500,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-07-03",
+    "heartbeat": true,
+    "file": "audio/ep7500.mp3",
+    "audio": "audio/ep7500.mp3",
+    "duration": "3:37",
+    "durationSecs": 218,
+    "fileSize": 1742445,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7501,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "family",
+    "date": "2026-07-03",
+    "heartbeat": true,
+    "file": "audio/family_7501.mp3",
+    "audio": "audio/family_7501.mp3",
+    "duration": "3:42",
+    "durationSecs": 223,
+    "fileSize": 1784109,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 7502,
+    "title": "Daily Meditation from John Calvin",
+    "section": "school",
+    "date": "2026-07-03",
+    "heartbeat": true,
+    "file": "audio/school_7502.mp3",
+    "audio": "audio/school_7502.mp3",
+    "duration": "3:31",
+    "durationSecs": 211,
+    "fileSize": 1688301,
+    "tags": [
+      "School",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7503,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-07-03",
+    "heartbeat": true,
+    "file": "audio/together_7503.mp3",
+    "audio": "audio/together_7503.mp3",
+    "duration": "3:39",
+    "durationSecs": 219,
+    "fileSize": 1753773,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7504,
+    "title": "Daily Meditation from John Calvin",
+    "section": "personal",
+    "date": "2026-07-03",
+    "heartbeat": true,
+    "file": "audio/ep7504.mp3",
+    "audio": "audio/ep7504.mp3",
+    "duration": "3:33",
+    "durationSecs": 214,
+    "fileSize": 1711917,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Calvin"
+    ],
+    "topic": null
   }
 ]
