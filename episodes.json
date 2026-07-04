@@ -27771,5 +27771,91 @@
       "John Calvin"
     ],
     "topic": null
+  },
+  {
+    "id": 7505,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "study",
+    "date": "2026-07-04",
+    "heartbeat": true,
+    "file": "audio/ep7505.mp3",
+    "audio": "audio/ep7505.mp3",
+    "duration": "3:48",
+    "durationSecs": 229,
+    "fileSize": 1829421,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 7506,
+    "title": "Daily Meditation from John Calvin",
+    "section": "family",
+    "date": "2026-07-04",
+    "heartbeat": true,
+    "file": "audio/family_7506.mp3",
+    "audio": "audio/family_7506.mp3",
+    "duration": "3:45",
+    "durationSecs": 225,
+    "fileSize": 1803501,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7507,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "school",
+    "date": "2026-07-04",
+    "heartbeat": true,
+    "file": "audio/school_7507.mp3",
+    "audio": "audio/school_7507.mp3",
+    "duration": "4:05",
+    "durationSecs": 245,
+    "fileSize": 1963245,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7508,
+    "title": "Daily Meditation from John Flavel",
+    "section": "together",
+    "date": "2026-07-04",
+    "heartbeat": true,
+    "file": "audio/together_7508.mp3",
+    "audio": "audio/together_7508.mp3",
+    "duration": "3:28",
+    "durationSecs": 209,
+    "fileSize": 1669293,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7509,
+    "title": "Daily Meditation from John Owen",
+    "section": "personal",
+    "date": "2026-07-04",
+    "heartbeat": true,
+    "file": "audio/ep7509.mp3",
+    "audio": "audio/ep7509.mp3",
+    "duration": "3:27",
+    "durationSecs": 207,
+    "fileSize": 1659501,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Owen"
+    ],
+    "topic": null
   }
 ]
