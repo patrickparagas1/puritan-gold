@@ -27943,5 +27943,91 @@
       "C.H. Spurgeon"
     ],
     "topic": null
+  },
+  {
+    "id": 7515,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-07-06",
+    "heartbeat": true,
+    "file": "audio/ep7515.mp3",
+    "audio": "audio/ep7515.mp3",
+    "duration": "3:37",
+    "durationSecs": 217,
+    "fileSize": 1738605,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7516,
+    "title": "Daily Meditation from John Calvin",
+    "section": "family",
+    "date": "2026-07-06",
+    "heartbeat": true,
+    "file": "audio/family_7516.mp3",
+    "audio": "audio/family_7516.mp3",
+    "duration": "3:42",
+    "durationSecs": 223,
+    "fileSize": 1783149,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7517,
+    "title": "Daily Meditation from John Calvin",
+    "section": "school",
+    "date": "2026-07-06",
+    "heartbeat": true,
+    "file": "audio/school_7517.mp3",
+    "audio": "audio/school_7517.mp3",
+    "duration": "3:33",
+    "durationSecs": 213,
+    "fileSize": 1707309,
+    "tags": [
+      "School",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7518,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "together",
+    "date": "2026-07-06",
+    "heartbeat": true,
+    "file": "audio/together_7518.mp3",
+    "audio": "audio/together_7518.mp3",
+    "duration": "4:07",
+    "durationSecs": 247,
+    "fileSize": 1976493,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7519,
+    "title": "Daily Meditation from John Calvin",
+    "section": "personal",
+    "date": "2026-07-06",
+    "heartbeat": true,
+    "file": "audio/ep7519.mp3",
+    "audio": "audio/ep7519.mp3",
+    "duration": "3:34",
+    "durationSecs": 214,
+    "fileSize": 1714797,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Calvin"
+    ],
+    "topic": null
   }
 ]
