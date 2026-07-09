@@ -28201,5 +28201,91 @@
       "Jonathan Edwards"
     ],
     "topic": null
+  },
+  {
+    "id": 7530,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "study",
+    "date": "2026-07-09",
+    "heartbeat": true,
+    "file": "audio/ep7530.mp3",
+    "audio": "audio/ep7530.mp3",
+    "duration": "3:28",
+    "durationSecs": 209,
+    "fileSize": 1668525,
+    "tags": [
+      "Study",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 7531,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "family",
+    "date": "2026-07-09",
+    "heartbeat": true,
+    "file": "audio/family_7531.mp3",
+    "audio": "audio/family_7531.mp3",
+    "duration": "3:01",
+    "durationSecs": 182,
+    "fileSize": 1455597,
+    "tags": [
+      "Family",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7532,
+    "title": "Daily Meditation from John Owen",
+    "section": "school",
+    "date": "2026-07-09",
+    "heartbeat": true,
+    "file": "audio/school_7532.mp3",
+    "audio": "audio/school_7532.mp3",
+    "duration": "3:32",
+    "durationSecs": 213,
+    "fileSize": 1701933,
+    "tags": [
+      "School",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7533,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "together",
+    "date": "2026-07-09",
+    "heartbeat": true,
+    "file": "audio/together_7533.mp3",
+    "audio": "audio/together_7533.mp3",
+    "duration": "3:15",
+    "durationSecs": 195,
+    "fileSize": 1561197,
+    "tags": [
+      "Together",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7534,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "personal",
+    "date": "2026-07-09",
+    "heartbeat": true,
+    "file": "audio/ep7534.mp3",
+    "audio": "audio/ep7534.mp3",
+    "duration": "3:34",
+    "durationSecs": 215,
+    "fileSize": 1719981,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Boston"
+    ],
+    "topic": null
   }
 ]
