@@ -28373,5 +28373,91 @@
       "John Owen"
     ],
     "topic": null
+  },
+  {
+    "id": 7540,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "study",
+    "date": "2026-07-11",
+    "heartbeat": true,
+    "file": "audio/ep7540.mp3",
+    "audio": "audio/ep7540.mp3",
+    "duration": "3:41",
+    "durationSecs": 222,
+    "fileSize": 1776045,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7541,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "family",
+    "date": "2026-07-11",
+    "heartbeat": true,
+    "file": "audio/family_7541.mp3",
+    "audio": "audio/family_7541.mp3",
+    "duration": "3:39",
+    "durationSecs": 219,
+    "fileSize": 1755501,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7542,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "school",
+    "date": "2026-07-11",
+    "heartbeat": true,
+    "file": "audio/school_7542.mp3",
+    "audio": "audio/school_7542.mp3",
+    "duration": "3:21",
+    "durationSecs": 202,
+    "fileSize": 1613229,
+    "tags": [
+      "School",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7543,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "together",
+    "date": "2026-07-11",
+    "heartbeat": true,
+    "file": "audio/together_7543.mp3",
+    "audio": "audio/together_7543.mp3",
+    "duration": "3:32",
+    "durationSecs": 213,
+    "fileSize": 1702317,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7544,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-07-11",
+    "heartbeat": true,
+    "file": "audio/ep7544.mp3",
+    "audio": "audio/ep7544.mp3",
+    "duration": "3:41",
+    "durationSecs": 221,
+    "fileSize": 1771629,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
