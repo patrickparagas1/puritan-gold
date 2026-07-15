@@ -28717,5 +28717,91 @@
       "Richard Baxter"
     ],
     "topic": null
+  },
+  {
+    "id": 7560,
+    "title": "Daily Meditation from John Owen",
+    "section": "study",
+    "date": "2026-07-15",
+    "heartbeat": true,
+    "file": "audio/ep7560.mp3",
+    "audio": "audio/ep7560.mp3",
+    "duration": "3:41",
+    "durationSecs": 222,
+    "fileSize": 1773933,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7561,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-07-15",
+    "heartbeat": true,
+    "file": "audio/family_7561.mp3",
+    "audio": "audio/family_7561.mp3",
+    "duration": "3:51",
+    "durationSecs": 231,
+    "fileSize": 1851501,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7562,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-07-15",
+    "heartbeat": true,
+    "file": "audio/school_7562.mp3",
+    "audio": "audio/school_7562.mp3",
+    "duration": "3:36",
+    "durationSecs": 217,
+    "fileSize": 1732845,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7563,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "together",
+    "date": "2026-07-15",
+    "heartbeat": true,
+    "file": "audio/together_7563.mp3",
+    "audio": "audio/together_7563.mp3",
+    "duration": "3:13",
+    "durationSecs": 194,
+    "fileSize": 1548909,
+    "tags": [
+      "Together",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 7564,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "personal",
+    "date": "2026-07-15",
+    "heartbeat": true,
+    "file": "audio/ep7564.mp3",
+    "audio": "audio/ep7564.mp3",
+    "duration": "3:20",
+    "durationSecs": 201,
+    "fileSize": 1604973,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Richard Sibbes"
+    ],
+    "topic": null
   }
 ]
