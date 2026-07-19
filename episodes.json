@@ -29061,5 +29061,91 @@
       "John Bunyan"
     ],
     "topic": null
+  },
+  {
+    "id": 7580,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "study",
+    "date": "2026-07-19",
+    "heartbeat": true,
+    "file": "audio/ep7580.mp3",
+    "audio": "audio/ep7580.mp3",
+    "duration": "3:48",
+    "durationSecs": 229,
+    "fileSize": 1831725,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 7581,
+    "title": "Daily Meditation from John Flavel",
+    "section": "family",
+    "date": "2026-07-19",
+    "heartbeat": true,
+    "file": "audio/family_7581.mp3",
+    "audio": "audio/family_7581.mp3",
+    "duration": "3:32",
+    "durationSecs": 212,
+    "fileSize": 1696557,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7582,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "school",
+    "date": "2026-07-19",
+    "heartbeat": true,
+    "file": "audio/school_7582.mp3",
+    "audio": "audio/school_7582.mp3",
+    "duration": "3:04",
+    "durationSecs": 184,
+    "fileSize": 1474605,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7583,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "together",
+    "date": "2026-07-19",
+    "heartbeat": true,
+    "file": "audio/together_7583.mp3",
+    "audio": "audio/together_7583.mp3",
+    "duration": "3:53",
+    "durationSecs": 234,
+    "fileSize": 1868397,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7584,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "personal",
+    "date": "2026-07-19",
+    "heartbeat": true,
+    "file": "audio/ep7584.mp3",
+    "audio": "audio/ep7584.mp3",
+    "duration": "3:52",
+    "durationSecs": 232,
+    "fileSize": 1856493,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Watson"
+    ],
+    "topic": null
   }
 ]
