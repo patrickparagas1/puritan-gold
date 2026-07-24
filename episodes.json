@@ -29491,5 +29491,91 @@
       "Jeremiah Burroughs"
     ],
     "topic": null
+  },
+  {
+    "id": 7605,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-07-24",
+    "heartbeat": true,
+    "file": "audio/ep7605.mp3",
+    "audio": "audio/ep7605.mp3",
+    "duration": "3:54",
+    "durationSecs": 234,
+    "fileSize": 1874541,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7606,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-07-24",
+    "heartbeat": true,
+    "file": "audio/family_7606.mp3",
+    "audio": "audio/family_7606.mp3",
+    "duration": "4:06",
+    "durationSecs": 247,
+    "fileSize": 1972461,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7607,
+    "title": "Daily Meditation from John Flavel",
+    "section": "school",
+    "date": "2026-07-24",
+    "heartbeat": true,
+    "file": "audio/school_7607.mp3",
+    "audio": "audio/school_7607.mp3",
+    "duration": "3:44",
+    "durationSecs": 225,
+    "fileSize": 1798509,
+    "tags": [
+      "School",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7608,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-07-24",
+    "heartbeat": true,
+    "file": "audio/together_7608.mp3",
+    "audio": "audio/together_7608.mp3",
+    "duration": "3:29",
+    "durationSecs": 209,
+    "fileSize": 1676205,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7609,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "personal",
+    "date": "2026-07-24",
+    "heartbeat": true,
+    "file": "audio/ep7609.mp3",
+    "audio": "audio/ep7609.mp3",
+    "duration": "3:32",
+    "durationSecs": 213,
+    "fileSize": 1702701,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Richard Sibbes"
+    ],
+    "topic": null
   }
 ]
