@@ -29577,5 +29577,91 @@
       "Richard Sibbes"
     ],
     "topic": null
+  },
+  {
+    "id": 7610,
+    "title": "Daily Meditation from John Flavel",
+    "section": "study",
+    "date": "2026-07-25",
+    "heartbeat": true,
+    "file": "audio/ep7610.mp3",
+    "audio": "audio/ep7610.mp3",
+    "duration": "3:41",
+    "durationSecs": 222,
+    "fileSize": 1775085,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7611,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "family",
+    "date": "2026-07-25",
+    "heartbeat": true,
+    "file": "audio/family_7611.mp3",
+    "audio": "audio/family_7611.mp3",
+    "duration": "3:27",
+    "durationSecs": 207,
+    "fileSize": 1658925,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7612,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-07-25",
+    "heartbeat": true,
+    "file": "audio/school_7612.mp3",
+    "audio": "audio/school_7612.mp3",
+    "duration": "3:40",
+    "durationSecs": 220,
+    "fileSize": 1763757,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7613,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "together",
+    "date": "2026-07-25",
+    "heartbeat": true,
+    "file": "audio/together_7613.mp3",
+    "audio": "audio/together_7613.mp3",
+    "duration": "3:39",
+    "durationSecs": 219,
+    "fileSize": 1754925,
+    "tags": [
+      "Together",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7614,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "personal",
+    "date": "2026-07-25",
+    "heartbeat": true,
+    "file": "audio/ep7614.mp3",
+    "audio": "audio/ep7614.mp3",
+    "duration": "4:06",
+    "durationSecs": 246,
+    "fileSize": 1968237,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Bunyan"
+    ],
+    "topic": null
   }
 ]
