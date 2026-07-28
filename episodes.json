@@ -29835,5 +29835,91 @@
       "John Bunyan"
     ],
     "topic": null
+  },
+  {
+    "id": 7625,
+    "title": "Daily Meditation from John Owen",
+    "section": "study",
+    "date": "2026-07-28",
+    "heartbeat": true,
+    "file": "audio/ep7625.mp3",
+    "audio": "audio/ep7625.mp3",
+    "duration": "3:36",
+    "durationSecs": 216,
+    "fileSize": 1730733,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7626,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "family",
+    "date": "2026-07-28",
+    "heartbeat": true,
+    "file": "audio/family_7626.mp3",
+    "audio": "audio/family_7626.mp3",
+    "duration": "3:41",
+    "durationSecs": 221,
+    "fileSize": 1770285,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 7627,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "school",
+    "date": "2026-07-28",
+    "heartbeat": true,
+    "file": "audio/school_7627.mp3",
+    "audio": "audio/school_7627.mp3",
+    "duration": "3:25",
+    "durationSecs": 205,
+    "fileSize": 1640685,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7628,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "together",
+    "date": "2026-07-28",
+    "heartbeat": true,
+    "file": "audio/together_7628.mp3",
+    "audio": "audio/together_7628.mp3",
+    "duration": "3:57",
+    "durationSecs": 238,
+    "fileSize": 1902573,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7629,
+    "title": "Daily Meditation from John Owen",
+    "section": "personal",
+    "date": "2026-07-28",
+    "heartbeat": true,
+    "file": "audio/ep7629.mp3",
+    "audio": "audio/ep7629.mp3",
+    "duration": "3:34",
+    "durationSecs": 214,
+    "fileSize": 1714029,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Owen"
+    ],
+    "topic": null
   }
 ]
