@@ -29921,5 +29921,91 @@
       "John Owen"
     ],
     "topic": null
+  },
+  {
+    "id": 7630,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "study",
+    "date": "2026-07-29",
+    "heartbeat": true,
+    "file": "audio/ep7630.mp3",
+    "audio": "audio/ep7630.mp3",
+    "duration": "3:24",
+    "durationSecs": 204,
+    "fileSize": 1636077,
+    "tags": [
+      "Study",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7631,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "family",
+    "date": "2026-07-29",
+    "heartbeat": true,
+    "file": "audio/family_7631.mp3",
+    "audio": "audio/family_7631.mp3",
+    "duration": "3:21",
+    "durationSecs": 202,
+    "fileSize": 1613997,
+    "tags": [
+      "Family",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7632,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "school",
+    "date": "2026-07-29",
+    "heartbeat": true,
+    "file": "audio/school_7632.mp3",
+    "audio": "audio/school_7632.mp3",
+    "duration": "3:15",
+    "durationSecs": 195,
+    "fileSize": 1561389,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7633,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "together",
+    "date": "2026-07-29",
+    "heartbeat": true,
+    "file": "audio/together_7633.mp3",
+    "audio": "audio/together_7633.mp3",
+    "duration": "3:31",
+    "durationSecs": 212,
+    "fileSize": 1694637,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7634,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "personal",
+    "date": "2026-07-29",
+    "heartbeat": true,
+    "file": "audio/ep7634.mp3",
+    "audio": "audio/ep7634.mp3",
+    "duration": "3:37",
+    "durationSecs": 218,
+    "fileSize": 1743981,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Bunyan"
+    ],
+    "topic": null
   }
 ]
