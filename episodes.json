@@ -30007,5 +30007,91 @@
       "John Bunyan"
     ],
     "topic": null
+  },
+  {
+    "id": 7635,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-07-30",
+    "heartbeat": true,
+    "file": "audio/ep7635.mp3",
+    "audio": "audio/ep7635.mp3",
+    "duration": "3:27",
+    "durationSecs": 207,
+    "fileSize": 1658541,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7636,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-07-30",
+    "heartbeat": true,
+    "file": "audio/family_7636.mp3",
+    "audio": "audio/family_7636.mp3",
+    "duration": "3:47",
+    "durationSecs": 227,
+    "fileSize": 1818669,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7637,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "school",
+    "date": "2026-07-30",
+    "heartbeat": true,
+    "file": "audio/school_7637.mp3",
+    "audio": "audio/school_7637.mp3",
+    "duration": "3:19",
+    "durationSecs": 199,
+    "fileSize": 1593645,
+    "tags": [
+      "School",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 7638,
+    "title": "Daily Meditation from John Owen",
+    "section": "together",
+    "date": "2026-07-30",
+    "heartbeat": true,
+    "file": "audio/together_7638.mp3",
+    "audio": "audio/together_7638.mp3",
+    "duration": "3:34",
+    "durationSecs": 215,
+    "fileSize": 1716909,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7639,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "personal",
+    "date": "2026-07-30",
+    "heartbeat": true,
+    "file": "audio/ep7639.mp3",
+    "audio": "audio/ep7639.mp3",
+    "duration": "3:42",
+    "durationSecs": 223,
+    "fileSize": 1781997,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Richard Sibbes"
+    ],
+    "topic": null
   }
 ]
