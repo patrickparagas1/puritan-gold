@@ -30093,5 +30093,91 @@
       "Richard Sibbes"
     ],
     "topic": null
+  },
+  {
+    "id": 7640,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "study",
+    "date": "2026-07-31",
+    "heartbeat": true,
+    "file": "audio/ep7640.mp3",
+    "audio": "audio/ep7640.mp3",
+    "duration": "3:14",
+    "durationSecs": 194,
+    "fileSize": 1553517,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7641,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "family",
+    "date": "2026-07-31",
+    "heartbeat": true,
+    "file": "audio/family_7641.mp3",
+    "audio": "audio/family_7641.mp3",
+    "duration": "3:22",
+    "durationSecs": 203,
+    "fileSize": 1622061,
+    "tags": [
+      "Family",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 7642,
+    "title": "Daily Meditation from John Calvin",
+    "section": "school",
+    "date": "2026-07-31",
+    "heartbeat": true,
+    "file": "audio/school_7642.mp3",
+    "audio": "audio/school_7642.mp3",
+    "duration": "3:32",
+    "durationSecs": 212,
+    "fileSize": 1698477,
+    "tags": [
+      "School",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7643,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "together",
+    "date": "2026-07-31",
+    "heartbeat": true,
+    "file": "audio/together_7643.mp3",
+    "audio": "audio/together_7643.mp3",
+    "duration": "3:26",
+    "durationSecs": 206,
+    "fileSize": 1651437,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7644,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "personal",
+    "date": "2026-07-31",
+    "heartbeat": true,
+    "file": "audio/ep7644.mp3",
+    "audio": "audio/ep7644.mp3",
+    "duration": "3:55",
+    "durationSecs": 235,
+    "fileSize": 1882797,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Brooks"
+    ],
+    "topic": null
   }
 ]
