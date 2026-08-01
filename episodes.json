@@ -30179,5 +30179,91 @@
       "Thomas Brooks"
     ],
     "topic": null
+  },
+  {
+    "id": 7645,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "study",
+    "date": "2026-08-01",
+    "heartbeat": true,
+    "file": "audio/ep7645.mp3",
+    "audio": "audio/ep7645.mp3",
+    "duration": "3:40",
+    "durationSecs": 220,
+    "fileSize": 1761069,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7646,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-08-01",
+    "heartbeat": true,
+    "file": "audio/family_7646.mp3",
+    "audio": "audio/family_7646.mp3",
+    "duration": "3:27",
+    "durationSecs": 208,
+    "fileSize": 1662189,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7647,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "school",
+    "date": "2026-08-01",
+    "heartbeat": true,
+    "file": "audio/school_7647.mp3",
+    "audio": "audio/school_7647.mp3",
+    "duration": "3:26",
+    "durationSecs": 207,
+    "fileSize": 1655085,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7648,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "together",
+    "date": "2026-08-01",
+    "heartbeat": true,
+    "file": "audio/together_7648.mp3",
+    "audio": "audio/together_7648.mp3",
+    "duration": "3:35",
+    "durationSecs": 215,
+    "fileSize": 1722861,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7649,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-08-01",
+    "heartbeat": true,
+    "file": "audio/ep7649.mp3",
+    "audio": "audio/ep7649.mp3",
+    "duration": "3:41",
+    "durationSecs": 222,
+    "fileSize": 1772397,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
