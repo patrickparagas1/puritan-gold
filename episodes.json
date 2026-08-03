@@ -30351,5 +30351,91 @@
       "Richard Sibbes"
     ],
     "topic": null
+  },
+  {
+    "id": 7655,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "study",
+    "date": "2026-08-03",
+    "heartbeat": true,
+    "file": "audio/ep7655.mp3",
+    "audio": "audio/ep7655.mp3",
+    "duration": "3:25",
+    "durationSecs": 205,
+    "fileSize": 1642605,
+    "tags": [
+      "Study",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7656,
+    "title": "Daily Meditation from John Flavel",
+    "section": "family",
+    "date": "2026-08-03",
+    "heartbeat": true,
+    "file": "audio/family_7656.mp3",
+    "audio": "audio/family_7656.mp3",
+    "duration": "3:47",
+    "durationSecs": 227,
+    "fileSize": 1819821,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7657,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "school",
+    "date": "2026-08-03",
+    "heartbeat": true,
+    "file": "audio/school_7657.mp3",
+    "audio": "audio/school_7657.mp3",
+    "duration": "3:20",
+    "durationSecs": 200,
+    "fileSize": 1603629,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 7658,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "together",
+    "date": "2026-08-03",
+    "heartbeat": true,
+    "file": "audio/together_7658.mp3",
+    "audio": "audio/together_7658.mp3",
+    "duration": "3:40",
+    "durationSecs": 221,
+    "fileSize": 1765869,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7659,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "personal",
+    "date": "2026-08-03",
+    "heartbeat": true,
+    "file": "audio/ep7659.mp3",
+    "audio": "audio/ep7659.mp3",
+    "duration": "2:58",
+    "durationSecs": 178,
+    "fileSize": 1424685,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Richard Baxter"
+    ],
+    "topic": null
   }
 ]
