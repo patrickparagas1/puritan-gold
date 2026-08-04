@@ -30437,5 +30437,91 @@
       "Richard Baxter"
     ],
     "topic": null
+  },
+  {
+    "id": 7660,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "study",
+    "date": "2026-08-04",
+    "heartbeat": true,
+    "file": "audio/ep7660.mp3",
+    "audio": "audio/ep7660.mp3",
+    "duration": "3:41",
+    "durationSecs": 222,
+    "fileSize": 1772589,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 7661,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "family",
+    "date": "2026-08-04",
+    "heartbeat": true,
+    "file": "audio/family_7661.mp3",
+    "audio": "audio/family_7661.mp3",
+    "duration": "2:22",
+    "durationSecs": 143,
+    "fileSize": 1141101,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7662,
+    "title": "Daily Meditation from John Calvin",
+    "section": "school",
+    "date": "2026-08-04",
+    "heartbeat": true,
+    "file": "audio/school_7662.mp3",
+    "audio": "audio/school_7662.mp3",
+    "duration": "3:24",
+    "durationSecs": 205,
+    "fileSize": 1637037,
+    "tags": [
+      "School",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7663,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "together",
+    "date": "2026-08-04",
+    "heartbeat": true,
+    "file": "audio/together_7663.mp3",
+    "audio": "audio/together_7663.mp3",
+    "duration": "4:10",
+    "durationSecs": 251,
+    "fileSize": 2007981,
+    "tags": [
+      "Together",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 7664,
+    "title": "Daily Meditation from John Owen",
+    "section": "personal",
+    "date": "2026-08-04",
+    "heartbeat": true,
+    "file": "audio/ep7664.mp3",
+    "audio": "audio/ep7664.mp3",
+    "duration": "3:38",
+    "durationSecs": 218,
+    "fileSize": 1747821,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Owen"
+    ],
+    "topic": null
   }
 ]
