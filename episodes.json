@@ -30609,5 +30609,91 @@
       "Thomas Boston"
     ],
     "topic": null
+  },
+  {
+    "id": 7670,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-08-06",
+    "heartbeat": true,
+    "file": "audio/ep7670.mp3",
+    "audio": "audio/ep7670.mp3",
+    "duration": "3:42",
+    "durationSecs": 222,
+    "fileSize": 1777773,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7671,
+    "title": "Daily Meditation from John Flavel",
+    "section": "family",
+    "date": "2026-08-06",
+    "heartbeat": true,
+    "file": "audio/family_7671.mp3",
+    "audio": "audio/family_7671.mp3",
+    "duration": "3:58",
+    "durationSecs": 238,
+    "fileSize": 1904493,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7672,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "school",
+    "date": "2026-08-06",
+    "heartbeat": true,
+    "file": "audio/school_7672.mp3",
+    "audio": "audio/school_7672.mp3",
+    "duration": "4:00",
+    "durationSecs": 240,
+    "fileSize": 1922541,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7673,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "together",
+    "date": "2026-08-06",
+    "heartbeat": true,
+    "file": "audio/together_7673.mp3",
+    "audio": "audio/together_7673.mp3",
+    "duration": "3:16",
+    "durationSecs": 197,
+    "fileSize": 1573677,
+    "tags": [
+      "Together",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7674,
+    "title": "Daily Meditation from John Flavel",
+    "section": "personal",
+    "date": "2026-08-06",
+    "heartbeat": true,
+    "file": "audio/ep7674.mp3",
+    "audio": "audio/ep7674.mp3",
+    "duration": "3:51",
+    "durationSecs": 231,
+    "fileSize": 1848813,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Flavel"
+    ],
+    "topic": null
   }
 ]
