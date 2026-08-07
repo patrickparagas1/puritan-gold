@@ -30695,5 +30695,91 @@
       "John Flavel"
     ],
     "topic": null
+  },
+  {
+    "id": 7675,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-08-07",
+    "heartbeat": true,
+    "file": "audio/ep7675.mp3",
+    "audio": "audio/ep7675.mp3",
+    "duration": "3:49",
+    "durationSecs": 229,
+    "fileSize": 1833069,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7676,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "family",
+    "date": "2026-08-07",
+    "heartbeat": true,
+    "file": "audio/family_7676.mp3",
+    "audio": "audio/family_7676.mp3",
+    "duration": "3:55",
+    "durationSecs": 235,
+    "fileSize": 1883949,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 7677,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "school",
+    "date": "2026-08-07",
+    "heartbeat": true,
+    "file": "audio/school_7677.mp3",
+    "audio": "audio/school_7677.mp3",
+    "duration": "3:27",
+    "durationSecs": 208,
+    "fileSize": 1661421,
+    "tags": [
+      "School",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 7678,
+    "title": "Daily Meditation from John Owen",
+    "section": "together",
+    "date": "2026-08-07",
+    "heartbeat": true,
+    "file": "audio/together_7678.mp3",
+    "audio": "audio/together_7678.mp3",
+    "duration": "1:29",
+    "durationSecs": 89,
+    "fileSize": 714285,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7679,
+    "title": "Daily Meditation from John Owen",
+    "section": "personal",
+    "date": "2026-08-07",
+    "heartbeat": true,
+    "file": "audio/ep7679.mp3",
+    "audio": "audio/ep7679.mp3",
+    "duration": "1:25",
+    "durationSecs": 85,
+    "fileSize": 682029,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Owen"
+    ],
+    "topic": null
   }
 ]
