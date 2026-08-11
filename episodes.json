@@ -31039,5 +31039,91 @@
       "C.H. Spurgeon"
     ],
     "topic": null
+  },
+  {
+    "id": 7695,
+    "title": "Daily Meditation from John Flavel",
+    "section": "study",
+    "date": "2026-08-11",
+    "heartbeat": true,
+    "file": "audio/ep7695.mp3",
+    "audio": "audio/ep7695.mp3",
+    "duration": "3:25",
+    "durationSecs": 205,
+    "fileSize": 1643949,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7696,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "family",
+    "date": "2026-08-11",
+    "heartbeat": true,
+    "file": "audio/family_7696.mp3",
+    "audio": "audio/family_7696.mp3",
+    "duration": "3:47",
+    "durationSecs": 228,
+    "fileSize": 1820973,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7697,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-08-11",
+    "heartbeat": true,
+    "file": "audio/school_7697.mp3",
+    "audio": "audio/school_7697.mp3",
+    "duration": "3:44",
+    "durationSecs": 225,
+    "fileSize": 1797741,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7698,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "together",
+    "date": "2026-08-11",
+    "heartbeat": true,
+    "file": "audio/together_7698.mp3",
+    "audio": "audio/together_7698.mp3",
+    "duration": "3:17",
+    "durationSecs": 197,
+    "fileSize": 1578285,
+    "tags": [
+      "Together",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7699,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "personal",
+    "date": "2026-08-11",
+    "heartbeat": true,
+    "file": "audio/ep7699.mp3",
+    "audio": "audio/ep7699.mp3",
+    "duration": "3:42",
+    "durationSecs": 222,
+    "fileSize": 1778157,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Bunyan"
+    ],
+    "topic": null
   }
 ]
