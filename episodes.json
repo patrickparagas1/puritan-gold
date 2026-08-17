@@ -31555,5 +31555,91 @@
       "Jonathan Edwards"
     ],
     "topic": null
+  },
+  {
+    "id": 7725,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "study",
+    "date": "2026-08-17",
+    "heartbeat": true,
+    "file": "audio/ep7725.mp3",
+    "audio": "audio/ep7725.mp3",
+    "duration": "3:19",
+    "durationSecs": 199,
+    "fileSize": 1593837,
+    "tags": [
+      "Study",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7726,
+    "title": "Daily Meditation from John Calvin",
+    "section": "family",
+    "date": "2026-08-17",
+    "heartbeat": true,
+    "file": "audio/family_7726.mp3",
+    "audio": "audio/family_7726.mp3",
+    "duration": "3:22",
+    "durationSecs": 202,
+    "fileSize": 1618413,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7727,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "school",
+    "date": "2026-08-17",
+    "heartbeat": true,
+    "file": "audio/school_7727.mp3",
+    "audio": "audio/school_7727.mp3",
+    "duration": "3:57",
+    "durationSecs": 238,
+    "fileSize": 1903149,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7728,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "together",
+    "date": "2026-08-17",
+    "heartbeat": true,
+    "file": "audio/together_7728.mp3",
+    "audio": "audio/together_7728.mp3",
+    "duration": "3:17",
+    "durationSecs": 197,
+    "fileSize": 1577709,
+    "tags": [
+      "Together",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7729,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "personal",
+    "date": "2026-08-17",
+    "heartbeat": true,
+    "file": "audio/ep7729.mp3",
+    "audio": "audio/ep7729.mp3",
+    "duration": "3:15",
+    "durationSecs": 196,
+    "fileSize": 1567341,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Jeremiah Burroughs"
+    ],
+    "topic": null
   }
 ]
