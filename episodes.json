@@ -31641,5 +31641,91 @@
       "Jeremiah Burroughs"
     ],
     "topic": null
+  },
+  {
+    "id": 7730,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-08-18",
+    "heartbeat": true,
+    "file": "audio/ep7730.mp3",
+    "audio": "audio/ep7730.mp3",
+    "duration": "3:54",
+    "durationSecs": 234,
+    "fileSize": 1873581,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7731,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "family",
+    "date": "2026-08-18",
+    "heartbeat": true,
+    "file": "audio/family_7731.mp3",
+    "audio": "audio/family_7731.mp3",
+    "duration": "3:54",
+    "durationSecs": 235,
+    "fileSize": 1878381,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7732,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "school",
+    "date": "2026-08-18",
+    "heartbeat": true,
+    "file": "audio/school_7732.mp3",
+    "audio": "audio/school_7732.mp3",
+    "duration": "3:56",
+    "durationSecs": 237,
+    "fileSize": 1892589,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7733,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-08-18",
+    "heartbeat": true,
+    "file": "audio/together_7733.mp3",
+    "audio": "audio/together_7733.mp3",
+    "duration": "3:50",
+    "durationSecs": 231,
+    "fileSize": 1846893,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7734,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "personal",
+    "date": "2026-08-18",
+    "heartbeat": true,
+    "file": "audio/ep7734.mp3",
+    "audio": "audio/ep7734.mp3",
+    "duration": "3:30",
+    "durationSecs": 210,
+    "fileSize": 1681773,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Jeremiah Burroughs"
+    ],
+    "topic": null
   }
 ]
