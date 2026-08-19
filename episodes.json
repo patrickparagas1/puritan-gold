@@ -31727,5 +31727,91 @@
       "Jeremiah Burroughs"
     ],
     "topic": null
+  },
+  {
+    "id": 7735,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-08-19",
+    "heartbeat": true,
+    "file": "audio/ep7735.mp3",
+    "audio": "audio/ep7735.mp3",
+    "duration": "3:51",
+    "durationSecs": 231,
+    "fileSize": 1848429,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7736,
+    "title": "Daily Meditation from John Calvin",
+    "section": "family",
+    "date": "2026-08-19",
+    "heartbeat": true,
+    "file": "audio/family_7736.mp3",
+    "audio": "audio/family_7736.mp3",
+    "duration": "3:38",
+    "durationSecs": 219,
+    "fileSize": 1750701,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7737,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "school",
+    "date": "2026-08-19",
+    "heartbeat": true,
+    "file": "audio/school_7737.mp3",
+    "audio": "audio/school_7737.mp3",
+    "duration": "3:23",
+    "durationSecs": 203,
+    "fileSize": 1624365,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7738,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-08-19",
+    "heartbeat": true,
+    "file": "audio/together_7738.mp3",
+    "audio": "audio/together_7738.mp3",
+    "duration": "3:53",
+    "durationSecs": 234,
+    "fileSize": 1869357,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7739,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "personal",
+    "date": "2026-08-19",
+    "heartbeat": true,
+    "file": "audio/ep7739.mp3",
+    "audio": "audio/ep7739.mp3",
+    "duration": "3:12",
+    "durationSecs": 192,
+    "fileSize": 1537581,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Goodwin"
+    ],
+    "topic": null
   }
 ]
