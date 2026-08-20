@@ -31813,5 +31813,91 @@
       "Thomas Goodwin"
     ],
     "topic": null
+  },
+  {
+    "id": 7740,
+    "title": "Daily Meditation from John Owen",
+    "section": "study",
+    "date": "2026-08-20",
+    "heartbeat": true,
+    "file": "audio/ep7740.mp3",
+    "audio": "audio/ep7740.mp3",
+    "duration": "3:25",
+    "durationSecs": 206,
+    "fileSize": 1646829,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7741,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "family",
+    "date": "2026-08-20",
+    "heartbeat": true,
+    "file": "audio/family_7741.mp3",
+    "audio": "audio/family_7741.mp3",
+    "duration": "3:20",
+    "durationSecs": 201,
+    "fileSize": 1605357,
+    "tags": [
+      "Family",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7742,
+    "title": "Daily Meditation from John Owen",
+    "section": "school",
+    "date": "2026-08-20",
+    "heartbeat": true,
+    "file": "audio/school_7742.mp3",
+    "audio": "audio/school_7742.mp3",
+    "duration": "3:34",
+    "durationSecs": 215,
+    "fileSize": 1717293,
+    "tags": [
+      "School",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7743,
+    "title": "Daily Meditation from John Flavel",
+    "section": "together",
+    "date": "2026-08-20",
+    "heartbeat": true,
+    "file": "audio/together_7743.mp3",
+    "audio": "audio/together_7743.mp3",
+    "duration": "3:31",
+    "durationSecs": 212,
+    "fileSize": 1693869,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7744,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "personal",
+    "date": "2026-08-20",
+    "heartbeat": true,
+    "file": "audio/ep7744.mp3",
+    "audio": "audio/ep7744.mp3",
+    "duration": "3:27",
+    "durationSecs": 208,
+    "fileSize": 1664109,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Goodwin"
+    ],
+    "topic": null
   }
 ]
