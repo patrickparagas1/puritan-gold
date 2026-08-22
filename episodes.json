@@ -31985,5 +31985,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 7750,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "study",
+    "date": "2026-08-22",
+    "heartbeat": true,
+    "file": "audio/ep7750.mp3",
+    "audio": "audio/ep7750.mp3",
+    "duration": "3:57",
+    "durationSecs": 237,
+    "fileSize": 1898157,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7751,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "family",
+    "date": "2026-08-22",
+    "heartbeat": true,
+    "file": "audio/family_7751.mp3",
+    "audio": "audio/family_7751.mp3",
+    "duration": "4:04",
+    "durationSecs": 245,
+    "fileSize": 1956909,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7752,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "school",
+    "date": "2026-08-22",
+    "heartbeat": true,
+    "file": "audio/school_7752.mp3",
+    "audio": "audio/school_7752.mp3",
+    "duration": "3:26",
+    "durationSecs": 207,
+    "fileSize": 1652781,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 7753,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "together",
+    "date": "2026-08-22",
+    "heartbeat": true,
+    "file": "audio/together_7753.mp3",
+    "audio": "audio/together_7753.mp3",
+    "duration": "3:57",
+    "durationSecs": 238,
+    "fileSize": 1900653,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7754,
+    "title": "Daily Meditation from John Calvin",
+    "section": "personal",
+    "date": "2026-08-22",
+    "heartbeat": true,
+    "file": "audio/ep7754.mp3",
+    "audio": "audio/ep7754.mp3",
+    "duration": "3:40",
+    "durationSecs": 221,
+    "fileSize": 1767021,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Calvin"
+    ],
+    "topic": null
   }
 ]
