@@ -32157,5 +32157,91 @@
       "Thomas Boston"
     ],
     "topic": null
+  },
+  {
+    "id": 7760,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-08-24",
+    "heartbeat": true,
+    "file": "audio/ep7760.mp3",
+    "audio": "audio/ep7760.mp3",
+    "duration": "3:46",
+    "durationSecs": 227,
+    "fileSize": 1813485,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7761,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "family",
+    "date": "2026-08-24",
+    "heartbeat": true,
+    "file": "audio/family_7761.mp3",
+    "audio": "audio/family_7761.mp3",
+    "duration": "3:30",
+    "durationSecs": 210,
+    "fileSize": 1681773,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7762,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "school",
+    "date": "2026-08-24",
+    "heartbeat": true,
+    "file": "audio/school_7762.mp3",
+    "audio": "audio/school_7762.mp3",
+    "duration": "3:09",
+    "durationSecs": 189,
+    "fileSize": 1513005,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7763,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-08-24",
+    "heartbeat": true,
+    "file": "audio/together_7763.mp3",
+    "audio": "audio/together_7763.mp3",
+    "duration": "3:34",
+    "durationSecs": 214,
+    "fileSize": 1712685,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7764,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "personal",
+    "date": "2026-08-24",
+    "heartbeat": true,
+    "file": "audio/ep7764.mp3",
+    "audio": "audio/ep7764.mp3",
+    "duration": "4:06",
+    "durationSecs": 247,
+    "fileSize": 1974189,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Brooks"
+    ],
+    "topic": null
   }
 ]
