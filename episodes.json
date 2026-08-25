@@ -32243,5 +32243,91 @@
       "Thomas Brooks"
     ],
     "topic": null
+  },
+  {
+    "id": 7765,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-08-25",
+    "heartbeat": true,
+    "file": "audio/ep7765.mp3",
+    "audio": "audio/ep7765.mp3",
+    "duration": "3:52",
+    "durationSecs": 233,
+    "fileSize": 1861677,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7766,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "family",
+    "date": "2026-08-25",
+    "heartbeat": true,
+    "file": "audio/family_7766.mp3",
+    "audio": "audio/family_7766.mp3",
+    "duration": "3:25",
+    "durationSecs": 206,
+    "fileSize": 1647021,
+    "tags": [
+      "Family",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7767,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "school",
+    "date": "2026-08-25",
+    "heartbeat": true,
+    "file": "audio/school_7767.mp3",
+    "audio": "audio/school_7767.mp3",
+    "duration": "4:10",
+    "durationSecs": 251,
+    "fileSize": 2007213,
+    "tags": [
+      "School",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7768,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-08-25",
+    "heartbeat": true,
+    "file": "audio/together_7768.mp3",
+    "audio": "audio/together_7768.mp3",
+    "duration": "4:07",
+    "durationSecs": 248,
+    "fileSize": 1982445,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7769,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-08-25",
+    "heartbeat": true,
+    "file": "audio/ep7769.mp3",
+    "audio": "audio/ep7769.mp3",
+    "duration": "3:33",
+    "durationSecs": 214,
+    "fileSize": 1710957,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
