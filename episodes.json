@@ -32415,5 +32415,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 7775,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-08-27",
+    "heartbeat": true,
+    "file": "audio/ep7775.mp3",
+    "audio": "audio/ep7775.mp3",
+    "duration": "3:50",
+    "durationSecs": 230,
+    "fileSize": 1843053,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7776,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "family",
+    "date": "2026-08-27",
+    "heartbeat": true,
+    "file": "audio/family_7776.mp3",
+    "audio": "audio/family_7776.mp3",
+    "duration": "3:23",
+    "durationSecs": 203,
+    "fileSize": 1626093,
+    "tags": [
+      "Family",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7777,
+    "title": "Daily Meditation from John Calvin",
+    "section": "school",
+    "date": "2026-08-27",
+    "heartbeat": true,
+    "file": "audio/school_7777.mp3",
+    "audio": "audio/school_7777.mp3",
+    "duration": "3:38",
+    "durationSecs": 219,
+    "fileSize": 1750701,
+    "tags": [
+      "School",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7778,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "together",
+    "date": "2026-08-27",
+    "heartbeat": true,
+    "file": "audio/together_7778.mp3",
+    "audio": "audio/together_7778.mp3",
+    "duration": "3:27",
+    "durationSecs": 208,
+    "fileSize": 1662957,
+    "tags": [
+      "Together",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7779,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "personal",
+    "date": "2026-08-27",
+    "heartbeat": true,
+    "file": "audio/ep7779.mp3",
+    "audio": "audio/ep7779.mp3",
+    "duration": "3:23",
+    "durationSecs": 203,
+    "fileSize": 1627437,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Goodwin"
+    ],
+    "topic": null
   }
 ]
