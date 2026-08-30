@@ -32673,5 +32673,91 @@
       "John Bunyan"
     ],
     "topic": null
+  },
+  {
+    "id": 7790,
+    "title": "Daily Meditation from John Owen",
+    "section": "study",
+    "date": "2026-08-30",
+    "heartbeat": true,
+    "file": "audio/ep7790.mp3",
+    "audio": "audio/ep7790.mp3",
+    "duration": "3:55",
+    "durationSecs": 235,
+    "fileSize": 1883757,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7791,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "family",
+    "date": "2026-08-30",
+    "heartbeat": true,
+    "file": "audio/family_7791.mp3",
+    "audio": "audio/family_7791.mp3",
+    "duration": "3:26",
+    "durationSecs": 207,
+    "fileSize": 1656045,
+    "tags": [
+      "Family",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7792,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "school",
+    "date": "2026-08-30",
+    "heartbeat": true,
+    "file": "audio/school_7792.mp3",
+    "audio": "audio/school_7792.mp3",
+    "duration": "3:21",
+    "durationSecs": 201,
+    "fileSize": 1609965,
+    "tags": [
+      "School",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 7793,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "together",
+    "date": "2026-08-30",
+    "heartbeat": true,
+    "file": "audio/together_7793.mp3",
+    "audio": "audio/together_7793.mp3",
+    "duration": "4:09",
+    "durationSecs": 250,
+    "fileSize": 1998765,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 7794,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "personal",
+    "date": "2026-08-30",
+    "heartbeat": true,
+    "file": "audio/ep7794.mp3",
+    "audio": "audio/ep7794.mp3",
+    "duration": "3:44",
+    "durationSecs": 224,
+    "fileSize": 1794285,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Watson"
+    ],
+    "topic": null
   }
 ]
