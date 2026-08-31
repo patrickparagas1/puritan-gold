@@ -32759,5 +32759,91 @@
       "Thomas Watson"
     ],
     "topic": null
+  },
+  {
+    "id": 7795,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "study",
+    "date": "2026-08-31",
+    "heartbeat": true,
+    "file": "audio/ep7795.mp3",
+    "audio": "audio/ep7795.mp3",
+    "duration": "3:17",
+    "durationSecs": 198,
+    "fileSize": 1581357,
+    "tags": [
+      "Study",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7796,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "family",
+    "date": "2026-08-31",
+    "heartbeat": true,
+    "file": "audio/family_7796.mp3",
+    "audio": "audio/family_7796.mp3",
+    "duration": "3:35",
+    "durationSecs": 216,
+    "fileSize": 1727853,
+    "tags": [
+      "Family",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 7797,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "school",
+    "date": "2026-08-31",
+    "heartbeat": true,
+    "file": "audio/school_7797.mp3",
+    "audio": "audio/school_7797.mp3",
+    "duration": "3:24",
+    "durationSecs": 204,
+    "fileSize": 1634541,
+    "tags": [
+      "School",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7798,
+    "title": "Daily Meditation from John Owen",
+    "section": "together",
+    "date": "2026-08-31",
+    "heartbeat": true,
+    "file": "audio/together_7798.mp3",
+    "audio": "audio/together_7798.mp3",
+    "duration": "3:43",
+    "durationSecs": 223,
+    "fileSize": 1785645,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7799,
+    "title": "Daily Meditation from John Flavel",
+    "section": "personal",
+    "date": "2026-08-31",
+    "heartbeat": true,
+    "file": "audio/ep7799.mp3",
+    "audio": "audio/ep7799.mp3",
+    "duration": "3:45",
+    "durationSecs": 226,
+    "fileSize": 1807149,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Flavel"
+    ],
+    "topic": null
   }
 ]
