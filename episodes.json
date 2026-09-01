@@ -32845,5 +32845,91 @@
       "John Flavel"
     ],
     "topic": null
+  },
+  {
+    "id": 7800,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-09-01",
+    "heartbeat": true,
+    "file": "audio/ep7800.mp3",
+    "audio": "audio/ep7800.mp3",
+    "duration": "3:23",
+    "durationSecs": 203,
+    "fileSize": 1625901,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7801,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "family",
+    "date": "2026-09-01",
+    "heartbeat": true,
+    "file": "audio/family_7801.mp3",
+    "audio": "audio/family_7801.mp3",
+    "duration": "3:25",
+    "durationSecs": 205,
+    "fileSize": 1642605,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7802,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "school",
+    "date": "2026-09-01",
+    "heartbeat": true,
+    "file": "audio/school_7802.mp3",
+    "audio": "audio/school_7802.mp3",
+    "duration": "3:28",
+    "durationSecs": 209,
+    "fileSize": 1671021,
+    "tags": [
+      "School",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 7803,
+    "title": "Daily Meditation from John Owen",
+    "section": "together",
+    "date": "2026-09-01",
+    "heartbeat": true,
+    "file": "audio/together_7803.mp3",
+    "audio": "audio/together_7803.mp3",
+    "duration": "3:28",
+    "durationSecs": 208,
+    "fileSize": 1666029,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7804,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-09-01",
+    "heartbeat": true,
+    "file": "audio/ep7804.mp3",
+    "audio": "audio/ep7804.mp3",
+    "duration": "3:22",
+    "durationSecs": 202,
+    "fileSize": 1618989,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
