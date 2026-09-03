@@ -33017,5 +33017,91 @@
       "C.H. Spurgeon"
     ],
     "topic": null
+  },
+  {
+    "id": 7810,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "study",
+    "date": "2026-09-03",
+    "heartbeat": true,
+    "file": "audio/ep7810.mp3",
+    "audio": "audio/ep7810.mp3",
+    "duration": "3:01",
+    "durationSecs": 181,
+    "fileSize": 1449645,
+    "tags": [
+      "Study",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 7811,
+    "title": "Daily Meditation from John Calvin",
+    "section": "family",
+    "date": "2026-09-03",
+    "heartbeat": true,
+    "file": "audio/family_7811.mp3",
+    "audio": "audio/family_7811.mp3",
+    "duration": "3:48",
+    "durationSecs": 229,
+    "fileSize": 1832109,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7812,
+    "title": "Daily Meditation from John Owen",
+    "section": "school",
+    "date": "2026-09-03",
+    "heartbeat": true,
+    "file": "audio/school_7812.mp3",
+    "audio": "audio/school_7812.mp3",
+    "duration": "3:31",
+    "durationSecs": 212,
+    "fileSize": 1693485,
+    "tags": [
+      "School",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7813,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "together",
+    "date": "2026-09-03",
+    "heartbeat": true,
+    "file": "audio/together_7813.mp3",
+    "audio": "audio/together_7813.mp3",
+    "duration": "3:34",
+    "durationSecs": 215,
+    "fileSize": 1717485,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7814,
+    "title": "Daily Meditation from John Calvin",
+    "section": "personal",
+    "date": "2026-09-03",
+    "heartbeat": true,
+    "file": "audio/ep7814.mp3",
+    "audio": "audio/ep7814.mp3",
+    "duration": "3:39",
+    "durationSecs": 220,
+    "fileSize": 1758381,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Calvin"
+    ],
+    "topic": null
   }
 ]
