@@ -33103,5 +33103,91 @@
       "John Calvin"
     ],
     "topic": null
+  },
+  {
+    "id": 7815,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "study",
+    "date": "2026-09-04",
+    "heartbeat": true,
+    "file": "audio/ep7815.mp3",
+    "audio": "audio/ep7815.mp3",
+    "duration": "3:49",
+    "durationSecs": 229,
+    "fileSize": 1833837,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7816,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "family",
+    "date": "2026-09-04",
+    "heartbeat": true,
+    "file": "audio/family_7816.mp3",
+    "audio": "audio/family_7816.mp3",
+    "duration": "3:34",
+    "durationSecs": 215,
+    "fileSize": 1716909,
+    "tags": [
+      "Family",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7817,
+    "title": "Daily Meditation from John Owen",
+    "section": "school",
+    "date": "2026-09-04",
+    "heartbeat": true,
+    "file": "audio/school_7817.mp3",
+    "audio": "audio/school_7817.mp3",
+    "duration": "3:27",
+    "durationSecs": 207,
+    "fileSize": 1657005,
+    "tags": [
+      "School",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7818,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "together",
+    "date": "2026-09-04",
+    "heartbeat": true,
+    "file": "audio/together_7818.mp3",
+    "audio": "audio/together_7818.mp3",
+    "duration": "3:34",
+    "durationSecs": 214,
+    "fileSize": 1714221,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7819,
+    "title": "Daily Meditation from John Owen",
+    "section": "personal",
+    "date": "2026-09-04",
+    "heartbeat": true,
+    "file": "audio/ep7819.mp3",
+    "audio": "audio/ep7819.mp3",
+    "duration": "4:05",
+    "durationSecs": 246,
+    "fileSize": 1965549,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Owen"
+    ],
+    "topic": null
   }
 ]
