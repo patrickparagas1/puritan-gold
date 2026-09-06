@@ -33275,5 +33275,91 @@
       "Jonathan Edwards"
     ],
     "topic": null
+  },
+  {
+    "id": 7825,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "study",
+    "date": "2026-09-06",
+    "heartbeat": true,
+    "file": "audio/ep7825.mp3",
+    "audio": "audio/ep7825.mp3",
+    "duration": "3:32",
+    "durationSecs": 213,
+    "fileSize": 1702509,
+    "tags": [
+      "Study",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 7826,
+    "title": "Daily Meditation from John Calvin",
+    "section": "family",
+    "date": "2026-09-06",
+    "heartbeat": true,
+    "file": "audio/family_7826.mp3",
+    "audio": "audio/family_7826.mp3",
+    "duration": "4:06",
+    "durationSecs": 247,
+    "fileSize": 1972845,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7827,
+    "title": "Daily Meditation from John Flavel",
+    "section": "school",
+    "date": "2026-09-06",
+    "heartbeat": true,
+    "file": "audio/school_7827.mp3",
+    "audio": "audio/school_7827.mp3",
+    "duration": "3:24",
+    "durationSecs": 205,
+    "fileSize": 1638765,
+    "tags": [
+      "School",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7828,
+    "title": "Daily Meditation from John Calvin",
+    "section": "together",
+    "date": "2026-09-06",
+    "heartbeat": true,
+    "file": "audio/together_7828.mp3",
+    "audio": "audio/together_7828.mp3",
+    "duration": "3:49",
+    "durationSecs": 229,
+    "fileSize": 1832301,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7829,
+    "title": "Daily Meditation from John Flavel",
+    "section": "personal",
+    "date": "2026-09-06",
+    "heartbeat": true,
+    "file": "audio/ep7829.mp3",
+    "audio": "audio/ep7829.mp3",
+    "duration": "3:29",
+    "durationSecs": 209,
+    "fileSize": 1673517,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Flavel"
+    ],
+    "topic": null
   }
 ]
