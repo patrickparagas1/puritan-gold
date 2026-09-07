@@ -33361,5 +33361,91 @@
       "John Flavel"
     ],
     "topic": null
+  },
+  {
+    "id": 7830,
+    "title": "Daily Meditation from John Owen",
+    "section": "study",
+    "date": "2026-09-07",
+    "heartbeat": true,
+    "file": "audio/ep7830.mp3",
+    "audio": "audio/ep7830.mp3",
+    "duration": "3:45",
+    "durationSecs": 225,
+    "fileSize": 1803693,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7831,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "family",
+    "date": "2026-09-07",
+    "heartbeat": true,
+    "file": "audio/family_7831.mp3",
+    "audio": "audio/family_7831.mp3",
+    "duration": "3:28",
+    "durationSecs": 209,
+    "fileSize": 1669677,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 7832,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "school",
+    "date": "2026-09-07",
+    "heartbeat": true,
+    "file": "audio/school_7832.mp3",
+    "audio": "audio/school_7832.mp3",
+    "duration": "3:22",
+    "durationSecs": 203,
+    "fileSize": 1623597,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 7833,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "together",
+    "date": "2026-09-07",
+    "heartbeat": true,
+    "file": "audio/together_7833.mp3",
+    "audio": "audio/together_7833.mp3",
+    "duration": "4:11",
+    "durationSecs": 251,
+    "fileSize": 2009901,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7834,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "personal",
+    "date": "2026-09-07",
+    "heartbeat": true,
+    "file": "audio/ep7834.mp3",
+    "audio": "audio/ep7834.mp3",
+    "duration": "3:39",
+    "durationSecs": 220,
+    "fileSize": 1760109,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Richard Sibbes"
+    ],
+    "topic": null
   }
 ]
