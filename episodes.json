@@ -33619,5 +33619,91 @@
       "Thomas Boston"
     ],
     "topic": null
+  },
+  {
+    "id": 7845,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "study",
+    "date": "2026-09-10",
+    "heartbeat": true,
+    "file": "audio/ep7845.mp3",
+    "audio": "audio/ep7845.mp3",
+    "duration": "3:23",
+    "durationSecs": 204,
+    "fileSize": 1629741,
+    "tags": [
+      "Study",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 7846,
+    "title": "Daily Meditation from John Calvin",
+    "section": "family",
+    "date": "2026-09-10",
+    "heartbeat": true,
+    "file": "audio/family_7846.mp3",
+    "audio": "audio/family_7846.mp3",
+    "duration": "3:31",
+    "durationSecs": 211,
+    "fileSize": 1691373,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7847,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "school",
+    "date": "2026-09-10",
+    "heartbeat": true,
+    "file": "audio/school_7847.mp3",
+    "audio": "audio/school_7847.mp3",
+    "duration": "3:22",
+    "durationSecs": 202,
+    "fileSize": 1619181,
+    "tags": [
+      "School",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7848,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "together",
+    "date": "2026-09-10",
+    "heartbeat": true,
+    "file": "audio/together_7848.mp3",
+    "audio": "audio/together_7848.mp3",
+    "duration": "3:34",
+    "durationSecs": 214,
+    "fileSize": 1713837,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7849,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "personal",
+    "date": "2026-09-10",
+    "heartbeat": true,
+    "file": "audio/ep7849.mp3",
+    "audio": "audio/ep7849.mp3",
+    "duration": "3:29",
+    "durationSecs": 209,
+    "fileSize": 1672941,
+    "tags": [
+      "Growth",
+      "Daily",
+      "C.H. Spurgeon"
+    ],
+    "topic": null
   }
 ]
