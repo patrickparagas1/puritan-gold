@@ -33791,5 +33791,91 @@
       "C.H. Spurgeon"
     ],
     "topic": null
+  },
+  {
+    "id": 7855,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "study",
+    "date": "2026-09-12",
+    "heartbeat": true,
+    "file": "audio/ep7855.mp3",
+    "audio": "audio/ep7855.mp3",
+    "duration": "3:20",
+    "durationSecs": 200,
+    "fileSize": 1601325,
+    "tags": [
+      "Study",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7856,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "family",
+    "date": "2026-09-12",
+    "heartbeat": true,
+    "file": "audio/family_7856.mp3",
+    "audio": "audio/family_7856.mp3",
+    "duration": "3:47",
+    "durationSecs": 227,
+    "fileSize": 1819821,
+    "tags": [
+      "Family",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 7857,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "school",
+    "date": "2026-09-12",
+    "heartbeat": true,
+    "file": "audio/school_7857.mp3",
+    "audio": "audio/school_7857.mp3",
+    "duration": "3:22",
+    "durationSecs": 203,
+    "fileSize": 1621293,
+    "tags": [
+      "School",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 7858,
+    "title": "Daily Meditation from John Calvin",
+    "section": "together",
+    "date": "2026-09-12",
+    "heartbeat": true,
+    "file": "audio/together_7858.mp3",
+    "audio": "audio/together_7858.mp3",
+    "duration": "3:42",
+    "durationSecs": 223,
+    "fileSize": 1783149,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7859,
+    "title": "Daily Meditation from John Flavel",
+    "section": "personal",
+    "date": "2026-09-12",
+    "heartbeat": true,
+    "file": "audio/ep7859.mp3",
+    "audio": "audio/ep7859.mp3",
+    "duration": "3:41",
+    "durationSecs": 221,
+    "fileSize": 1769709,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Flavel"
+    ],
+    "topic": null
   }
 ]
