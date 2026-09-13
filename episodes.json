@@ -33877,5 +33877,91 @@
       "John Flavel"
     ],
     "topic": null
+  },
+  {
+    "id": 7860,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "study",
+    "date": "2026-09-13",
+    "heartbeat": true,
+    "file": "audio/ep7860.mp3",
+    "audio": "audio/ep7860.mp3",
+    "duration": "3:33",
+    "durationSecs": 213,
+    "fileSize": 1706733,
+    "tags": [
+      "Study",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 7861,
+    "title": "Daily Meditation from John Flavel",
+    "section": "family",
+    "date": "2026-09-13",
+    "heartbeat": true,
+    "file": "audio/family_7861.mp3",
+    "audio": "audio/family_7861.mp3",
+    "duration": "3:26",
+    "durationSecs": 206,
+    "fileSize": 1648749,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7862,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "school",
+    "date": "2026-09-13",
+    "heartbeat": true,
+    "file": "audio/school_7862.mp3",
+    "audio": "audio/school_7862.mp3",
+    "duration": "3:25",
+    "durationSecs": 206,
+    "fileSize": 1644525,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 7863,
+    "title": "Daily Meditation from John Owen",
+    "section": "together",
+    "date": "2026-09-13",
+    "heartbeat": true,
+    "file": "audio/together_7863.mp3",
+    "audio": "audio/together_7863.mp3",
+    "duration": "3:45",
+    "durationSecs": 226,
+    "fileSize": 1805613,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7864,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-09-13",
+    "heartbeat": true,
+    "file": "audio/ep7864.mp3",
+    "audio": "audio/ep7864.mp3",
+    "duration": "3:56",
+    "durationSecs": 236,
+    "fileSize": 1889709,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
