@@ -34565,5 +34565,91 @@
       "John Calvin"
     ],
     "topic": null
+  },
+  {
+    "id": 7900,
+    "title": "Daily Meditation from John Owen",
+    "section": "study",
+    "date": "2026-09-21",
+    "heartbeat": true,
+    "file": "audio/ep7900.mp3",
+    "audio": "audio/ep7900.mp3",
+    "duration": "3:53",
+    "durationSecs": 234,
+    "fileSize": 1872045,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7901,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "family",
+    "date": "2026-09-21",
+    "heartbeat": true,
+    "file": "audio/family_7901.mp3",
+    "audio": "audio/family_7901.mp3",
+    "duration": "3:22",
+    "durationSecs": 203,
+    "fileSize": 1623021,
+    "tags": [
+      "Family",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 7902,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "school",
+    "date": "2026-09-21",
+    "heartbeat": true,
+    "file": "audio/school_7902.mp3",
+    "audio": "audio/school_7902.mp3",
+    "duration": "3:43",
+    "durationSecs": 223,
+    "fileSize": 1785453,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7903,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "together",
+    "date": "2026-09-21",
+    "heartbeat": true,
+    "file": "audio/together_7903.mp3",
+    "audio": "audio/together_7903.mp3",
+    "duration": "3:20",
+    "durationSecs": 200,
+    "fileSize": 1602285,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 7904,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-09-21",
+    "heartbeat": true,
+    "file": "audio/ep7904.mp3",
+    "audio": "audio/ep7904.mp3",
+    "duration": "3:43",
+    "durationSecs": 223,
+    "fileSize": 1785261,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
