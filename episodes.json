@@ -34651,5 +34651,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 7905,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "study",
+    "date": "2026-09-22",
+    "heartbeat": true,
+    "file": "audio/ep7905.mp3",
+    "audio": "audio/ep7905.mp3",
+    "duration": "3:56",
+    "durationSecs": 236,
+    "fileSize": 1891821,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7906,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "family",
+    "date": "2026-09-22",
+    "heartbeat": true,
+    "file": "audio/family_7906.mp3",
+    "audio": "audio/family_7906.mp3",
+    "duration": "3:21",
+    "durationSecs": 201,
+    "fileSize": 1611501,
+    "tags": [
+      "Family",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7907,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "school",
+    "date": "2026-09-22",
+    "heartbeat": true,
+    "file": "audio/school_7907.mp3",
+    "audio": "audio/school_7907.mp3",
+    "duration": "3:45",
+    "durationSecs": 225,
+    "fileSize": 1801389,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 7908,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "together",
+    "date": "2026-09-22",
+    "heartbeat": true,
+    "file": "audio/together_7908.mp3",
+    "audio": "audio/together_7908.mp3",
+    "duration": "3:37",
+    "durationSecs": 218,
+    "fileSize": 1741869,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7909,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "personal",
+    "date": "2026-09-22",
+    "heartbeat": true,
+    "file": "audio/ep7909.mp3",
+    "audio": "audio/ep7909.mp3",
+    "duration": "2:57",
+    "durationSecs": 177,
+    "fileSize": 1417197,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Jeremiah Burroughs"
+    ],
+    "topic": null
   }
 ]
