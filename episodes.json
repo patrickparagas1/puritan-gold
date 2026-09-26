@@ -34995,5 +34995,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 7925,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "study",
+    "date": "2026-09-26",
+    "heartbeat": true,
+    "file": "audio/ep7925.mp3",
+    "audio": "audio/ep7925.mp3",
+    "duration": "3:44",
+    "durationSecs": 224,
+    "fileSize": 1795629,
+    "tags": [
+      "Study",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 7926,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "family",
+    "date": "2026-09-26",
+    "heartbeat": true,
+    "file": "audio/family_7926.mp3",
+    "audio": "audio/family_7926.mp3",
+    "duration": "3:10",
+    "durationSecs": 190,
+    "fileSize": 1522221,
+    "tags": [
+      "Family",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 7927,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-09-26",
+    "heartbeat": true,
+    "file": "audio/school_7927.mp3",
+    "audio": "audio/school_7927.mp3",
+    "duration": "3:37",
+    "durationSecs": 218,
+    "fileSize": 1743789,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7928,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-09-26",
+    "heartbeat": true,
+    "file": "audio/together_7928.mp3",
+    "audio": "audio/together_7928.mp3",
+    "duration": "3:30",
+    "durationSecs": 211,
+    "fileSize": 1686765,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7929,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "personal",
+    "date": "2026-09-26",
+    "heartbeat": true,
+    "file": "audio/ep7929.mp3",
+    "audio": "audio/ep7929.mp3",
+    "duration": "3:20",
+    "durationSecs": 200,
+    "fileSize": 1602477,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Jonathan Edwards"
+    ],
+    "topic": null
   }
 ]
