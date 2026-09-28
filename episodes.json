@@ -35167,5 +35167,91 @@
       "John Flavel"
     ],
     "topic": null
+  },
+  {
+    "id": 7935,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-09-28",
+    "heartbeat": true,
+    "file": "audio/ep7935.mp3",
+    "audio": "audio/ep7935.mp3",
+    "duration": "4:10",
+    "durationSecs": 251,
+    "fileSize": 2007789,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7936,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-09-28",
+    "heartbeat": true,
+    "file": "audio/family_7936.mp3",
+    "audio": "audio/family_7936.mp3",
+    "duration": "3:44",
+    "durationSecs": 224,
+    "fileSize": 1795821,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7937,
+    "title": "Daily Meditation from John Calvin",
+    "section": "school",
+    "date": "2026-09-28",
+    "heartbeat": true,
+    "file": "audio/school_7937.mp3",
+    "audio": "audio/school_7937.mp3",
+    "duration": "3:33",
+    "durationSecs": 213,
+    "fileSize": 1706349,
+    "tags": [
+      "School",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7938,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "together",
+    "date": "2026-09-28",
+    "heartbeat": true,
+    "file": "audio/together_7938.mp3",
+    "audio": "audio/together_7938.mp3",
+    "duration": "3:29",
+    "durationSecs": 210,
+    "fileSize": 1677933,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7939,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "personal",
+    "date": "2026-09-28",
+    "heartbeat": true,
+    "file": "audio/ep7939.mp3",
+    "audio": "audio/ep7939.mp3",
+    "duration": "3:37",
+    "durationSecs": 218,
+    "fileSize": 1743405,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Brooks"
+    ],
+    "topic": null
   }
 ]
