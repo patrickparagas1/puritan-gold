@@ -35253,5 +35253,91 @@
       "Thomas Brooks"
     ],
     "topic": null
+  },
+  {
+    "id": 7940,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "study",
+    "date": "2026-09-29",
+    "heartbeat": true,
+    "file": "audio/ep7940.mp3",
+    "audio": "audio/ep7940.mp3",
+    "duration": "3:39",
+    "durationSecs": 219,
+    "fileSize": 1753389,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 7941,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "family",
+    "date": "2026-09-29",
+    "heartbeat": true,
+    "file": "audio/family_7941.mp3",
+    "audio": "audio/family_7941.mp3",
+    "duration": "3:14",
+    "durationSecs": 195,
+    "fileSize": 1559469,
+    "tags": [
+      "Family",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7942,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-09-29",
+    "heartbeat": true,
+    "file": "audio/school_7942.mp3",
+    "audio": "audio/school_7942.mp3",
+    "duration": "3:23",
+    "durationSecs": 203,
+    "fileSize": 1626669,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7943,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-09-29",
+    "heartbeat": true,
+    "file": "audio/together_7943.mp3",
+    "audio": "audio/together_7943.mp3",
+    "duration": "3:26",
+    "durationSecs": 206,
+    "fileSize": 1648557,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7944,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "personal",
+    "date": "2026-09-29",
+    "heartbeat": true,
+    "file": "audio/ep7944.mp3",
+    "audio": "audio/ep7944.mp3",
+    "duration": "3:18",
+    "durationSecs": 198,
+    "fileSize": 1585965,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Goodwin"
+    ],
+    "topic": null
   }
 ]
