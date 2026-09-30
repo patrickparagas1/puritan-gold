@@ -35339,5 +35339,91 @@
       "Thomas Goodwin"
     ],
     "topic": null
+  },
+  {
+    "id": 7945,
+    "title": "Daily Meditation from John Owen",
+    "section": "study",
+    "date": "2026-09-30",
+    "heartbeat": true,
+    "file": "audio/ep7945.mp3",
+    "audio": "audio/ep7945.mp3",
+    "duration": "3:33",
+    "durationSecs": 213,
+    "fileSize": 1704429,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 7946,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "family",
+    "date": "2026-09-30",
+    "heartbeat": true,
+    "file": "audio/family_7946.mp3",
+    "audio": "audio/family_7946.mp3",
+    "duration": "3:36",
+    "durationSecs": 217,
+    "fileSize": 1734381,
+    "tags": [
+      "Family",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 7947,
+    "title": "Daily Meditation from John Flavel",
+    "section": "school",
+    "date": "2026-09-30",
+    "heartbeat": true,
+    "file": "audio/school_7947.mp3",
+    "audio": "audio/school_7947.mp3",
+    "duration": "3:44",
+    "durationSecs": 224,
+    "fileSize": 1793709,
+    "tags": [
+      "School",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 7948,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "together",
+    "date": "2026-09-30",
+    "heartbeat": true,
+    "file": "audio/together_7948.mp3",
+    "audio": "audio/together_7948.mp3",
+    "duration": "3:54",
+    "durationSecs": 234,
+    "fileSize": 1875117,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 7949,
+    "title": "Daily Meditation from John Owen",
+    "section": "personal",
+    "date": "2026-09-30",
+    "heartbeat": true,
+    "file": "audio/ep7949.mp3",
+    "audio": "audio/ep7949.mp3",
+    "duration": "3:30",
+    "durationSecs": 210,
+    "fileSize": 1680237,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Owen"
+    ],
+    "topic": null
   }
 ]
