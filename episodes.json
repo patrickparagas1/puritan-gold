@@ -35683,5 +35683,91 @@
       "Thomas Boston"
     ],
     "topic": null
+  },
+  {
+    "id": 7965,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "study",
+    "date": "2026-10-04",
+    "heartbeat": true,
+    "file": "audio/ep7965.mp3",
+    "audio": "audio/ep7965.mp3",
+    "duration": "3:19",
+    "durationSecs": 200,
+    "fileSize": 1598061,
+    "tags": [
+      "Study",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7966,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "family",
+    "date": "2026-10-04",
+    "heartbeat": true,
+    "file": "audio/family_7966.mp3",
+    "audio": "audio/family_7966.mp3",
+    "duration": "3:23",
+    "durationSecs": 203,
+    "fileSize": 1627437,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 7967,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "school",
+    "date": "2026-10-04",
+    "heartbeat": true,
+    "file": "audio/school_7967.mp3",
+    "audio": "audio/school_7967.mp3",
+    "duration": "3:26",
+    "durationSecs": 206,
+    "fileSize": 1650093,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 7968,
+    "title": "Daily Meditation from John Calvin",
+    "section": "together",
+    "date": "2026-10-04",
+    "heartbeat": true,
+    "file": "audio/together_7968.mp3",
+    "audio": "audio/together_7968.mp3",
+    "duration": "3:34",
+    "durationSecs": 214,
+    "fileSize": 1714029,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 7969,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "personal",
+    "date": "2026-10-04",
+    "heartbeat": true,
+    "file": "audio/ep7969.mp3",
+    "audio": "audio/ep7969.mp3",
+    "duration": "3:11",
+    "durationSecs": 191,
+    "fileSize": 1530093,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Richard Baxter"
+    ],
+    "topic": null
   }
 ]
