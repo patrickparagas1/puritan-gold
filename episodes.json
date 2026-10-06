@@ -35855,5 +35855,91 @@
       "Jeremiah Burroughs"
     ],
     "topic": null
+  },
+  {
+    "id": 7975,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-10-06",
+    "heartbeat": true,
+    "file": "audio/ep7975.mp3",
+    "audio": "audio/ep7975.mp3",
+    "duration": "3:58",
+    "durationSecs": 239,
+    "fileSize": 1908717,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7976,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-10-06",
+    "heartbeat": true,
+    "file": "audio/family_7976.mp3",
+    "audio": "audio/family_7976.mp3",
+    "duration": "3:49",
+    "durationSecs": 229,
+    "fileSize": 1834413,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 7977,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "school",
+    "date": "2026-10-06",
+    "heartbeat": true,
+    "file": "audio/school_7977.mp3",
+    "audio": "audio/school_7977.mp3",
+    "duration": "3:31",
+    "durationSecs": 212,
+    "fileSize": 1695021,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 7978,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "together",
+    "date": "2026-10-06",
+    "heartbeat": true,
+    "file": "audio/together_7978.mp3",
+    "audio": "audio/together_7978.mp3",
+    "duration": "3:26",
+    "durationSecs": 207,
+    "fileSize": 1656045,
+    "tags": [
+      "Together",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 7979,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "personal",
+    "date": "2026-10-06",
+    "heartbeat": true,
+    "file": "audio/ep7979.mp3",
+    "audio": "audio/ep7979.mp3",
+    "duration": "3:29",
+    "durationSecs": 210,
+    "fileSize": 1676589,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Brooks"
+    ],
+    "topic": null
   }
 ]
