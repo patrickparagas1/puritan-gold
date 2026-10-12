@@ -36371,5 +36371,91 @@
       "John Flavel"
     ],
     "topic": null
+  },
+  {
+    "id": 8005,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "study",
+    "date": "2026-10-12",
+    "heartbeat": true,
+    "file": null,
+    "audio": null,
+    "duration": "0:00",
+    "durationSecs": 0,
+    "fileSize": 0,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 8006,
+    "title": "Daily Meditation from John Flavel",
+    "section": "family",
+    "date": "2026-10-12",
+    "heartbeat": true,
+    "file": null,
+    "audio": null,
+    "duration": "0:00",
+    "durationSecs": 0,
+    "fileSize": 0,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 8007,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "school",
+    "date": "2026-10-12",
+    "heartbeat": true,
+    "file": null,
+    "audio": null,
+    "duration": "0:00",
+    "durationSecs": 0,
+    "fileSize": 0,
+    "tags": [
+      "School",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 8008,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-10-12",
+    "heartbeat": true,
+    "file": null,
+    "audio": null,
+    "duration": "0:00",
+    "durationSecs": 0,
+    "fileSize": 0,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8009,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "personal",
+    "date": "2026-10-12",
+    "heartbeat": true,
+    "file": null,
+    "audio": null,
+    "duration": "0:00",
+    "durationSecs": 0,
+    "fileSize": 0,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Brooks"
+    ],
+    "topic": null
   }
 ]
