@@ -36457,5 +36457,91 @@
       "Thomas Brooks"
     ],
     "topic": null
+  },
+  {
+    "id": 8010,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-10-13",
+    "heartbeat": true,
+    "file": null,
+    "audio": null,
+    "duration": "0:00",
+    "durationSecs": 0,
+    "fileSize": 0,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8011,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "family",
+    "date": "2026-10-13",
+    "heartbeat": true,
+    "file": null,
+    "audio": null,
+    "duration": "0:00",
+    "durationSecs": 0,
+    "fileSize": 0,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 8012,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "school",
+    "date": "2026-10-13",
+    "heartbeat": true,
+    "file": null,
+    "audio": null,
+    "duration": "0:00",
+    "durationSecs": 0,
+    "fileSize": 0,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 8013,
+    "title": "Daily Meditation from John Owen",
+    "section": "together",
+    "date": "2026-10-13",
+    "heartbeat": true,
+    "file": null,
+    "audio": null,
+    "duration": "0:00",
+    "durationSecs": 0,
+    "fileSize": 0,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 8014,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-10-13",
+    "heartbeat": true,
+    "file": null,
+    "audio": null,
+    "duration": "0:00",
+    "durationSecs": 0,
+    "fileSize": 0,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
