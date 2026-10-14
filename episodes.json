@@ -36543,5 +36543,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 8015,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "study",
+    "date": "2026-10-14",
+    "heartbeat": true,
+    "file": "audio/ep8015.mp3",
+    "audio": "audio/ep8015.mp3",
+    "duration": "3:12",
+    "durationSecs": 192,
+    "fileSize": 1539501,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 8016,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "family",
+    "date": "2026-10-14",
+    "heartbeat": true,
+    "file": "audio/family_8016.mp3",
+    "audio": "audio/family_8016.mp3",
+    "duration": "3:18",
+    "durationSecs": 199,
+    "fileSize": 1590381,
+    "tags": [
+      "Family",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 8017,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-10-14",
+    "heartbeat": true,
+    "file": "audio/school_8017.mp3",
+    "audio": "audio/school_8017.mp3",
+    "duration": "3:55",
+    "durationSecs": 236,
+    "fileSize": 1884525,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8018,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "together",
+    "date": "2026-10-14",
+    "heartbeat": true,
+    "file": "audio/together_8018.mp3",
+    "audio": "audio/together_8018.mp3",
+    "duration": "3:43",
+    "durationSecs": 223,
+    "fileSize": 1785261,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 8019,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "personal",
+    "date": "2026-10-14",
+    "heartbeat": true,
+    "file": "audio/ep8019.mp3",
+    "audio": "audio/ep8019.mp3",
+    "duration": "3:30",
+    "durationSecs": 211,
+    "fileSize": 1687533,
+    "tags": [
+      "Growth",
+      "Daily",
+      "C.H. Spurgeon"
+    ],
+    "topic": null
   }
 ]
