@@ -36629,5 +36629,91 @@
       "C.H. Spurgeon"
     ],
     "topic": null
+  },
+  {
+    "id": 8020,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "study",
+    "date": "2026-10-15",
+    "heartbeat": true,
+    "file": "audio/ep8020.mp3",
+    "audio": "audio/ep8020.mp3",
+    "duration": "3:18",
+    "durationSecs": 198,
+    "fileSize": 1587501,
+    "tags": [
+      "Study",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 8021,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "family",
+    "date": "2026-10-15",
+    "heartbeat": true,
+    "file": "audio/family_8021.mp3",
+    "audio": "audio/family_8021.mp3",
+    "duration": "3:59",
+    "durationSecs": 240,
+    "fileSize": 1919853,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 8022,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "school",
+    "date": "2026-10-15",
+    "heartbeat": true,
+    "file": "audio/school_8022.mp3",
+    "audio": "audio/school_8022.mp3",
+    "duration": "3:43",
+    "durationSecs": 224,
+    "fileSize": 1788333,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 8023,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "together",
+    "date": "2026-10-15",
+    "heartbeat": true,
+    "file": "audio/together_8023.mp3",
+    "audio": "audio/together_8023.mp3",
+    "duration": "3:33",
+    "durationSecs": 214,
+    "fileSize": 1711341,
+    "tags": [
+      "Together",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 8024,
+    "title": "Daily Meditation from John Calvin",
+    "section": "personal",
+    "date": "2026-10-15",
+    "heartbeat": true,
+    "file": "audio/ep8024.mp3",
+    "audio": "audio/ep8024.mp3",
+    "duration": "3:37",
+    "durationSecs": 218,
+    "fileSize": 1742829,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Calvin"
+    ],
+    "topic": null
   }
 ]
