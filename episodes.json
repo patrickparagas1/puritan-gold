@@ -36715,5 +36715,91 @@
       "John Calvin"
     ],
     "topic": null
+  },
+  {
+    "id": 8025,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-10-16",
+    "heartbeat": true,
+    "file": "audio/ep8025.mp3",
+    "audio": "audio/ep8025.mp3",
+    "duration": "3:28",
+    "durationSecs": 209,
+    "fileSize": 1670829,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8026,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "family",
+    "date": "2026-10-16",
+    "heartbeat": true,
+    "file": "audio/family_8026.mp3",
+    "audio": "audio/family_8026.mp3",
+    "duration": "3:42",
+    "durationSecs": 222,
+    "fileSize": 1777965,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 8027,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "school",
+    "date": "2026-10-16",
+    "heartbeat": true,
+    "file": "audio/school_8027.mp3",
+    "audio": "audio/school_8027.mp3",
+    "duration": "3:38",
+    "durationSecs": 218,
+    "fileSize": 1744365,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 8028,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "together",
+    "date": "2026-10-16",
+    "heartbeat": true,
+    "file": "audio/together_8028.mp3",
+    "audio": "audio/together_8028.mp3",
+    "duration": "3:21",
+    "durationSecs": 201,
+    "fileSize": 1611885,
+    "tags": [
+      "Together",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 8029,
+    "title": "Daily Meditation from John Owen",
+    "section": "personal",
+    "date": "2026-10-16",
+    "heartbeat": true,
+    "file": "audio/ep8029.mp3",
+    "audio": "audio/ep8029.mp3",
+    "duration": "3:17",
+    "durationSecs": 198,
+    "fileSize": 1580397,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Owen"
+    ],
+    "topic": null
   }
 ]
