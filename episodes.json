@@ -36801,5 +36801,91 @@
       "John Owen"
     ],
     "topic": null
+  },
+  {
+    "id": 8030,
+    "title": "Daily Meditation from John Owen",
+    "section": "study",
+    "date": "2026-10-17",
+    "heartbeat": true,
+    "file": "audio/ep8030.mp3",
+    "audio": "audio/ep8030.mp3",
+    "duration": "3:23",
+    "durationSecs": 204,
+    "fileSize": 1629357,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 8031,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "family",
+    "date": "2026-10-17",
+    "heartbeat": true,
+    "file": "audio/family_8031.mp3",
+    "audio": "audio/family_8031.mp3",
+    "duration": "3:05",
+    "durationSecs": 185,
+    "fileSize": 1482861,
+    "tags": [
+      "Family",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 8032,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-10-17",
+    "heartbeat": true,
+    "file": "audio/school_8032.mp3",
+    "audio": "audio/school_8032.mp3",
+    "duration": "3:40",
+    "durationSecs": 221,
+    "fileSize": 1766061,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8033,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-10-17",
+    "heartbeat": true,
+    "file": "audio/together_8033.mp3",
+    "audio": "audio/together_8033.mp3",
+    "duration": "3:44",
+    "durationSecs": 225,
+    "fileSize": 1796589,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8034,
+    "title": "Daily Meditation from John Flavel",
+    "section": "personal",
+    "date": "2026-10-17",
+    "heartbeat": true,
+    "file": "audio/ep8034.mp3",
+    "audio": "audio/ep8034.mp3",
+    "duration": "3:41",
+    "durationSecs": 222,
+    "fileSize": 1772973,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Flavel"
+    ],
+    "topic": null
   }
 ]
