@@ -36973,5 +36973,91 @@
       "Jonathan Edwards"
     ],
     "topic": null
+  },
+  {
+    "id": 8040,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "study",
+    "date": "2026-10-19",
+    "heartbeat": true,
+    "file": "audio/ep8040.mp3",
+    "audio": "audio/ep8040.mp3",
+    "duration": "3:10",
+    "durationSecs": 190,
+    "fileSize": 1523757,
+    "tags": [
+      "Study",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 8041,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "family",
+    "date": "2026-10-19",
+    "heartbeat": true,
+    "file": "audio/family_8041.mp3",
+    "audio": "audio/family_8041.mp3",
+    "duration": "3:36",
+    "durationSecs": 217,
+    "fileSize": 1732461,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 8042,
+    "title": "Daily Meditation from John Owen",
+    "section": "school",
+    "date": "2026-10-19",
+    "heartbeat": true,
+    "file": "audio/school_8042.mp3",
+    "audio": "audio/school_8042.mp3",
+    "duration": "3:40",
+    "durationSecs": 221,
+    "fileSize": 1768173,
+    "tags": [
+      "School",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 8043,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-10-19",
+    "heartbeat": true,
+    "file": "audio/together_8043.mp3",
+    "audio": "audio/together_8043.mp3",
+    "duration": "3:40",
+    "durationSecs": 220,
+    "fileSize": 1760301,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8044,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-10-19",
+    "heartbeat": true,
+    "file": "audio/ep8044.mp3",
+    "audio": "audio/ep8044.mp3",
+    "duration": "3:53",
+    "durationSecs": 234,
+    "fileSize": 1870317,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
