@@ -37145,5 +37145,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 8050,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-10-21",
+    "heartbeat": true,
+    "file": "audio/ep8050.mp3",
+    "audio": "audio/ep8050.mp3",
+    "duration": "3:50",
+    "durationSecs": 230,
+    "fileSize": 1841901,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8051,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "family",
+    "date": "2026-10-21",
+    "heartbeat": true,
+    "file": "audio/family_8051.mp3",
+    "audio": "audio/family_8051.mp3",
+    "duration": "3:30",
+    "durationSecs": 211,
+    "fileSize": 1685229,
+    "tags": [
+      "Family",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 8052,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-10-21",
+    "heartbeat": true,
+    "file": "audio/school_8052.mp3",
+    "audio": "audio/school_8052.mp3",
+    "duration": "3:39",
+    "durationSecs": 219,
+    "fileSize": 1753773,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8053,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "together",
+    "date": "2026-10-21",
+    "heartbeat": true,
+    "file": "audio/together_8053.mp3",
+    "audio": "audio/together_8053.mp3",
+    "duration": "3:20",
+    "durationSecs": 200,
+    "fileSize": 1603821,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 8054,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "personal",
+    "date": "2026-10-21",
+    "heartbeat": true,
+    "file": "audio/ep8054.mp3",
+    "audio": "audio/ep8054.mp3",
+    "duration": "3:53",
+    "durationSecs": 233,
+    "fileSize": 1866285,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Watson"
+    ],
+    "topic": null
   }
 ]
