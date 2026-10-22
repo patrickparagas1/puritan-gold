@@ -37231,5 +37231,91 @@
       "Thomas Watson"
     ],
     "topic": null
+  },
+  {
+    "id": 8055,
+    "title": "Daily Meditation from John Owen",
+    "section": "study",
+    "date": "2026-10-22",
+    "heartbeat": true,
+    "file": "audio/ep8055.mp3",
+    "audio": "audio/ep8055.mp3",
+    "duration": "3:36",
+    "durationSecs": 217,
+    "fileSize": 1735533,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 8056,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "family",
+    "date": "2026-10-22",
+    "heartbeat": true,
+    "file": "audio/family_8056.mp3",
+    "audio": "audio/family_8056.mp3",
+    "duration": "3:56",
+    "durationSecs": 236,
+    "fileSize": 1890093,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 8057,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-10-22",
+    "heartbeat": true,
+    "file": "audio/school_8057.mp3",
+    "audio": "audio/school_8057.mp3",
+    "duration": "3:42",
+    "durationSecs": 222,
+    "fileSize": 1777773,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8058,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "together",
+    "date": "2026-10-22",
+    "heartbeat": true,
+    "file": "audio/together_8058.mp3",
+    "audio": "audio/together_8058.mp3",
+    "duration": "3:34",
+    "durationSecs": 214,
+    "fileSize": 1715949,
+    "tags": [
+      "Together",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 8059,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "personal",
+    "date": "2026-10-22",
+    "heartbeat": true,
+    "file": "audio/ep8059.mp3",
+    "audio": "audio/ep8059.mp3",
+    "duration": "3:27",
+    "durationSecs": 208,
+    "fileSize": 1663533,
+    "tags": [
+      "Growth",
+      "Daily",
+      "C.H. Spurgeon"
+    ],
+    "topic": null
   }
 ]
