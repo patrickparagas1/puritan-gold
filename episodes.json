@@ -37403,5 +37403,91 @@
       "Jonathan Edwards"
     ],
     "topic": null
+  },
+  {
+    "id": 8065,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-10-24",
+    "heartbeat": true,
+    "file": "audio/ep8065.mp3",
+    "audio": "audio/ep8065.mp3",
+    "duration": "3:27",
+    "durationSecs": 208,
+    "fileSize": 1662381,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8066,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "family",
+    "date": "2026-10-24",
+    "heartbeat": true,
+    "file": "audio/family_8066.mp3",
+    "audio": "audio/family_8066.mp3",
+    "duration": "3:52",
+    "durationSecs": 233,
+    "fileSize": 1862253,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 8067,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "school",
+    "date": "2026-10-24",
+    "heartbeat": true,
+    "file": "audio/school_8067.mp3",
+    "audio": "audio/school_8067.mp3",
+    "duration": "3:22",
+    "durationSecs": 202,
+    "fileSize": 1620141,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 8068,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "together",
+    "date": "2026-10-24",
+    "heartbeat": true,
+    "file": "audio/together_8068.mp3",
+    "audio": "audio/together_8068.mp3",
+    "duration": "3:16",
+    "durationSecs": 196,
+    "fileSize": 1568301,
+    "tags": [
+      "Together",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 8069,
+    "title": "Daily Meditation from John Owen",
+    "section": "personal",
+    "date": "2026-10-24",
+    "heartbeat": true,
+    "file": "audio/ep8069.mp3",
+    "audio": "audio/ep8069.mp3",
+    "duration": "3:44",
+    "durationSecs": 225,
+    "fileSize": 1797933,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Owen"
+    ],
+    "topic": null
   }
 ]
