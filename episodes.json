@@ -37575,5 +37575,91 @@
       "John Calvin"
     ],
     "topic": null
+  },
+  {
+    "id": 8075,
+    "title": "Daily Meditation from John Flavel",
+    "section": "study",
+    "date": "2026-10-26",
+    "heartbeat": true,
+    "file": "audio/ep8075.mp3",
+    "audio": "audio/ep8075.mp3",
+    "duration": "3:57",
+    "durationSecs": 238,
+    "fileSize": 1901037,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 8076,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "family",
+    "date": "2026-10-26",
+    "heartbeat": true,
+    "file": "audio/family_8076.mp3",
+    "audio": "audio/family_8076.mp3",
+    "duration": "3:29",
+    "durationSecs": 209,
+    "fileSize": 1675629,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 8077,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "school",
+    "date": "2026-10-26",
+    "heartbeat": true,
+    "file": "audio/school_8077.mp3",
+    "audio": "audio/school_8077.mp3",
+    "duration": "3:34",
+    "durationSecs": 215,
+    "fileSize": 1719021,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 8078,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "together",
+    "date": "2026-10-26",
+    "heartbeat": true,
+    "file": "audio/together_8078.mp3",
+    "audio": "audio/together_8078.mp3",
+    "duration": "3:09",
+    "durationSecs": 190,
+    "fileSize": 1518765,
+    "tags": [
+      "Together",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 8079,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-10-26",
+    "heartbeat": true,
+    "file": "audio/ep8079.mp3",
+    "audio": "audio/ep8079.mp3",
+    "duration": "3:51",
+    "durationSecs": 232,
+    "fileSize": 1855341,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
