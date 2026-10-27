@@ -37661,5 +37661,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 8080,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "study",
+    "date": "2026-10-27",
+    "heartbeat": true,
+    "file": "audio/ep8080.mp3",
+    "audio": "audio/ep8080.mp3",
+    "duration": "3:36",
+    "durationSecs": 216,
+    "fileSize": 1730925,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 8081,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "family",
+    "date": "2026-10-27",
+    "heartbeat": true,
+    "file": "audio/family_8081.mp3",
+    "audio": "audio/family_8081.mp3",
+    "duration": "3:29",
+    "durationSecs": 209,
+    "fileSize": 1675053,
+    "tags": [
+      "Family",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 8082,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "school",
+    "date": "2026-10-27",
+    "heartbeat": true,
+    "file": "audio/school_8082.mp3",
+    "audio": "audio/school_8082.mp3",
+    "duration": "3:46",
+    "durationSecs": 226,
+    "fileSize": 1810605,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 8083,
+    "title": "Daily Meditation from John Flavel",
+    "section": "together",
+    "date": "2026-10-27",
+    "heartbeat": true,
+    "file": "audio/together_8083.mp3",
+    "audio": "audio/together_8083.mp3",
+    "duration": "3:32",
+    "durationSecs": 212,
+    "fileSize": 1700013,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 8084,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "personal",
+    "date": "2026-10-27",
+    "heartbeat": true,
+    "file": "audio/ep8084.mp3",
+    "audio": "audio/ep8084.mp3",
+    "duration": "3:46",
+    "durationSecs": 227,
+    "fileSize": 1815021,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Boston"
+    ],
+    "topic": null
   }
 ]
