@@ -37747,5 +37747,91 @@
       "Thomas Boston"
     ],
     "topic": null
+  },
+  {
+    "id": 8085,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "study",
+    "date": "2026-10-28",
+    "heartbeat": true,
+    "file": "audio/ep8085.mp3",
+    "audio": "audio/ep8085.mp3",
+    "duration": "3:42",
+    "durationSecs": 223,
+    "fileSize": 1782189,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 8086,
+    "title": "Daily Meditation from John Flavel",
+    "section": "family",
+    "date": "2026-10-28",
+    "heartbeat": true,
+    "file": "audio/family_8086.mp3",
+    "audio": "audio/family_8086.mp3",
+    "duration": "3:46",
+    "durationSecs": 227,
+    "fileSize": 1814637,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 8087,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "school",
+    "date": "2026-10-28",
+    "heartbeat": true,
+    "file": "audio/school_8087.mp3",
+    "audio": "audio/school_8087.mp3",
+    "duration": "3:29",
+    "durationSecs": 209,
+    "fileSize": 1673325,
+    "tags": [
+      "School",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 8088,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-10-28",
+    "heartbeat": true,
+    "file": "audio/together_8088.mp3",
+    "audio": "audio/together_8088.mp3",
+    "duration": "3:55",
+    "durationSecs": 235,
+    "fileSize": 1883373,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8089,
+    "title": "Daily Meditation from John Flavel",
+    "section": "personal",
+    "date": "2026-10-28",
+    "heartbeat": true,
+    "file": "audio/ep8089.mp3",
+    "audio": "audio/ep8089.mp3",
+    "duration": "3:27",
+    "durationSecs": 207,
+    "fileSize": 1657773,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Flavel"
+    ],
+    "topic": null
   }
 ]
