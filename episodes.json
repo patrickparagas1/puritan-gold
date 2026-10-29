@@ -37833,5 +37833,91 @@
       "John Flavel"
     ],
     "topic": null
+  },
+  {
+    "id": 8090,
+    "title": "Daily Meditation from John Flavel",
+    "section": "study",
+    "date": "2026-10-29",
+    "heartbeat": true,
+    "file": "audio/ep8090.mp3",
+    "audio": "audio/ep8090.mp3",
+    "duration": "3:46",
+    "durationSecs": 226,
+    "fileSize": 1811565,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 8091,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "family",
+    "date": "2026-10-29",
+    "heartbeat": true,
+    "file": "audio/family_8091.mp3",
+    "audio": "audio/family_8091.mp3",
+    "duration": "3:54",
+    "durationSecs": 234,
+    "fileSize": 1873581,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 8092,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "school",
+    "date": "2026-10-29",
+    "heartbeat": true,
+    "file": "audio/school_8092.mp3",
+    "audio": "audio/school_8092.mp3",
+    "duration": "3:58",
+    "durationSecs": 238,
+    "fileSize": 1906797,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 8093,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "together",
+    "date": "2026-10-29",
+    "heartbeat": true,
+    "file": "audio/together_8093.mp3",
+    "audio": "audio/together_8093.mp3",
+    "duration": "3:57",
+    "durationSecs": 238,
+    "fileSize": 1902957,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 8094,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "personal",
+    "date": "2026-10-29",
+    "heartbeat": true,
+    "file": "audio/ep8094.mp3",
+    "audio": "audio/ep8094.mp3",
+    "duration": "3:59",
+    "durationSecs": 240,
+    "fileSize": 1917741,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Watson"
+    ],
+    "topic": null
   }
 ]
