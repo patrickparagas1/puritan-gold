@@ -37919,5 +37919,91 @@
       "Thomas Watson"
     ],
     "topic": null
+  },
+  {
+    "id": 8095,
+    "title": "Daily Meditation from John Calvin",
+    "section": "study",
+    "date": "2026-10-30",
+    "heartbeat": true,
+    "file": "audio/ep8095.mp3",
+    "audio": "audio/ep8095.mp3",
+    "duration": "3:40",
+    "durationSecs": 221,
+    "fileSize": 1765293,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 8096,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-10-30",
+    "heartbeat": true,
+    "file": "audio/family_8096.mp3",
+    "audio": "audio/family_8096.mp3",
+    "duration": "3:57",
+    "durationSecs": 237,
+    "fileSize": 1898541,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8097,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "school",
+    "date": "2026-10-30",
+    "heartbeat": true,
+    "file": "audio/school_8097.mp3",
+    "audio": "audio/school_8097.mp3",
+    "duration": "3:37",
+    "durationSecs": 218,
+    "fileSize": 1742445,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 8098,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "together",
+    "date": "2026-10-30",
+    "heartbeat": true,
+    "file": "audio/together_8098.mp3",
+    "audio": "audio/together_8098.mp3",
+    "duration": "3:43",
+    "durationSecs": 223,
+    "fileSize": 1785645,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 8099,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "personal",
+    "date": "2026-10-30",
+    "heartbeat": true,
+    "file": "audio/ep8099.mp3",
+    "audio": "audio/ep8099.mp3",
+    "duration": "3:45",
+    "durationSecs": 226,
+    "fileSize": 1805997,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Boston"
+    ],
+    "topic": null
   }
 ]
