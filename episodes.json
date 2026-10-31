@@ -38005,5 +38005,91 @@
       "Thomas Boston"
     ],
     "topic": null
+  },
+  {
+    "id": 8100,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "study",
+    "date": "2026-10-31",
+    "heartbeat": true,
+    "file": "audio/ep8100.mp3",
+    "audio": "audio/ep8100.mp3",
+    "duration": "3:34",
+    "durationSecs": 214,
+    "fileSize": 1713069,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 8101,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "family",
+    "date": "2026-10-31",
+    "heartbeat": true,
+    "file": "audio/family_8101.mp3",
+    "audio": "audio/family_8101.mp3",
+    "duration": "3:27",
+    "durationSecs": 207,
+    "fileSize": 1657005,
+    "tags": [
+      "Family",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 8102,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "school",
+    "date": "2026-10-31",
+    "heartbeat": true,
+    "file": "audio/school_8102.mp3",
+    "audio": "audio/school_8102.mp3",
+    "duration": "3:26",
+    "durationSecs": 206,
+    "fileSize": 1648749,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 8103,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-10-31",
+    "heartbeat": true,
+    "file": "audio/together_8103.mp3",
+    "audio": "audio/together_8103.mp3",
+    "duration": "4:06",
+    "durationSecs": 246,
+    "fileSize": 1968813,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8104,
+    "title": "Daily Meditation from John Flavel",
+    "section": "personal",
+    "date": "2026-10-31",
+    "heartbeat": true,
+    "file": "audio/ep8104.mp3",
+    "audio": "audio/ep8104.mp3",
+    "duration": "2:54",
+    "durationSecs": 174,
+    "fileSize": 1392237,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Flavel"
+    ],
+    "topic": null
   }
 ]
