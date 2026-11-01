@@ -38091,5 +38091,91 @@
       "John Flavel"
     ],
     "topic": null
+  },
+  {
+    "id": 8105,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-11-01",
+    "heartbeat": true,
+    "file": "audio/ep8105.mp3",
+    "audio": "audio/ep8105.mp3",
+    "duration": "3:45",
+    "durationSecs": 225,
+    "fileSize": 1802541,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8106,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "family",
+    "date": "2026-11-01",
+    "heartbeat": true,
+    "file": "audio/family_8106.mp3",
+    "audio": "audio/family_8106.mp3",
+    "duration": "3:28",
+    "durationSecs": 209,
+    "fileSize": 1668525,
+    "tags": [
+      "Family",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 8107,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-11-01",
+    "heartbeat": true,
+    "file": "audio/school_8107.mp3",
+    "audio": "audio/school_8107.mp3",
+    "duration": "3:29",
+    "durationSecs": 209,
+    "fileSize": 1675245,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8108,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "together",
+    "date": "2026-11-01",
+    "heartbeat": true,
+    "file": "audio/together_8108.mp3",
+    "audio": "audio/together_8108.mp3",
+    "duration": "3:25",
+    "durationSecs": 206,
+    "fileSize": 1645485,
+    "tags": [
+      "Together",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 8109,
+    "title": "Daily Meditation from John Calvin",
+    "section": "personal",
+    "date": "2026-11-01",
+    "heartbeat": true,
+    "file": "audio/ep8109.mp3",
+    "audio": "audio/ep8109.mp3",
+    "duration": "3:40",
+    "durationSecs": 221,
+    "fileSize": 1764717,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Calvin"
+    ],
+    "topic": null
   }
 ]
