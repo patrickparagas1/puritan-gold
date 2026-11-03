@@ -38263,5 +38263,91 @@
       "Thomas Brooks"
     ],
     "topic": null
+  },
+  {
+    "id": 8115,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "study",
+    "date": "2026-11-03",
+    "heartbeat": true,
+    "file": "audio/ep8115.mp3",
+    "audio": "audio/ep8115.mp3",
+    "duration": "3:42",
+    "durationSecs": 222,
+    "fileSize": 1777581,
+    "tags": [
+      "Study",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 8116,
+    "title": "Daily Meditation from John Owen",
+    "section": "family",
+    "date": "2026-11-03",
+    "heartbeat": true,
+    "file": "audio/family_8116.mp3",
+    "audio": "audio/family_8116.mp3",
+    "duration": "3:33",
+    "durationSecs": 213,
+    "fileSize": 1707693,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 8117,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "school",
+    "date": "2026-11-03",
+    "heartbeat": true,
+    "file": "audio/school_8117.mp3",
+    "audio": "audio/school_8117.mp3",
+    "duration": "3:37",
+    "durationSecs": 218,
+    "fileSize": 1740525,
+    "tags": [
+      "School",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 8118,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "together",
+    "date": "2026-11-03",
+    "heartbeat": true,
+    "file": "audio/together_8118.mp3",
+    "audio": "audio/together_8118.mp3",
+    "duration": "3:33",
+    "durationSecs": 213,
+    "fileSize": 1706349,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 8119,
+    "title": "Daily Meditation from John Owen",
+    "section": "personal",
+    "date": "2026-11-03",
+    "heartbeat": true,
+    "file": "audio/ep8119.mp3",
+    "audio": "audio/ep8119.mp3",
+    "duration": "3:33",
+    "durationSecs": 213,
+    "fileSize": 1707885,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Owen"
+    ],
+    "topic": null
   }
 ]
