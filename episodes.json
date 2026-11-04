@@ -38349,5 +38349,91 @@
       "John Owen"
     ],
     "topic": null
+  },
+  {
+    "id": 8120,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "study",
+    "date": "2026-11-04",
+    "heartbeat": true,
+    "file": "audio/ep8120.mp3",
+    "audio": "audio/ep8120.mp3",
+    "duration": "3:25",
+    "durationSecs": 205,
+    "fileSize": 1643565,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 8121,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "family",
+    "date": "2026-11-04",
+    "heartbeat": true,
+    "file": "audio/family_8121.mp3",
+    "audio": "audio/family_8121.mp3",
+    "duration": "3:19",
+    "durationSecs": 199,
+    "fileSize": 1594989,
+    "tags": [
+      "Family",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 8122,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "school",
+    "date": "2026-11-04",
+    "heartbeat": true,
+    "file": "audio/school_8122.mp3",
+    "audio": "audio/school_8122.mp3",
+    "duration": "3:17",
+    "durationSecs": 198,
+    "fileSize": 1581933,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 8123,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "together",
+    "date": "2026-11-04",
+    "heartbeat": true,
+    "file": "audio/together_8123.mp3",
+    "audio": "audio/together_8123.mp3",
+    "duration": "3:20",
+    "durationSecs": 201,
+    "fileSize": 1607277,
+    "tags": [
+      "Together",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 8124,
+    "title": "Daily Meditation from John Calvin",
+    "section": "personal",
+    "date": "2026-11-04",
+    "heartbeat": true,
+    "file": "audio/ep8124.mp3",
+    "audio": "audio/ep8124.mp3",
+    "duration": "3:37",
+    "durationSecs": 217,
+    "fileSize": 1738797,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Calvin"
+    ],
+    "topic": null
   }
 ]
