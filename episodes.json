@@ -38435,5 +38435,91 @@
       "John Calvin"
     ],
     "topic": null
+  },
+  {
+    "id": 8125,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "study",
+    "date": "2026-11-05",
+    "heartbeat": true,
+    "file": "audio/ep8125.mp3",
+    "audio": "audio/ep8125.mp3",
+    "duration": "3:30",
+    "durationSecs": 210,
+    "fileSize": 1680429,
+    "tags": [
+      "Study",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 8126,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "family",
+    "date": "2026-11-05",
+    "heartbeat": true,
+    "file": "audio/family_8126.mp3",
+    "audio": "audio/family_8126.mp3",
+    "duration": "3:10",
+    "durationSecs": 191,
+    "fileSize": 1525869,
+    "tags": [
+      "Family",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 8127,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "school",
+    "date": "2026-11-05",
+    "heartbeat": true,
+    "file": "audio/school_8127.mp3",
+    "audio": "audio/school_8127.mp3",
+    "duration": "3:19",
+    "durationSecs": 199,
+    "fileSize": 1592685,
+    "tags": [
+      "School",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 8128,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "together",
+    "date": "2026-11-05",
+    "heartbeat": true,
+    "file": "audio/together_8128.mp3",
+    "audio": "audio/together_8128.mp3",
+    "duration": "4:00",
+    "durationSecs": 240,
+    "fileSize": 1923117,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 8129,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "personal",
+    "date": "2026-11-05",
+    "heartbeat": true,
+    "file": "audio/ep8129.mp3",
+    "audio": "audio/ep8129.mp3",
+    "duration": "2:56",
+    "durationSecs": 176,
+    "fileSize": 1409325,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Jeremiah Burroughs"
+    ],
+    "topic": null
   }
 ]
