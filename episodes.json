@@ -38607,5 +38607,91 @@
       "Thomas Brooks"
     ],
     "topic": null
+  },
+  {
+    "id": 8135,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "study",
+    "date": "2026-11-07",
+    "heartbeat": true,
+    "file": "audio/ep8135.mp3",
+    "audio": "audio/ep8135.mp3",
+    "duration": "2:56",
+    "durationSecs": 176,
+    "fileSize": 1409325,
+    "tags": [
+      "Study",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 8136,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "family",
+    "date": "2026-11-07",
+    "heartbeat": true,
+    "file": "audio/family_8136.mp3",
+    "audio": "audio/family_8136.mp3",
+    "duration": "3:26",
+    "durationSecs": 207,
+    "fileSize": 1653549,
+    "tags": [
+      "Family",
+      "Daily",
+      "C.H. Spurgeon"
+    ]
+  },
+  {
+    "id": 8137,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-11-07",
+    "heartbeat": true,
+    "file": "audio/school_8137.mp3",
+    "audio": "audio/school_8137.mp3",
+    "duration": "3:31",
+    "durationSecs": 211,
+    "fileSize": 1690029,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8138,
+    "title": "Daily Meditation from John Flavel",
+    "section": "together",
+    "date": "2026-11-07",
+    "heartbeat": true,
+    "file": "audio/together_8138.mp3",
+    "audio": "audio/together_8138.mp3",
+    "duration": "3:47",
+    "durationSecs": 228,
+    "fileSize": 1823277,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 8139,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-11-07",
+    "heartbeat": true,
+    "file": "audio/ep8139.mp3",
+    "audio": "audio/ep8139.mp3",
+    "duration": "3:39",
+    "durationSecs": 220,
+    "fileSize": 1758957,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
