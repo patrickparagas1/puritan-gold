@@ -38779,5 +38779,91 @@
       "C.H. Spurgeon"
     ],
     "topic": null
+  },
+  {
+    "id": 8145,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-11-09",
+    "heartbeat": true,
+    "file": "audio/ep8145.mp3",
+    "audio": "audio/ep8145.mp3",
+    "duration": "3:45",
+    "durationSecs": 226,
+    "fileSize": 1807725,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8146,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-11-09",
+    "heartbeat": true,
+    "file": "audio/family_8146.mp3",
+    "audio": "audio/family_8146.mp3",
+    "duration": "3:42",
+    "durationSecs": 223,
+    "fileSize": 1783149,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8147,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "school",
+    "date": "2026-11-09",
+    "heartbeat": true,
+    "file": "audio/school_8147.mp3",
+    "audio": "audio/school_8147.mp3",
+    "duration": "4:06",
+    "durationSecs": 246,
+    "fileSize": 1968621,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 8148,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-11-09",
+    "heartbeat": true,
+    "file": "audio/together_8148.mp3",
+    "audio": "audio/together_8148.mp3",
+    "duration": "4:00",
+    "durationSecs": 240,
+    "fileSize": 1921773,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8149,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "personal",
+    "date": "2026-11-09",
+    "heartbeat": true,
+    "file": "audio/ep8149.mp3",
+    "audio": "audio/ep8149.mp3",
+    "duration": "3:15",
+    "durationSecs": 195,
+    "fileSize": 1560237,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Richard Baxter"
+    ],
+    "topic": null
   }
 ]
