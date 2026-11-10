@@ -38865,5 +38865,91 @@
       "Richard Baxter"
     ],
     "topic": null
+  },
+  {
+    "id": 8150,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-11-10",
+    "heartbeat": true,
+    "file": "audio/ep8150.mp3",
+    "audio": "audio/ep8150.mp3",
+    "duration": "3:43",
+    "durationSecs": 224,
+    "fileSize": 1790828,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8151,
+    "title": "Daily Meditation from John Owen",
+    "section": "family",
+    "date": "2026-11-10",
+    "heartbeat": true,
+    "file": "audio/family_8151.mp3",
+    "audio": "audio/family_8151.mp3",
+    "duration": "3:45",
+    "durationSecs": 226,
+    "fileSize": 1805228,
+    "tags": [
+      "Family",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 8152,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "school",
+    "date": "2026-11-10",
+    "heartbeat": true,
+    "file": "audio/school_8152.mp3",
+    "audio": "audio/school_8152.mp3",
+    "duration": "3:35",
+    "durationSecs": 216,
+    "fileSize": 1728428,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 8153,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "together",
+    "date": "2026-11-10",
+    "heartbeat": true,
+    "file": "audio/together_8153.mp3",
+    "audio": "audio/together_8153.mp3",
+    "duration": "3:30",
+    "durationSecs": 210,
+    "fileSize": 1681772,
+    "tags": [
+      "Together",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8154,
+    "title": "Daily Meditation from John Owen",
+    "section": "personal",
+    "date": "2026-11-10",
+    "heartbeat": true,
+    "file": "audio/ep8154.mp3",
+    "audio": "audio/ep8154.mp3",
+    "duration": "3:28",
+    "durationSecs": 209,
+    "fileSize": 1668908,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Owen"
+    ],
+    "topic": null
   }
 ]
