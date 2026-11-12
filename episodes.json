@@ -39037,5 +39037,91 @@
       "John Flavel"
     ],
     "topic": null
+  },
+  {
+    "id": 8160,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "study",
+    "date": "2026-11-12",
+    "heartbeat": true,
+    "file": "audio/ep8160.mp3",
+    "audio": "audio/ep8160.mp3",
+    "duration": "3:53",
+    "durationSecs": 233,
+    "fileSize": 1868012,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 8161,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-11-12",
+    "heartbeat": true,
+    "file": "audio/family_8161.mp3",
+    "audio": "audio/family_8161.mp3",
+    "duration": "3:46",
+    "durationSecs": 227,
+    "fileSize": 1814444,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8162,
+    "title": "Daily Meditation from John Flavel",
+    "section": "school",
+    "date": "2026-11-12",
+    "heartbeat": true,
+    "file": "audio/school_8162.mp3",
+    "audio": "audio/school_8162.mp3",
+    "duration": "3:22",
+    "durationSecs": 203,
+    "fileSize": 1621676,
+    "tags": [
+      "School",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 8163,
+    "title": "Daily Meditation from John Flavel",
+    "section": "together",
+    "date": "2026-11-12",
+    "heartbeat": true,
+    "file": "audio/together_8163.mp3",
+    "audio": "audio/together_8163.mp3",
+    "duration": "3:24",
+    "durationSecs": 204,
+    "fileSize": 1634924,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 8164,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-11-12",
+    "heartbeat": true,
+    "file": "audio/ep8164.mp3",
+    "audio": "audio/ep8164.mp3",
+    "duration": "3:53",
+    "durationSecs": 234,
+    "fileSize": 1871660,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
