@@ -39123,5 +39123,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 8165,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "study",
+    "date": "2026-11-13",
+    "heartbeat": true,
+    "file": "audio/ep8165.mp3",
+    "audio": "audio/ep8165.mp3",
+    "duration": "3:07",
+    "durationSecs": 188,
+    "fileSize": 1502636,
+    "tags": [
+      "Study",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 8166,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "family",
+    "date": "2026-11-13",
+    "heartbeat": true,
+    "file": "audio/family_8166.mp3",
+    "audio": "audio/family_8166.mp3",
+    "duration": "3:39",
+    "durationSecs": 220,
+    "fileSize": 1758188,
+    "tags": [
+      "Family",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8167,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "school",
+    "date": "2026-11-13",
+    "heartbeat": true,
+    "file": "audio/school_8167.mp3",
+    "audio": "audio/school_8167.mp3",
+    "duration": "3:39",
+    "durationSecs": 219,
+    "fileSize": 1753196,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 8168,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "together",
+    "date": "2026-11-13",
+    "heartbeat": true,
+    "file": "audio/together_8168.mp3",
+    "audio": "audio/together_8168.mp3",
+    "duration": "3:40",
+    "durationSecs": 220,
+    "fileSize": 1763564,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 8169,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "personal",
+    "date": "2026-11-13",
+    "heartbeat": true,
+    "file": "audio/ep8169.mp3",
+    "audio": "audio/ep8169.mp3",
+    "duration": "3:33",
+    "durationSecs": 213,
+    "fileSize": 1704812,
+    "tags": [
+      "Growth",
+      "Daily",
+      "John Bunyan"
+    ],
+    "topic": null
   }
 ]
