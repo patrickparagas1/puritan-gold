@@ -39209,5 +39209,91 @@
       "John Bunyan"
     ],
     "topic": null
+  },
+  {
+    "id": 8170,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "study",
+    "date": "2026-11-14",
+    "heartbeat": true,
+    "file": "audio/ep8170.mp3",
+    "audio": "audio/ep8170.mp3",
+    "duration": "3:49",
+    "durationSecs": 229,
+    "fileSize": 1834028,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 8171,
+    "title": "Daily Meditation from Jonathan Edwards",
+    "section": "family",
+    "date": "2026-11-14",
+    "heartbeat": true,
+    "file": "audio/family_8171.mp3",
+    "audio": "audio/family_8171.mp3",
+    "duration": "3:45",
+    "durationSecs": 225,
+    "fileSize": 1801004,
+    "tags": [
+      "Family",
+      "Daily",
+      "Jonathan Edwards"
+    ]
+  },
+  {
+    "id": 8172,
+    "title": "Daily Meditation from John Flavel",
+    "section": "school",
+    "date": "2026-11-14",
+    "heartbeat": true,
+    "file": "audio/school_8172.mp3",
+    "audio": "audio/school_8172.mp3",
+    "duration": "3:15",
+    "durationSecs": 196,
+    "fileSize": 1567340,
+    "tags": [
+      "School",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 8173,
+    "title": "Daily Meditation from Thomas Brooks",
+    "section": "together",
+    "date": "2026-11-14",
+    "heartbeat": true,
+    "file": "audio/together_8173.mp3",
+    "audio": "audio/together_8173.mp3",
+    "duration": "3:37",
+    "durationSecs": 217,
+    "fileSize": 1736876,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Brooks"
+    ]
+  },
+  {
+    "id": 8174,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "personal",
+    "date": "2026-11-14",
+    "heartbeat": true,
+    "file": "audio/ep8174.mp3",
+    "audio": "audio/ep8174.mp3",
+    "duration": "3:31",
+    "durationSecs": 211,
+    "fileSize": 1691756,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Boston"
+    ],
+    "topic": null
   }
 ]
