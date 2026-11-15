@@ -39295,5 +39295,91 @@
       "Thomas Boston"
     ],
     "topic": null
+  },
+  {
+    "id": 8175,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "study",
+    "date": "2026-11-15",
+    "heartbeat": true,
+    "file": "audio/ep8175.mp3",
+    "audio": "audio/ep8175.mp3",
+    "duration": "3:59",
+    "durationSecs": 240,
+    "fileSize": 1920236,
+    "tags": [
+      "Study",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 8176,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "family",
+    "date": "2026-11-15",
+    "heartbeat": true,
+    "file": "audio/family_8176.mp3",
+    "audio": "audio/family_8176.mp3",
+    "duration": "3:17",
+    "durationSecs": 197,
+    "fileSize": 1578860,
+    "tags": [
+      "Family",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 8177,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "school",
+    "date": "2026-11-15",
+    "heartbeat": true,
+    "file": "audio/school_8177.mp3",
+    "audio": "audio/school_8177.mp3",
+    "duration": "3:44",
+    "durationSecs": 224,
+    "fileSize": 1794284,
+    "tags": [
+      "School",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 8178,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "together",
+    "date": "2026-11-15",
+    "heartbeat": true,
+    "file": "audio/together_8178.mp3",
+    "audio": "audio/together_8178.mp3",
+    "duration": "3:25",
+    "durationSecs": 206,
+    "fileSize": 1648364,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 8179,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-11-15",
+    "heartbeat": true,
+    "file": "audio/ep8179.mp3",
+    "audio": "audio/ep8179.mp3",
+    "duration": "3:28",
+    "durationSecs": 209,
+    "fileSize": 1672364,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
