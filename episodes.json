@@ -39381,5 +39381,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 8180,
+    "title": "Daily Meditation from Thomas Watson",
+    "section": "study",
+    "date": "2026-11-16",
+    "heartbeat": true,
+    "file": "audio/ep8180.mp3",
+    "audio": "audio/ep8180.mp3",
+    "duration": "3:54",
+    "durationSecs": 235,
+    "fileSize": 1877420,
+    "tags": [
+      "Study",
+      "Daily",
+      "Thomas Watson"
+    ]
+  },
+  {
+    "id": 8181,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "family",
+    "date": "2026-11-16",
+    "heartbeat": true,
+    "file": "audio/family_8181.mp3",
+    "audio": "audio/family_8181.mp3",
+    "duration": "3:36",
+    "durationSecs": 216,
+    "fileSize": 1731692,
+    "tags": [
+      "Family",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 8182,
+    "title": "Daily Meditation from John Owen",
+    "section": "school",
+    "date": "2026-11-16",
+    "heartbeat": true,
+    "file": "audio/school_8182.mp3",
+    "audio": "audio/school_8182.mp3",
+    "duration": "3:35",
+    "durationSecs": 215,
+    "fileSize": 1721900,
+    "tags": [
+      "School",
+      "Daily",
+      "John Owen"
+    ]
+  },
+  {
+    "id": 8183,
+    "title": "Daily Meditation from John Bunyan",
+    "section": "together",
+    "date": "2026-11-16",
+    "heartbeat": true,
+    "file": "audio/together_8183.mp3",
+    "audio": "audio/together_8183.mp3",
+    "duration": "3:26",
+    "durationSecs": 206,
+    "fileSize": 1652396,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Bunyan"
+    ]
+  },
+  {
+    "id": 8184,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-11-16",
+    "heartbeat": true,
+    "file": "audio/ep8184.mp3",
+    "audio": "audio/ep8184.mp3",
+    "duration": "0:23",
+    "durationSecs": 23,
+    "fileSize": 184940,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
