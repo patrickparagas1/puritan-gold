@@ -39725,5 +39725,91 @@
       "Thomas Goodwin"
     ],
     "topic": null
+  },
+  {
+    "id": 8200,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-11-20",
+    "heartbeat": true,
+    "file": "audio/ep8200.mp3",
+    "audio": "audio/ep8200.mp3",
+    "duration": "3:29",
+    "durationSecs": 210,
+    "fileSize": 1679276,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8201,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "family",
+    "date": "2026-11-20",
+    "heartbeat": true,
+    "file": "audio/family_8201.mp3",
+    "audio": "audio/family_8201.mp3",
+    "duration": "3:35",
+    "durationSecs": 215,
+    "fileSize": 1723628,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 8202,
+    "title": "Daily Meditation from Richard Sibbes",
+    "section": "school",
+    "date": "2026-11-20",
+    "heartbeat": true,
+    "file": "audio/school_8202.mp3",
+    "audio": "audio/school_8202.mp3",
+    "duration": "3:33",
+    "durationSecs": 213,
+    "fileSize": 1707884,
+    "tags": [
+      "School",
+      "Daily",
+      "Richard Sibbes"
+    ]
+  },
+  {
+    "id": 8203,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "together",
+    "date": "2026-11-20",
+    "heartbeat": true,
+    "file": "audio/together_8203.mp3",
+    "audio": "audio/together_8203.mp3",
+    "duration": "3:20",
+    "durationSecs": 201,
+    "fileSize": 1608236,
+    "tags": [
+      "Together",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 8204,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "personal",
+    "date": "2026-11-20",
+    "heartbeat": true,
+    "file": "audio/ep8204.mp3",
+    "audio": "audio/ep8204.mp3",
+    "duration": "3:56",
+    "durationSecs": 236,
+    "fileSize": 1888940,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Arthur Pink"
+    ],
+    "topic": null
   }
 ]
