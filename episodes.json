@@ -39897,5 +39897,91 @@
       "Arthur Pink"
     ],
     "topic": null
+  },
+  {
+    "id": 8210,
+    "title": "Daily Meditation from Jeremiah Burroughs",
+    "section": "study",
+    "date": "2026-11-22",
+    "heartbeat": true,
+    "file": "audio/ep8210.mp3",
+    "audio": "audio/ep8210.mp3",
+    "duration": "3:31",
+    "durationSecs": 212,
+    "fileSize": 1695212,
+    "tags": [
+      "Study",
+      "Daily",
+      "Jeremiah Burroughs"
+    ]
+  },
+  {
+    "id": 8211,
+    "title": "Daily Meditation from Richard Baxter",
+    "section": "family",
+    "date": "2026-11-22",
+    "heartbeat": true,
+    "file": "audio/family_8211.mp3",
+    "audio": "audio/family_8211.mp3",
+    "duration": "3:17",
+    "durationSecs": 198,
+    "fileSize": 1583660,
+    "tags": [
+      "Family",
+      "Daily",
+      "Richard Baxter"
+    ]
+  },
+  {
+    "id": 8212,
+    "title": "Daily Meditation from John Calvin",
+    "section": "school",
+    "date": "2026-11-22",
+    "heartbeat": true,
+    "file": "audio/school_8212.mp3",
+    "audio": "audio/school_8212.mp3",
+    "duration": "3:30",
+    "durationSecs": 210,
+    "fileSize": 1680620,
+    "tags": [
+      "School",
+      "Daily",
+      "John Calvin"
+    ]
+  },
+  {
+    "id": 8213,
+    "title": "Daily Meditation from John Flavel",
+    "section": "together",
+    "date": "2026-11-22",
+    "heartbeat": true,
+    "file": "audio/together_8213.mp3",
+    "audio": "audio/together_8213.mp3",
+    "duration": "3:46",
+    "durationSecs": 227,
+    "fileSize": 1815980,
+    "tags": [
+      "Together",
+      "Daily",
+      "John Flavel"
+    ]
+  },
+  {
+    "id": 8214,
+    "title": "Daily Meditation from C.H. Spurgeon",
+    "section": "personal",
+    "date": "2026-11-22",
+    "heartbeat": true,
+    "file": "audio/ep8214.mp3",
+    "audio": "audio/ep8214.mp3",
+    "duration": "3:26",
+    "durationSecs": 206,
+    "fileSize": 1650284,
+    "tags": [
+      "Growth",
+      "Daily",
+      "C.H. Spurgeon"
+    ],
+    "topic": null
   }
 ]
