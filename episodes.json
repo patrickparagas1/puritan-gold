@@ -39983,5 +39983,91 @@
       "C.H. Spurgeon"
     ],
     "topic": null
+  },
+  {
+    "id": 8215,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "study",
+    "date": "2026-11-23",
+    "heartbeat": true,
+    "file": "audio/ep8215.mp3",
+    "audio": "audio/ep8215.mp3",
+    "duration": "3:22",
+    "durationSecs": 202,
+    "fileSize": 1618220,
+    "tags": [
+      "Study",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8216,
+    "title": "Daily Meditation from Thomas Goodwin",
+    "section": "family",
+    "date": "2026-11-23",
+    "heartbeat": true,
+    "file": "audio/family_8216.mp3",
+    "audio": "audio/family_8216.mp3",
+    "duration": "3:17",
+    "durationSecs": 198,
+    "fileSize": 1582316,
+    "tags": [
+      "Family",
+      "Daily",
+      "Thomas Goodwin"
+    ]
+  },
+  {
+    "id": 8217,
+    "title": "Daily Meditation from Arthur Pink",
+    "section": "school",
+    "date": "2026-11-23",
+    "heartbeat": true,
+    "file": "audio/school_8217.mp3",
+    "audio": "audio/school_8217.mp3",
+    "duration": "3:36",
+    "durationSecs": 216,
+    "fileSize": 1729196,
+    "tags": [
+      "School",
+      "Daily",
+      "Arthur Pink"
+    ]
+  },
+  {
+    "id": 8218,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "together",
+    "date": "2026-11-23",
+    "heartbeat": true,
+    "file": "audio/together_8218.mp3",
+    "audio": "audio/together_8218.mp3",
+    "duration": "3:46",
+    "durationSecs": 227,
+    "fileSize": 1815404,
+    "tags": [
+      "Together",
+      "Daily",
+      "Thomas Boston"
+    ]
+  },
+  {
+    "id": 8219,
+    "title": "Daily Meditation from Thomas Boston",
+    "section": "personal",
+    "date": "2026-11-23",
+    "heartbeat": true,
+    "file": "audio/ep8219.mp3",
+    "audio": "audio/ep8219.mp3",
+    "duration": "3:35",
+    "durationSecs": 216,
+    "fileSize": 1724780,
+    "tags": [
+      "Growth",
+      "Daily",
+      "Thomas Boston"
+    ],
+    "topic": null
   }
 ]
